@@ -1,0 +1,31 @@
+<wsp:Policy wsu:Id="wsa_wss_policy"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+	xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xsi:schemaLocation="http://schemas.xmlsoap.org/ws/2004/09/policy http://schemas.xmlsoap.org/ws/2004/09/policy/ws-policy.xsd">
+	<wsp:ExactlyOne>
+		<wsp:All>
+			<sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+				<wsp:Policy>
+					<sp:TransportToken>
+						<wsp:Policy>
+							<sp:HttpsToken/>
+						</wsp:Policy>
+					</sp:TransportToken>
+					<sp:AlgorithmSuite>
+						<wsp:Policy>
+							<sp:Basic256/>
+						</wsp:Policy>
+					</sp:AlgorithmSuite>
+					<sp:Layout>
+						<wsp:Policy>
+							<sp:Strict/>
+						</wsp:Policy>
+					</sp:Layout>
+				</wsp:Policy>
+			</sp:TransportBinding>
+			<wsaw:UsingAddressing/>
+		</wsp:All>
+	</wsp:ExactlyOne>
+</wsp:Policy>

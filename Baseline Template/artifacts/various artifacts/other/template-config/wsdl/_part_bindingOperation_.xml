@@ -1,0 +1,3 @@
+<wsdl:operation name="_arg_operation">
+	<soap:operation soapAction="_arg_soapAction_" style="document"/>
+</wsdl:operation>

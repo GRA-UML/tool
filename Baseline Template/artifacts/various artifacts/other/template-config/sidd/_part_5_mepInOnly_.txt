@@ -1,0 +1,1 @@
+In-Only pattern defines only a single message that goes into the service provider of this operation. This message label is "In" and direction is "in". In-Only pattern does not allow any fault messages. This message exchange pattern is identified by the URI "http://www.w3.org/ns/wsdl/in-only".
