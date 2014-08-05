@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:GRAAnnotationModel="http://ijis.org/GRA/Annotations" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ijis.org/GRA/Annotations">
-  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+<xsd:schema xmlns:GRAAnnotationModel="http://ijis.org/GRA/Annotations" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ijis.org/GRA/Annotations">
+  <xsd:import namespace="http://www.omg.org/spec/XMI/20110701" schemaLocation="http://www.omg.org/spec/XMI/20110701/XMI.xsd"/>
   <xsd:simpleType name="ExchangePattern">
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="enquiry"/>

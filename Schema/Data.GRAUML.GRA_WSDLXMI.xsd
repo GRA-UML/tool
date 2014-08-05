@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <xsd:schema xmlns:GRAAnnotationModel="http://ijis.org/GRA/Annotations" xmlns:GRA_WSDL="http:/ijis.org/GRA/WSDLAnnotations" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http:/ijis.org/GRA/WSDLAnnotations">
-  <xsd:import namespace="http://ijis.org/GRA/Annotations" schemaLocation="Data.GRAUML.GRAAnnotationModelXMI.xsd"/>
+  <xsd:import namespace="http://ijis.org/GRA/Annotations" schemaLocation="https://raw.githubusercontent.com/GRA-UML/tool/master/Schema/Data.GRAUML.GRAAnnotationModelXMI.xsd"/>
   <xsd:simpleType name="OperationKind">
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="doc"/>
