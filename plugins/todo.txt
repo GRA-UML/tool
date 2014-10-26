@@ -1,0 +1,5 @@
+need some models
+so need to reverse existing spp
+tie in niem-uml 
+
+bug: Defaults not correct - in corrections example "header" being applied to all elements instead of just the one realized.
