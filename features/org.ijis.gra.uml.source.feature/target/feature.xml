@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.search.niem.uml.source.feature"
+      label="%featureName"
+      version="1.0.0.201402221251"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+   
+   <copyright>
+      %copyright
+   </copyright>   
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://www.search.org/niem-uml/update-site"/>
+      <discovery label="%updateSiteName" url="http://www.search.org/niem-uml/update-site"/>
+   </url>
+   
+   <requires>
+   </requires>
+
+   <plugin
+         id="org.search.niem.uml"
+         download-size="27"
+         install-size="65"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.uml.tests"
+         download-size="7"
+         install-size="15"
+         version="1.0.0.201402221251"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.uml.source"
+         download-size="25"
+         install-size="98"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.uml.tests.source"
+         download-size="3"
+         install-size="3"
+         version="1.0.0.201402221251"
+         fragment="true"
+         unpack="false"/>
+ 
+   <plugin
+         id="org.search.niem.uml.resources"
+         download-size="188"
+         install-size="1651"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.uml.resources.source"
+         download-size="93"
+         install-size="820"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.mpd"
+         download-size="95"
+         install-size="284"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.mpd.source"
+         download-size="158"
+         install-size="1224"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+ 
+   <plugin
+         id="org.search.niem.uml.qvt"
+         download-size="88"
+         install-size="426"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.uml.qvt.source"
+         download-size="87"
+         install-size="485"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+ 
+   <plugin
+         id="org.search.niem.uml.qvt.ui"
+         download-size="82"
+         install-size="174"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.uml.qvt.ui.source"
+         download-size="73"
+         install-size="169"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+ 
+   <plugin
+         id="org.search.niem.uml.library"
+         download-size="2570"
+         install-size="38770"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.uml.library.source"
+         download-size="2565"
+         install-size="38758"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.examples"
+         download-size="104"
+         install-size="816"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.uml.examples.source"
+         download-size="56"
+         install-size="407"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.papyrus"
+         download-size="108"
+         install-size="252"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.papyrus.source"
+         download-size="78"
+         install-size="282"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.papyrus.views.properties"
+         download-size="71"
+         install-size="239"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.papyrus.views.properties.source"
+         download-size="35"
+         install-size="76"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.papyrus.editors"
+         download-size="51"
+         install-size="105"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.papyrus.editors.source"
+         download-size="40"
+         install-size="106"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.search"
+         download-size="27"
+         install-size="54"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.search.source"
+         download-size="27"
+         install-size="57"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.search.ui"
+         download-size="97"
+         install-size="193"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.search.ui.source"
+         download-size="61"
+         install-size="210"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.merge"
+         download-size="41"
+         install-size="87"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.merge.source"
+         download-size="25"
+         install-size="103"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.papyrus.palettes"
+         download-size="41"
+         install-size="70"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.papyrus.palettes.source"
+         download-size="31"
+         install-size="29"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+  
+   <plugin
+         id="org.search.niem.uml.evl"
+         download-size="17"
+         install-size="33"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+  
+   <plugin
+         id="org.search.niem.uml.evl.source"
+         download-size="11"
+         install-size="20"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+  
+   <plugin
+         id="org.search.niem.uml.ui"
+         download-size="16"
+         install-size="30"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.ui.tests"
+         download-size="8"
+         install-size="15"
+         version="1.0.0.201402221251"
+         fragment="true"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.ui.acceptance_tests"
+         download-size="44"
+         install-size="84"
+         version="1.0.0.201402221251"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.uml.ui.source"
+         download-size="13"
+         install-size="17"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.uml.ui.tests.source"
+         download-size="4"
+         install-size="3"
+         version="1.0.0.201402221251"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.uml.ui.acceptance_tests.source"
+         download-size="47"
+         install-size="109"
+         version="1.0.0.201402221251"
+         fragment="true"
+         unpack="false"/>
+        
+   <plugin
+         id="org.search.niem.xsd.library"
+         download-size="2732"
+         install-size="21431"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.xsd.library.source"
+         download-size="2737"
+         install-size="21419"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+   <plugin
+         id="org.search.niem.uml.papyrus.textedit.property.xtext"
+         download-size="92"
+         install-size="223"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+ 
+   <plugin
+         id="org.search.niem.uml.papyrus.textedit.property.xtext.source"
+         download-size="139"
+         install-size="695"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.uml.papyrus.textedit.property.xtext.ui"
+         download-size="79"
+         install-size="244"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+
+   <plugin
+         id="org.search.niem.uml.papyrus.textedit.property.xtext.ui.source"
+         download-size="111"
+         install-size="965"
+         version="1.0.0.201402221251"
+         unpack="false"/>
+         
+</feature>
