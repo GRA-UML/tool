@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gra:ServiceMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gra="http://it.ojp.gov/gsp/services/1.0.0" xsi:schemaLocation="http://it.ojp.gov/gsp/services/1.0.0 Metadata.xsd">
+  <gra:ServiceIdentification/>
+  <gra:ServiceDescription>
+    <gra:ServiceCapabilities/>
+    <gra:ServiceRealWorldEffects/>
+    <gra:ServiceDependencies>
+      <gra:ServiceDependency/>
+    </gra:ServiceDependencies>
+    <gra:IEPDReferences/>
+  </gra:ServiceDescription>
+  <gra:VersionInformation/>
+  <gra:RelatedOrganizationInformation>
+    <gra:Organization>
+      <gra:OrganizationName>Corrections Community Actor</gra:OrganizationName>
+      <gra:OrganizationRoleDescriptionText>Any party authorized to access the corrections information</gra:OrganizationRoleDescriptionText>
+      <gra:OrganizationPointOfContact/>
+    </gra:Organization>
+    <gra:Organization>
+      <gra:OrganizationName>Provider</gra:OrganizationName>
+      <gra:OrganizationPointOfContact/>
+    </gra:Organization>
+  </gra:RelatedOrganizationInformation>
+  <gra:BusinessContext>
+    <gra:DomainDescription>
+      <gra:DomainNameText>CaseFileProvider</gra:DomainNameText>
+    </gra:DomainDescription>
+    <gra:Classifications/>
+    <gra:ExchangePartnerTypes/>
+    <gra:Endorsements/>
+    <gra:Sponsors/>
+  </gra:BusinessContext>
+</gra:ServiceMetadata>

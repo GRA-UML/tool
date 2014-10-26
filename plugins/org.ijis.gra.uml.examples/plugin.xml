@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.ijis.gra.uml.examples.GRA_UML"
+            name="%_UI_GraUmlExampleCategory_name"
+            parentCategory="org.eclipse.ui.Examples">
+      </category>
+      <wizard
+            category="org.eclipse.ui.Examples/org.ijis.gra.uml.examples.GRA_UML"
+            class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard"
+            icon="icons/full/ctool16/gra_uml_new_example.png"
+            id="org.ijis.gra.uml.examples.GRA_UMLWizard"
+            name="%_UI_GraUmlWizard_name"
+            project="true">
+         <description>
+            %_UI_GraUmlWizard_desc
+         </description>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.emf.common.ui.examples">
+      <example
+            id="org.ijis.gra.uml.examples.GRA_UML"
+            pageImage="icons/full/wizban/new_gra_uml_wiz.png"
+            wizardID="org.ijis.gra.uml.examples.GRA_UMLWizard">
+         <projectDescriptor
+               contentURI="src/main/resources/org.ijis.gra.ssp.examples/"
+               description="%_UI_GraUmlProject_desc"
+               name="org.ijis.gra.uml.examples">
+         </projectDescriptor>
+      </example>
+   </extension>
+
+</plugin>

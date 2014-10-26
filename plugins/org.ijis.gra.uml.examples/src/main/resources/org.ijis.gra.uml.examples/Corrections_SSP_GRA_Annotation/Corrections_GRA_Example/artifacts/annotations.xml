@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns:SAN="http://ijis.org/GRA/Annotations" xmlns:SANWSDL="http:/ijis.org/GRA/WSDLAnnotations" xmlns:template="http://gra.ijis.org/template" name="CorrectionsInformationSharingService" targetNamespace="http://ijis.org/GRA/Annotations" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <SAN:ServiceDescription xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Corrections Information Sharing Service">
+    <SAN:ServiceInterface>
+      <SAN:SecurityImplementedIndicator>true</SAN:SecurityImplementedIndicator>
+      <SAN:ServiceInteractionProfile>
+        <SAN:SIPVersion>1.3</SAN:SIPVersion>
+      </SAN:ServiceInteractionProfile>
+      <SAN:ServiceURI/>
+      <SAN:participant>
+        <SANWSDL:interface_default>
+          <SANWSDL:BindingCode>http_get</SANWSDL:BindingCode>
+          <SANWSDL:requirement>
+            <SAN:ServiceMetadataAvailability>true</SAN:ServiceMetadataAvailability>
+            <SAN:Logging>false</SAN:Logging>
+            <SAN:TransactionSupport>false</SAN:TransactionSupport>
+          </SANWSDL:requirement>
+        </SANWSDL:interface_default>
+      </SAN:participant>
+      <SAN:participant/>
+      <SAN:Template>MDSSecureSIP</SAN:Template>
+    </SAN:ServiceInterface>
+    <SAN:ServiceDescriptionSummaryText>Service for accessing information about a corrections subject with respect to release.</SAN:ServiceDescriptionSummaryText>
+    <SAN:requirement>
+      <SAN:Reliability>true</SAN:Reliability>
+      <SAN:Logging>true</SAN:Logging>
+    </SAN:requirement>
+    <SAN:RealWorldEffect/>
+    <SAN:ServiceCapabilities/>
+    <SAN:Version>
+      <SAN:MinorVersion>0</SAN:MinorVersion>
+      <SAN:LastRevisionDate>2014-05-26</SAN:LastRevisionDate>
+      <SAN:LifecycleStatus>Operational/Prototype</SAN:LifecycleStatus>
+      <SAN:MajorVersion>1</SAN:MajorVersion>
+    </SAN:Version>
+    <SAN:ServiceLevelAgreement>
+      <SAN:LicensingRequiredIndicator>false</SAN:LicensingRequiredIndicator>
+      <SAN:ApplicablePolicies>CJIS Security Policy</SAN:ApplicablePolicies>
+      <SAN:ServiceResponseTime>P1Y2M3DT10H30M</SAN:ServiceResponseTime>
+      <SAN:ApprovalRequiredIndicator>false</SAN:ApprovalRequiredIndicator>
+    </SAN:ServiceLevelAgreement>
+    <SAN:TransformationURI>http://it.ojp.gov/gsp/BaseSSPTransform</SAN:TransformationURI>
+    <SAN:ServiceSecurityClassification/>
+    <SAN:ServiceURI>http://it.ojp.gov/gsp/services/1.0.0</SAN:ServiceURI>
+    <SAN:ServiceScopeDescription/>
+    <SAN:ServiceScopeDescription/>
+    <SAN:Sponsors>Office of Justice Programs, U.S. Department of Justice</SAN:Sponsors>
+    <SAN:ServiceDescriptionKeywordText>Corrections, CIS, Release, re-entry</SAN:ServiceDescriptionKeywordText>
+    <SAN:RelatedOrganization>
+      <SAN:OrganizationAcronym>OJP</SAN:OrganizationAcronym>
+      <SAN:OrganizationRoleDetailedDescriptionText>Sponsor/owner of specification</SAN:OrganizationRoleDetailedDescriptionText>
+      <SAN:OrganizationWebSiteURL>http://www.ojp.usdoj.gov/smart/</SAN:OrganizationWebSiteURL>
+      <SAN:OrganizationFullAddressText>810 Seventh Street NW, Washington, DC 20531</SAN:OrganizationFullAddressText>
+      <SAN:OrganizationRoleDescriptionText>Owner</SAN:OrganizationRoleDescriptionText>
+      <SAN:OrganizationPointOfContact/>
+    </SAN:RelatedOrganization>
+  </SAN:ServiceDescription>
+</definitions>

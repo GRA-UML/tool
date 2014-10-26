@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<artifacts size='2'>
+  <artifact classifier='osgi.bundle' id='org.search.niem.uml' version='1.0.0.201402221251'>
+    <properties size='5'>
+      <property name='artifact.size' value='27992'/>
+      <property name='download.size' value='27992'/>
+      <property name='maven-groupId' value='org.search'/>
+      <property name='maven-artifactId' value='org.search.niem.uml'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+    </properties>
+  </artifact>
+  <artifact classifier='osgi.bundle' id='org.search.niem.uml.source' version='1.0.0.201402221251'>
+    <properties size='6'>
+      <property name='artifact.size' value='26406'/>
+      <property name='download.size' value='26406'/>
+      <property name='maven-groupId' value='org.search'/>
+      <property name='maven-artifactId' value='org.search.niem.uml'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      <property name='maven-classifier' value='sources'/>
+    </properties>
+  </artifact>
+</artifacts>

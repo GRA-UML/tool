@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<catalog><catalog href="catalog.html">Catalog</catalog><iepd-catalog></iepd-catalog><wsdl-schema href="schema/SIP/SubjectServiceInterface"></wsdl-schema><wsdl-schema href="schema/SIP/SIRSPolicy"></wsdl-schema><metadata href="metadata.xml">Metadata</metadata></catalog>

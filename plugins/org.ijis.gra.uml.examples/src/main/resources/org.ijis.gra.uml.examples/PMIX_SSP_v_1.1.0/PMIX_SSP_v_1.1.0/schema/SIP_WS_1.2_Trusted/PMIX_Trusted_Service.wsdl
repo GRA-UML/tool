@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" xmlns:tns="http://my.org/schema/SIP_WS_1.2_Trusted/PMIX_Trusted_Service" xmlns:tns2="http://www.pmix.gov" xmlns:wsaws="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="PMIX_Trusted_Service" targetNamespace="http://my.org/schema/SIP_WS_1.2_Trusted/PMIX_Trusted_Service" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WsBasicProfile_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaws:UsingAddressing/>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified">
+      <xsd:import namespace="http://www.pmix.gov" schemaLocation="../.././schema/information/service/PMIX_Service.0.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="RequestType">
+    <part element="tns2:RequestType" name="parameters"/>
+  </message>
+  <message name="ResponseType">
+    <part element="tns2:ResponseType" name="parameters"/>
+  </message>
+  <message name="AcknowledgementType">
+    <part element="tns2:AcknowledgementType" name="parameters"/>
+  </message>
+  <portType name="pmp">
+    <operation name="ProvidePrescriptionDrugHistory">
+      <input message="tns:RequestType" name="RequestType"/>
+      <output message="tns:ResponseType" name="ResponseType"/>
+    </operation>
+    <operation name="ReceiveDeferredPrescriptionDrugHistory">
+      <input message="tns:ResponseType" name="DeferredResponseType"/>
+      <output message="tns:AcknowledgementType" name="AcknowledgementType"/>
+    </operation>
+  </portType>
+  <binding name="WsBasicProfileWsBasicProfileBinding" type="tns:pmp">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaws:UsingAddressing xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" wsdl:required="true"/>
+    <sp:PolicyReference URI="#WsBasicProfile_policy"/>
+    <operation name="ProvidePrescriptionDrugHistory">
+      <soap:operation soapAction="http://my.org/schema/SIP_WS_1.2_Trusted/pmp/WsBasicProfile/ProvidePrescriptionDrugHistory" style="document"/>
+      <input name="RequestType">
+        <soap:body use="literal"/>
+        <soap:header/>
+      </input>
+      <output name="ResponseType">
+        <soap:body use="literal"/>
+        <soap:header/>
+        <soap:header/>
+      </output>
+    </operation>
+    <operation name="ReceiveDeferredPrescriptionDrugHistory">
+      <soap:operation soapAction="http://my.org/schema/SIP_WS_1.2_Trusted/pmp/WsBasicProfile/ReceiveDeferredPrescriptionDrugHistory" style="document"/>
+      <input name="DeferredResponseType">
+        <soap:body use="literal"/>
+        <soap:header/>
+        <soap:header/>
+      </input>
+      <output name="AcknowledgementType">
+        <soap:body use="literal"/>
+        <soap:header/>
+      </output>
+    </operation>
+  </binding>
+  <service name="pmpService">
+    <port binding="tns:WsBasicProfileWsBasicProfileBinding" name="WsBasicProfilePort">
+      <soap:address location="http://localhost:18280/pmix/services"/>
+      <EndpointReference xmlns="http://www.w3.org/2005/08/addressing">
+        <Address>http://localhost:18280/pmix/services</Address>
+      </EndpointReference>
+    </port>
+  </service>
+</definitions>

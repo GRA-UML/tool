@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Export-Package: org.search.niem.uml.merge
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.jface;bundle-vers
+ ion="[3.9.0,4.0.0)",org.eclipse.emf.common;bundle-version="[2.9.0,3.0
+ .0)",org.eclipse.emf.ecore;bundle-version="[2.9.0,3.0.0)",org.eclipse
+ .uml2.uml;bundle-version="[4.0.0,5.0.0)",org.eclipse.draw2d;bundle-ve
+ rsion="[3.9.0,4.0.0)",org.eclipse.gmf.runtime.diagram.core;bundle-ver
+ sion="[1.6.0,2.0.0)",org.eclipse.papyrus.infra.core.sasheditor;bundle
+ -version="[0.10.0,1.0.0)",org.eclipse.papyrus.uml.diagram.common;bund
+ le-version="[0.10.0,1.0.0)",org.eclipse.papyrus.uml.diagram.clazz;bun
+ dle-version="[0.10.0,1.0.0)",org.eclipse.papyrus.uml.diagram.componen
+ t;bundle-version="[0.10.0,1.0.0)",org.eclipse.papyrus.uml.diagram.pkg
+ ;bundle-version="[0.10.0,1.0.0)",org.eclipse.papyrus.uml.diagram.comp
+ osite;bundle-version="[0.10.0,1.0.0)",org.apache.commons.lang;bundle-
+ version="[2.6.0,3.0.0)",org.search.niem.uml;bundle-version="[1.0.0,1.
+ 1.0)",org.search.niem.uml.papyrus;bundle-version="[1.0.0,1.1.0)"
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 1.0.0.201402221251
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-Activator: org.search.niem.uml.merge.Activator$Implementation
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.search.niem.uml.merge;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

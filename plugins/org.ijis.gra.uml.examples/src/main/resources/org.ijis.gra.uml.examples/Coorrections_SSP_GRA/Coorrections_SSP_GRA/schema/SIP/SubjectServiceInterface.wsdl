@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns:CRX="http://it.ojp.gov/gist/200/Corrections/exchangeTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" xmlns:tns="http://my.org/schema/SIP/SubjectServiceInterface" xmlns:wsaws="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="SubjectServiceInterface" targetNamespace="http://my.org/schema/SIP/SubjectServiceInterface" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified">
+      <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/exchangeTypes" schemaLocation="../../.artifacts/service model/information model//CorrectionsInformation/XMLschemas/exchange/SubjectExchange.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="SubjectQueryMessage">
+    <part element="CRX:SubjectQueryMessage" name="SubjectQueryMessage"/>
+  </message>
+  <message name="SubjectInformationMessage">
+    <part element="CRX:SubjectInformationMessage" name="SubjectInformationMessage"/>
+  </message>
+  <message name="RepositoryMetadataType">
+    <part name="Repository"/>
+  </message>
+  <message name="EntityQueryMessage">
+    <part element="CRX:EntityQueryMessage" name="EntityQueryMessage"/>
+  </message>
+  <message name="RepositoryMetadataType">
+    <part name="Repository"/>
+  </message>
+  <message name="SubscribeToSubjectMessage">
+    <part element="CRX:SubscriptionMessage" name="SubscriptionMessage"/>
+  </message>
+  <message name="OperationResultMessage">
+    <part element="CRX:OperationResult" name="OperationResult"/>
+  </message>
+  <message name="CancelSubscriptionMessage">
+    <part element="CRX:SubscriptionMessage" name="SubscriptionMessage"/>
+  </message>
+  <message name="RepositoryMetadataType">
+    <part name="Repository"/>
+  </message>
+  <message name="SubjectUpdateMessage">
+    <part element="CRX:SubjectInformationMessage" name="SubjectInformationMessage"/>
+  </message>
+  <message name="OperationResultMessage">
+    <part element="CRX:OperationResult" name="OperationResult"/>
+  </message>
+  <portType name="SubjectQueryInterface">
+    <operation name="SubjectQuery">
+      <input message="tns:SubjectQueryMessage" name="subjectQuery"/>
+      <output message="tns:SubjectInformationMessage" name="unnamed1"/>
+    </operation>
+    <operation name="GetMetadata">
+      <output message="tns:RepositoryMetadataType" name="unnamed1"/>
+    </operation>
+    <operation name="EntityQuery">
+      <input message="tns:EntityQueryMessage" name="entityQuery"/>
+      <output message="tns:SubjectInformationMessage" name="unnamed1"/>
+    </operation>
+  </portType>
+  <portType name="SubjectSubscriptionInterface">
+    <operation name="GetMetadata">
+      <output message="tns:RepositoryMetadataType" name="unnamed1"/>
+    </operation>
+    <operation name="SubscribeToSubject">
+      <input message="tns:SubscribeToSubjectMessage" name="subscribeToSubject"/>
+      <output message="tns:OperationResultMessage" name="unnamed1"/>
+    </operation>
+    <operation name="CancelSubscription">
+      <input message="tns:CancelSubscriptionMessage" name="cancelSubscription"/>
+      <output message="tns:OperationResultMessage" name="unnamed1"/>
+    </operation>
+  </portType>
+  <portType name="SubjectUpdateInterface">
+    <operation name="GetMetadata">
+      <output message="tns:RepositoryMetadataType" name="unnamed1"/>
+    </operation>
+    <operation name="SubjectUpdate">
+      <input message="tns:SubjectUpdateMessage" name="subjectUpdateMessage"/>
+      <output message="tns:OperationResultMessage" name="unnamed1"/>
+    </operation>
+  </portType>
+  <binding name="SubjectQuerySOAPBindingSubjectQueryPortBinding" type="tns:SubjectQueryInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaws:UsingAddressing xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" wsdl:required="true"/>
+    <operation name="SubjectQuery">
+      <soap:operation soapAction="http://my.org/schema/SIP/CaseFileProvider/SubjectQuerySOAPBinding/SubjectQuery" style="document"/>
+      <input name="subjectQuery">
+        <soap:body use="literal"/>
+      </input>
+      <output name="unnamed1">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetMetadata">
+      <soap:operation soapAction="http://my.org/schema/SIP/CaseFileProvider/SubjectQuerySOAPBinding/GetMetadata" style="document"/>
+      <output name="unnamed1">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="EntityQuery">
+      <soap:operation soapAction="http://my.org/schema/SIP/CaseFileProvider/SubjectQuerySOAPBinding/EntityQuery" style="document"/>
+      <input name="entityQuery">
+        <soap:body use="literal"/>
+      </input>
+      <output name="unnamed1">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <binding name="SubjectSubscriptionSOAPBindingSubjectSubscriptionPortBinding" type="tns:SubjectSubscriptionInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaws:UsingAddressing xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" wsdl:required="true"/>
+    <operation name="GetMetadata">
+      <soap:operation soapAction="http://my.org/schema/SIP/CaseFileProvider/SubjectSubscriptionSOAPBinding/GetMetadata" style="document"/>
+      <output name="unnamed1">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SubscribeToSubject">
+      <soap:operation soapAction="http://my.org/schema/SIP/CaseFileProvider/SubjectSubscriptionSOAPBinding/SubscribeToSubject" style="document"/>
+      <input name="subscribeToSubject">
+        <soap:body use="literal"/>
+      </input>
+      <output name="unnamed1">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CancelSubscription">
+      <soap:operation soapAction="http://my.org/schema/SIP/CaseFileProvider/SubjectSubscriptionSOAPBinding/CancelSubscription" style="document"/>
+      <input name="cancelSubscription">
+        <soap:body use="literal"/>
+      </input>
+      <output name="unnamed1">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <binding name="SubjectUpdateSOAPBindingSubjectUpdatePortBinding" type="tns:SubjectUpdateInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaws:UsingAddressing xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" wsdl:required="true"/>
+    <operation name="GetMetadata">
+      <soap:operation soapAction="http://my.org/schema/SIP/CaseFileProvider/SubjectUpdateSOAPBinding/GetMetadata" style="document"/>
+      <output name="unnamed1">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SubjectUpdate">
+      <soap:operation soapAction="http://my.org/schema/SIP/CaseFileProvider/SubjectUpdateSOAPBinding/SubjectUpdate" style="document"/>
+      <input name="subjectUpdateMessage">
+        <soap:body use="literal"/>
+      </input>
+      <output name="unnamed1">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CaseFileProviderService">
+    <port binding="tns:SubjectQuerySOAPBindingSubjectQueryPortBinding" name="SubjectQueryPortPort">
+      <soap:address/>
+    </port>
+    <port binding="tns:SubjectSubscriptionSOAPBindingSubjectSubscriptionPortBinding" name="SubjectSubscriptionPortPort">
+      <soap:address/>
+    </port>
+    <port binding="tns:SubjectUpdateSOAPBindingSubjectUpdatePortBinding" name="SubjectUpdatePortPort">
+      <soap:address/>
+    </port>
+  </service>
+</definitions>

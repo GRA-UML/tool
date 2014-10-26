@@ -1,0 +1,2 @@
+this is for model-to-text SDD and SIDD documents
+ui has template unzip, re-zip, part of ui via model-to-SPP

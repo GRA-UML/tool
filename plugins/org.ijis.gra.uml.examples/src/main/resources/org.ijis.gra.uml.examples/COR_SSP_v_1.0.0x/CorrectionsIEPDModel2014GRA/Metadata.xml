@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ASCII"?>
+<_0:ServiceMetadata xmlns:_0="http://it.ojp.gov/gsp/services/1.0.0">
+  <_0:ServiceIdentification>
+    <_0:ServiceFullNameText>Corrections</_0:ServiceFullNameText>
+    <_0:ServiceNameAbbreviationText>COR</_0:ServiceNameAbbreviationText>
+  </_0:ServiceIdentification>
+  <_0:ServiceDescription>
+    <_0:ServicePurposeText>This model covers multiple exchanges relating to corrections release processes</_0:ServicePurposeText>
+    <_0:ServiceScopeDescriptionText>This model covers multiple exchanges relating to corrections release processes</_0:ServiceScopeDescriptionText>
+    <_0:ServiceDescriptionSummaryText>This model covers multiple exchanges relating to corrections release processes</_0:ServiceDescriptionSummaryText>
+    <_0:ServiceDescriptionText>This model covers multiple exchanges relating to corrections release processes</_0:ServiceDescriptionText>
+    <_0:ServiceDescriptionKeywordText>corrections</_0:ServiceDescriptionKeywordText>
+    <_0:ServiceCapabilities/>
+    <_0:ServiceRealWorldEffects/>
+    <_0:ServiceDependencies/>
+    <_0:IEPDReferences/>
+  </_0:ServiceDescription>
+  <_0:VersionInformation>
+    <_0:MajorVersion>1</_0:MajorVersion>
+    <_0:MinorVersion>0</_0:MinorVersion>
+    <_0:RevisionVersion>0</_0:RevisionVersion>
+    <_0:CreationDate>2013-04-04</_0:CreationDate>
+    <_0:ActivationDate>2013-04-04</_0:ActivationDate>
+    <_0:LastRevisionDate>2013-04-04</_0:LastRevisionDate>
+  </_0:VersionInformation>
+  <_0:RelatedOrganizationInformation>
+    <_0:Organization>
+      <_0:OrganizationName>Interested Party</_0:OrganizationName>
+      <_0:OrganizationPointOfContact/>
+    </_0:Organization>
+    <_0:Organization>
+      <_0:OrganizationName>Law Enforcement</_0:OrganizationName>
+      <_0:OrganizationPointOfContact/>
+    </_0:Organization>
+    <_0:Organization>
+      <_0:OrganizationName>Community Corrections</_0:OrganizationName>
+      <_0:OrganizationPointOfContact/>
+    </_0:Organization>
+    <_0:Organization>
+      <_0:OrganizationName>Courts</_0:OrganizationName>
+      <_0:OrganizationPointOfContact/>
+    </_0:Organization>
+    <_0:Organization>
+      <_0:OrganizationName>Institutional Corrections</_0:OrganizationName>
+      <_0:OrganizationPointOfContact/>
+    </_0:Organization>
+    <_0:Organization>
+      <_0:OrganizationName>Offender</_0:OrganizationName>
+      <_0:OrganizationPointOfContact/>
+    </_0:Organization>
+    <_0:Organization>
+      <_0:OrganizationName>Health Care Provider</_0:OrganizationName>
+      <_0:OrganizationPointOfContact/>
+    </_0:Organization>
+    <_0:Organization>
+      <_0:OrganizationName>Supervision Authority</_0:OrganizationName>
+      <_0:OrganizationPointOfContact/>
+    </_0:Organization>
+    <_0:Organization>
+      <_0:OrganizationName>Corrections Community</_0:OrganizationName>
+      <_0:OrganizationPointOfContact/>
+    </_0:Organization>
+    <_0:Organization>
+      <_0:OrganizationName>Probations</_0:OrganizationName>
+      <_0:OrganizationPointOfContact/>
+    </_0:Organization>
+    <_0:Organization>
+      <_0:OrganizationName>Provider</_0:OrganizationName>
+      <_0:OrganizationPointOfContact/>
+    </_0:Organization>
+    <_0:Organization>
+      <_0:OrganizationName>Public</_0:OrganizationName>
+      <_0:OrganizationPointOfContact/>
+    </_0:Organization>
+    <_0:Organization>
+      <_0:OrganizationName>Parole</_0:OrganizationName>
+      <_0:OrganizationPointOfContact/>
+    </_0:Organization>
+  </_0:RelatedOrganizationInformation>
+  <_0:BusinessContext>
+    <_0:DomainDescription>
+      <_0:DomainNameText>corrections</_0:DomainNameText>
+    </_0:DomainDescription>
+    <_0:Classifications/>
+    <_0:ExchangePartnerTypes/>
+    <_0:Endorsements/>
+    <_0:Sponsors/>
+  </_0:BusinessContext>
+  <_0:ServiceLevelAgreements>
+    <_0:ServicePolicyAndContracts>
+      <_0:ApplicablePolicies/>
+      <_0:ApplicableContracts/>
+      <_0:ApplicableAgreements/>
+      <_0:ApplicableUmbrellaAgreements/>
+    </_0:ServicePolicyAndContracts>
+    <_0:PerformanceMetrics/>
+    <_0:ServiceUsageDetails>
+      <_0:LicensingAgreement/>
+      <_0:ServiceCost>
+        <_0:UsageCostAmount/>
+        <_0:UsageUnitCostAmount/>
+        <_0:CreationCostAmount/>
+      </_0:ServiceCost>
+    </_0:ServiceUsageDetails>
+  </_0:ServiceLevelAgreements>
+</_0:ServiceMetadata>

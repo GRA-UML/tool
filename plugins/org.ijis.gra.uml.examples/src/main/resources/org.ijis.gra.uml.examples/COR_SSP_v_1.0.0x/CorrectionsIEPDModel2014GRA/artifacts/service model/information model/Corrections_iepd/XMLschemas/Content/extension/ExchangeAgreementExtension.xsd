@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:AGREE="http://it.ojp.gov/gist/200/Corrections/exchangeAgreement" xmlns:CAT="http://it.ojp.gov/gist/200/Corrections/category" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:i2="http://niem.gov/niem/appinfo/2.1" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://it.ojp.gov/gist/200/Corrections/exchangeAgreement" version="&quot;1&quot;">
+  <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/category" schemaLocation="../../../XMLschemas/Content/extension/CategoryExtension.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/niem-core/2.0" schemaLocation="../../../XMLschemas/Content/subset/niem/2.0/niem-core.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/appinfo/2.0" schemaLocation="../../../XMLschemas/appinfo/2.0/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../../../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/appinfo/2.1" schemaLocation="../../../XMLschemas/appinfo/2.1/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../../../XMLschemas/structures/2.0/structures.xsd"/>
+  <xsd:complexType abstract="false" mixed="false" name="ExchangePolicyType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for An individual policy toi include or exclude data in an exchange agreement</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="AGREE:FilterCode"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="AGREE:SelectByDataCategory"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="AGREE:SubjectElement"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="AGREE:SelectByContentCategory"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="FilterCode" nillable="false" type="AGREE:FilterCodeSimpleType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:simpleType name="FilterCodeSimpleType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for Code used to filter data in an exchange agreement</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:token">
+      <xsd:enumeration value="Restrict"/>
+      <xsd:enumeration value="Allow"/>
+      <xsd:enumeration value="AllowRecursive"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="SelectByDataCategory" nillable="false" type="CAT:CategoryType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="SubjectElement" nillable="false" type="s:ReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:appinfo>
+        <i:ReferenceTarget i:name="ExchangeElementVocabularyType" i:namespace="http://it.ojp.gov/gist/200/Corrections/exchangeAgreement"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="ExchangeElementVocabularyType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for An element of the exchange referenced in an exchange agreement.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="AGREE:LabelText"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="AGREE:SubjectElementURI"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="AGREE:SensitivityDescriptionText"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" ref="AGREE:SubElement"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" ref="AGREE:ElementPolicies"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="AGREE:DataCategory"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="AGREE:DetailLevel"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="LabelText" nillable="false" type="niem-xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="SubjectElementURI" nillable="false" type="AGREE:XSDElementIDType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="XSDElementIDType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i:Base i:name="anyURI" i:namespace="http://niem.gov/niem/proxy/xsd/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="niem-xsd:anyURI"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="SensitivityDescriptionText" nillable="false" type="niem-xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="SubElement" nillable="false" type="AGREE:ExchangeElementVocabularyType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ElementPolicies" nillable="false" type="s:ReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:appinfo>
+        <i:ReferenceTarget i:name="ExchangePolicyType" i:namespace="http://it.ojp.gov/gist/200/Corrections/exchangeAgreement"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="DataCategory" nillable="false" type="CAT:CategoryType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="DetailLevel" nillable="false" type="AGREE:DetailLevelCodeSimpleType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:simpleType name="DetailLevelCodeSimpleType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for the level of detail required in a case report</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:token">
+      <xsd:enumeration value="Identification"/>
+      <xsd:enumeration value="Summary"/>
+      <xsd:enumeration value="Normal"/>
+      <xsd:enumeration value="Detail"/>
+      <xsd:enumeration value="ExtendedDetail"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="SelectByContentCategory" nillable="false" type="CAT:CategoryType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="ExchangeAgreementType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for A data type representing and infomration exchange agreement. The exchange agreement identifies the parties of an exchange and subsets the information that the information consumer is eligable to see. All messages carry an exchange agreement and implementations must subset the exchanged data based on this metadata. This results in a small number of messages that cover many use cases.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="AGREE:ExchangeAgreementID"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="AGREE:ExchangeSchemaURI"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="AGREE:InformationProvider"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="AGREE:InformationConsumer"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" ref="AGREE:ExchangeVocabulary"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" ref="AGREE:ExchangePolicy"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="AGREE:SubjectCategory"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="AGREE:ParentExchangeAgreement"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="AGREE:AgreementDocument"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="AGREE:ProcessStepDescriptionText"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="AGREE:ProcessStepReferenceURI"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="ExchangeAgreementID" nillable="false" type="niem-xsd:anyURI">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A URI identifier for this release consent</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ExchangeSchemaURI" nillable="false" type="niem-xsd:anyURI">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="InformationProvider" nillable="false" type="s:ReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:appinfo>
+        <i:ReferenceTarget i:name="ExchangePartyType" i:namespace="http://it.ojp.gov/gist/200/Corrections/exchangeAgreement"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="ExchangePartyType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for The role of one of the parties in an exchange agreement</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="AGREE:ExchangePartyDescriptionText"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="AGREE:AuthorizedPartyCategory"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="AGREE:AuthorizedPartyIdentification"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="AGREE:GFIPMAuthorizationURI"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="ExchangePartyDescriptionText" nillable="false" type="niem-xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="AuthorizedPartyCategory" nillable="false" type="CAT:CategoryType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="AuthorizedPartyIdentification" nillable="false" type="nc:IdentificationType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="GFIPMAuthorizationURI" nillable="false" type="AGREE:GFIPMAuthorizationURIType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="GFIPMAuthorizationURIType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for The GFIPM authorization required for the exchange party.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="anyURI" i:namespace="http://niem.gov/niem/proxy/xsd/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="niem-xsd:anyURI"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="InformationConsumer" nillable="false" type="s:ReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:appinfo>
+        <i:ReferenceTarget i:name="ExchangePartyType" i:namespace="http://it.ojp.gov/gist/200/Corrections/exchangeAgreement"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ExchangeVocabulary" nillable="false" type="AGREE:ExchangeElementVocabularyType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ExchangePolicy" nillable="false" type="AGREE:ExchangePolicyType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="SubjectCategory" nillable="false" type="CAT:CategoryType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ParentExchangeAgreement" nillable="false" type="s:ReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:appinfo>
+        <i:ReferenceTarget i:name="ExchangeAgreementType" i:namespace="http://it.ojp.gov/gist/200/Corrections/exchangeAgreement"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="AgreementDocument" nillable="false" type="nc:DocumentType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ProcessStepDescriptionText" nillable="false" type="niem-xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ProcessStepReferenceURI" nillable="false" type="niem-xsd:anyURI">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:annotation>
+    <xsd:appinfo>
+      <i:ConformantIndicator>true</i:ConformantIndicator>
+    </xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

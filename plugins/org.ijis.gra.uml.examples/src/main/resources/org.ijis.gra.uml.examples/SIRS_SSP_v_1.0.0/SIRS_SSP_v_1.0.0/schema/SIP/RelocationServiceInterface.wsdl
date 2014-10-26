@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" xmlns:tns="http://my.org/schema/SIP/RelocationServiceInterface" xmlns:tns2="http://www.iir.com/sorna/NIEM/2.1/OP/1.0" xmlns:wsaws="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="RelocationServiceInterface" targetNamespace="http://my.org/schema/SIP/RelocationServiceInterface" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified">
+      <xsd:import namespace="http://www.iir.com/sorna/NIEM/2.1/OP/1.0" schemaLocation="../.././schema/information/XMLschemas/exchange/OffPackage.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="RelocationPackageMessage">
+    <part element="tns2:RegisteredSexOffenderPackage" name="RelocationPackage"/>
+  </message>
+  <portType name="RelocationPackageInterface">
+    <operation name="SubmitRelocationPackage">
+      <input message="tns:RelocationPackageMessage" name="RelocationPackageMessage"/>
+    </operation>
+  </portType>
+  <binding name="RelocationPackageSOAPBindingSIRS-RelocationPackagePortBinding" type="tns:RelocationPackageInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaws:UsingAddressing xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" wsdl:required="true"/>
+    <sp:PolicyReference URI="#wss-policy"/>
+    <operation name="SubmitRelocationPackage">
+      <soap:operation soapAction="http://my.org/schema/SIP/SIRS-Relocation/RelocationPackageSOAPBinding/SubmitRelocationPackage" style="document"/>
+      <input name="RelocationPackageMessage">
+        <soap:body use="literal"/>
+      </input>
+    </operation>
+  </binding>
+  <service name="SIRS-RelocationService">
+    <port binding="tns:RelocationPackageSOAPBindingSIRS-RelocationPackagePortBinding" name="SIRS-RelocationPackagePortPort">
+      <soap:address location="No Target Adress"/>
+    </port>
+  </service>
+</definitions>

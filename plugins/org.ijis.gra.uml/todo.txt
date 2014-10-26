@@ -1,0 +1,2 @@
+reuse niem-uml for zip utilities
+replace NiemValidator with GraValidator

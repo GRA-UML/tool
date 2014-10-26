@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:SAN="http://ijis.org/GRA/Annotations" xmlns:SANWSDL="http:/ijis.org/GRA/WSDLAnnotations" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" xmlns:template="http://gra.ijis.org/template" xmlns:tns="http://www.iir.com/sorna/NIEM/2.1/OP/1.0" xmlns:uml="http://www.omg.org/spec/UML/20110701" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsaws="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdltns="http://www.iir.com/SIRS-Relocation/1.0.0" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="RelocationServiceInterface" targetNamespace="http://www.iir.com/SIRS-Relocation/1.0.0">
+  <SANWSDL:WSDLServiceInterface wsu:Id="Relocation Service SIP">
+    <SANWSDL:SecurityDescriptionText>GFIPM</SANWSDL:SecurityDescriptionText>
+    <SANWSDL:ServiceInteractionProfile>
+      <SAN:SIPName>WS-SIP</SAN:SIPName>
+      <SAN:SIPVersion>1.3</SAN:SIPVersion>
+    </SANWSDL:ServiceInteractionProfile>
+    <SANWSDL:SecurityImplementedIndicator>true</SANWSDL:SecurityImplementedIndicator>
+    <SANWSDL:provider>
+      <SANWSDL:operation_default>
+        <SANWSDL:message>
+          <SANWSDL:use>out</SANWSDL:use>
+        </SANWSDL:message>
+        <SANWSDL:message>
+          <SANWSDL:Template>wss-input-policy</SANWSDL:Template>
+          <SANWSDL:ModelReference>
+            <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageInterface::SubmitRelocationPackage::RelocationPackage</SANWSDL:Name>
+            <SANWSDL:ElementID>_17_0_5_1_7b3022e_1401746626788_197259_5208</SANWSDL:ElementID>
+            <SANWSDL:Model>
+              <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+              <SANWSDL:label>SIRS-Service</SANWSDL:label>
+            </SANWSDL:Model>
+          </SANWSDL:ModelReference>
+          <SANWSDL:type>
+            <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageMessage</SANWSDL:Name>
+            <SANWSDL:ElementID>_17_0_4_2aa0151_1401966023327_508966_24987</SANWSDL:ElementID>
+            <SANWSDL:Model>
+              <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+              <SANWSDL:label>SIRS-Service</SANWSDL:label>
+            </SANWSDL:Model>
+          </SANWSDL:type>
+        </SANWSDL:message>
+        <SANWSDL:ActionName>http://www.iir.com/SIRS-Relocation/1.0.0/ws/RelocationPackage</SANWSDL:ActionName>
+        <SANWSDL:MessageExchangePattern>Notification</SANWSDL:MessageExchangePattern>
+        <SANWSDL:OperationKindCode>doc</SANWSDL:OperationKindCode>
+        <SANWSDL:ModelReference>
+          <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageInterface::SubmitRelocationPackage</SANWSDL:Name>
+          <SANWSDL:Documentation>The Intermediary Host invokes this action to receive the RelocationPackage message from the Sending Jurisdiction</SANWSDL:Documentation>
+          <SANWSDL:ElementID>_17_0_5_1_7b3022e_1401746624199_694073_4989</SANWSDL:ElementID>
+          <SANWSDL:Model>
+            <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+            <SANWSDL:label>SIRS-Service</SANWSDL:label>
+          </SANWSDL:Model>
+        </SANWSDL:ModelReference>
+        <SANWSDL:ActionName>SubmitRelocationPackage</SANWSDL:ActionName>
+        <SANWSDL:ActionPurpose>The Intermediary Host invokes this action to receive the RelocationPackage message from the Sending Jurisdiction</SANWSDL:ActionPurpose>
+      </SANWSDL:operation_default>
+      <SANWSDL:port>
+        <SANWSDL:AddressURI>No Target Adress</SANWSDL:AddressURI>
+        <SANWSDL:ModelReference>
+          <SANWSDL:Name>Data::SIRSServiceModel::Participants::RelocationServiceInterface::RelocationPackageInterface</SANWSDL:Name>
+          <SANWSDL:ElementID>_17_0_5_1_7b3022e_1401920834360_725122_26221</SANWSDL:ElementID>
+          <SANWSDL:Model>
+            <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+            <SANWSDL:label>SIRS-Service</SANWSDL:label>
+          </SANWSDL:Model>
+        </SANWSDL:ModelReference>
+      </SANWSDL:port>
+      <SANWSDL:port>
+        <SANWSDL:AddressURI>No Target Adress</SANWSDL:AddressURI>
+        <SANWSDL:ModelReference>
+          <SANWSDL:Name>Data::SIRSServiceModel::Participants::NotificationServiceInterface::RelocationNoticeInterface</SANWSDL:Name>
+          <SANWSDL:ElementID>_17_0_5_1_7b3022e_1401746624195_247659_4981</SANWSDL:ElementID>
+          <SANWSDL:Model>
+            <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+            <SANWSDL:label>SIRS-Service</SANWSDL:label>
+          </SANWSDL:Model>
+        </SANWSDL:ModelReference>
+      </SANWSDL:port>
+    </SANWSDL:provider>
+    <SANWSDL:ServiceURI>
+      <SAN:URIAddress>http://www.iir.com/SIRS-Relocation/1.0.0</SAN:URIAddress>
+    </SANWSDL:ServiceURI>
+    <SANWSDL:ModelReference>
+      <SANWSDL:Name>Data::SIRSServiceModel::Participants::RelocationServiceInterface</SANWSDL:Name>
+      <SANWSDL:ElementID>_17_0_5_1_7b3022e_1401920785846_732647_26197</SANWSDL:ElementID>
+      <SANWSDL:Model>
+        <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+        <SANWSDL:label>SIRS-Service</SANWSDL:label>
+      </SANWSDL:Model>
+    </SANWSDL:ModelReference>
+  </SANWSDL:WSDLServiceInterface>
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified">
+      <xsd:import namespace="http://www.iir.com/sorna/NIEM/2.1/OP/1.0" schemaLocation="../.././XMLschemas/exchange/OffPackage.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RelocationPackageMessage">
+    <SANWSDL:WSDLMessage>
+      <SANWSDL:Template>wss-input-policy</SANWSDL:Template>
+      <SANWSDL:ModelReference>
+        <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageInterface::SubmitRelocationPackage::RelocationPackage</SANWSDL:Name>
+        <SANWSDL:ElementID>_17_0_5_1_7b3022e_1401746626788_197259_5208</SANWSDL:ElementID>
+        <SANWSDL:Model>
+          <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+          <SANWSDL:label>SIRS-Service</SANWSDL:label>
+        </SANWSDL:Model>
+      </SANWSDL:ModelReference>
+      <SANWSDL:type>
+        <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageMessage</SANWSDL:Name>
+        <SANWSDL:ElementID>_17_0_4_2aa0151_1401966023327_508966_24987</SANWSDL:ElementID>
+        <SANWSDL:Model>
+          <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+          <SANWSDL:label>SIRS-Service</SANWSDL:label>
+        </SANWSDL:Model>
+      </SANWSDL:type>
+    </SANWSDL:WSDLMessage>
+    <wsdl:part element="tns:RegisteredSexOffenderPackage" name="RegisteredSexOffenderPackage"/>
+  </wsdl:message>
+  <wsdl:portType name="RelocationPackageInterface">
+    <wsdl:operation name="SubmitRelocationPackage">
+      <SANWSDL:WSDLOperation wsu:Id="ServiceOperation">
+        <SANWSDL:message>
+          <SANWSDL:use>out</SANWSDL:use>
+        </SANWSDL:message>
+        <SANWSDL:message>
+          <SANWSDL:Template>wss-input-policy</SANWSDL:Template>
+          <SANWSDL:ModelReference>
+            <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageInterface::SubmitRelocationPackage::RelocationPackage</SANWSDL:Name>
+            <SANWSDL:ElementID>_17_0_5_1_7b3022e_1401746626788_197259_5208</SANWSDL:ElementID>
+            <SANWSDL:Model>
+              <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+              <SANWSDL:label>SIRS-Service</SANWSDL:label>
+            </SANWSDL:Model>
+          </SANWSDL:ModelReference>
+          <SANWSDL:type>
+            <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageMessage</SANWSDL:Name>
+            <SANWSDL:ElementID>_17_0_4_2aa0151_1401966023327_508966_24987</SANWSDL:ElementID>
+            <SANWSDL:Model>
+              <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+              <SANWSDL:label>SIRS-Service</SANWSDL:label>
+            </SANWSDL:Model>
+          </SANWSDL:type>
+        </SANWSDL:message>
+        <SANWSDL:ActionName>http://www.iir.com/SIRS-Relocation/1.0.0/ws/RelocationPackage</SANWSDL:ActionName>
+        <SANWSDL:MessageExchangePattern>Notification</SANWSDL:MessageExchangePattern>
+        <SANWSDL:OperationKindCode>doc</SANWSDL:OperationKindCode>
+        <SANWSDL:ModelReference>
+          <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageInterface::SubmitRelocationPackage</SANWSDL:Name>
+          <SANWSDL:Documentation>The Intermediary Host invokes this action to receive the RelocationPackage message from the Sending Jurisdiction</SANWSDL:Documentation>
+          <SANWSDL:ElementID>_17_0_5_1_7b3022e_1401746624199_694073_4989</SANWSDL:ElementID>
+          <SANWSDL:Model>
+            <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+            <SANWSDL:label>SIRS-Service</SANWSDL:label>
+          </SANWSDL:Model>
+        </SANWSDL:ModelReference>
+        <SANWSDL:ActionName>SubmitRelocationPackage</SANWSDL:ActionName>
+        <SANWSDL:ActionPurpose>The Intermediary Host invokes this action to receive the RelocationPackage message from the Sending Jurisdiction</SANWSDL:ActionPurpose>
+      </SANWSDL:WSDLOperation>
+      <wsdl:input message="wsdltns:RelocationPackageMessage" name="RelocationPackage">
+        <SANWSDL:WSDLMessage>
+          <SANWSDL:Template>wss-input-policy</SANWSDL:Template>
+          <SANWSDL:ModelReference>
+            <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageInterface::SubmitRelocationPackage::RelocationPackage</SANWSDL:Name>
+            <SANWSDL:ElementID>_17_0_5_1_7b3022e_1401746626788_197259_5208</SANWSDL:ElementID>
+            <SANWSDL:Model>
+              <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+              <SANWSDL:label>SIRS-Service</SANWSDL:label>
+            </SANWSDL:Model>
+          </SANWSDL:ModelReference>
+          <SANWSDL:type>
+            <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageMessage</SANWSDL:Name>
+            <SANWSDL:ElementID>_17_0_4_2aa0151_1401966023327_508966_24987</SANWSDL:ElementID>
+            <SANWSDL:Model>
+              <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+              <SANWSDL:label>SIRS-Service</SANWSDL:label>
+            </SANWSDL:Model>
+          </SANWSDL:type>
+        </SANWSDL:WSDLMessage>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RelocationPackageInterfaceRelocationPackageInterfaceBinding" type="wsdltns:RelocationPackageInterface">
+    <wsdl:operation name="SubmitRelocationPackage">
+      <SANWSDL:WSDLOperation wsu:Id="ServiceOperation">
+        <SANWSDL:message>
+          <SANWSDL:use>out</SANWSDL:use>
+        </SANWSDL:message>
+        <SANWSDL:message>
+          <SANWSDL:Template>wss-input-policy</SANWSDL:Template>
+          <SANWSDL:ModelReference>
+            <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageInterface::SubmitRelocationPackage::RelocationPackage</SANWSDL:Name>
+            <SANWSDL:ElementID>_17_0_5_1_7b3022e_1401746626788_197259_5208</SANWSDL:ElementID>
+            <SANWSDL:Model>
+              <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+              <SANWSDL:label>SIRS-Service</SANWSDL:label>
+            </SANWSDL:Model>
+          </SANWSDL:ModelReference>
+          <SANWSDL:type>
+            <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageMessage</SANWSDL:Name>
+            <SANWSDL:ElementID>_17_0_4_2aa0151_1401966023327_508966_24987</SANWSDL:ElementID>
+            <SANWSDL:Model>
+              <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+              <SANWSDL:label>SIRS-Service</SANWSDL:label>
+            </SANWSDL:Model>
+          </SANWSDL:type>
+        </SANWSDL:message>
+        <SANWSDL:ActionName>http://www.iir.com/SIRS-Relocation/1.0.0/ws/RelocationPackage</SANWSDL:ActionName>
+        <SANWSDL:MessageExchangePattern>Notification</SANWSDL:MessageExchangePattern>
+        <SANWSDL:OperationKindCode>doc</SANWSDL:OperationKindCode>
+        <SANWSDL:ModelReference>
+          <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageInterface::SubmitRelocationPackage</SANWSDL:Name>
+          <SANWSDL:Documentation>The Intermediary Host invokes this action to receive the RelocationPackage message from the Sending Jurisdiction</SANWSDL:Documentation>
+          <SANWSDL:ElementID>_17_0_5_1_7b3022e_1401746624199_694073_4989</SANWSDL:ElementID>
+          <SANWSDL:Model>
+            <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+            <SANWSDL:label>SIRS-Service</SANWSDL:label>
+          </SANWSDL:Model>
+        </SANWSDL:ModelReference>
+        <SANWSDL:ActionName>SubmitRelocationPackage</SANWSDL:ActionName>
+        <SANWSDL:ActionPurpose>The Intermediary Host invokes this action to receive the RelocationPackage message from the Sending Jurisdiction</SANWSDL:ActionPurpose>
+      </SANWSDL:WSDLOperation>
+      <wsdl:input name="RelocationPackage">
+        <SANWSDL:WSDLMessage>
+          <SANWSDL:Template>wss-input-policy</SANWSDL:Template>
+          <SANWSDL:ModelReference>
+            <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageInterface::SubmitRelocationPackage::RelocationPackage</SANWSDL:Name>
+            <SANWSDL:ElementID>_17_0_5_1_7b3022e_1401746626788_197259_5208</SANWSDL:ElementID>
+            <SANWSDL:Model>
+              <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+              <SANWSDL:label>SIRS-Service</SANWSDL:label>
+            </SANWSDL:Model>
+          </SANWSDL:ModelReference>
+          <SANWSDL:type>
+            <SANWSDL:Name>Data::SIRSServiceModel::Interfaces::RelocationPackageMessage</SANWSDL:Name>
+            <SANWSDL:ElementID>_17_0_4_2aa0151_1401966023327_508966_24987</SANWSDL:ElementID>
+            <SANWSDL:Model>
+              <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+              <SANWSDL:label>SIRS-Service</SANWSDL:label>
+            </SANWSDL:Model>
+          </SANWSDL:type>
+        </SANWSDL:WSDLMessage>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RelocationServiceInterfaceService">
+    <wsdl:port binding="wsdltns:RelocationPackageInterfaceRelocationPackageInterfaceBinding" name="RelocationPackageInterfacePort">
+      <SANWSDL:WSDLPort wsu:Id="port">
+        <SANWSDL:AddressURI>No Target Adress</SANWSDL:AddressURI>
+        <SANWSDL:ModelReference>
+          <SANWSDL:Name>Data::SIRSServiceModel::Participants::RelocationServiceInterface::RelocationPackageInterface</SANWSDL:Name>
+          <SANWSDL:ElementID>_17_0_5_1_7b3022e_1401920834360_725122_26221</SANWSDL:ElementID>
+          <SANWSDL:Model>
+            <SANWSDL:ModelURI>platform:/resource/org.ijis.gra.uml.examples/src/main/resources/org.ijis.gra.uml.examples/SIRS_Example/SIRS-Service.uml</SANWSDL:ModelURI>
+            <SANWSDL:label>SIRS-Service</SANWSDL:label>
+          </SANWSDL:Model>
+        </SANWSDL:ModelReference>
+      </SANWSDL:WSDLPort>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
