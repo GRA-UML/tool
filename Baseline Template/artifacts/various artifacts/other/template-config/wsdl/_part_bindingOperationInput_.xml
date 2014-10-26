@@ -1,3 +1,0 @@
-<wsdl:input>
-	<soap:body use="literal"/>
-</wsdl:input>
