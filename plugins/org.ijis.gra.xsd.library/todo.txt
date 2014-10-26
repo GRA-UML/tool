@@ -1,0 +1,4 @@
+not clear that we need an xsd library
+our xsd s are in separate plug-ins
+there is no real reference library for gra, except possibly metadata.xsd?
+may place metadata.xsd and other static assets here???

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.4"?><plugin>
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ebBPSS -->
+      <package
+            uri="http://www.ebxml.org/BusinessProcess"
+            class="org.ebxml.business.process.ProcessPackage"
+            genModel="src/main/resources/model/ebBPSS.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated ebBPSS -->
+      <parser
+            type="process"
+            class="org.ebxml.business.process.util.ProcessResourceFactoryImpl"/>
+   </extension>
+</plugin>

@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Export-Package: org.search.niem.xsd.library
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.common;bundle
+ -version="[2.9.0,3.0.0)"
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 1.0.0.201402221251
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-Activator: org.search.niem.xsd.library.Activator$Implementation
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.search.niem.xsd.library;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.4"?><plugin>
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cpp-cpa-v1_0 -->
+      <package
+            uri="http://www.w3.org/2000/09/xmldsig#"
+            class="org.w3._2000._09.xmldsig.XmldsigPackage"
+            genModel="src/main/resources/model/cpp-cpa-v1_0.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated cpp-cpa-v1_0 -->
+      <parser
+            type="xmldsig"
+            class="org.w3._2000._09.xmldsig.util.XmldsigResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cpp-cpa-v1_0 -->
+      <package
+            uri="http://www.ebxml.org/namespaces/tradePartner"
+            class="org.ebxml.namespaces.trade.partner.PartnerPackage"
+            genModel="src/main/resources/model/cpp-cpa-v1_0.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated cpp-cpa-v1_0 -->
+      <parser
+            type="partner"
+            class="org.ebxml.namespaces.trade.partner.util.PartnerResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cpp-cpa-v1_0 -->
+      <package
+            uri="http://www.w3.org/1999/xlink"
+            class="org.w3._1999.xlink.XlinkPackage"
+            genModel="src/main/resources/model/cpp-cpa-v1_0.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated cpp-cpa-v1_0 -->
+      <parser
+            type="xlink"
+            class="org.w3._1999.xlink.util.XlinkResourceFactoryImpl"/>
+   </extension>
+<!--
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      < ! - - @generated cpp-cpa-v1_0 - - >
+      <package
+            uri="http://www.w3.org/XML/1998/namespace"
+            class="org.w3.xml._1998.namespace.NamespacePackage"
+            genModel="src/main/resources/model/cpp-cpa-v1_0.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      < ! - - @generated cpp-cpa-v1_0 - - >
+      <parser
+            type="namespace"
+            class="org.w3.xml._1998.namespace.util.NamespaceResourceFactoryImpl"/>
+   </extension>
+   -->
+</plugin>

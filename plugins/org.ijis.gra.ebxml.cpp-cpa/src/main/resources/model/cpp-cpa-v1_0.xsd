@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+<schema targetNamespace="http://www.ebxml.org/namespaces/tradePartner" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns="http://www.w3.org/2000/10/XMLSchema" xmlns:tns="http://www.ebxml.org/namespaces/tradePartner" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+ -->
+<schema targetNamespace="http://www.ebxml.org/namespaces/tradePartner" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ebxml.org/namespaces/tradePartner" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<!-- 
+	<import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://ebxml.org/project_teams/transport/xlink.xsd"/>
+	<import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://ebxml.org/project_teams/transport/xmldsig-core-schema.xsd"/>
+	<import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://ebxml.org/project_teams/transport/xml_lang.xsd"/>
+ -->
+  
+	<import namespace="http://www.w3.org/1999/xlink" schemaLocation="xlink.xsd"/>
+	<import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml_lang.xsd"/>
+ 
+	<import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
+
+	<attributeGroup name="pkg.grp">
+		<attribute ref="tns:id"/>
+		<attribute name="mimetype" type="tns:non-empty-string" use="required"/>
+		<attribute name="mimeparameters" type="tns:non-empty-string"/>
+	</attributeGroup>
+	<attributeGroup name="xlink.grp">
+		<attribute ref="xlink:type"/>
+		<attribute ref="xlink:href"/>
+	</attributeGroup>
+	<element name="CollaborationProtocolAgreement">
+		<complexType>
+			<sequence>
+				<element ref="tns:Status"/>
+				<element ref="tns:Start"/>
+				<element ref="tns:End"/>
+				<element ref="tns:ConversationConstraints" minOccurs="0"/>
+				<element ref="tns:PartyInfo" maxOccurs="unbounded"/>
+				<element ref="tns:Packaging"/>
+				<element ref="ds:Signature" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="tns:Comment" minOccurs="0" maxOccurs="unbounded"/>
+			</sequence>
+			<attribute name="cpaid" type="tns:non-empty-string"/>
+			<attribute ref="tns:version"/>
+			<anyAttribute namespace="##targetNamespace http://www.w3.org/2000/10/XMLSchema-instance" processContents="lax"/>
+		</complexType>
+	</element>
+	<element name="CollaborationProtocolProfile">
+		<complexType>
+			<sequence>
+				<element ref="tns:PartyInfo" maxOccurs="unbounded"/>
+				<element ref="tns:Packaging"/>
+				<element ref="ds:Signature" minOccurs="0"/>
+				<element ref="tns:Comment" minOccurs="0" maxOccurs="unbounded"/>
+			</sequence>
+			<attribute ref="tns:version"/>
+			<anyAttribute namespace="##targetNamespace http://www.w3.org/2000/10/XMLSchema-instance" processContents="lax"/>
+		</complexType>
+	</element>
+	<element name="ProcessSpecification">
+		<complexType>
+			<sequence>
+				<element ref="ds:Reference" minOccurs="0"/>
+			</sequence>
+			<attribute ref="tns:version"/>
+			<attribute name="name" type="tns:non-empty-string" use="required"/>
+			<attributeGroup ref="tns:xlink.grp"/>
+		</complexType>
+	</element>
+	<element name="Service" type="tns:service.type"/>
+	<element name="Protocol" type="tns:protocol.type"/>
+	<element name="SendingProtocol" type="tns:protocol.type"/>
+	<element name="ReceivingProtocol" type="tns:protocol.type"/>
+	<element name="CollaborationRole">
+		<complexType>
+			<sequence>
+				<element ref="tns:ProcessSpecification"/>
+				<element ref="tns:Role"/>
+				<element ref="tns:CertificateRef" minOccurs="0"/>
+				<element ref="tns:ServiceBinding" maxOccurs="unbounded"/>
+			</sequence>
+			<attribute ref="tns:id"/>
+		</complexType>
+	</element>
+	<element name="PartyInfo">
+		<complexType>
+			<sequence>
+				<element ref="tns:PartyId" maxOccurs="unbounded"/>
+				<element ref="tns:PartyRef"/>
+				<element ref="tns:CollaborationRole" maxOccurs="unbounded"/>
+				<element ref="tns:Certificate" maxOccurs="unbounded"/>
+				<element ref="tns:DeliveryChannel" maxOccurs="unbounded"/>
+				<element ref="tns:Transport" maxOccurs="unbounded"/>
+				<element ref="tns:DocExchange" maxOccurs="unbounded"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="PartyId">
+		<complexType>
+			<simpleContent>
+				<extension base="tns:non-empty-string">
+					<attribute name="type" type="tns:non-empty-string"/>
+				</extension>
+			</simpleContent>
+		</complexType>
+	</element>
+	<element name="PartyRef">
+		<complexType>
+			<attributeGroup ref="tns:xlink.grp"/>
+			<attribute name="type" type="tns:non-empty-string"/>
+		</complexType>
+	</element>
+	<element name="DeliveryChannel">
+		<complexType>
+			<sequence>
+				<element ref="tns:Characteristics"/>
+			</sequence>
+			<attribute name="channelId" type="ID" use="required"/>
+			<attribute name="transportId" type="IDREF" use="required"/>
+			<attribute name="docExchangeId" type="IDREF" use="required"/>
+		</complexType>
+	</element>
+	<element name="Transport">
+		<complexType>
+			<sequence>
+				<element ref="tns:SendingProtocol" maxOccurs="unbounded"/>
+				<element ref="tns:ReceivingProtocol"/>
+				<element ref="tns:Endpoint" maxOccurs="unbounded"/>
+				<element ref="tns:TransportSecurity" minOccurs="0"/>
+			</sequence>
+			<attribute name="transportId" type="ID" use="required"/>
+		</complexType>
+	</element>
+	<element name="Endpoint">
+		<complexType>
+		<!-- 
+			<attribute name="uri" type="uriReference" use="required"/>
+			<attribute name="type" type="tns:endpointType.type" use="default" value="allPurpose"/>
+		 -->
+			<attribute name="uri" type="anyURI" use="required"/>
+			<attribute name="type" type="tns:endpointType.type"  default="allPurpose"/>
+		</complexType>
+	</element>
+	<element name="Retries" type="string"/>
+	<element name="RetryInterval" type="string"/>
+	<element name="TransportSecurity">
+		<complexType>
+			<sequence>
+				<element ref="tns:Protocol"/>
+				<element ref="tns:CertificateRef" minOccurs="0"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="Certificate">
+		<complexType>
+			<sequence>
+				<element ref="ds:KeyInfo"/>
+			</sequence>
+			<attribute name="certId" type="ID" use="required"/>
+		</complexType>
+	</element>
+	<element name="DocExchange">
+		<complexType>
+			<sequence>
+				<element ref="tns:ebXMLBinding"/>
+			</sequence>
+			<attribute name="docExchangeId" type="ID" use="required"/>
+		</complexType>
+	</element>
+	<element name="ReliableMessaging">
+		<complexType>
+			<sequence minOccurs="0">
+				<element ref="tns:Retries"/>
+				<element ref="tns:RetryInterval"/>
+				<!-- 
+				<element name="PersistDuration" type="timeDuration"/>
+				 -->
+				<element name="PersistDuration" type="duration"/>
+			</sequence>
+			<attribute name="deliverySemantics" type="tns:ds.type" use="required"/>
+			<attribute name="idempotency" type="boolean" use="required"/>
+			<!-- 
+			<attribute name="messageOrderSemantics" type="tns:mos.type" use="optional" value="NotGuaranteed"/>
+			 -->
+			<attribute name="messageOrderSemantics" type="tns:mos.type" use="optional" default="NotGuaranteed"/>
+		</complexType>
+		<!-- <element name="PersistDuration" type="duration"/> -->
+	</element>
+	<element name="NonRepudiation">
+		<complexType>
+			<sequence>
+				<element ref="tns:Protocol"/>
+				<element ref="tns:HashFunction"/>
+				<element ref="tns:SignatureAlgorithm"/>
+				<element ref="tns:CertificateRef"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="HashFunction" type="string"/>
+	<element name="EncryptionAlgorithm" type="string"/>
+	<element name="SignatureAlgorithm" type="string"/>
+	<element name="DigitalEnvelope">
+		<complexType>
+			<sequence>
+				<element ref="tns:Protocol"/>
+				<element ref="tns:EncryptionAlgorithm"/>
+				<element ref="tns:CertificateRef"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="CertificateRef">
+		<complexType>
+			<attribute name="certId" type="IDREF" use="required"/>
+		</complexType>
+	</element>
+	<element name="ebXMLBinding">
+		<complexType>
+			<sequence>
+				<element ref="tns:ReliableMessaging" minOccurs="0"/>
+				<element ref="tns:NonRepudiation" minOccurs="0"/>
+				<element ref="tns:DigitalEnvelope" minOccurs="0"/>
+				<element ref="tns:NamespaceSupported" minOccurs="0" maxOccurs="unbounded"/>
+			</sequence>
+			<attribute ref="tns:version"/>
+		</complexType>
+	</element>
+	<element name="NamespaceSupported">
+		<complexType>
+			<simpleContent>
+			<!-- 
+				<extension base="uriReference">
+			 -->
+				<extension base="anyURI">
+				<!-- 
+					<attribute name="location" type="uriReference" use="required"/>
+				 -->
+					<attribute name="location" type="anyURI" use="required"/>
+					<attribute ref="tns:version"/>
+				</extension>
+			</simpleContent>
+		</complexType>
+	</element>
+	<element name="Characteristics">
+		<complexType>
+			<attribute ref="tns:syncReplyMode"/>
+			<attribute name="nonrepudiationOfOrigin" type="boolean"/>
+			<attribute name="nonrepudiationOfReceipt" type="boolean"/>
+			<attribute name="secureTransport" type="boolean"/>
+			<attribute name="confidentiality" type="boolean"/>
+			<attribute name="authenticated" type="boolean"/>
+			<attribute name="authorized" type="boolean"/>
+		</complexType>
+	</element>
+	<element name="ServiceBinding">
+		<complexType>
+			<sequence>
+				<element ref="tns:Service"/>
+				<element ref="tns:Override" minOccurs="0" maxOccurs="unbounded"/>
+			</sequence>
+			<attribute name="channelId" type="IDREF" use="required"/>
+			<attribute name="packageId" type="IDREF" use="required"/>
+		</complexType>
+		<unique name="action.const">
+			<selector xpath=".//Override"/>
+			<field xpath="@action"/>
+		</unique>
+	</element>
+	<element name="Status">
+		<complexType>
+			<attribute name="value" type="tns:statusValue.type" use="required"/>
+		</complexType>
+	</element>
+	<!-- 
+	<element name="Start" type="timeInstant"/>
+	<element name="End" type="timeInstant"/>
+	 -->
+	<element name="Start" type="dateTime"/>
+	<element name="End" type="dateTime"/>
+	<!--
+	<element name="Start" type="dateTime"/>
+	<element name="End" type="dateTime"/>
+	-->
+	<element name="Type" type="string"/>
+	<element name="ConversationConstraints">
+		<complexType>
+			<attribute name="invocationLimit" type="int"/>
+			<attribute name="concurrentConversations" type="int"/>
+		</complexType>
+	</element>
+	<element name="Override">
+		<complexType>
+			<attribute name="action" type="tns:non-empty-string" use="required"/>
+			<attribute name="channelId" type="ID" use="required"/>
+			<attribute name="packageId" type="IDREF" use="required"/>
+			<attributeGroup ref="tns:xlink.grp"/>
+		</complexType>
+	</element>
+	<element name="Role">
+		<complexType>
+			<attribute name="name" type="tns:non-empty-string" use="required"/>
+			<attributeGroup ref="tns:xlink.grp"/>
+		</complexType>
+	</element>
+	<element name="Constituent">
+		<complexType>
+			<attribute ref="tns:idref"/>
+		</complexType>
+	</element>
+	<element name="Packaging">
+		<complexType>
+			<sequence>
+				<element name="ProcessingCapabilities">
+					<complexType>
+						<attribute name="parse" type="boolean" use="required"/>
+						<attribute name="generate" type="boolean" use="required"/>
+					</complexType>
+				</element>
+				<element name="SimplePart" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element ref="tns:NamespaceSupported" minOccurs="0" maxOccurs="unbounded"/>
+						</sequence>
+						<attributeGroup ref="tns:pkg.grp"/>
+					</complexType>
+				</element>
+				<element name="CompositeList" minOccurs="0">
+					<complexType>
+						<choice maxOccurs="unbounded">
+							<element name="Encapsulation">
+								<complexType>
+									<sequence>
+										<element ref="tns:Constituent"/>
+									</sequence>
+									<attributeGroup ref="tns:pkg.grp"/>
+								</complexType>
+							</element>
+							<element name="Composite">
+								<complexType>
+									<sequence>
+										<element ref="tns:Constituent" maxOccurs="unbounded"/>
+									</sequence>
+									<attributeGroup ref="tns:pkg.grp"/>
+								</complexType>
+							</element>
+						</choice>
+					</complexType>
+				</element>
+			</sequence>
+			<attribute ref="tns:id"/>
+		</complexType>
+	</element>
+	<element name="Comment">
+		<complexType>
+			<simpleContent>
+				<extension base="tns:non-empty-string">
+					<attribute ref="xml:lang"/>
+				</extension>
+			</simpleContent>
+		</complexType>
+	</element>
+	<!-- COMMON -->
+	<simpleType name="ds.type">
+		<restriction base="NMTOKEN">
+			<enumeration value="OnceAndOnlyOnce"/>
+			<enumeration value="BestEffort"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="mos.type">
+		<restriction base="NMTOKEN">
+			<enumeration value="Guaranteed"/>
+			<enumeration value="NotGuaranteed"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="statusValue.type">
+		<restriction base="NMTOKEN">
+			<enumeration value="agreed"/>
+			<enumeration value="signed"/>
+			<enumeration value="proposed"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="endpointType.type">
+		<restriction base="NMTOKEN">
+			<enumeration value="login"/>
+			<enumeration value="request"/>
+			<enumeration value="response"/>
+			<enumeration value="error"/>
+			<enumeration value="allPurpose"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="non-empty-string">
+		<restriction base="string">
+			<minLength value="1"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="syncReplyMode.type">
+		<restriction base="NMTOKEN">
+			<enumeration value="responseOnly"/>
+			<enumeration value="signalsAndResponse"/>
+			<enumeration value="signalsOnly"/>
+			<enumeration value="none"/>
+		</restriction>
+	</simpleType>
+	<complexType name="service.type">
+		<simpleContent>
+			<extension base="tns:non-empty-string">
+				<attribute name="type" type="tns:non-empty-string"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<complexType name="protocol.type">
+		<simpleContent>
+			<extension base="tns:non-empty-string">
+				<attribute ref="tns:version"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- 
+	<attribute name="idref" type="IDREF" form="unqualified"/>
+	<attribute name="id" type="ID" form="unqualified"/>
+	 -->
+	<attribute name="idref" type="IDREF" />
+	<attribute name="id" type="ID" />
+	<attribute name="version" type="tns:non-empty-string"/>
+	<attribute name="syncReplyMode" type="tns:syncReplyMode.type"/>
+</schema>

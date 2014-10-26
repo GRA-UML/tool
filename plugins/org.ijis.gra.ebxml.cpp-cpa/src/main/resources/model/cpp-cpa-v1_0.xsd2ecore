@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="cpp-cpa-v1_0.xsd#/ xmldsig-core-schema.xsd#/ xlink.xsd#/ xml_lang.xsd#/"
+    outputs="xmldsig.ecore#/ partner.ecore#/ xlink.ecore#/ ../../../../../org.eclipse.emf.ecore/model/XMLNamespace.ecore#/"
+    topToBottom="true">
+  <nested inputs="bundleentry://778.fwk936146014/cache/www.w3.org/2001/XMLSchema.xsd#//anyURI;XSDSimpleTypeDefinition=25"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//AnyURI"/>
+  <nested inputs="xmldsig-core-schema.xsd#//CanonicalizationMethod;XSDElementDeclaration=2/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//CanonicalizationMethodType">
+    <nested inputs="xmldsig-core-schema.xsd#//CanonicalizationMethod;XSDElementDeclaration=2/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//CanonicalizationMethodType/any"/>
+    <nested inputs="xmldsig-core-schema.xsd#//CanonicalizationMethod;XSDElementDeclaration=2/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="xmldsig.ecore#//CanonicalizationMethodType/algorithm"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//CanonicalizationMethod;XSDElementDeclaration=2"
+      outputs="xmldsig.ecore#//DocumentRoot/canonicalizationMethod"/>
+  <nested inputs="bundleentry://778.fwk936146014/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=9"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  <nested inputs="bundleentry://778.fwk936146014/cache/www.w3.org/2001/XMLSchema.xsd#//base64Binary;XSDSimpleTypeDefinition=24"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Base64Binary"/>
+  <nested inputs="xmldsig-core-schema.xsd#//CryptoBinary;XSDSimpleTypeDefinition"
+      outputs="xmldsig.ecore#//CryptoBinary"/>
+  <nested inputs="xmldsig-core-schema.xsd#//DSAKeyValue;XSDElementDeclaration=22/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//DSAKeyValueType">
+    <nested inputs="xmldsig-core-schema.xsd#//DSAKeyValue;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//DSAKeyValueType/p"/>
+    <nested inputs="xmldsig-core-schema.xsd#//DSAKeyValue;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="xmldsig.ecore#//DSAKeyValueType/q"/>
+    <nested inputs="xmldsig-core-schema.xsd#//DSAKeyValue;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="xmldsig.ecore#//DSAKeyValueType/g"/>
+    <nested inputs="xmldsig-core-schema.xsd#//DSAKeyValue;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="xmldsig.ecore#//DSAKeyValueType/y"/>
+    <nested inputs="xmldsig-core-schema.xsd#//DSAKeyValue;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="xmldsig.ecore#//DSAKeyValueType/j"/>
+    <nested inputs="xmldsig-core-schema.xsd#//DSAKeyValue;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//DSAKeyValueType/seed"/>
+    <nested inputs="xmldsig-core-schema.xsd#//DSAKeyValue;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/XSDModelGroup/XSDParticle=1"
+        outputs="xmldsig.ecore#//DSAKeyValueType/pgenCounter"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//RSAKeyValue;XSDElementDeclaration=23/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//RSAKeyValueType">
+    <nested inputs="xmldsig-core-schema.xsd#//RSAKeyValue;XSDElementDeclaration=23/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//RSAKeyValueType/modulus"/>
+    <nested inputs="xmldsig-core-schema.xsd#//RSAKeyValue;XSDElementDeclaration=23/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="xmldsig.ecore#//RSAKeyValueType/exponent"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//KeyValue;XSDElementDeclaration=11/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//KeyValueType">
+    <nested inputs="xmldsig-core-schema.xsd#//KeyValue;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//KeyValueType/any"/>
+    <nested inputs="xmldsig-core-schema.xsd#//KeyValue;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="xmldsig.ecore#//KeyValueType/dSAKeyValue"/>
+    <nested inputs="xmldsig-core-schema.xsd#//KeyValue;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="xmldsig.ecore#//KeyValueType/rSAKeyValue"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//Transform;XSDElementDeclaration=7/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//TransformType">
+    <nested inputs="xmldsig-core-schema.xsd#//Transform;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDParticle"
+        outputs="xmldsig.ecore#//TransformType/group"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Transform;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//TransformType/any"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Transform;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="xmldsig.ecore#//TransformType/xSLT"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Transform;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="xmldsig.ecore#//TransformType/xPath"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Transform;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="xmldsig.ecore#//TransformType/algorithm"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//Transforms;XSDElementDeclaration=6/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//TransformsType">
+    <nested inputs="xmldsig-core-schema.xsd#//Transforms;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//TransformsType/transform"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//RetrievalMethod;XSDElementDeclaration=12/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//RetrievalMethodType">
+    <nested inputs="xmldsig-core-schema.xsd#//RetrievalMethod;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//RetrievalMethodType/transforms"/>
+    <nested inputs="xmldsig-core-schema.xsd#//RetrievalMethod;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="xmldsig.ecore#//RetrievalMethodType/type"/>
+    <nested inputs="xmldsig-core-schema.xsd#//RetrievalMethod;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="xmldsig.ecore#//RetrievalMethodType/uRI"/>
+  </nested>
+  <nested inputs="bundleentry://778.fwk936146014/cache/www.w3.org/2001/XMLSchema.xsd#//integer;XSDSimpleTypeDefinition=40"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Integer"/>
+  <nested inputs="xmldsig-core-schema.xsd#//X509IssuerSerial;XSDElementDeclaration=14/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//X509IssuerSerialType">
+    <nested inputs="xmldsig-core-schema.xsd#//X509IssuerSerial;XSDElementDeclaration=14/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//X509IssuerSerialType/x509IssuerName"/>
+    <nested inputs="xmldsig-core-schema.xsd#//X509IssuerSerial;XSDElementDeclaration=14/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="xmldsig.ecore#//X509IssuerSerialType/x509SerialNumber"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//X509Data;XSDElementDeclaration=13/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//X509DataType">
+    <nested inputs="xmldsig-core-schema.xsd#//X509Data;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//X509DataType/group"/>
+    <nested inputs="xmldsig-core-schema.xsd#//X509Data;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//X509DataType/x509IssuerSerial"/>
+    <nested inputs="xmldsig-core-schema.xsd#//X509Data;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="xmldsig.ecore#//X509DataType/x509SKI"/>
+    <nested inputs="xmldsig-core-schema.xsd#//X509Data;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="xmldsig.ecore#//X509DataType/x509SubjectName"/>
+    <nested inputs="xmldsig-core-schema.xsd#//X509Data;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="xmldsig.ecore#//X509DataType/x509Certificate"/>
+    <nested inputs="xmldsig-core-schema.xsd#//X509Data;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="xmldsig.ecore#//X509DataType/x509CRL"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//PGPData;XSDElementDeclaration=15/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//PGPDataType">
+    <nested inputs="xmldsig-core-schema.xsd#//PGPData;XSDElementDeclaration=15/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//PGPDataType/any"/>
+    <nested inputs="xmldsig-core-schema.xsd#//PGPData;XSDElementDeclaration=15/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//PGPDataType/pGPKeyID"/>
+    <nested inputs="xmldsig-core-schema.xsd#//PGPData;XSDElementDeclaration=15/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/XSDModelGroup/XSDParticle=1"
+        outputs="xmldsig.ecore#//PGPDataType/pGPKeyPacket"/>
+  </nested>
+  <nested inputs="bundleentry://778.fwk936146014/cache/www.w3.org/2001/XMLSchema.xsd#//ID;XSDSimpleTypeDefinition=37"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//ID"/>
+  <nested inputs="xmldsig-core-schema.xsd#//KeyInfo;XSDElementDeclaration=10/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//KeyInfoType">
+    <nested inputs="xmldsig-core-schema.xsd#//KeyInfo;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle"
+        outputs="xmldsig.ecore#//KeyInfoType/group"/>
+    <nested inputs="xmldsig-core-schema.xsd#//KeyInfo;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//KeyInfoType/any"/>
+    <nested inputs="xmldsig-core-schema.xsd#//KeyInfo;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="xmldsig.ecore#//KeyInfoType/keyName"/>
+    <nested inputs="xmldsig-core-schema.xsd#//KeyInfo;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="xmldsig.ecore#//KeyInfoType/keyValue"/>
+    <nested inputs="xmldsig-core-schema.xsd#//KeyInfo;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="xmldsig.ecore#//KeyInfoType/retrievalMethod"/>
+    <nested inputs="xmldsig-core-schema.xsd#//KeyInfo;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="xmldsig.ecore#//KeyInfoType/x509Data"/>
+    <nested inputs="xmldsig-core-schema.xsd#//KeyInfo;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=5"
+        outputs="xmldsig.ecore#//KeyInfoType/pGPData"/>
+    <nested inputs="xmldsig-core-schema.xsd#//KeyInfo;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=6"
+        outputs="xmldsig.ecore#//KeyInfoType/sPKIData"/>
+    <nested inputs="xmldsig-core-schema.xsd#//KeyInfo;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=7"
+        outputs="xmldsig.ecore#//KeyInfoType/mgmtData"/>
+    <nested inputs="xmldsig-core-schema.xsd#//KeyInfo;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="xmldsig.ecore#//KeyInfoType/id"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Certificate;XSDElementDeclaration=17/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//CertificateType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Certificate;XSDElementDeclaration=17/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//CertificateType/keyInfo"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Certificate;XSDElementDeclaration=17/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//CertificateType/certId"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Certificate;XSDElementDeclaration=17" outputs="partner.ecore#//DocumentRoot/certificate"/>
+  <nested inputs="bundleentry://778.fwk936146014/cache/www.w3.org/2001/XMLSchema.xsd#//IDREF;XSDSimpleTypeDefinition=38"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//IDREF"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//CertificateRef;XSDElementDeclaration=25/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//CertificateRefType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//CertificateRef;XSDElementDeclaration=25/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//CertificateRefType/certId"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//CertificateRef;XSDElementDeclaration=25" outputs="partner.ecore#//DocumentRoot/certificateRef"/>
+  <nested inputs="bundleentry://778.fwk936146014/cache/www.w3.org/2001/XMLSchema.xsd#//boolean;XSDSimpleTypeDefinition=10"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//syncReplyMode.type;XSDSimpleTypeDefinition=5"
+      outputs="partner.ecore#//SyncReplyModeType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//syncReplyMode.type;XSDSimpleTypeDefinition=5/XSDEnumerationFacet"
+        outputs="partner.ecore#//SyncReplyModeType/responseOnly"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//syncReplyMode.type;XSDSimpleTypeDefinition=5/XSDEnumerationFacet=1"
+        outputs="partner.ecore#//SyncReplyModeType/signalsAndResponse"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//syncReplyMode.type;XSDSimpleTypeDefinition=5/XSDEnumerationFacet=2"
+        outputs="partner.ecore#//SyncReplyModeType/signalsOnly"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//syncReplyMode.type;XSDSimpleTypeDefinition=5/XSDEnumerationFacet=3"
+        outputs="partner.ecore#//SyncReplyModeType/none"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Characteristics;XSDElementDeclaration=28/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//CharacteristicsType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Characteristics;XSDElementDeclaration=28/XSDComplexTypeDefinition/XSDAttributeUse=5"
+        outputs="partner.ecore#//CharacteristicsType/authenticated"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Characteristics;XSDElementDeclaration=28/XSDComplexTypeDefinition/XSDAttributeUse=6"
+        outputs="partner.ecore#//CharacteristicsType/authorized"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Characteristics;XSDElementDeclaration=28/XSDComplexTypeDefinition/XSDAttributeUse=4"
+        outputs="partner.ecore#//CharacteristicsType/confidentiality"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Characteristics;XSDElementDeclaration=28/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="partner.ecore#//CharacteristicsType/nonrepudiationOfOrigin"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Characteristics;XSDElementDeclaration=28/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="partner.ecore#//CharacteristicsType/nonrepudiationOfReceipt"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Characteristics;XSDElementDeclaration=28/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="partner.ecore#//CharacteristicsType/secureTransport"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Characteristics;XSDElementDeclaration=28/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//CharacteristicsType/syncReplyMode"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Characteristics;XSDElementDeclaration=28" outputs="partner.ecore#//DocumentRoot/characteristics"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//statusValue.type;XSDSimpleTypeDefinition=2" outputs="partner.ecore#//StatusValueType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//statusValue.type;XSDSimpleTypeDefinition=2/XSDEnumerationFacet"
+        outputs="partner.ecore#//StatusValueType/agreed"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//statusValue.type;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=1"
+        outputs="partner.ecore#//StatusValueType/signed"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//statusValue.type;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=2"
+        outputs="partner.ecore#//StatusValueType/proposed"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Status;XSDElementDeclaration=30/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//StatusType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Status;XSDElementDeclaration=30/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//StatusType/value"/>
+  </nested>
+  <nested inputs="bundleentry://778.fwk936146014/cache/www.w3.org/2001/XMLSchema.xsd#//dateTime;XSDSimpleTypeDefinition=15"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+  <nested inputs="bundleentry://778.fwk936146014/cache/www.w3.org/2001/XMLSchema.xsd#//int;XSDSimpleTypeDefinition=44"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//ConversationConstraints;XSDElementDeclaration=34/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//ConversationConstraintsType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//ConversationConstraints;XSDElementDeclaration=34/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="partner.ecore#//ConversationConstraintsType/concurrentConversations"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ConversationConstraints;XSDElementDeclaration=34/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//ConversationConstraintsType/invocationLimit"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//non-empty-string;XSDSimpleTypeDefinition=4" outputs="partner.ecore#//NonEmptyString"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//PartyId;XSDElementDeclaration=9/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//PartyIdType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//PartyId;XSDElementDeclaration=9/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//PartyIdType/type"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//xlink.grp;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="partner.ecore#//PartyRefType/href"/>
+  <nested inputs="xlink.xsd#//type;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="xlink.ecore#//TypeType">
+    <nested inputs="xlink.xsd#//type;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="xlink.ecore#//TypeType/simple"/>
+    <nested inputs="xlink.xsd#//type;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="xlink.ecore#//TypeType/extended"/>
+    <nested inputs="xlink.xsd#//type;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+        outputs="xlink.ecore#//TypeType/locator"/>
+    <nested inputs="xlink.xsd#//type;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+        outputs="xlink.ecore#//TypeType/arc"/>
+    <nested inputs="xlink.xsd#//type;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
+        outputs="xlink.ecore#//TypeType/resource"/>
+    <nested inputs="xlink.xsd#//type;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
+        outputs="xlink.ecore#//TypeType/title"/>
+    <nested inputs="xlink.xsd#//type;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
+        outputs="xlink.ecore#//TypeType/none"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//xlink.grp;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="partner.ecore#//PartyRefType/type"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//PartyRef;XSDElementDeclaration=10/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//PartyRefType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//PartyRef;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//PartyRefType/type1"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//DigestMethod;XSDElementDeclaration=8/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//DigestMethodType">
+    <nested inputs="xmldsig-core-schema.xsd#//DigestMethod;XSDElementDeclaration=8/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//DigestMethodType/any"/>
+    <nested inputs="xmldsig-core-schema.xsd#//DigestMethod;XSDElementDeclaration=8/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="xmldsig.ecore#//DigestMethodType/algorithm"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//Reference;XSDElementDeclaration=5/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//ReferenceType">
+    <nested inputs="xmldsig-core-schema.xsd#//Reference;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//ReferenceType/transforms"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Reference;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="xmldsig.ecore#//ReferenceType/digestMethod"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Reference;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="xmldsig.ecore#//ReferenceType/digestValue"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Reference;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="xmldsig.ecore#//ReferenceType/id"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Reference;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="xmldsig.ecore#//ReferenceType/type"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Reference;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="xmldsig.ecore#//ReferenceType/uRI"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//xlink.grp;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="partner.ecore#//ProcessSpecificationType/href"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//xlink.grp;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="partner.ecore#//ProcessSpecificationType/type"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//ProcessSpecification;XSDElementDeclaration=2/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//ProcessSpecificationType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//ProcessSpecification;XSDElementDeclaration=2/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//ProcessSpecificationType/reference"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ProcessSpecification;XSDElementDeclaration=2/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="partner.ecore#//ProcessSpecificationType/name"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ProcessSpecification;XSDElementDeclaration=2/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//ProcessSpecificationType/version"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//xlink.grp;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="partner.ecore#//RoleType/href"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//xlink.grp;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="partner.ecore#//RoleType/type"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Role;XSDElementDeclaration=36/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//RoleType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Role;XSDElementDeclaration=36/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//RoleType/name"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//service.type;XSDComplexTypeDefinition" outputs="partner.ecore#//ServiceType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//service.type;XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//ServiceType/type"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//xlink.grp;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="partner.ecore#//OverrideType/href"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//xlink.grp;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="partner.ecore#//OverrideType/type"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Override;XSDElementDeclaration=35/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//OverrideType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Override;XSDElementDeclaration=35/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//OverrideType/action"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Override;XSDElementDeclaration=35/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="partner.ecore#//OverrideType/channelId"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Override;XSDElementDeclaration=35/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="partner.ecore#//OverrideType/packageId"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//ServiceBinding;XSDElementDeclaration=29/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//ServiceBindingType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//ServiceBinding;XSDElementDeclaration=29/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//ServiceBindingType/service"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ServiceBinding;XSDElementDeclaration=29/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="partner.ecore#//ServiceBindingType/override"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ServiceBinding;XSDElementDeclaration=29/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//ServiceBindingType/channelId"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ServiceBinding;XSDElementDeclaration=29/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="partner.ecore#//ServiceBindingType/packageId"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationRole;XSDElementDeclaration=7/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//CollaborationRoleType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationRole;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//CollaborationRoleType/processSpecification"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationRole;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="partner.ecore#//CollaborationRoleType/role"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationRole;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="partner.ecore#//CollaborationRoleType/certificateRef"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationRole;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="partner.ecore#//CollaborationRoleType/serviceBinding"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationRole;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//CollaborationRoleType/id"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//DeliveryChannel;XSDElementDeclaration=11/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//DeliveryChannelType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//DeliveryChannel;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//DeliveryChannelType/characteristics"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//DeliveryChannel;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//DeliveryChannelType/channelId"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//DeliveryChannel;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="partner.ecore#//DeliveryChannelType/docExchangeId"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//DeliveryChannel;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="partner.ecore#//DeliveryChannelType/transportId"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//protocol.type;XSDComplexTypeDefinition=1" outputs="partner.ecore#//ProtocolType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//protocol.type;XSDComplexTypeDefinition=1/XSDAttributeUse"
+        outputs="partner.ecore#//ProtocolType/version"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//endpointType.type;XSDSimpleTypeDefinition=3"
+      outputs="partner.ecore#//EndpointTypeType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//endpointType.type;XSDSimpleTypeDefinition=3/XSDEnumerationFacet"
+        outputs="partner.ecore#//EndpointTypeType/login"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//endpointType.type;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=1"
+        outputs="partner.ecore#//EndpointTypeType/request"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//endpointType.type;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=2"
+        outputs="partner.ecore#//EndpointTypeType/response"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//endpointType.type;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=3"
+        outputs="partner.ecore#//EndpointTypeType/error"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//endpointType.type;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=4"
+        outputs="partner.ecore#//EndpointTypeType/allPurpose"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Endpoint;XSDElementDeclaration=13/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//EndpointType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Endpoint;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="partner.ecore#//EndpointType/type"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Endpoint;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//EndpointType/uri"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//TransportSecurity;XSDElementDeclaration=16/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//TransportSecurityType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//TransportSecurity;XSDElementDeclaration=16/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//TransportSecurityType/protocol"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//TransportSecurity;XSDElementDeclaration=16/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="partner.ecore#//TransportSecurityType/certificateRef"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Transport;XSDElementDeclaration=12/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//TransportType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Transport;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//TransportType/sendingProtocol"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Transport;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="partner.ecore#//TransportType/receivingProtocol"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Transport;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="partner.ecore#//TransportType/endpoint"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Transport;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="partner.ecore#//TransportType/transportSecurity"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Transport;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//TransportType/transportId"/>
+  </nested>
+  <nested inputs="bundleentry://778.fwk936146014/cache/www.w3.org/2001/XMLSchema.xsd#//duration;XSDSimpleTypeDefinition=14"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Duration"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//ds.type;XSDSimpleTypeDefinition" outputs="partner.ecore#//DsType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//ds.type;XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="partner.ecore#//DsType/OnceAndOnlyOnce"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ds.type;XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="partner.ecore#//DsType/BestEffort"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//mos.type;XSDSimpleTypeDefinition=1" outputs="partner.ecore#//MosType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//mos.type;XSDSimpleTypeDefinition=1/XSDEnumerationFacet"
+        outputs="partner.ecore#//MosType/Guaranteed"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//mos.type;XSDSimpleTypeDefinition=1/XSDEnumerationFacet=1"
+        outputs="partner.ecore#//MosType/NotGuaranteed"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//ReliableMessaging;XSDElementDeclaration=19/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//ReliableMessagingType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//ReliableMessaging;XSDElementDeclaration=19/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//ReliableMessagingType/retries"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ReliableMessaging;XSDElementDeclaration=19/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="partner.ecore#//ReliableMessagingType/retryInterval"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ReliableMessaging;XSDElementDeclaration=19/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="partner.ecore#//ReliableMessagingType/persistDuration"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ReliableMessaging;XSDElementDeclaration=19/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//ReliableMessagingType/deliverySemantics"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ReliableMessaging;XSDElementDeclaration=19/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="partner.ecore#//ReliableMessagingType/idempotency"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ReliableMessaging;XSDElementDeclaration=19/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="partner.ecore#//ReliableMessagingType/messageOrderSemantics"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//NonRepudiation;XSDElementDeclaration=20/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//NonRepudiationType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//NonRepudiation;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//NonRepudiationType/protocol"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//NonRepudiation;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="partner.ecore#//NonRepudiationType/hashFunction"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//NonRepudiation;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="partner.ecore#//NonRepudiationType/signatureAlgorithm"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//NonRepudiation;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="partner.ecore#//NonRepudiationType/certificateRef"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//DigitalEnvelope;XSDElementDeclaration=24/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//DigitalEnvelopeType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//DigitalEnvelope;XSDElementDeclaration=24/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//DigitalEnvelopeType/protocol"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//DigitalEnvelope;XSDElementDeclaration=24/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="partner.ecore#//DigitalEnvelopeType/encryptionAlgorithm"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//DigitalEnvelope;XSDElementDeclaration=24/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="partner.ecore#//DigitalEnvelopeType/certificateRef"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//NamespaceSupported;XSDElementDeclaration=27/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//NamespaceSupportedType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//NamespaceSupported;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//NamespaceSupportedType/location"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//NamespaceSupported;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="partner.ecore#//NamespaceSupportedType/version"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//ebXMLBinding;XSDElementDeclaration=26/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//EbXMLBindingType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//ebXMLBinding;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//EbXMLBindingType/reliableMessaging"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ebXMLBinding;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="partner.ecore#//EbXMLBindingType/nonRepudiation"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ebXMLBinding;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="partner.ecore#//EbXMLBindingType/digitalEnvelope"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ebXMLBinding;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="partner.ecore#//EbXMLBindingType/namespaceSupported"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//ebXMLBinding;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//EbXMLBindingType/version"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//DocExchange;XSDElementDeclaration=18/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//DocExchangeType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//DocExchange;XSDElementDeclaration=18/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//DocExchangeType/ebXMLBinding"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//DocExchange;XSDElementDeclaration=18/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//DocExchangeType/docExchangeId"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//PartyInfo;XSDElementDeclaration=8/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//PartyInfoType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//PartyInfo;XSDElementDeclaration=8/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//PartyInfoType/partyId"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//PartyInfo;XSDElementDeclaration=8/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="partner.ecore#//PartyInfoType/partyRef"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//PartyInfo;XSDElementDeclaration=8/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="partner.ecore#//PartyInfoType/collaborationRole"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//PartyInfo;XSDElementDeclaration=8/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="partner.ecore#//PartyInfoType/certificate"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//PartyInfo;XSDElementDeclaration=8/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="partner.ecore#//PartyInfoType/deliveryChannel"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//PartyInfo;XSDElementDeclaration=8/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=5"
+        outputs="partner.ecore#//PartyInfoType/transport"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//PartyInfo;XSDElementDeclaration=8/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=6"
+        outputs="partner.ecore#//PartyInfoType/docExchange"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/ProcessingCapabilities;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//ProcessingCapabilitiesType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/ProcessingCapabilities;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="partner.ecore#//ProcessingCapabilitiesType/generate"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/ProcessingCapabilities;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//ProcessingCapabilitiesType/parse"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//pkg.grp;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="partner.ecore#//SimplePartType/id"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//pkg.grp;XSDAttributeGroupDefinition/XSDAttributeUse=2"
+      outputs="partner.ecore#//SimplePartType/mimeparameters"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//pkg.grp;XSDAttributeGroupDefinition/XSDAttributeUse=1"
+      outputs="partner.ecore#//SimplePartType/mimetype"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/SimplePart;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//SimplePartType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/SimplePart;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//SimplePartType/namespaceSupported"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Constituent;XSDElementDeclaration=37/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//ConstituentType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Constituent;XSDElementDeclaration=37/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//ConstituentType/idref"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//pkg.grp;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="partner.ecore#//EncapsulationType/id"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//pkg.grp;XSDAttributeGroupDefinition/XSDAttributeUse=2"
+      outputs="partner.ecore#//EncapsulationType/mimeparameters"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//pkg.grp;XSDAttributeGroupDefinition/XSDAttributeUse=1"
+      outputs="partner.ecore#//EncapsulationType/mimetype"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/CompositeList;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/Encapsulation;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//EncapsulationType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/CompositeList;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/Encapsulation;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//EncapsulationType/constituent"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//pkg.grp;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="partner.ecore#//CompositeType/id"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//pkg.grp;XSDAttributeGroupDefinition/XSDAttributeUse=2"
+      outputs="partner.ecore#//CompositeType/mimeparameters"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//pkg.grp;XSDAttributeGroupDefinition/XSDAttributeUse=1"
+      outputs="partner.ecore#//CompositeType/mimetype"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/CompositeList;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/Composite;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//CompositeType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/CompositeList;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/Composite;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//CompositeType/constituent"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/CompositeList;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//CompositeListType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/CompositeList;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle"
+        outputs="partner.ecore#//CompositeListType/group"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/CompositeList;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//CompositeListType/encapsulation"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/CompositeList;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="partner.ecore#//CompositeListType/composite"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//PackagingType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//PackagingType/processingCapabilities"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="partner.ecore#//PackagingType/simplePart"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="partner.ecore#//PackagingType/compositeList"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//PackagingType/id"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//SignatureMethod;XSDElementDeclaration=3/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//SignatureMethodType">
+    <nested inputs="xmldsig-core-schema.xsd#//SignatureMethod;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//SignatureMethodType/any"/>
+    <nested inputs="xmldsig-core-schema.xsd#//SignatureMethod;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="xmldsig.ecore#//SignatureMethodType/algorithm"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//SignedInfo;XSDElementDeclaration=1/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//SignedInfoType">
+    <nested inputs="xmldsig-core-schema.xsd#//SignedInfo;XSDElementDeclaration=1/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//SignedInfoType/canonicalizationMethod"/>
+    <nested inputs="xmldsig-core-schema.xsd#//SignedInfo;XSDElementDeclaration=1/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="xmldsig.ecore#//SignedInfoType/signatureMethod"/>
+    <nested inputs="xmldsig-core-schema.xsd#//SignedInfo;XSDElementDeclaration=1/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="xmldsig.ecore#//SignedInfoType/reference"/>
+    <nested inputs="xmldsig-core-schema.xsd#//SignedInfo;XSDElementDeclaration=1/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="xmldsig.ecore#//SignedInfoType/id"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//Object;XSDElementDeclaration=17/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//ObjectType">
+    <nested inputs="xmldsig-core-schema.xsd#//Object;XSDElementDeclaration=17/XSDComplexTypeDefinition/XSDParticle"
+        outputs="xmldsig.ecore#//ObjectType/group"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Object;XSDElementDeclaration=17/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//ObjectType/any"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Object;XSDElementDeclaration=17/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="xmldsig.ecore#//ObjectType/encoding"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Object;XSDElementDeclaration=17/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="xmldsig.ecore#//ObjectType/id"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Object;XSDElementDeclaration=17/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="xmldsig.ecore#//ObjectType/mimeType"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//Signature;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//SignatureType">
+    <nested inputs="xmldsig-core-schema.xsd#//Signature;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//SignatureType/signedInfo"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Signature;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="xmldsig.ecore#//SignatureType/signatureValue"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Signature;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="xmldsig.ecore#//SignatureType/keyInfo"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Signature;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="xmldsig.ecore#//SignatureType/object"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Signature;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="xmldsig.ecore#//SignatureType/id"/>
+  </nested>
+  <nested inputs="bundleentry://778.fwk936146014/cache/www.w3.org/2001/XMLSchema.xsd#//language;XSDSimpleTypeDefinition=30"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Language"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Comment;XSDElementDeclaration=39/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//CommentType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//Comment;XSDElementDeclaration=39/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//CommentType/lang"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolAgreement;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//CollaborationProtocolAgreementType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolAgreement;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//CollaborationProtocolAgreementType/status"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolAgreement;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="partner.ecore#//CollaborationProtocolAgreementType/start"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolAgreement;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="partner.ecore#//CollaborationProtocolAgreementType/end"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolAgreement;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="partner.ecore#//CollaborationProtocolAgreementType/conversationConstraints"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolAgreement;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="partner.ecore#//CollaborationProtocolAgreementType/partyInfo"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolAgreement;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=5"
+        outputs="partner.ecore#//CollaborationProtocolAgreementType/packaging"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolAgreement;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=6"
+        outputs="partner.ecore#//CollaborationProtocolAgreementType/signature"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolAgreement;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=7"
+        outputs="partner.ecore#//CollaborationProtocolAgreementType/comment"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolAgreement;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//CollaborationProtocolAgreementType/cpaid"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolAgreement;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="partner.ecore#//CollaborationProtocolAgreementType/version"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolAgreement;XSDElementDeclaration/XSDComplexTypeDefinition/XSDWildcard"
+        outputs="partner.ecore#//CollaborationProtocolAgreementType/anyAttribute"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolAgreement;XSDElementDeclaration"
+      outputs="partner.ecore#//DocumentRoot/collaborationProtocolAgreement"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolProfile;XSDElementDeclaration=1/XSDComplexTypeDefinition"
+      outputs="partner.ecore#//CollaborationProtocolProfileType">
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolProfile;XSDElementDeclaration=1/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="partner.ecore#//CollaborationProtocolProfileType/partyInfo"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolProfile;XSDElementDeclaration=1/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="partner.ecore#//CollaborationProtocolProfileType/packaging"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolProfile;XSDElementDeclaration=1/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="partner.ecore#//CollaborationProtocolProfileType/signature"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolProfile;XSDElementDeclaration=1/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="partner.ecore#//CollaborationProtocolProfileType/comment"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolProfile;XSDElementDeclaration=1/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="partner.ecore#//CollaborationProtocolProfileType/version"/>
+    <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolProfile;XSDElementDeclaration=1/XSDComplexTypeDefinition/XSDWildcard"
+        outputs="partner.ecore#//CollaborationProtocolProfileType/anyAttribute"/>
+  </nested>
+  <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationProtocolProfile;XSDElementDeclaration=1"
+      outputs="partner.ecore#//DocumentRoot/collaborationProtocolProfile"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//CollaborationRole;XSDElementDeclaration=7" outputs="partner.ecore#//DocumentRoot/collaborationRole"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Comment;XSDElementDeclaration=39" outputs="partner.ecore#//DocumentRoot/comment"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Constituent;XSDElementDeclaration=37" outputs="partner.ecore#//DocumentRoot/constituent"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//ConversationConstraints;XSDElementDeclaration=34"
+      outputs="partner.ecore#//DocumentRoot/conversationConstraints"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//DeliveryChannel;XSDElementDeclaration=11" outputs="partner.ecore#//DocumentRoot/deliveryChannel"/>
+  <nested inputs="xmldsig-core-schema.xsd#//DigestMethod;XSDElementDeclaration=8"
+      outputs="xmldsig.ecore#//DocumentRoot/digestMethod"/>
+  <nested inputs="xmldsig-core-schema.xsd#//DigestValue;XSDElementDeclaration=9" outputs="xmldsig.ecore#//DocumentRoot/digestValue"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//DigitalEnvelope;XSDElementDeclaration=24" outputs="partner.ecore#//DocumentRoot/digitalEnvelope"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//DocExchange;XSDElementDeclaration=18" outputs="partner.ecore#//DocumentRoot/docExchange"/>
+  <nested inputs="xmldsig-core-schema.xsd#//DSAKeyValue;XSDElementDeclaration=22"
+      outputs="xmldsig.ecore#//DocumentRoot/dSAKeyValue"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//ebXMLBinding;XSDElementDeclaration=26" outputs="partner.ecore#//DocumentRoot/ebXMLBinding"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//EncryptionAlgorithm;XSDElementDeclaration=22"
+      outputs="partner.ecore#//DocumentRoot/encryptionAlgorithm"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//End;XSDElementDeclaration=32" outputs="partner.ecore#//DocumentRoot/end"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Endpoint;XSDElementDeclaration=13" outputs="partner.ecore#//DocumentRoot/endpoint"/>
+  <nested inputs="bundleentry://778.fwk936146014/cache/www.w3.org/2001/XMLSchema.xsd#//anyType;XSDComplexTypeDefinition=28"
+      outputs="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  <nested inputs="xml_lang.xsd#//ENTER_NAME_OF_ROOT_ELEMENT_HERE;XSDElementDeclaration"
+      outputs="../../../../../org.eclipse.emf.ecore/model/XMLNamespace.ecore#//DocumentRoot/eNTERNAMEOFROOTELEMENTHERE"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//HashFunction;XSDElementDeclaration=21" outputs="partner.ecore#//DocumentRoot/hashFunction"/>
+  <nested inputs="xmldsig-core-schema.xsd#//HMACOutputLength;XSDElementDeclaration=21"
+      outputs="xmldsig.ecore#//DocumentRoot/hMACOutputLength"/>
+  <nested inputs="xmldsig-core-schema.xsd#//KeyInfo;XSDElementDeclaration=10" outputs="xmldsig.ecore#//DocumentRoot/keyInfo"/>
+  <nested inputs="xmldsig-core-schema.xsd#//KeyValue;XSDElementDeclaration=11" outputs="xmldsig.ecore#//DocumentRoot/keyValue"/>
+  <nested inputs="xmldsig-core-schema.xsd#//Manifest;XSDElementDeclaration=18/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//ManifestType">
+    <nested inputs="xmldsig-core-schema.xsd#//Manifest;XSDElementDeclaration=18/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//ManifestType/reference"/>
+    <nested inputs="xmldsig-core-schema.xsd#//Manifest;XSDElementDeclaration=18/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="xmldsig.ecore#//ManifestType/id"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//Manifest;XSDElementDeclaration=18" outputs="xmldsig.ecore#//DocumentRoot/manifest"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//NamespaceSupported;XSDElementDeclaration=27"
+      outputs="partner.ecore#//DocumentRoot/namespaceSupported"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//NonRepudiation;XSDElementDeclaration=20" outputs="partner.ecore#//DocumentRoot/nonRepudiation"/>
+  <nested inputs="xmldsig-core-schema.xsd#//Object;XSDElementDeclaration=17" outputs="xmldsig.ecore#//DocumentRoot/object"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Override;XSDElementDeclaration=35" outputs="partner.ecore#//DocumentRoot/override"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Packaging;XSDElementDeclaration=38" outputs="partner.ecore#//DocumentRoot/packaging"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//PartyId;XSDElementDeclaration=9" outputs="partner.ecore#//DocumentRoot/partyId"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//PartyInfo;XSDElementDeclaration=8" outputs="partner.ecore#//DocumentRoot/partyInfo"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//PartyRef;XSDElementDeclaration=10" outputs="partner.ecore#//DocumentRoot/partyRef"/>
+  <nested inputs="xmldsig-core-schema.xsd#//PGPData;XSDElementDeclaration=15" outputs="xmldsig.ecore#//DocumentRoot/pGPData"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//ProcessSpecification;XSDElementDeclaration=2"
+      outputs="partner.ecore#//DocumentRoot/processSpecification"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Protocol;XSDElementDeclaration=4" outputs="partner.ecore#//DocumentRoot/protocol"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//ReceivingProtocol;XSDElementDeclaration=6" outputs="partner.ecore#//DocumentRoot/receivingProtocol"/>
+  <nested inputs="xmldsig-core-schema.xsd#//Reference;XSDElementDeclaration=5" outputs="xmldsig.ecore#//DocumentRoot/reference"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//ReliableMessaging;XSDElementDeclaration=19" outputs="partner.ecore#//DocumentRoot/reliableMessaging"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Retries;XSDElementDeclaration=14" outputs="partner.ecore#//DocumentRoot/retries"/>
+  <nested inputs="xmldsig-core-schema.xsd#//RetrievalMethod;XSDElementDeclaration=12"
+      outputs="xmldsig.ecore#//DocumentRoot/retrievalMethod"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//RetryInterval;XSDElementDeclaration=15" outputs="partner.ecore#//DocumentRoot/retryInterval"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Role;XSDElementDeclaration=36" outputs="partner.ecore#//DocumentRoot/role"/>
+  <nested inputs="xlink.xsd#//root;XSDElementDeclaration" outputs="xlink.ecore#//DocumentRoot/root"/>
+  <nested inputs="xmldsig-core-schema.xsd#//RSAKeyValue;XSDElementDeclaration=23"
+      outputs="xmldsig.ecore#//DocumentRoot/rSAKeyValue"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//SendingProtocol;XSDElementDeclaration=5" outputs="partner.ecore#//DocumentRoot/sendingProtocol"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Service;XSDElementDeclaration=3" outputs="partner.ecore#//DocumentRoot/service"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//ServiceBinding;XSDElementDeclaration=29" outputs="partner.ecore#//DocumentRoot/serviceBinding"/>
+  <nested inputs="xmldsig-core-schema.xsd#//Signature;XSDElementDeclaration" outputs="xmldsig.ecore#//DocumentRoot/signature"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//SignatureAlgorithm;XSDElementDeclaration=23"
+      outputs="partner.ecore#//DocumentRoot/signatureAlgorithm"/>
+  <nested inputs="xmldsig-core-schema.xsd#//SignatureMethod;XSDElementDeclaration=3"
+      outputs="xmldsig.ecore#//DocumentRoot/signatureMethod"/>
+  <nested inputs="xmldsig-core-schema.xsd#//SignatureProperty;XSDElementDeclaration=20/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//SignaturePropertyType">
+    <nested inputs="xmldsig-core-schema.xsd#//SignatureProperty;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDParticle"
+        outputs="xmldsig.ecore#//SignaturePropertyType/group"/>
+    <nested inputs="xmldsig-core-schema.xsd#//SignatureProperty;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//SignaturePropertyType/any"/>
+    <nested inputs="xmldsig-core-schema.xsd#//SignatureProperty;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="xmldsig.ecore#//SignaturePropertyType/id"/>
+    <nested inputs="xmldsig-core-schema.xsd#//SignatureProperty;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="xmldsig.ecore#//SignaturePropertyType/target"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//SignatureProperties;XSDElementDeclaration=19/XSDComplexTypeDefinition"
+      outputs="xmldsig.ecore#//SignaturePropertiesType">
+    <nested inputs="xmldsig-core-schema.xsd#//SignatureProperties;XSDElementDeclaration=19/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="xmldsig.ecore#//SignaturePropertiesType/signatureProperty"/>
+    <nested inputs="xmldsig-core-schema.xsd#//SignatureProperties;XSDElementDeclaration=19/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="xmldsig.ecore#//SignaturePropertiesType/id"/>
+  </nested>
+  <nested inputs="xmldsig-core-schema.xsd#//SignatureProperties;XSDElementDeclaration=19"
+      outputs="xmldsig.ecore#//DocumentRoot/signatureProperties"/>
+  <nested inputs="xmldsig-core-schema.xsd#//SignatureProperty;XSDElementDeclaration=20"
+      outputs="xmldsig.ecore#//DocumentRoot/signatureProperty"/>
+  <nested inputs="xmldsig-core-schema.xsd#//SignatureValue;XSDElementDeclaration=4"
+      outputs="xmldsig.ecore#//DocumentRoot/signatureValue"/>
+  <nested inputs="xmldsig-core-schema.xsd#//SignedInfo;XSDElementDeclaration=1" outputs="xmldsig.ecore#//DocumentRoot/signedInfo"/>
+  <nested inputs="xmldsig-core-schema.xsd#//SPKIData;XSDElementDeclaration=16" outputs="xmldsig.ecore#//DocumentRoot/sPKIData"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Start;XSDElementDeclaration=31" outputs="partner.ecore#//DocumentRoot/start"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Status;XSDElementDeclaration=30" outputs="partner.ecore#//DocumentRoot/status"/>
+  <nested inputs="xmldsig-core-schema.xsd#//Transform;XSDElementDeclaration=7" outputs="xmldsig.ecore#//DocumentRoot/transform"/>
+  <nested inputs="xmldsig-core-schema.xsd#//Transforms;XSDElementDeclaration=6" outputs="xmldsig.ecore#//DocumentRoot/transforms"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Transport;XSDElementDeclaration=12" outputs="partner.ecore#//DocumentRoot/transport"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//TransportSecurity;XSDElementDeclaration=16" outputs="partner.ecore#//DocumentRoot/transportSecurity"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//Type;XSDElementDeclaration=33" outputs="partner.ecore#//DocumentRoot/type"/>
+  <nested inputs="xmldsig-core-schema.xsd#//X509Data;XSDElementDeclaration=13" outputs="xmldsig.ecore#//DocumentRoot/x509Data"/>
+  <nested inputs="xmldsig-core-schema.xsd#//X509IssuerSerial;XSDElementDeclaration=14"
+      outputs="xmldsig.ecore#//DocumentRoot/x509IssuerSerial"/>
+  <nested inputs="xlink.xsd#//arcrole;XSDAttributeDeclaration=3" outputs="xlink.ecore#//DocumentRoot/arcrole"/>
+  <nested inputs="xlink.xsd#//href;XSDAttributeDeclaration=1" outputs="xlink.ecore#//DocumentRoot/href"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//id;XSDAttributeDeclaration=1" outputs="partner.ecore#//DocumentRoot/id"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//idref;XSDAttributeDeclaration" outputs="partner.ecore#//DocumentRoot/idref"/>
+  <nested inputs="bundleentry://778.fwk936146014/cache/www.w3.org/2001/XMLSchema.xsd#//NMTOKEN;XSDSimpleTypeDefinition=33"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//NMTOKEN"/>
+  <nested inputs="xlink.xsd#//label;XSDAttributeDeclaration=5" outputs="xlink.ecore#//DocumentRoot/label"/>
+  <nested inputs="xml_lang.xsd#//lang;XSDAttributeDeclaration" outputs="../../../../../org.eclipse.emf.ecore/model/XMLNamespace.ecore#//DocumentRoot/lang"/>
+  <nested inputs="xlink.xsd#//role;XSDAttributeDeclaration=2" outputs="xlink.ecore#//DocumentRoot/role"/>
+  <nested inputs="xlink.xsd#//show;XSDAttributeDeclaration=6/XSDSimpleTypeDefinition"
+      outputs="xlink.ecore#//ShowType">
+    <nested inputs="xlink.xsd#//show;XSDAttributeDeclaration=6/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="xlink.ecore#//ShowType/new"/>
+    <nested inputs="xlink.xsd#//show;XSDAttributeDeclaration=6/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="xlink.ecore#//ShowType/replace"/>
+    <nested inputs="xlink.xsd#//show;XSDAttributeDeclaration=6/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+        outputs="xlink.ecore#//ShowType/embed"/>
+    <nested inputs="xlink.xsd#//show;XSDAttributeDeclaration=6/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+        outputs="xlink.ecore#//ShowType/other"/>
+    <nested inputs="xlink.xsd#//show;XSDAttributeDeclaration=6/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
+        outputs="xlink.ecore#//ShowType/none"/>
+  </nested>
+  <nested inputs="xlink.xsd#//show;XSDAttributeDeclaration=6" outputs="xlink.ecore#//DocumentRoot/show"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//syncReplyMode;XSDAttributeDeclaration=3" outputs="partner.ecore#//DocumentRoot/syncReplyMode"/>
+  <nested inputs="xlink.xsd#//title;XSDAttributeDeclaration=4" outputs="xlink.ecore#//DocumentRoot/title"/>
+  <nested inputs="xlink.xsd#//type;XSDAttributeDeclaration" outputs="xlink.ecore#//DocumentRoot/type"/>
+  <nested inputs="cpp-cpa-v1_0.xsd#//version;XSDAttributeDeclaration=2" outputs="partner.ecore#//DocumentRoot/version"/>
+</xsd2ecore:XSD2EcoreMappingRoot>

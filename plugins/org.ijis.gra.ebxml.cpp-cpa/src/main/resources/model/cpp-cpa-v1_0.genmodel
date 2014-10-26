@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.ijis.gra.cpp-cpa/src/main/java" modelPluginID="org.ijis.gra.cpp-cpa"
+    modelName="Cpp-cpa-v1_0" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.xsd.ecore.importer" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../../../../org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace"
+    operationReflection="true" importOrganizing="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.xsd.ecore.importer">
+    <details key="createMap" value="true"/>
+  </genAnnotations>
+  <foreignModel>cpp-cpa-v1_0.xsd</foreignModel>
+  <genPackages prefix="Xmldsig" basePackage="org.w3._2000._09" resource="XML" disposableProviderFactory="true"
+      ecorePackage="xmldsig.ecore#/">
+    <genDataTypes ecoreDataType="xmldsig.ecore#//CryptoBinary"/>
+    <genClasses ecoreClass="xmldsig.ecore#//CanonicalizationMethodType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute xmldsig.ecore#//CanonicalizationMethodType/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//CanonicalizationMethodType/algorithm"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//DigestMethodType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DigestMethodType/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DigestMethodType/algorithm"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/canonicalizationMethod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/digestMethod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DocumentRoot/digestValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/dSAKeyValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DocumentRoot/hMACOutputLength"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/keyInfo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/keyValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/manifest"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/object"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/pGPData"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/reference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/retrievalMethod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/rSAKeyValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/signature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/signatureMethod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/signatureProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/signatureProperty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DocumentRoot/signatureValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/signedInfo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DocumentRoot/sPKIData"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/transform"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/transforms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/x509Data"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//DocumentRoot/x509IssuerSerial"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//DSAKeyValueType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DSAKeyValueType/p"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DSAKeyValueType/q"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DSAKeyValueType/g"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DSAKeyValueType/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DSAKeyValueType/j"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DSAKeyValueType/seed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//DSAKeyValueType/pgenCounter"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//KeyInfoType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute xmldsig.ecore#//KeyInfoType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//KeyInfoType/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//KeyInfoType/keyName"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xmldsig.ecore#//KeyInfoType/keyValue"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xmldsig.ecore#//KeyInfoType/retrievalMethod"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xmldsig.ecore#//KeyInfoType/x509Data"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xmldsig.ecore#//KeyInfoType/pGPData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//KeyInfoType/sPKIData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//KeyInfoType/mgmtData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//KeyInfoType/id"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//KeyValueType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute xmldsig.ecore#//KeyValueType/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//KeyValueType/any"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xmldsig.ecore#//KeyValueType/dSAKeyValue"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xmldsig.ecore#//KeyValueType/rSAKeyValue"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//ManifestType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//ManifestType/reference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//ManifestType/id"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//ObjectType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute xmldsig.ecore#//ObjectType/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//ObjectType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//ObjectType/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//ObjectType/encoding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//ObjectType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//ObjectType/mimeType"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//PGPDataType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute xmldsig.ecore#//PGPDataType/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//PGPDataType/pGPKeyID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//PGPDataType/pGPKeyPacket"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//ReferenceType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//ReferenceType/transforms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//ReferenceType/digestMethod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//ReferenceType/digestValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//ReferenceType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//ReferenceType/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//ReferenceType/uRI"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//RetrievalMethodType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//RetrievalMethodType/transforms"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//RetrievalMethodType/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//RetrievalMethodType/uRI"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//RSAKeyValueType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//RSAKeyValueType/modulus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//RSAKeyValueType/exponent"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//SignatureMethodType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute xmldsig.ecore#//SignatureMethodType/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//SignatureMethodType/algorithm"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//SignaturePropertiesType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//SignaturePropertiesType/signatureProperty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//SignaturePropertiesType/id"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//SignaturePropertyType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute xmldsig.ecore#//SignaturePropertyType/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//SignaturePropertyType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//SignaturePropertyType/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//SignaturePropertyType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//SignaturePropertyType/target"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//SignatureType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//SignatureType/signedInfo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//SignatureType/signatureValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//SignatureType/keyInfo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//SignatureType/object"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//SignatureType/id"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//SignedInfoType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//SignedInfoType/canonicalizationMethod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//SignedInfoType/signatureMethod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//SignedInfoType/reference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//SignedInfoType/id"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//TransformsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xmldsig.ecore#//TransformsType/transform"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//TransformType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute xmldsig.ecore#//TransformType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//TransformType/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//TransformType/xSLT"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//TransformType/xPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//TransformType/algorithm"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//X509DataType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute xmldsig.ecore#//X509DataType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xmldsig.ecore#//X509DataType/x509IssuerSerial"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//X509DataType/x509SKI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//X509DataType/x509SubjectName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//X509DataType/x509Certificate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//X509DataType/x509CRL"/>
+    </genClasses>
+    <genClasses ecoreClass="xmldsig.ecore#//X509IssuerSerialType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//X509IssuerSerialType/x509IssuerName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xmldsig.ecore#//X509IssuerSerialType/x509SerialNumber"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Partner" basePackage="org.ebxml.namespaces.trade" resource="XML"
+      disposableProviderFactory="true" ecorePackage="partner.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="partner.ecore#//DsType">
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//DsType/OnceAndOnlyOnce"/>
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//DsType/BestEffort"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="partner.ecore#//EndpointTypeType">
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//EndpointTypeType/login"/>
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//EndpointTypeType/request"/>
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//EndpointTypeType/response"/>
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//EndpointTypeType/error"/>
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//EndpointTypeType/allPurpose"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="partner.ecore#//MosType">
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//MosType/Guaranteed"/>
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//MosType/NotGuaranteed"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="partner.ecore#//StatusValueType">
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//StatusValueType/agreed"/>
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//StatusValueType/signed"/>
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//StatusValueType/proposed"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="partner.ecore#//SyncReplyModeType">
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//SyncReplyModeType/responseOnly"/>
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//SyncReplyModeType/signalsAndResponse"/>
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//SyncReplyModeType/signalsOnly"/>
+      <genEnumLiterals ecoreEnumLiteral="partner.ecore#//SyncReplyModeType/none"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="partner.ecore#//DsTypeObject"/>
+    <genDataTypes ecoreDataType="partner.ecore#//EndpointTypeTypeObject"/>
+    <genDataTypes ecoreDataType="partner.ecore#//MosTypeObject"/>
+    <genDataTypes ecoreDataType="partner.ecore#//NonEmptyString"/>
+    <genDataTypes ecoreDataType="partner.ecore#//StatusValueTypeObject"/>
+    <genDataTypes ecoreDataType="partner.ecore#//SyncReplyModeTypeObject"/>
+    <genClasses ecoreClass="partner.ecore#//CertificateRefType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CertificateRefType/certId"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//CertificateType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CertificateType/keyInfo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CertificateType/certId"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//CharacteristicsType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CharacteristicsType/authenticated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CharacteristicsType/authorized"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CharacteristicsType/confidentiality"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CharacteristicsType/nonrepudiationOfOrigin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CharacteristicsType/nonrepudiationOfReceipt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CharacteristicsType/secureTransport"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CharacteristicsType/syncReplyMode"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//CollaborationProtocolAgreementType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationProtocolAgreementType/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CollaborationProtocolAgreementType/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CollaborationProtocolAgreementType/end"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationProtocolAgreementType/conversationConstraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationProtocolAgreementType/partyInfo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationProtocolAgreementType/packaging"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationProtocolAgreementType/signature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationProtocolAgreementType/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CollaborationProtocolAgreementType/cpaid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CollaborationProtocolAgreementType/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute partner.ecore#//CollaborationProtocolAgreementType/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//CollaborationProtocolProfileType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationProtocolProfileType/partyInfo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationProtocolProfileType/packaging"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationProtocolProfileType/signature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationProtocolProfileType/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CollaborationProtocolProfileType/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute partner.ecore#//CollaborationProtocolProfileType/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//CollaborationRoleType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationRoleType/processSpecification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationRoleType/role"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationRoleType/certificateRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CollaborationRoleType/serviceBinding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CollaborationRoleType/id"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//CommentType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CommentType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CommentType/lang"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//CompositeListType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute partner.ecore#//CompositeListType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference partner.ecore#//CompositeListType/encapsulation"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference partner.ecore#//CompositeListType/composite"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//CompositeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//CompositeType/constituent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CompositeType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CompositeType/mimeparameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//CompositeType/mimetype"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//ConstituentType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ConstituentType/idref"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//ConversationConstraintsType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ConversationConstraintsType/concurrentConversations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ConversationConstraintsType/invocationLimit"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//DeliveryChannelType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DeliveryChannelType/characteristics"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DeliveryChannelType/channelId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DeliveryChannelType/docExchangeId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DeliveryChannelType/transportId"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//DigitalEnvelopeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DigitalEnvelopeType/protocol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DigitalEnvelopeType/encryptionAlgorithm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DigitalEnvelopeType/certificateRef"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//DocExchangeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocExchangeType/ebXMLBinding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocExchangeType/docExchangeId"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/certificate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/certificateRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/characteristics"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/collaborationProtocolAgreement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/collaborationProtocolProfile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/collaborationRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/comment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/constituent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/conversationConstraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/deliveryChannel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/digitalEnvelope"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/docExchange"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/ebXMLBinding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocumentRoot/encryptionAlgorithm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocumentRoot/end"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/endpoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocumentRoot/hashFunction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/namespaceSupported"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/nonRepudiation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/override"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/packaging"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/partyId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/partyInfo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/partyRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/processSpecification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/protocol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/receivingProtocol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/reliableMessaging"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocumentRoot/retries"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocumentRoot/retryInterval"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/role"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/sendingProtocol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/service"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/serviceBinding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocumentRoot/signatureAlgorithm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocumentRoot/start"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/transport"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//DocumentRoot/transportSecurity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocumentRoot/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocumentRoot/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocumentRoot/idref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocumentRoot/syncReplyMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//DocumentRoot/version"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//EbXMLBindingType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//EbXMLBindingType/reliableMessaging"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//EbXMLBindingType/nonRepudiation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//EbXMLBindingType/digitalEnvelope"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//EbXMLBindingType/namespaceSupported"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//EbXMLBindingType/version"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//EncapsulationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//EncapsulationType/constituent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//EncapsulationType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//EncapsulationType/mimeparameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//EncapsulationType/mimetype"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//EndpointType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//EndpointType/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//EndpointType/uri"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//NamespaceSupportedType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//NamespaceSupportedType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//NamespaceSupportedType/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//NamespaceSupportedType/version"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//NonRepudiationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//NonRepudiationType/protocol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//NonRepudiationType/hashFunction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//NonRepudiationType/signatureAlgorithm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//NonRepudiationType/certificateRef"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//OverrideType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//OverrideType/action"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//OverrideType/channelId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//OverrideType/href"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//OverrideType/packageId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//OverrideType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//PackagingType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//PackagingType/processingCapabilities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//PackagingType/simplePart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//PackagingType/compositeList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//PackagingType/id"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//PartyIdType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//PartyIdType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//PartyIdType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//PartyInfoType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//PartyInfoType/partyId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//PartyInfoType/partyRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//PartyInfoType/collaborationRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//PartyInfoType/certificate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//PartyInfoType/deliveryChannel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//PartyInfoType/transport"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//PartyInfoType/docExchange"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//PartyRefType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//PartyRefType/href"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//PartyRefType/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//PartyRefType/type1"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//ProcessingCapabilitiesType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ProcessingCapabilitiesType/generate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ProcessingCapabilitiesType/parse"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//ProcessSpecificationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//ProcessSpecificationType/reference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ProcessSpecificationType/href"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ProcessSpecificationType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ProcessSpecificationType/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ProcessSpecificationType/version"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//ProtocolType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ProtocolType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ProtocolType/version"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//ReliableMessagingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ReliableMessagingType/retries"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ReliableMessagingType/retryInterval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ReliableMessagingType/persistDuration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ReliableMessagingType/deliverySemantics"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ReliableMessagingType/idempotency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ReliableMessagingType/messageOrderSemantics"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//RoleType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//RoleType/href"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//RoleType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//RoleType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//ServiceBindingType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//ServiceBindingType/service"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//ServiceBindingType/override"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ServiceBindingType/channelId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ServiceBindingType/packageId"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//ServiceType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ServiceType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//ServiceType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//SimplePartType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//SimplePartType/namespaceSupported"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//SimplePartType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//SimplePartType/mimeparameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//SimplePartType/mimetype"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//StatusType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//StatusType/value"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//TransportSecurityType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//TransportSecurityType/protocol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//TransportSecurityType/certificateRef"/>
+    </genClasses>
+    <genClasses ecoreClass="partner.ecore#//TransportType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//TransportType/sendingProtocol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//TransportType/receivingProtocol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//TransportType/endpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference partner.ecore#//TransportType/transportSecurity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute partner.ecore#//TransportType/transportId"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Xlink" basePackage="org.w3._1999" resource="XML" disposableProviderFactory="true"
+      ecorePackage="xlink.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="xlink.ecore#//ShowType">
+      <genEnumLiterals ecoreEnumLiteral="xlink.ecore#//ShowType/new"/>
+      <genEnumLiterals ecoreEnumLiteral="xlink.ecore#//ShowType/replace"/>
+      <genEnumLiterals ecoreEnumLiteral="xlink.ecore#//ShowType/embed"/>
+      <genEnumLiterals ecoreEnumLiteral="xlink.ecore#//ShowType/other"/>
+      <genEnumLiterals ecoreEnumLiteral="xlink.ecore#//ShowType/none"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="xlink.ecore#//TypeType">
+      <genEnumLiterals ecoreEnumLiteral="xlink.ecore#//TypeType/simple"/>
+      <genEnumLiterals ecoreEnumLiteral="xlink.ecore#//TypeType/extended"/>
+      <genEnumLiterals ecoreEnumLiteral="xlink.ecore#//TypeType/locator"/>
+      <genEnumLiterals ecoreEnumLiteral="xlink.ecore#//TypeType/arc"/>
+      <genEnumLiterals ecoreEnumLiteral="xlink.ecore#//TypeType/resource"/>
+      <genEnumLiterals ecoreEnumLiteral="xlink.ecore#//TypeType/title"/>
+      <genEnumLiterals ecoreEnumLiteral="xlink.ecore#//TypeType/none"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="xlink.ecore#//ShowTypeObject"/>
+    <genDataTypes ecoreDataType="xlink.ecore#//TypeTypeObject"/>
+    <genClasses ecoreClass="xlink.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xlink.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xlink.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xlink.ecore#//DocumentRoot/root"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/arcrole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/href"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/show"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="ebBPSS.xsd#/" outputs="process.ecore#/" topToBottom="true">
+  <nested inputs="bundleentry://778.fwk400916985/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=9"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  <nested inputs="bundleentry://778.fwk400916985/cache/www.w3.org/2001/XMLSchema.xsd#//anyURI;XSDSimpleTypeDefinition=25"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//AnyURI"/>
+  <nested inputs="ebBPSS.xsd#//Documentation;XSDElementDeclaration=14/XSDComplexTypeDefinition"
+      outputs="process.ecore#//DocumentationType">
+    <nested inputs="ebBPSS.xsd#//Documentation;XSDElementDeclaration=14/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//DocumentationType/uri"/>
+  </nested>
+  <nested inputs="bundleentry://778.fwk400916985/cache/www.w3.org/2001/XMLSchema.xsd#//IDREF;XSDSimpleTypeDefinition=38"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//IDREF"/>
+  <nested inputs="bundleentry://778.fwk400916985/cache/www.w3.org/2001/XMLSchema.xsd#//boolean;XSDSimpleTypeDefinition=10"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+  <nested inputs="bundleentry://778.fwk400916985/cache/www.w3.org/2001/XMLSchema.xsd#//ID;XSDSimpleTypeDefinition=37"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//ID"/>
+  <nested inputs="ebBPSS.xsd#//Attachment;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="process.ecore#//AttachmentType">
+    <nested inputs="ebBPSS.xsd#//Attachment;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//AttachmentType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//Attachment;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//AttachmentType/businessDocument"/>
+    <nested inputs="ebBPSS.xsd#//Attachment;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="process.ecore#//AttachmentType/businessDocumentIDRef"/>
+    <nested inputs="ebBPSS.xsd#//Attachment;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=7"
+        outputs="process.ecore#//AttachmentType/isAuthenticated"/>
+    <nested inputs="ebBPSS.xsd#//Attachment;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=8"
+        outputs="process.ecore#//AttachmentType/isConfidential"/>
+    <nested inputs="ebBPSS.xsd#//Attachment;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=9"
+        outputs="process.ecore#//AttachmentType/isTamperProof"/>
+    <nested inputs="ebBPSS.xsd#//Attachment;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=5"
+        outputs="process.ecore#//AttachmentType/mimeType"/>
+    <nested inputs="ebBPSS.xsd#//Attachment;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//AttachmentType/name"/>
+    <nested inputs="ebBPSS.xsd#//Attachment;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//AttachmentType/nameID"/>
+    <nested inputs="ebBPSS.xsd#//Attachment;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=4"
+        outputs="process.ecore#//AttachmentType/specification"/>
+    <nested inputs="ebBPSS.xsd#//Attachment;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=6"
+        outputs="process.ecore#//AttachmentType/version"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//Attachment;XSDElementDeclaration" outputs="process.ecore#//DocumentRoot/attachment"/>
+  <nested inputs="ebBPSS.xsd#//AttributeSubstitution;XSDElementDeclaration=7/XSDComplexTypeDefinition"
+      outputs="process.ecore#//AttributeSubstitutionType">
+    <nested inputs="ebBPSS.xsd#//AttributeSubstitution;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//AttributeSubstitutionType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//AttributeSubstitution;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//AttributeSubstitutionType/attributeName"/>
+    <nested inputs="ebBPSS.xsd#//AttributeSubstitution;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//AttributeSubstitutionType/value"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//AttributeSubstitution;XSDElementDeclaration=7" outputs="process.ecore#//DocumentRoot/attributeSubstitution"/>
+  <nested inputs="ebBPSS.xsd#//InitiatingRole;XSDElementDeclaration=1/XSDComplexTypeDefinition"
+      outputs="process.ecore#//InitiatingRoleType">
+    <nested inputs="ebBPSS.xsd#//InitiatingRole;XSDElementDeclaration=1/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//InitiatingRoleType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//InitiatingRole;XSDElementDeclaration=1/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//InitiatingRoleType/name"/>
+    <nested inputs="ebBPSS.xsd#//InitiatingRole;XSDElementDeclaration=1/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//InitiatingRoleType/nameID"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//RespondingRole;XSDElementDeclaration=2/XSDComplexTypeDefinition"
+      outputs="process.ecore#//RespondingRoleType">
+    <nested inputs="ebBPSS.xsd#//RespondingRole;XSDElementDeclaration=2/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//RespondingRoleType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//RespondingRole;XSDElementDeclaration=2/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//RespondingRoleType/name"/>
+    <nested inputs="ebBPSS.xsd#//RespondingRole;XSDElementDeclaration=2/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//RespondingRoleType/nameID"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//Start;XSDElementDeclaration=25/XSDComplexTypeDefinition"
+      outputs="process.ecore#//StartType">
+    <nested inputs="ebBPSS.xsd#//Start;XSDElementDeclaration=25/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//StartType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//Start;XSDElementDeclaration=25/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//StartType/toBusinessState"/>
+    <nested inputs="ebBPSS.xsd#//Start;XSDElementDeclaration=25/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//StartType/toBusinessStateIDRef"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//ConditionExpression;XSDElementDeclaration=8/XSDComplexTypeDefinition"
+      outputs="process.ecore#//ConditionExpressionType">
+    <nested inputs="ebBPSS.xsd#//ConditionExpression;XSDElementDeclaration=8/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//ConditionExpressionType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//ConditionExpression;XSDElementDeclaration=8/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//ConditionExpressionType/expression"/>
+    <nested inputs="ebBPSS.xsd#//ConditionExpression;XSDElementDeclaration=8/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//ConditionExpressionType/expressionLanguage"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDAttributeUse=5/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="process.ecore#//ConditionGuardType2">
+    <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDAttributeUse=5/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="process.ecore#//ConditionGuardType2/Success"/>
+    <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDAttributeUse=5/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="process.ecore#//ConditionGuardType2/BusinessFailure"/>
+    <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDAttributeUse=5/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+        outputs="process.ecore#//ConditionGuardType2/TechnicalFailure"/>
+    <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDAttributeUse=5/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+        outputs="process.ecore#//ConditionGuardType2/AnyFailure"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition"
+      outputs="process.ecore#//TransitionType">
+    <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//TransitionType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//TransitionType/conditionExpression"/>
+    <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDAttributeUse=5"
+        outputs="process.ecore#//TransitionType/conditionGuard"/>
+    <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//TransitionType/fromBusinessState"/>
+    <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//TransitionType/fromBusinessStateIDRef"/>
+    <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//TransitionType/onInitiation"/>
+    <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="process.ecore#//TransitionType/toBusinessState"/>
+    <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27/XSDComplexTypeDefinition/XSDAttributeUse=4"
+        outputs="process.ecore#//TransitionType/toBusinessStateIDRef"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//Success;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDAttributeUse=2/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="process.ecore#//ConditionGuardType">
+    <nested inputs="ebBPSS.xsd#//Success;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDAttributeUse=2/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="process.ecore#//ConditionGuardType/Success"/>
+    <nested inputs="ebBPSS.xsd#//Success;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDAttributeUse=2/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="process.ecore#//ConditionGuardType/BusinessFailure"/>
+    <nested inputs="ebBPSS.xsd#//Success;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDAttributeUse=2/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+        outputs="process.ecore#//ConditionGuardType/TechnicalFailure"/>
+    <nested inputs="ebBPSS.xsd#//Success;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDAttributeUse=2/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+        outputs="process.ecore#//ConditionGuardType/AnyFailure"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//Success;XSDElementDeclaration=26/XSDComplexTypeDefinition"
+      outputs="process.ecore#//SuccessType">
+    <nested inputs="ebBPSS.xsd#//Success;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//SuccessType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//Success;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//SuccessType/conditionExpression"/>
+    <nested inputs="ebBPSS.xsd#//Success;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//SuccessType/conditionGuard"/>
+    <nested inputs="ebBPSS.xsd#//Success;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//SuccessType/fromBusinessState"/>
+    <nested inputs="ebBPSS.xsd#//Success;XSDElementDeclaration=26/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//SuccessType/fromBusinessStateIDRef"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//Failure;XSDElementDeclaration=15/XSDComplexTypeDefinition/XSDAttributeUse=2/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="process.ecore#//ConditionGuardType1">
+    <nested inputs="ebBPSS.xsd#//Failure;XSDElementDeclaration=15/XSDComplexTypeDefinition/XSDAttributeUse=2/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="process.ecore#//ConditionGuardType1/Success"/>
+    <nested inputs="ebBPSS.xsd#//Failure;XSDElementDeclaration=15/XSDComplexTypeDefinition/XSDAttributeUse=2/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="process.ecore#//ConditionGuardType1/BusinessFailure"/>
+    <nested inputs="ebBPSS.xsd#//Failure;XSDElementDeclaration=15/XSDComplexTypeDefinition/XSDAttributeUse=2/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+        outputs="process.ecore#//ConditionGuardType1/TechnicalFailure"/>
+    <nested inputs="ebBPSS.xsd#//Failure;XSDElementDeclaration=15/XSDComplexTypeDefinition/XSDAttributeUse=2/conditionGuard;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+        outputs="process.ecore#//ConditionGuardType1/AnyFailure"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//Failure;XSDElementDeclaration=15/XSDComplexTypeDefinition"
+      outputs="process.ecore#//FailureType">
+    <nested inputs="ebBPSS.xsd#//Failure;XSDElementDeclaration=15/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//FailureType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//Failure;XSDElementDeclaration=15/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//FailureType/conditionExpression"/>
+    <nested inputs="ebBPSS.xsd#//Failure;XSDElementDeclaration=15/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//FailureType/conditionGuard"/>
+    <nested inputs="ebBPSS.xsd#//Failure;XSDElementDeclaration=15/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//FailureType/fromBusinessState"/>
+    <nested inputs="ebBPSS.xsd#//Failure;XSDElementDeclaration=15/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//FailureType/fromBusinessStateIDRef"/>
+  </nested>
+  <nested inputs="bundleentry://778.fwk400916985/cache/www.w3.org/2001/XMLSchema.xsd#//duration;XSDSimpleTypeDefinition=14"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Duration"/>
+  <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11/XSDComplexTypeDefinition"
+      outputs="process.ecore#//BusinessTransactionActivityType">
+    <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//BusinessTransactionActivityType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//BusinessTransactionActivityType/businessTransaction"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="process.ecore#//BusinessTransactionActivityType/businessTransactionIDRef"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse=4"
+        outputs="process.ecore#//BusinessTransactionActivityType/fromAuthorizedRole"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse=5"
+        outputs="process.ecore#//BusinessTransactionActivityType/fromAuthorizedRoleIDRef"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse=8"
+        outputs="process.ecore#//BusinessTransactionActivityType/isConcurrent"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse=9"
+        outputs="process.ecore#//BusinessTransactionActivityType/isLegallyBinding"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//BusinessTransactionActivityType/name"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//BusinessTransactionActivityType/nameID"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse=10"
+        outputs="process.ecore#//BusinessTransactionActivityType/timeToPerform"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse=6"
+        outputs="process.ecore#//BusinessTransactionActivityType/toAuthorizedRole"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse=7"
+        outputs="process.ecore#//BusinessTransactionActivityType/toAuthorizedRoleIDRef"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//CollaborationActivity;XSDElementDeclaration=12/XSDComplexTypeDefinition"
+      outputs="process.ecore#//CollaborationActivityType">
+    <nested inputs="ebBPSS.xsd#//CollaborationActivity;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//CollaborationActivityType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//CollaborationActivity;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDAttributeUse=6"
+        outputs="process.ecore#//CollaborationActivityType/binaryCollaboration"/>
+    <nested inputs="ebBPSS.xsd#//CollaborationActivity;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDAttributeUse=7"
+        outputs="process.ecore#//CollaborationActivityType/binaryCollaborationIDRef"/>
+    <nested inputs="ebBPSS.xsd#//CollaborationActivity;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//CollaborationActivityType/fromAuthorizedRole"/>
+    <nested inputs="ebBPSS.xsd#//CollaborationActivity;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="process.ecore#//CollaborationActivityType/fromAuthorizedRoleIDRef"/>
+    <nested inputs="ebBPSS.xsd#//CollaborationActivity;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//CollaborationActivityType/name"/>
+    <nested inputs="ebBPSS.xsd#//CollaborationActivity;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//CollaborationActivityType/nameID"/>
+    <nested inputs="ebBPSS.xsd#//CollaborationActivity;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDAttributeUse=4"
+        outputs="process.ecore#//CollaborationActivityType/toAuthorizedRole"/>
+    <nested inputs="ebBPSS.xsd#//CollaborationActivity;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDAttributeUse=5"
+        outputs="process.ecore#//CollaborationActivityType/toAuthorizedRoleIDRef"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//Fork;XSDElementDeclaration=16/XSDComplexTypeDefinition"
+      outputs="process.ecore#//ForkType">
+    <nested inputs="ebBPSS.xsd#//Fork;XSDElementDeclaration=16/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//ForkType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//Fork;XSDElementDeclaration=16/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//ForkType/name"/>
+    <nested inputs="ebBPSS.xsd#//Fork;XSDElementDeclaration=16/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//ForkType/nameID"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//Join;XSDElementDeclaration=18/XSDComplexTypeDefinition"
+      outputs="process.ecore#//JoinType">
+    <nested inputs="ebBPSS.xsd#//Join;XSDElementDeclaration=18/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//JoinType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//Join;XSDElementDeclaration=18/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//JoinType/name"/>
+    <nested inputs="ebBPSS.xsd#//Join;XSDElementDeclaration=18/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//JoinType/nameID"/>
+    <nested inputs="ebBPSS.xsd#//Join;XSDElementDeclaration=18/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//JoinType/waitForAll"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition"
+      outputs="process.ecore#//BinaryCollaborationType">
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//BinaryCollaborationType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//BinaryCollaborationType/initiatingRole"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="process.ecore#//BinaryCollaborationType/respondingRole"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="process.ecore#//BinaryCollaborationType/group"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//BinaryCollaborationType/documentation1"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//BinaryCollaborationType/start"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=2"
+        outputs="process.ecore#//BinaryCollaborationType/transition"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=3"
+        outputs="process.ecore#//BinaryCollaborationType/success"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=4"
+        outputs="process.ecore#//BinaryCollaborationType/failure"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=5"
+        outputs="process.ecore#//BinaryCollaborationType/businessTransactionActivity"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=6"
+        outputs="process.ecore#//BinaryCollaborationType/collaborationActivity"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=7"
+        outputs="process.ecore#//BinaryCollaborationType/fork"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=8"
+        outputs="process.ecore#//BinaryCollaborationType/join"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="process.ecore#//BinaryCollaborationType/beginsWhen"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDAttributeUse=4"
+        outputs="process.ecore#//BinaryCollaborationType/endsWhen"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//BinaryCollaborationType/name"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//BinaryCollaborationType/nameID"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//BinaryCollaborationType/pattern"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDAttributeUse=6"
+        outputs="process.ecore#//BinaryCollaborationType/postCondition"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDAttributeUse=5"
+        outputs="process.ecore#//BinaryCollaborationType/preCondition"/>
+    <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDAttributeUse=7"
+        outputs="process.ecore#//BinaryCollaborationType/timeToPerform"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//BinaryCollaboration;XSDElementDeclaration=3" outputs="process.ecore#//DocumentRoot/binaryCollaboration"/>
+  <nested inputs="ebBPSS.xsd#//BusinessDocument;XSDElementDeclaration=4/XSDComplexTypeDefinition"
+      outputs="process.ecore#//BusinessDocumentType">
+    <nested inputs="ebBPSS.xsd#//BusinessDocument;XSDElementDeclaration=4/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//BusinessDocumentType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//BusinessDocument;XSDElementDeclaration=4/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//BusinessDocumentType/conditionExpression"/>
+    <nested inputs="ebBPSS.xsd#//BusinessDocument;XSDElementDeclaration=4/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//BusinessDocumentType/name"/>
+    <nested inputs="ebBPSS.xsd#//BusinessDocument;XSDElementDeclaration=4/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//BusinessDocumentType/nameID"/>
+    <nested inputs="ebBPSS.xsd#//BusinessDocument;XSDElementDeclaration=4/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="process.ecore#//BusinessDocumentType/specificationElement"/>
+    <nested inputs="ebBPSS.xsd#//BusinessDocument;XSDElementDeclaration=4/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//BusinessDocumentType/specificationLocation"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//BusinessDocument;XSDElementDeclaration=4" outputs="process.ecore#//DocumentRoot/businessDocument"/>
+  <nested inputs="ebBPSS.xsd#//Performs;XSDElementDeclaration=21/XSDComplexTypeDefinition"
+      outputs="process.ecore#//PerformsType">
+    <nested inputs="ebBPSS.xsd#//Performs;XSDElementDeclaration=21/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//PerformsType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//Performs;XSDElementDeclaration=21/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//PerformsType/initiatingRole"/>
+    <nested inputs="ebBPSS.xsd#//Performs;XSDElementDeclaration=21/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//PerformsType/initiatingRoleIDRef"/>
+    <nested inputs="ebBPSS.xsd#//Performs;XSDElementDeclaration=21/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//PerformsType/respondingRole"/>
+    <nested inputs="ebBPSS.xsd#//Performs;XSDElementDeclaration=21/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="process.ecore#//PerformsType/respondingRoleIDRef"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//BusinessPartnerRole;XSDElementDeclaration=9/XSDComplexTypeDefinition"
+      outputs="process.ecore#//BusinessPartnerRoleType">
+    <nested inputs="ebBPSS.xsd#//BusinessPartnerRole;XSDElementDeclaration=9/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//BusinessPartnerRoleType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//BusinessPartnerRole;XSDElementDeclaration=9/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//BusinessPartnerRoleType/performs"/>
+    <nested inputs="ebBPSS.xsd#//BusinessPartnerRole;XSDElementDeclaration=9/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="process.ecore#//BusinessPartnerRoleType/transition"/>
+    <nested inputs="ebBPSS.xsd#//BusinessPartnerRole;XSDElementDeclaration=9/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//BusinessPartnerRoleType/name"/>
+    <nested inputs="ebBPSS.xsd#//BusinessPartnerRole;XSDElementDeclaration=9/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//BusinessPartnerRoleType/nameID"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//BusinessPartnerRole;XSDElementDeclaration=9" outputs="process.ecore#//DocumentRoot/businessPartnerRole"/>
+  <nested inputs="ebBPSS.xsd#//DocumentEnvelope;XSDElementDeclaration=13/XSDComplexTypeDefinition"
+      outputs="process.ecore#//DocumentEnvelopeType">
+    <nested inputs="ebBPSS.xsd#//DocumentEnvelope;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//DocumentEnvelopeType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//DocumentEnvelope;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//DocumentEnvelopeType/attachment"/>
+    <nested inputs="ebBPSS.xsd#//DocumentEnvelope;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//DocumentEnvelopeType/businessDocument"/>
+    <nested inputs="ebBPSS.xsd#//DocumentEnvelope;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//DocumentEnvelopeType/businessDocumentIDRef"/>
+    <nested inputs="ebBPSS.xsd#//DocumentEnvelope;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="process.ecore#//DocumentEnvelopeType/isAuthenticated"/>
+    <nested inputs="ebBPSS.xsd#//DocumentEnvelope;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDAttributeUse=4"
+        outputs="process.ecore#//DocumentEnvelopeType/isConfidential"/>
+    <nested inputs="ebBPSS.xsd#//DocumentEnvelope;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//DocumentEnvelopeType/isPositiveResponse"/>
+    <nested inputs="ebBPSS.xsd#//DocumentEnvelope;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDAttributeUse=5"
+        outputs="process.ecore#//DocumentEnvelopeType/isTamperProof"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//RequestingBusinessActivity;XSDElementDeclaration=23/XSDComplexTypeDefinition"
+      outputs="process.ecore#//RequestingBusinessActivityType">
+    <nested inputs="ebBPSS.xsd#//RequestingBusinessActivity;XSDElementDeclaration=23/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//RequestingBusinessActivityType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//RequestingBusinessActivity;XSDElementDeclaration=23/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//RequestingBusinessActivityType/documentEnvelope"/>
+    <nested inputs="ebBPSS.xsd#//RequestingBusinessActivity;XSDElementDeclaration=23/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//RequestingBusinessActivityType/isAuthorizationRequired"/>
+    <nested inputs="ebBPSS.xsd#//RequestingBusinessActivity;XSDElementDeclaration=23/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="process.ecore#//RequestingBusinessActivityType/isIntelligibleCheckRequired"/>
+    <nested inputs="ebBPSS.xsd#//RequestingBusinessActivity;XSDElementDeclaration=23/XSDComplexTypeDefinition/XSDAttributeUse=4"
+        outputs="process.ecore#//RequestingBusinessActivityType/isNonRepudiationReceiptRequired"/>
+    <nested inputs="ebBPSS.xsd#//RequestingBusinessActivity;XSDElementDeclaration=23/XSDComplexTypeDefinition/XSDAttributeUse=5"
+        outputs="process.ecore#//RequestingBusinessActivityType/isNonRepudiationRequired"/>
+    <nested inputs="ebBPSS.xsd#//RequestingBusinessActivity;XSDElementDeclaration=23/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//RequestingBusinessActivityType/name"/>
+    <nested inputs="ebBPSS.xsd#//RequestingBusinessActivity;XSDElementDeclaration=23/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//RequestingBusinessActivityType/nameID"/>
+    <nested inputs="ebBPSS.xsd#//RequestingBusinessActivity;XSDElementDeclaration=23/XSDComplexTypeDefinition/XSDAttributeUse=6"
+        outputs="process.ecore#//RequestingBusinessActivityType/timeToAcknowledgeAcceptance"/>
+    <nested inputs="ebBPSS.xsd#//RequestingBusinessActivity;XSDElementDeclaration=23/XSDComplexTypeDefinition/XSDAttributeUse=7"
+        outputs="process.ecore#//RequestingBusinessActivityType/timeToAcknowledgeReceipt"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//RespondingBusinessActivity;XSDElementDeclaration=24/XSDComplexTypeDefinition"
+      outputs="process.ecore#//RespondingBusinessActivityType">
+    <nested inputs="ebBPSS.xsd#//RespondingBusinessActivity;XSDElementDeclaration=24/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//RespondingBusinessActivityType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//RespondingBusinessActivity;XSDElementDeclaration=24/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//RespondingBusinessActivityType/documentEnvelope"/>
+    <nested inputs="ebBPSS.xsd#//RespondingBusinessActivity;XSDElementDeclaration=24/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//RespondingBusinessActivityType/isAuthorizationRequired"/>
+    <nested inputs="ebBPSS.xsd#//RespondingBusinessActivity;XSDElementDeclaration=24/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="process.ecore#//RespondingBusinessActivityType/isIntelligibleCheckRequired"/>
+    <nested inputs="ebBPSS.xsd#//RespondingBusinessActivity;XSDElementDeclaration=24/XSDComplexTypeDefinition/XSDAttributeUse=4"
+        outputs="process.ecore#//RespondingBusinessActivityType/isNonRepudiationReceiptRequired"/>
+    <nested inputs="ebBPSS.xsd#//RespondingBusinessActivity;XSDElementDeclaration=24/XSDComplexTypeDefinition/XSDAttributeUse=5"
+        outputs="process.ecore#//RespondingBusinessActivityType/isNonRepudiationRequired"/>
+    <nested inputs="ebBPSS.xsd#//RespondingBusinessActivity;XSDElementDeclaration=24/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//RespondingBusinessActivityType/name"/>
+    <nested inputs="ebBPSS.xsd#//RespondingBusinessActivity;XSDElementDeclaration=24/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//RespondingBusinessActivityType/nameID"/>
+    <nested inputs="ebBPSS.xsd#//RespondingBusinessActivity;XSDElementDeclaration=24/XSDComplexTypeDefinition/XSDAttributeUse=6"
+        outputs="process.ecore#//RespondingBusinessActivityType/timeToAcknowledgeReceipt"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//BusinessTransaction;XSDElementDeclaration=10/XSDComplexTypeDefinition"
+      outputs="process.ecore#//BusinessTransactionType">
+    <nested inputs="ebBPSS.xsd#//BusinessTransaction;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//BusinessTransactionType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransaction;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//BusinessTransactionType/requestingBusinessActivity"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransaction;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="process.ecore#//BusinessTransactionType/respondingBusinessActivity"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransaction;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="process.ecore#//BusinessTransactionType/beginsWhen"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransaction;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse=4"
+        outputs="process.ecore#//BusinessTransactionType/endsWhen"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransaction;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse=5"
+        outputs="process.ecore#//BusinessTransactionType/isGuaranteedDeliveryRequired"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransaction;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//BusinessTransactionType/name"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransaction;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//BusinessTransactionType/nameID"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransaction;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//BusinessTransactionType/pattern"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransaction;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse=7"
+        outputs="process.ecore#//BusinessTransactionType/postCondition"/>
+    <nested inputs="ebBPSS.xsd#//BusinessTransaction;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse=6"
+        outputs="process.ecore#//BusinessTransactionType/preCondition"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//BusinessTransaction;XSDElementDeclaration=10" outputs="process.ecore#//DocumentRoot/businessTransaction"/>
+  <nested inputs="ebBPSS.xsd#//BusinessTransactionActivity;XSDElementDeclaration=11"
+      outputs="process.ecore#//DocumentRoot/businessTransactionActivity"/>
+  <nested inputs="ebBPSS.xsd#//CollaborationActivity;XSDElementDeclaration=12" outputs="process.ecore#//DocumentRoot/collaborationActivity"/>
+  <nested inputs="ebBPSS.xsd#//ConditionExpression;XSDElementDeclaration=8" outputs="process.ecore#//DocumentRoot/conditionExpression"/>
+  <nested inputs="ebBPSS.xsd#//Documentation;XSDElementDeclaration=14" outputs="process.ecore#//DocumentRoot/documentation"/>
+  <nested inputs="ebBPSS.xsd#//DocumentEnvelope;XSDElementDeclaration=13" outputs="process.ecore#//DocumentRoot/documentEnvelope"/>
+  <nested inputs="ebBPSS.xsd#//DocumentSubstitution;XSDElementDeclaration=6/XSDComplexTypeDefinition"
+      outputs="process.ecore#//DocumentSubstitutionType">
+    <nested inputs="ebBPSS.xsd#//DocumentSubstitution;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//DocumentSubstitutionType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//DocumentSubstitution;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//DocumentSubstitutionType/originalBusinessDocument"/>
+    <nested inputs="ebBPSS.xsd#//DocumentSubstitution;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//DocumentSubstitutionType/originalBusinessDocumentID"/>
+    <nested inputs="ebBPSS.xsd#//DocumentSubstitution;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//DocumentSubstitutionType/substituteBusinessDocument"/>
+    <nested inputs="ebBPSS.xsd#//DocumentSubstitution;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="process.ecore#//DocumentSubstitutionType/substituteBusinessDocumentId"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//DocumentSubstitution;XSDElementDeclaration=6" outputs="process.ecore#//DocumentRoot/documentSubstitution"/>
+  <nested inputs="ebBPSS.xsd#//Failure;XSDElementDeclaration=15" outputs="process.ecore#//DocumentRoot/failure"/>
+  <nested inputs="ebBPSS.xsd#//Fork;XSDElementDeclaration=16" outputs="process.ecore#//DocumentRoot/fork"/>
+  <nested inputs="ebBPSS.xsd#//Include;XSDElementDeclaration=17/XSDComplexTypeDefinition"
+      outputs="process.ecore#//IncludeType">
+    <nested inputs="ebBPSS.xsd#//Include;XSDElementDeclaration=17/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//IncludeType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//Include;XSDElementDeclaration=17/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//IncludeType/name"/>
+    <nested inputs="ebBPSS.xsd#//Include;XSDElementDeclaration=17/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//IncludeType/uri"/>
+    <nested inputs="ebBPSS.xsd#//Include;XSDElementDeclaration=17/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//IncludeType/uuid"/>
+    <nested inputs="ebBPSS.xsd#//Include;XSDElementDeclaration=17/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="process.ecore#//IncludeType/version"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//Include;XSDElementDeclaration=17" outputs="process.ecore#//DocumentRoot/include"/>
+  <nested inputs="ebBPSS.xsd#//InitiatingRole;XSDElementDeclaration=1" outputs="process.ecore#//DocumentRoot/initiatingRole"/>
+  <nested inputs="ebBPSS.xsd#//Join;XSDElementDeclaration=18" outputs="process.ecore#//DocumentRoot/join"/>
+  <nested inputs="ebBPSS.xsd#//MultiPartyCollaboration;XSDElementDeclaration=19/XSDComplexTypeDefinition"
+      outputs="process.ecore#//MultiPartyCollaborationType">
+    <nested inputs="ebBPSS.xsd#//MultiPartyCollaboration;XSDElementDeclaration=19/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//MultiPartyCollaborationType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//MultiPartyCollaboration;XSDElementDeclaration=19/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//MultiPartyCollaborationType/businessPartnerRole"/>
+    <nested inputs="ebBPSS.xsd#//MultiPartyCollaboration;XSDElementDeclaration=19/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//MultiPartyCollaborationType/name"/>
+    <nested inputs="ebBPSS.xsd#//MultiPartyCollaboration;XSDElementDeclaration=19/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//MultiPartyCollaborationType/nameID"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//MultiPartyCollaboration;XSDElementDeclaration=19" outputs="process.ecore#//DocumentRoot/multiPartyCollaboration"/>
+  <nested inputs="ebBPSS.xsd#//Package;XSDElementDeclaration=20/XSDComplexTypeDefinition"
+      outputs="process.ecore#//PackageType">
+    <nested inputs="ebBPSS.xsd#//Package;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//PackageType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//Package;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//PackageType/group"/>
+    <nested inputs="ebBPSS.xsd#//Package;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//PackageType/package"/>
+    <nested inputs="ebBPSS.xsd#//Package;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//PackageType/binaryCollaboration"/>
+    <nested inputs="ebBPSS.xsd#//Package;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/XSDModelGroup/XSDParticle=2"
+        outputs="process.ecore#//PackageType/businessTransaction"/>
+    <nested inputs="ebBPSS.xsd#//Package;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/XSDModelGroup/XSDParticle=3"
+        outputs="process.ecore#//PackageType/multiPartyCollaboration"/>
+    <nested inputs="ebBPSS.xsd#//Package;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//PackageType/name"/>
+    <nested inputs="ebBPSS.xsd#//Package;XSDElementDeclaration=20/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//PackageType/nameID"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//Package;XSDElementDeclaration=20" outputs="process.ecore#//DocumentRoot/package"/>
+  <nested inputs="ebBPSS.xsd#//Performs;XSDElementDeclaration=21" outputs="process.ecore#//DocumentRoot/performs"/>
+  <nested inputs="ebBPSS.xsd#//SubstitutionSet;XSDElementDeclaration=5/XSDComplexTypeDefinition"
+      outputs="process.ecore#//SubstitutionSetType">
+    <nested inputs="ebBPSS.xsd#//SubstitutionSet;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//SubstitutionSetType/documentSubstitution"/>
+    <nested inputs="ebBPSS.xsd#//SubstitutionSet;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//SubstitutionSetType/attributeSubstitution"/>
+    <nested inputs="ebBPSS.xsd#//SubstitutionSet;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="process.ecore#//SubstitutionSetType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//SubstitutionSet;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//SubstitutionSetType/applyToScope"/>
+    <nested inputs="ebBPSS.xsd#//SubstitutionSet;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//SubstitutionSetType/name"/>
+    <nested inputs="ebBPSS.xsd#//SubstitutionSet;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//SubstitutionSetType/nameId"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition"
+      outputs="process.ecore#//ProcessSpecificationType">
+    <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//ProcessSpecificationType/documentation"/>
+    <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//ProcessSpecificationType/substitutionSet"/>
+    <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="process.ecore#//ProcessSpecificationType/group"/>
+    <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/XSDModelGroup/XSDParticle"
+        outputs="process.ecore#//ProcessSpecificationType/include"/>
+    <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/XSDModelGroup/XSDParticle=1"
+        outputs="process.ecore#//ProcessSpecificationType/businessDocument"/>
+    <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/XSDModelGroup/XSDParticle=2"
+        outputs="process.ecore#//ProcessSpecificationType/processSpecification"/>
+    <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/XSDModelGroup/XSDParticle=3"
+        outputs="process.ecore#//ProcessSpecificationType/package"/>
+    <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/XSDModelGroup/XSDParticle=4"
+        outputs="process.ecore#//ProcessSpecificationType/binaryCollaboration"/>
+    <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/XSDModelGroup/XSDParticle=5"
+        outputs="process.ecore#//ProcessSpecificationType/businessTransaction"/>
+    <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/XSDModelGroup/XSDParticle=6"
+        outputs="process.ecore#//ProcessSpecificationType/multiPartyCollaboration"/>
+    <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="process.ecore#//ProcessSpecificationType/name"/>
+    <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="process.ecore#//ProcessSpecificationType/uuid"/>
+    <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="process.ecore#//ProcessSpecificationType/version"/>
+  </nested>
+  <nested inputs="ebBPSS.xsd#//ProcessSpecification;XSDElementDeclaration=22" outputs="process.ecore#//DocumentRoot/processSpecification"/>
+  <nested inputs="ebBPSS.xsd#//RequestingBusinessActivity;XSDElementDeclaration=23"
+      outputs="process.ecore#//DocumentRoot/requestingBusinessActivity"/>
+  <nested inputs="ebBPSS.xsd#//RespondingBusinessActivity;XSDElementDeclaration=24"
+      outputs="process.ecore#//DocumentRoot/respondingBusinessActivity"/>
+  <nested inputs="ebBPSS.xsd#//RespondingRole;XSDElementDeclaration=2" outputs="process.ecore#//DocumentRoot/respondingRole"/>
+  <nested inputs="ebBPSS.xsd#//Start;XSDElementDeclaration=25" outputs="process.ecore#//DocumentRoot/start"/>
+  <nested inputs="ebBPSS.xsd#//SubstitutionSet;XSDElementDeclaration=5" outputs="process.ecore#//DocumentRoot/substitutionSet"/>
+  <nested inputs="ebBPSS.xsd#//Success;XSDElementDeclaration=26" outputs="process.ecore#//DocumentRoot/success"/>
+  <nested inputs="ebBPSS.xsd#//Transition;XSDElementDeclaration=27" outputs="process.ecore#//DocumentRoot/transition"/>
+</xsd2ecore:XSD2EcoreMappingRoot>

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.ijis.gra.ebxml.ebBPSS/src/main/java" modelPluginID="org.ijis.gra.ebxml.ebBPSS"
+    modelName="EbBPSS" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.xsd.ecore.importer" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.xsd.ecore.importer">
+    <details key="createMap" value="true"/>
+  </genAnnotations>
+  <foreignModel>ebBPSS.xsd</foreignModel>
+  <genPackages prefix="Process" basePackage="org.ebxml.business" resource="XML" disposableProviderFactory="true"
+      ecorePackage="process.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="process.ecore#//ConditionGuardType">
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConditionGuardType/Success"/>
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConditionGuardType/BusinessFailure"/>
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConditionGuardType/TechnicalFailure"/>
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConditionGuardType/AnyFailure"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="process.ecore#//ConditionGuardType1">
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConditionGuardType1/Success"/>
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConditionGuardType1/BusinessFailure"/>
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConditionGuardType1/TechnicalFailure"/>
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConditionGuardType1/AnyFailure"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="process.ecore#//ConditionGuardType2">
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConditionGuardType2/Success"/>
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConditionGuardType2/BusinessFailure"/>
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConditionGuardType2/TechnicalFailure"/>
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConditionGuardType2/AnyFailure"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="process.ecore#//ConditionGuardTypeObject"/>
+    <genDataTypes ecoreDataType="process.ecore#//ConditionGuardTypeObject1"/>
+    <genDataTypes ecoreDataType="process.ecore#//ConditionGuardTypeObject2"/>
+    <genClasses ecoreClass="process.ecore#//AttachmentType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//AttachmentType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//AttachmentType/businessDocument"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//AttachmentType/businessDocumentIDRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//AttachmentType/isAuthenticated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//AttachmentType/isConfidential"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//AttachmentType/isTamperProof"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//AttachmentType/mimeType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//AttachmentType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//AttachmentType/nameID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//AttachmentType/specification"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//AttachmentType/version"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//AttributeSubstitutionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//AttributeSubstitutionType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//AttributeSubstitutionType/attributeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//AttributeSubstitutionType/value"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//BinaryCollaborationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//BinaryCollaborationType/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//BinaryCollaborationType/initiatingRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//BinaryCollaborationType/respondingRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute process.ecore#//BinaryCollaborationType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//BinaryCollaborationType/documentation1"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//BinaryCollaborationType/start"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//BinaryCollaborationType/transition"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//BinaryCollaborationType/success"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//BinaryCollaborationType/failure"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//BinaryCollaborationType/businessTransactionActivity"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//BinaryCollaborationType/collaborationActivity"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//BinaryCollaborationType/fork"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//BinaryCollaborationType/join"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BinaryCollaborationType/beginsWhen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BinaryCollaborationType/endsWhen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BinaryCollaborationType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BinaryCollaborationType/nameID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BinaryCollaborationType/pattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BinaryCollaborationType/postCondition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BinaryCollaborationType/preCondition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BinaryCollaborationType/timeToPerform"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//BusinessDocumentType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//BusinessDocumentType/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//BusinessDocumentType/conditionExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessDocumentType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessDocumentType/nameID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessDocumentType/specificationElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessDocumentType/specificationLocation"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//BusinessPartnerRoleType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//BusinessPartnerRoleType/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//BusinessPartnerRoleType/performs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//BusinessPartnerRoleType/transition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessPartnerRoleType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessPartnerRoleType/nameID"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//BusinessTransactionActivityType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//BusinessTransactionActivityType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionActivityType/businessTransaction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionActivityType/businessTransactionIDRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionActivityType/fromAuthorizedRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionActivityType/fromAuthorizedRoleIDRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionActivityType/isConcurrent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionActivityType/isLegallyBinding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionActivityType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionActivityType/nameID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionActivityType/timeToPerform"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionActivityType/toAuthorizedRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionActivityType/toAuthorizedRoleIDRef"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//BusinessTransactionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//BusinessTransactionType/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//BusinessTransactionType/requestingBusinessActivity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//BusinessTransactionType/respondingBusinessActivity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionType/beginsWhen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionType/endsWhen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionType/isGuaranteedDeliveryRequired"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionType/nameID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionType/pattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionType/postCondition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//BusinessTransactionType/preCondition"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//CollaborationActivityType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//CollaborationActivityType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//CollaborationActivityType/binaryCollaboration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//CollaborationActivityType/binaryCollaborationIDRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//CollaborationActivityType/fromAuthorizedRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//CollaborationActivityType/fromAuthorizedRoleIDRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//CollaborationActivityType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//CollaborationActivityType/nameID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//CollaborationActivityType/toAuthorizedRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//CollaborationActivityType/toAuthorizedRoleIDRef"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//ConditionExpressionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//ConditionExpressionType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//ConditionExpressionType/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//ConditionExpressionType/expressionLanguage"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//DocumentationType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//DocumentationType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//DocumentationType/uri"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//DocumentEnvelopeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentEnvelopeType/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentEnvelopeType/attachment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//DocumentEnvelopeType/businessDocument"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//DocumentEnvelopeType/businessDocumentIDRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//DocumentEnvelopeType/isAuthenticated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//DocumentEnvelopeType/isConfidential"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//DocumentEnvelopeType/isPositiveResponse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//DocumentEnvelopeType/isTamperProof"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/attachment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/attributeSubstitution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/binaryCollaboration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/businessDocument"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/businessPartnerRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/businessTransaction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/businessTransactionActivity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/collaborationActivity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/conditionExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/documentEnvelope"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/documentSubstitution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/failure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/fork"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/include"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/initiatingRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/join"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/multiPartyCollaboration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/package"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/performs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/processSpecification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/requestingBusinessActivity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/respondingBusinessActivity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/respondingRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/start"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/substitutionSet"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/success"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentRoot/transition"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//DocumentSubstitutionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DocumentSubstitutionType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//DocumentSubstitutionType/originalBusinessDocument"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//DocumentSubstitutionType/originalBusinessDocumentID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//DocumentSubstitutionType/substituteBusinessDocument"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//DocumentSubstitutionType/substituteBusinessDocumentId"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//FailureType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//FailureType/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//FailureType/conditionExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//FailureType/conditionGuard"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//FailureType/fromBusinessState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//FailureType/fromBusinessStateIDRef"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//ForkType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//ForkType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//ForkType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//ForkType/nameID"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//IncludeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//IncludeType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//IncludeType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//IncludeType/uri"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//IncludeType/uuid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//IncludeType/version"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//InitiatingRoleType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//InitiatingRoleType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//InitiatingRoleType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//InitiatingRoleType/nameID"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//JoinType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//JoinType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//JoinType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//JoinType/nameID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//JoinType/waitForAll"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//MultiPartyCollaborationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//MultiPartyCollaborationType/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//MultiPartyCollaborationType/businessPartnerRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//MultiPartyCollaborationType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//MultiPartyCollaborationType/nameID"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//PackageType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//PackageType/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute process.ecore#//PackageType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//PackageType/package"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//PackageType/binaryCollaboration"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//PackageType/businessTransaction"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//PackageType/multiPartyCollaboration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//PackageType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//PackageType/nameID"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//PerformsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//PerformsType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//PerformsType/initiatingRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//PerformsType/initiatingRoleIDRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//PerformsType/respondingRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//PerformsType/respondingRoleIDRef"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//ProcessSpecificationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//ProcessSpecificationType/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//ProcessSpecificationType/substitutionSet"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute process.ecore#//ProcessSpecificationType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//ProcessSpecificationType/include"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//ProcessSpecificationType/businessDocument"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//ProcessSpecificationType/processSpecification"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//ProcessSpecificationType/package"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//ProcessSpecificationType/binaryCollaboration"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//ProcessSpecificationType/businessTransaction"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference process.ecore#//ProcessSpecificationType/multiPartyCollaboration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//ProcessSpecificationType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//ProcessSpecificationType/uuid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//ProcessSpecificationType/version"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//RequestingBusinessActivityType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//RequestingBusinessActivityType/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//RequestingBusinessActivityType/documentEnvelope"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RequestingBusinessActivityType/isAuthorizationRequired"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RequestingBusinessActivityType/isIntelligibleCheckRequired"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RequestingBusinessActivityType/isNonRepudiationReceiptRequired"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RequestingBusinessActivityType/isNonRepudiationRequired"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RequestingBusinessActivityType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RequestingBusinessActivityType/nameID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RequestingBusinessActivityType/timeToAcknowledgeAcceptance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RequestingBusinessActivityType/timeToAcknowledgeReceipt"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//RespondingBusinessActivityType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//RespondingBusinessActivityType/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//RespondingBusinessActivityType/documentEnvelope"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RespondingBusinessActivityType/isAuthorizationRequired"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RespondingBusinessActivityType/isIntelligibleCheckRequired"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RespondingBusinessActivityType/isNonRepudiationReceiptRequired"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RespondingBusinessActivityType/isNonRepudiationRequired"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RespondingBusinessActivityType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RespondingBusinessActivityType/nameID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RespondingBusinessActivityType/timeToAcknowledgeReceipt"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//RespondingRoleType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//RespondingRoleType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RespondingRoleType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RespondingRoleType/nameID"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//StartType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//StartType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//StartType/toBusinessState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//StartType/toBusinessStateIDRef"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//SubstitutionSetType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//SubstitutionSetType/documentSubstitution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//SubstitutionSetType/attributeSubstitution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//SubstitutionSetType/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//SubstitutionSetType/applyToScope"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//SubstitutionSetType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//SubstitutionSetType/nameId"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//SuccessType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//SuccessType/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//SuccessType/conditionExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//SuccessType/conditionGuard"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//SuccessType/fromBusinessState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//SuccessType/fromBusinessStateIDRef"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//TransitionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//TransitionType/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//TransitionType/conditionExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//TransitionType/conditionGuard"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//TransitionType/fromBusinessState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//TransitionType/fromBusinessStateIDRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//TransitionType/onInitiation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//TransitionType/toBusinessState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//TransitionType/toBusinessStateIDRef"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

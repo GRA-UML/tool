@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+<xsd:schema 
+	xmlns="http://www.w3.org/XML/1998/namespace"
+	targetNamespace="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsd="http://www.w3.org/2000/10/XMLSchema" 
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="1.0">
+ -->
+<xsd:schema 
+	xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	targetNamespace="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="1.0">
+	<xsd:element name="ENTER_NAME_OF_ROOT_ELEMENT_HERE">
+		<xsd:annotation>
+			<xsd:documentation>Comment describing your root element</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- 
+	<xsd:attribute name="lang" form="qualified" type="xsd:language" use="default" value="en-us"/>
+	 -->
+	<xsd:attribute name="lang"  type="xsd:language"  default="en-us"/>
+</xsd:schema>
