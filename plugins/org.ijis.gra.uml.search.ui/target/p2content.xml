@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='2'>
+  <unit id='org.search.niem.uml.search.ui' version='1.0.0.201402221251'>
+    <update id='org.search.niem.uml.search.ui' range='[0.0.0,1.0.0.201402221251)' severity='0'/>
+    <properties size='8'>
+      <property name='df_LT.providerName' value='org.search'/>
+      <property name='df_LT.pluginName' value='NIEM UML Search UI'/>
+      <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+      <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+      <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      <property name='maven-groupId' value='org.search'/>
+      <property name='maven-artifactId' value='org.search.niem.uml.search.ui'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+    </properties>
+    <provides size='5'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.search.niem.uml.search.ui' version='1.0.0.201402221251'/>
+      <provided namespace='osgi.bundle' name='org.search.niem.uml.search.ui' version='1.0.0.201402221251'/>
+      <provided namespace='java.package' name='org.search.niem.uml.search.ui' version='0.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+    </provides>
+    <requires size='21'>
+      <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.0.0,4.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='[3.5.0,4.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.common.ui' range='[2.8.0,3.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.edit.ui' range='[2.8.0,3.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.uml2.uml' range='[4.0.0,5.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.uml2.uml.edit' range='[4.0.0,5.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.uml2.uml.resources' range='[4.0.0,5.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.search' range='[3.9.0,4.0.0)'/>
+      <required namespace='osgi.bundle' name='org.apache.commons.lang' range='[2.6.0,3.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.infra.core' range='[0.10.0,1.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.infra.core.sasheditor' range='[0.10.0,1.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.infra.gmfdiag.common' range='[0.10.0,1.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.tools' range='[0.10.0,1.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.editor' range='[0.10.0,1.0.0)'/>
+      <required namespace='osgi.bundle' name='org.search.niem.uml' range='[1.0.0,1.1.0)'/>
+      <required namespace='osgi.bundle' name='org.search.niem.uml.ui' range='[1.0.0,1.1.0)'/>
+      <required namespace='osgi.bundle' name='org.search.niem.uml.merge' range='[1.0.0,1.1.0)'/>
+      <required namespace='osgi.bundle' name='org.search.niem.uml.library' range='[1.0.0,1.1.0)'/>
+      <required namespace='osgi.bundle' name='org.search.niem.uml.papyrus' range='[1.0.0,1.1.0)'/>
+      <required namespace='osgi.bundle' name='org.search.niem.uml.search' range='[1.0.0,1.1.0)'/>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='org.search.niem.uml.search.ui' version='1.0.0.201402221251'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: org.search.niem.uml.search.ui;singleton:=true&#xA;Bundle-Version: 1.0.0.201402221251&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+  <unit id='org.search.niem.uml.search.ui.source' version='1.0.0.201402221251' singleton='false'>
+    <update id='org.search.niem.uml.search.ui.source' range='[0.0.0,1.0.0.201402221251)' severity='0'/>
+    <properties size='9'>
+      <property name='df_LT.bundleVendor' value='org.search'/>
+      <property name='df_LT.bundleName' value='NIEM UML Search UI Source'/>
+      <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+      <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+      <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+      <property name='maven-groupId' value='org.search'/>
+      <property name='maven-artifactId' value='org.search.niem.uml.search.ui'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      <property name='maven-classifier' value='sources'/>
+    </properties>
+    <provides size='4'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.search.niem.uml.search.ui.source' version='1.0.0.201402221251'/>
+      <provided namespace='osgi.bundle' name='org.search.niem.uml.search.ui.source' version='1.0.0.201402221251'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+    </provides>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='org.search.niem.uml.search.ui.source' version='1.0.0.201402221251'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: org.search.niem.uml.search.ui.source&#xA;Bundle-Version: 1.0.0.201402221251&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>

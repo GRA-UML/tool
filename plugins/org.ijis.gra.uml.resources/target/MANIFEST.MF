@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Export-Package: org.search.niem.uml.resources
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.uml2.uml.resource
+ s;bundle-version="[4.0.0,5.0.0)"
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 1.0.0.201402221251
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-Activator: org.search.niem.uml.resources.Activator$Implementati
+ on
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.search.niem.uml.resources;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

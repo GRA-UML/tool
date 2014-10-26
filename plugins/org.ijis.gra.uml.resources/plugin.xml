@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.4"?><plugin>
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+   <!--
+      <mapping source="pathmap://GRA_UML/" target="platform:/plugin/org.ijis.gra.uml.resources/src/main/resources/">
+   -->
+      <mapping source="pathmap://GRA_UML/" target="platform:/plugin/org.ijis.gra.uml.resources/model/">
+      </mapping>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="http://www.omg.org/spec/SoaML/20091101/SoaMLProfile.xmi" target="pathmap://GRA_UML/SoaMLProfile.xmi">
+      </mapping>
+   </extension>
+   
+   <!-- are we going to use the wsdl profile?
+   -->
+   <!--
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="http://www.omg.org/spec/GRA-UML/20120501/GRA-WSDL" target="pathmap://GRA_UML/NIEM-SoaML-WSDL-Profile.xmi">
+      </mapping>
+   </extension>
+   -->
+   <!--
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="http://www.omg.org/spec/GRA-UML/20120501/GRA" target="pathmap://GRA_UML/GRA-UML-Profile.xmi">
+      <mapping source="http://www.omg.org/spec/GRA-UML/20120501/GRA" target="pathmap://GRA_UML/GRAAnnotationModel.xmi">
+      </mapping>
+   </extension>
+   -->
+   
+   
+   <!--
+   
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="http://www.omg.org/spec/GRA-UML/20120501/GRA-ProfileExtension" target="pathmap://GRA_UML/PolicyExtension.xmi">
+      </mapping>
+   </extension>
+   -->
+<!--
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="pathmap://NIEM_UML/" target="platform:/plugin/org.search.niem.uml.resources/src/main/resources/">
+      </mapping>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="http://www.omg.org/spec/NIEM-UML/20120501/XmlPrimitiveTypes" target="pathmap://NIEM_UML/XmlPrimitiveTypes.xmi">
+      </mapping>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="http://www.omg.org/spec/NIEM-UML/20120501/NIEM_UML_Profile" target="pathmap://NIEM_UML/NIEM-UML-Profile.xmi">
+      </mapping>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="http://www.omg.org/spec/NIEM-UML/20120501/NIEM_Common_Profile" target="pathmap://NIEM_UML/NIEM-UML-Profile.xmi#NIEM_UML_Profile-NIEM_Common_Profile">
+      </mapping>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="http://www.omg.org/spec/NIEM-UML/20120501/Model_Package_Description_Profile" target="pathmap://NIEM_UML/NIEM-UML-Profile.xmi#NIEM_UML_Profile-Model_Package_Description_Profile">
+      </mapping>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="http://www.omg.org/spec/NIEM-UML/20120501/NIEM_PSM_Profile" target="pathmap://NIEM_UML/NIEM-UML-Profile.xmi#NIEM_UML_Profile-NIEM_PSM_Profile">
+      </mapping>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="http://www.omg.org/spec/NIEM-UML/20120501/NIEM_PIM_Profile" target="pathmap://NIEM_UML/NIEM-UML-Profile.xmi#NIEM_UML_Profile-NIEM_PIM_Profile">
+      </mapping>
+   </extension>
+   <extension point="org.eclipse.uml2.uml.dynamic_package">
+      <profile location="pathmap://NIEM_UML/NIEM-UML-Profile.xmi#NIEM_UML_Profile-NIEM_Common_Profile" uri="http://www.omg.org/spec/NIEM-UML/20120501/NIEM_Common_Profile">
+      </profile>
+   </extension>
+   <extension point="org.eclipse.uml2.uml.dynamic_package">
+      <profile location="pathmap://NIEM_UML/NIEM-UML-Profile.xmi#NIEM_UML_Profile-Model_Package_Description_Profile" uri="http://www.omg.org/spec/NIEM-UML/20120501/Model_Package_Description_Profile">
+      </profile>
+   </extension>
+   <extension point="org.eclipse.uml2.uml.dynamic_package">
+      <profile location="pathmap://NIEM_UML/NIEM-UML-Profile.xmi#NIEM_UML_Profile-NIEM_PSM_Profile" uri="http://www.omg.org/spec/NIEM-UML/20120501/NIEM_PSM_Profile">
+      </profile>
+   </extension>
+   <extension point="org.eclipse.uml2.uml.dynamic_package">
+      <profile location="pathmap://NIEM_UML/NIEM-UML-Profile.xmi#NIEM_UML_Profile-NIEM_PIM_Profile" uri="http://www.omg.org/spec/NIEM-UML/20120501/NIEM_PIM_Profile">
+      </profile>
+   </extension>
+   <extension point="org.eclipse.uml2.uml.dynamic_package">
+      <profile location="pathmap://NIEM_UML/NIEM-UML-Profile.xmi#NIEM_UML_Profile-NIEM_UML_Profile" uri="http://www.omg.org/spec/NIEM-UML/20120501">
+      </profile>
+   </extension>
+   -->
+   
+<!--
+   <extension point="org.eclipse.uml2.uml.dynamic_package">
+      <profile location="pathmap://GRA_UML/GRA-UML-Profile.xmi#__hDqIbakEeOZGoPbdk5KgQ" uri="http://Data/schemas/GRA/__g__wLakEeOZGoPbdk5KgQ/0">
+      </profile>
+      
+   </extension>
+-->
+</plugin>

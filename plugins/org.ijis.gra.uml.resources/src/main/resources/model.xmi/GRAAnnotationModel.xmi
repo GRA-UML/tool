@@ -1,0 +1,1462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:NIEM_PIM_Profile="http://www.omg.org/spec/NIEM-UML/20120501/NIEM_PIM_Profile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.omg.org/spec/UML/20110701" xsi:schemaLocation="http://www.omg.org/spec/UML/20110701 http://www.eclipse.org/uml2/4.0.0/UML" xmlns:cmof="http://www.omg.org/spec/MOF/20110701/cmof.xmi">
+  <xmi:Documentation>
+      <xmi:exporter>MagicDraw Clean XMI Exporter</xmi:exporter>
+      <xmi:exporterVersion>17.0.4</xmi:exporterVersion>
+   </xmi:Documentation>
+  <xmi:Documentation>
+      <xmi:exporter>MagicDraw Clean XMI Exporter</xmi:exporter>
+      <xmi:exporterVersion>17.0.4</xmi:exporterVersion>
+   </xmi:Documentation>
+  <uml:Model xmi:id="_17_0_5_1_7b3022e_1401059698971_769852_42739" name="Data">
+    <packagedElement xmi:type="uml:Package" xmi:id="_17_0_5_1_7b3022e_1401062376843_373137_3753" name="GRAUML">
+      <packagedElement xmi:type="uml:Package" xmi:id="_17_0_5_1_7b3022e_1400902783881_406273_40692" name="GRAAnnotationModel">
+        <packagedElement xmi:type="uml:Enumeration" xmi:id="_17_0_5_1_7b3022e_1400902783892_397334_40717" name="ExchangePattern">
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1400902783946_289047_40808" name="Enquiery" enumeration="_17_0_5_1_7b3022e_1400902783892_397334_40717"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1400902783946_917909_40809" name="Subscription" enumeration="_17_0_5_1_7b3022e_1400902783892_397334_40717"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1400902783946_355652_40810" name="Notification" enumeration="_17_0_5_1_7b3022e_1400902783892_397334_40717"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1400902783946_43502_40811" name="Update" enumeration="_17_0_5_1_7b3022e_1400902783892_397334_40717"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1400902783946_231472_40812" name="Message" enumeration="_17_0_5_1_7b3022e_1400902783892_397334_40717"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1400906843667_83477_42546" memberEnd="_17_0_5_1_7b3022e_1400903940578_895132_41904 _17_0_5_1_7b3022e_1400906843667_932502_42547">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400906843667_932502_42547" visibility="private" type="_17_0_5_1_7b3022e_1401051410004_998136_40919" owningAssociation="_17_0_5_1_7b3022e_1400906843667_83477_42546" association="_17_0_5_1_7b3022e_1400906843667_83477_42546">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362729054_437795_4553"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362729054_703721_4554" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1400906845060_508826_42558" memberEnd="_17_0_5_1_7b3022e_1400903826348_875715_41868 _17_0_5_1_7b3022e_1400906845060_675376_42559">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400906845060_675376_42559" visibility="private" type="_17_0_5_1_7b3022e_1401051410004_998136_40919" owningAssociation="_17_0_5_1_7b3022e_1400906845060_508826_42558" association="_17_0_5_1_7b3022e_1400906845060_508826_42558">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362746554_207408_4561"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362746554_754841_4562" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1400906846347_339111_42570" memberEnd="_17_0_5_1_7b3022e_1400903726748_577014_41812 _17_0_5_1_7b3022e_1400906846347_610491_42571">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400906846347_610491_42571" visibility="private" type="_17_0_5_1_7b3022e_1401051410004_998136_40919" owningAssociation="_17_0_5_1_7b3022e_1400906846347_339111_42570" association="_17_0_5_1_7b3022e_1400906846347_339111_42570">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362696102_590707_4545"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362696102_771655_4546" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1400907175811_705108_42641" memberEnd="_17_0_5_1_7b3022e_1400903780204_987172_41840 _17_0_5_1_7b3022e_1400907175811_564093_42642">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400907175811_564093_42642" visibility="private" type="_17_0_5_1_7b3022e_1401051434960_675489_40997" owningAssociation="_17_0_5_1_7b3022e_1400907175811_705108_42641" association="_17_0_5_1_7b3022e_1400907175811_705108_42641">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363300706_420293_4647"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363300706_141813_4648" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1400907180275_402780_42653" memberEnd="_17_0_5_1_7b3022e_1400903800930_38126_41854 _17_0_5_1_7b3022e_1400907180275_329128_42654">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400907180275_329128_42654" visibility="private" type="_17_0_5_1_7b3022e_1401051404988_467521_40898" owningAssociation="_17_0_5_1_7b3022e_1400907180275_402780_42653" association="_17_0_5_1_7b3022e_1400907180275_402780_42653">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363219256_344283_4637"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363219256_847308_4638" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1400907182282_116594_42665" memberEnd="_17_0_5_1_7b3022e_1400903742844_185160_41826 _17_0_5_1_7b3022e_1400907182283_346967_42666">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400907182283_346967_42666" visibility="private" type="_17_0_5_1_7b3022e_1401051404988_467521_40898" owningAssociation="_17_0_5_1_7b3022e_1400907182282_116594_42665" association="_17_0_5_1_7b3022e_1400907182282_116594_42665">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363171550_675731_4629"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363171550_390737_4630" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401051383599_652379_40813" name="InteractionRequirements">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400902783939_737227_40782" name="ServiceConsumerAuthentication" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1400902783975_235153_40898" value="true"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400902783939_395479_40783" name="ServiceConsumerAuthorization" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1400902783976_368821_40899" value="true"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400902783940_145543_40784" name="IdentityAndAttributeAssertionTransmission" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1400902783976_616276_40900"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400902783940_910031_40785" name="ServiceAuthentication" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1400902783976_847557_40901"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400902783940_617129_40786" name="MessageNonrepudiation" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1400902783976_183876_40902" value="true"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400902783941_557981_40787" name="MessageIntegrity" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1400902783976_542380_40903" value="true"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400902783941_699006_40788" name="MessageConfidentiality" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1400902783976_510825_40904" value="true"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400902783941_280950_40789" name="MessageAddressing" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1400902783977_743767_40905" value="true"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400902783942_114415_40790" name="Reliability" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1400902783977_556587_40906" value="true"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400902783942_862632_40791" name="TransactionSupport" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1400902783977_294476_40907"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400902783942_550047_40792" name="ServiceMetadataAvailability" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1400902783977_734494_40908" value="true"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400902783942_126103_40793" name="InterfaceDescriptionRequirements" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1400902783977_308421_40909" value="true"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401051801866_427383_41085" name="Logging">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1401131228590_908068_6410"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401051831891_196249_41087" name="other_requirement" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401052495472_582449_41179"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401052495472_162893_41180" value="*"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401051392924_253328_40845" name="GRAServiceAnnotationBase" isAbstract="true">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400904768336_517227_41970" name="Template" visibility="public">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401923889142_284305_18223" annotatedElement="_17_0_5_1_7b3022e_1400904768336_517227_41970">
+              <body>Template is the name of an XSLT template that will be called to process the containing element thus overriding the default mapping.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401053528785_793482_41259"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401052178076_820828_41089" name="requirement" visibility="private" type="_17_0_5_1_7b3022e_1401051383599_652379_40813" aggregation="shared" association="_17_0_5_1_7b3022e_1401058186556_392884_41606">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401053520953_859797_41257"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401053429765_464148_41248" name="ModelReference" visibility="public" type="_17_0_5_1_7b3022e_1401053253162_156811_41210" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401053429772_56474_41251" annotatedElement="_17_0_5_1_7b3022e_1401053429765_464148_41248">
+              <body>Reference to model elements specifying this element. Notated as a realization in the UML model.</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401053429772_606468_41252" annotatedElement="_17_0_5_1_7b3022e_1401053429765_464148_41248">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401056776112_694104_41413"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401053429770_369739_41249" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400903501348_281023_41806" name="flag" visibility="public">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401923965241_917860_18224" annotatedElement="_17_0_5_1_7b3022e_1400903501348_281023_41806">
+              <body>Flag provides an arbitrary extension mechanism where by any business or technology choice may be notated on the containing element. The intent is that the phase-2 transform will then respect these flags and produce the desired result. Unkown flags are ignored.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1400903509548_260487_41808"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1400903509548_452145_41809" value="*"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401051398785_514355_40867" name="Participant">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401059625396_695972_41789" annotatedElement="_17_0_5_1_7b3022e_1401051398785_514355_40867">
+            <body>Realizes Actor</body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401051486338_456776_41043" general="_17_0_5_1_7b3022e_1401127273589_771970_4040" specific="_17_0_5_1_7b3022e_1401051398785_514355_40867"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401051404988_467521_40898" name="Interface">
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401051520401_423397_41049" general="_17_0_5_1_7b3022e_1401051392924_253328_40845" specific="_17_0_5_1_7b3022e_1401051404988_467521_40898"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400903742844_185160_41826" name="operation" visibility="private" type="_17_0_5_1_7b3022e_1401051434960_675489_40997" aggregation="shared" association="_17_0_5_1_7b3022e_1400907182282_116594_42665">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363167670_192157_4625"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363167670_414167_4626" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400903800930_38126_41854" name="message_default" visibility="private" type="_17_0_5_1_7b3022e_1401051440740_460885_41018" aggregation="shared" association="_17_0_5_1_7b3022e_1400907180275_402780_42653">
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401913310757_385584_3782"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363215146_764006_4634" value="*"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401051410004_998136_40919" name="Service">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401059645169_489979_41790" annotatedElement="_17_0_5_1_7b3022e_1401051410004_998136_40919">
+            <body>Realizes component</body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401051512193_571465_41046" general="_17_0_5_1_7b3022e_1401051398785_514355_40867" specific="_17_0_5_1_7b3022e_1401051410004_998136_40919"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400903726748_577014_41812" name="interface_default" visibility="private" type="_17_0_5_1_7b3022e_1401051404988_467521_40898" aggregation="shared" association="_17_0_5_1_7b3022e_1400906846347_339111_42570">
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401913052910_254724_3773"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362692598_254098_4542" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400903826348_875715_41868" name="message_default" visibility="private" type="_17_0_5_1_7b3022e_1401051440740_460885_41018" aggregation="shared" association="_17_0_5_1_7b3022e_1400906845060_508826_42558">
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401913304502_555002_3780"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362742854_539320_4558" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400903940578_895132_41904" name="operation_default" visibility="private" type="_17_0_5_1_7b3022e_1401051434960_675489_40997" aggregation="shared" association="_17_0_5_1_7b3022e_1400906843667_83477_42546">
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401913063446_2724_3776"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362726074_896171_4550" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401052339764_412664_41137" name="port" visibility="private" type="_17_0_5_1_7b3022e_1401052273434_333683_41098" aggregation="shared" association="_17_0_5_1_7b3022e_1401052345021_112937_41139">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362651228_578717_4533"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362651228_254795_4534" value="*"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401051434960_675489_40997" name="Operation">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401128319355_301248_6253" annotatedElement="_17_0_5_1_7b3022e_1401051434960_675489_40997">
+            <body>A data structure representing a services action information
+[Realizes] Operation</body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401051527817_27973_41053" general="_17_0_5_1_7b3022e_1401051392924_253328_40845" specific="_17_0_5_1_7b3022e_1401051434960_675489_40997"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400903780204_987172_41840" name="message" visibility="private" type="_17_0_5_1_7b3022e_1401051440740_460885_41018" aggregation="shared" association="_17_0_5_1_7b3022e_1400907175811_705108_42641">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363297504_936582_4643"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363297504_247003_4644" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400904487970_527593_41952" name="MessageExchangePattern" visibility="private" type="_17_0_5_1_7b3022e_1400902783892_397334_40717"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401058931848_549036_41646" name="isAsyncronous" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401058936272_866957_41649" annotatedElement="_17_0_5_1_7b3022e_1401058931848_549036_41646">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401058936272_506598_41650" annotatedElement="_17_0_5_1_7b3022e_1401058931848_549036_41646">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401058936271_164076_41648"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273635_739320_4159" name="ActionName" aggregation="composite" isDerived="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273704_300813_4426" annotatedElement="_17_0_5_1_7b3022e_1401127273635_739320_4159">
+              <body>A service action performed within this service interface.
+[Derived from] Operation name</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273635_759118_4160" name="ActionPurpose" aggregation="composite" isDerived="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273705_359081_4430" annotatedElement="_17_0_5_1_7b3022e_1401127273635_759118_4160">
+              <body>A description of the Service Action purpose performed by this service interface.
+[Derived from] Operation description</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401051440740_460885_41018" name="Message">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401132861079_85557_17585" annotatedElement="_17_0_5_1_7b3022e_1401051440740_460885_41018">
+            <body>[Derived from class]</body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401051535290_365584_41056" general="_17_0_5_1_7b3022e_1401051392924_253328_40845" specific="_17_0_5_1_7b3022e_1401051440740_460885_41018"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401063025286_26396_3795" name="use" visibility="public" type="_17_0_5_1_7b3022e_1401062938522_341571_3768" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401063025294_285756_3798" annotatedElement="_17_0_5_1_7b3022e_1401063025286_26396_3795">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401063025294_827615_3799" annotatedElement="_17_0_5_1_7b3022e_1401063025286_26396_3795">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401063025293_215956_3797"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401065247507_17662_4435" name="type" visibility="public" type="_17_0_5_1_7b3022e_1401053253162_156811_41210" aggregation="shared" association="_17_0_5_1_7b3022e_1401065247506_678319_4434">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401065247513_141450_4443" annotatedElement="_17_0_5_1_7b3022e_1401065247507_17662_4435">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401065257211_425876_4446"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401052273434_333683_41098" name="Port">
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401052300409_915030_41122" general="_17_0_5_1_7b3022e_1401051392924_253328_40845" specific="_17_0_5_1_7b3022e_1401052273434_333683_41098"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401052313364_946902_41123" name="interface" visibility="private" type="_17_0_5_1_7b3022e_1401051404988_467521_40898" aggregation="shared" association="_17_0_5_1_7b3022e_1401052318188_316322_41125">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363061416_102059_4601"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363061416_731218_4602" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401052419171_863760_41151" name="operation_default" visibility="private" type="_17_0_5_1_7b3022e_1401051434960_675489_40997" aggregation="shared" association="_17_0_5_1_7b3022e_1401052430580_909552_41155">
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401913059422_682151_3775"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363097256_493038_4610" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401052425999_504396_41153" name="message_default" visibility="private" type="_17_0_5_1_7b3022e_1401051440740_460885_41018" aggregation="shared" association="_17_0_5_1_7b3022e_1401052431940_736708_41167">
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401913307526_57284_3781"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363124420_39140_4618" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400904168110_934267_41921" name="AddressURI" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-anyURI"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1400904168111_24527_41923"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401052318188_316322_41125" memberEnd="_17_0_5_1_7b3022e_1401052313364_946902_41123 _17_0_5_1_7b3022e_1401052318188_705329_41126">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401052318188_705329_41126" visibility="private" type="_17_0_5_1_7b3022e_1401052273434_333683_41098" owningAssociation="_17_0_5_1_7b3022e_1401052318188_316322_41125" association="_17_0_5_1_7b3022e_1401052318188_316322_41125">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363066006_411109_4605"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363066006_371092_4606" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401052345021_112937_41139" memberEnd="_17_0_5_1_7b3022e_1401052339764_412664_41137 _17_0_5_1_7b3022e_1401052345021_543374_41140">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401052345021_543374_41140" visibility="private" type="_17_0_5_1_7b3022e_1401051410004_998136_40919" owningAssociation="_17_0_5_1_7b3022e_1401052345021_112937_41139" association="_17_0_5_1_7b3022e_1401052345021_112937_41139">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362654808_25058_4537"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362654808_282703_4538" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401052430580_909552_41155" memberEnd="_17_0_5_1_7b3022e_1401052419171_863760_41151 _17_0_5_1_7b3022e_1401052430580_782928_41156">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401052430580_782928_41156" visibility="private" type="_17_0_5_1_7b3022e_1401052273434_333683_41098" owningAssociation="_17_0_5_1_7b3022e_1401052430580_909552_41155" association="_17_0_5_1_7b3022e_1401052430580_909552_41155">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363104306_755482_4613"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363104306_356084_4614" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401052431940_736708_41167" memberEnd="_17_0_5_1_7b3022e_1401052425999_504396_41153 _17_0_5_1_7b3022e_1401052431940_575519_41168">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401052431940_575519_41168" visibility="private" type="_17_0_5_1_7b3022e_1401052273434_333683_41098" owningAssociation="_17_0_5_1_7b3022e_1401052431940_736708_41167" association="_17_0_5_1_7b3022e_1401052431940_736708_41167">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363130380_929014_4621"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363130380_831834_4622" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401053253162_156811_41210" name="ModelReference">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401053598741_137350_41261" annotatedElement="_17_0_5_1_7b3022e_1401053253162_156811_41210">
+            <body>Model references are generated based on a realization or QVT logic.</body>
+          </ownedComment>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401053278043_538609_41230" name="Name" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401053302713_767810_41233" annotatedElement="_17_0_5_1_7b3022e_1401053278043_538609_41230">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401053302713_280739_41234" annotatedElement="_17_0_5_1_7b3022e_1401053278043_538609_41230">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401053758171_476705_41262" name="Documentation" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401053764525_254387_41265" annotatedElement="_17_0_5_1_7b3022e_1401053758171_476705_41262">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401053764526_515210_41266" annotatedElement="_17_0_5_1_7b3022e_1401053758171_476705_41262">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401053764524_4954_41264"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401053764524_693058_41263" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401053379723_120831_41242" name="ElementID" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401053386936_712186_41245" annotatedElement="_17_0_5_1_7b3022e_1401053379723_120831_41242">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401053386936_729376_41246" annotatedElement="_17_0_5_1_7b3022e_1401053379723_120831_41242">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401053797412_598561_41268" name="DiagramLink" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401053802045_294873_41271" annotatedElement="_17_0_5_1_7b3022e_1401053797412_598561_41268">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401053802045_589950_41272" annotatedElement="_17_0_5_1_7b3022e_1401053797412_598561_41268">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-anyURI"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401053802044_16651_41270"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401053802044_70994_41269" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401148887736_283205_4005" name="Model" visibility="public" type="_17_0_5_1_7b3022e_1401148847752_772560_3979" association="_17_0_5_1_7b3022e_1401148887736_331160_4004">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401148887764_554113_4013" annotatedElement="_17_0_5_1_7b3022e_1401148887736_283205_4005">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363419356_992621_4655"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401054376596_258772_41325" memberEnd="_17_0_5_1_7b3022e_1401054367636_805419_41319 _17_0_5_1_7b3022e_1401054376596_523047_41326">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401054376596_523047_41326" visibility="private" type="_17_0_5_1_7b3022e_1401057189298_514542_41501" owningAssociation="_17_0_5_1_7b3022e_1401054376596_258772_41325" association="_17_0_5_1_7b3022e_1401054376596_258772_41325">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362451310_858942_4509"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362451310_823552_4510" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401054583938_123597_41356" name="ServiceInteraction">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401128111910_251809_6232" annotatedElement="_17_0_5_1_7b3022e_1401054583938_123597_41356">
+            <body>Exchanges between parties as an interaction diagram</body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401054725553_226543_41378" general="_17_0_5_1_7b3022e_1401051392924_253328_40845" specific="_17_0_5_1_7b3022e_1401054583938_123597_41356"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401128080254_834760_6221" name="participant" visibility="public" type="_17_0_5_1_7b3022e_1401051398785_514355_40867" association="_17_0_5_1_7b3022e_1401128080253_157963_6220">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401128080287_632639_6229" annotatedElement="_17_0_5_1_7b3022e_1401128080254_834760_6221">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362487424_717095_4517"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362487424_782920_4518" value="*"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401057189298_514542_41501" name="UseCase">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401130026148_803003_6287" annotatedElement="_17_0_5_1_7b3022e_1401057189298_514542_41501">
+            <body>[Derived from] Use case or package with use cases</body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401057238329_868072_41528" general="_17_0_5_1_7b3022e_1401051392924_253328_40845" specific="_17_0_5_1_7b3022e_1401057189298_514542_41501"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401054367636_805419_41319" name="provider" visibility="public" type="_17_0_5_1_7b3022e_1401051398785_514355_40867" association="_17_0_5_1_7b3022e_1401054376596_258772_41325">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401054367648_460398_41322" annotatedElement="_17_0_5_1_7b3022e_1401054367636_805419_41319">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401054367648_522579_41323" annotatedElement="_17_0_5_1_7b3022e_1401054367636_805419_41319">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401059288420_732309_41704"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401054367646_522332_41320" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401059265362_609678_41693" name="consumer" visibility="public" type="_17_0_5_1_7b3022e_1401051398785_514355_40867" association="_17_0_5_1_7b3022e_1401059265362_413891_41692">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401059265372_24_41701" annotatedElement="_17_0_5_1_7b3022e_1401059265362_609678_41693">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401059291642_64567_41705"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401059291642_891746_41706" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_18_0beta_2aa0151_1401687948143_72560_4898" name="RealWorldEffectDescriptionText" visibility="public" aggregation="composite" isDerived="true">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401687960963_539517_4900"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401687960963_657185_4901" value="*"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401058186556_392884_41606" memberEnd="_17_0_5_1_7b3022e_1401052178076_820828_41089 _17_0_5_1_7b3022e_1401058186556_789085_41607">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401058186556_789085_41607" visibility="private" type="_17_0_5_1_7b3022e_1401051392924_253328_40845" owningAssociation="_17_0_5_1_7b3022e_1401058186556_392884_41606" association="_17_0_5_1_7b3022e_1401058186556_392884_41606">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362018028_762629_4431"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362018028_403017_4432" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401059265362_413891_41692" memberEnd="_17_0_5_1_7b3022e_1401059265362_327725_41694 _17_0_5_1_7b3022e_1401059265362_609678_41693">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401059265362_327725_41694" visibility="public" type="_17_0_5_1_7b3022e_1401057189298_514542_41501" owningAssociation="_17_0_5_1_7b3022e_1401059265362_413891_41692" association="_17_0_5_1_7b3022e_1401059265362_413891_41692">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362471564_687589_4513"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362471564_917067_4514" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Enumeration" xmi:id="_17_0_5_1_7b3022e_1401062938522_341571_3768" name="MessageUse">
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1401062955810_975553_3787" name="in" enumeration="_17_0_5_1_7b3022e_1401062938522_341571_3768"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1401062983129_345706_3789" name="out" enumeration="_17_0_5_1_7b3022e_1401062938522_341571_3768"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1401062990433_296956_3791" name="inout" enumeration="_17_0_5_1_7b3022e_1401062938522_341571_3768"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1401063001386_637101_3793" name="exception" enumeration="_17_0_5_1_7b3022e_1401062938522_341571_3768"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401065247506_678319_4434" memberEnd="_17_0_5_1_7b3022e_1401065247507_582744_4436 _17_0_5_1_7b3022e_1401065247507_17662_4435">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401065247507_582744_4436" visibility="public" type="_17_0_5_1_7b3022e_1401051440740_460885_41018" owningAssociation="_17_0_5_1_7b3022e_1401065247506_678319_4434" association="_17_0_5_1_7b3022e_1401065247506_678319_4434">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363385070_245854_4651"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363385070_906482_4652" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401128080253_157963_6220" memberEnd="_17_0_5_1_7b3022e_1401128080254_795660_6222 _17_0_5_1_7b3022e_1401128080254_834760_6221">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401128080254_795660_6222" visibility="public" type="_17_0_5_1_7b3022e_1401054583938_123597_41356" owningAssociation="_17_0_5_1_7b3022e_1401128080253_157963_6220" association="_17_0_5_1_7b3022e_1401128080253_157963_6220">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362507434_591323_4521"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362507434_209533_4522" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273595_813884_4061" memberEnd="_17_0_5_1_7b3022e_1401127273655_439401_4229 _17_0_5_1_7b3022e_1401127273652_472644_4218">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273655_439401_4229" type="_17_0_5_1_7b3022e_1401127273595_141268_4060" owningAssociation="_17_0_5_1_7b3022e_1401127273595_813884_4061" association="_17_0_5_1_7b3022e_1401127273595_813884_4061">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363599023_143484_4675"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363599023_937549_4676" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401128150261_240886_6237" memberEnd="_17_0_5_1_7b3022e_1401128150262_79506_6239 _17_0_5_1_7b3022e_1401128150261_75246_6238">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401128150262_79506_6239" visibility="public" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401128150261_240886_6237" association="_17_0_5_1_7b3022e_1401128150261_240886_6237">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362390784_264147_4505"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362390784_174508_4506" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1400904263706_412981_41929" memberEnd="_17_0_5_1_7b3022e_1400904255101_886075_41927 _17_0_5_1_7b3022e_1400904263707_371038_41930">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400904263707_371038_41930" visibility="private" type="_17_0_5_1_7b3022e_1401127273593_489373_4055" owningAssociation="_17_0_5_1_7b3022e_1400904263706_412981_41929" association="_17_0_5_1_7b3022e_1400904263706_412981_41929">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362529998_295071_4529"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362529998_64920_4530" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273594_98101_4057" memberEnd="_17_0_5_1_7b3022e_1401127273649_148216_4207 _17_0_5_1_7b3022e_1401127273648_9359_4202">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273649_148216_4207" type="_17_0_5_1_7b3022e_1401127273593_489373_4055" owningAssociation="_17_0_5_1_7b3022e_1401127273594_98101_4057" association="_17_0_5_1_7b3022e_1401127273594_98101_4057">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363011020_692375_4589"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363011020_462974_4590" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273589_605761_4042" memberEnd="_17_0_5_1_7b3022e_1401127273633_545197_4154 _17_0_5_1_7b3022e_1401127273631_978952_4148">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273633_545197_4154" type="_17_0_5_1_7b3022e_1401127273589_771970_4040" owningAssociation="_17_0_5_1_7b3022e_1401127273589_605761_4042" association="_17_0_5_1_7b3022e_1401127273589_605761_4042"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273598_595206_4071" memberEnd="_17_0_5_1_7b3022e_1401127273640_31884_4173 _17_0_5_1_7b3022e_1401127273661_155707_4250">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273661_155707_4250" visibility="private" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401127273598_595206_4071" association="_17_0_5_1_7b3022e_1401127273598_595206_4071">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362082716_976617_4441"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362082716_717141_4442" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1400906869820_117788_42582" memberEnd="_17_0_5_1_7b3022e_1400906751720_500487_42537 _17_0_5_1_7b3022e_1400906869820_617901_42583">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400906869820_617901_42583" visibility="private" type="_17_0_5_1_7b3022e_1401127273593_489373_4055" owningAssociation="_17_0_5_1_7b3022e_1400906869820_117788_42582" association="_17_0_5_1_7b3022e_1400906869820_117788_42582"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273596_512854_4062" memberEnd="_17_0_5_1_7b3022e_1401127273655_418251_4230 _17_0_5_1_7b3022e_1401127273652_631780_4217">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273655_418251_4230" type="_17_0_5_1_7b3022e_1401127273595_141268_4060" owningAssociation="_17_0_5_1_7b3022e_1401127273596_512854_4062" association="_17_0_5_1_7b3022e_1401127273596_512854_4062">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363573227_269822_4669"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363573227_103848_4670" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273596_184451_4064" memberEnd="_17_0_5_1_7b3022e_1401127273656_860009_4232 _17_0_5_1_7b3022e_1401127273653_966452_4221">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273656_860009_4232" type="_17_0_5_1_7b3022e_1401127273595_141268_4060" owningAssociation="_17_0_5_1_7b3022e_1401127273596_184451_4064" association="_17_0_5_1_7b3022e_1401127273596_184451_4064">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363620635_194318_4681"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363620635_972369_4682" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1400906871355_666343_42594" memberEnd="_17_0_5_1_7b3022e_1400906751720_29926_42536 _17_0_5_1_7b3022e_1400906871355_54513_42595">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400906871355_54513_42595" visibility="private" type="_17_0_5_1_7b3022e_1401127273593_489373_4055" owningAssociation="_17_0_5_1_7b3022e_1400906871355_666343_42594" association="_17_0_5_1_7b3022e_1400906871355_666343_42594">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362941566_435028_4585"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362941566_498674_4586" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401057254487_705344_41533" memberEnd="_17_0_5_1_7b3022e_1401057254488_433293_41535 _17_0_5_1_7b3022e_1401057254487_78432_41534">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401057254488_433293_41535" visibility="public" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401057254487_705344_41533" association="_17_0_5_1_7b3022e_1401057254487_705344_41533">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362366664_843444_4501"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362366664_312590_4502" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273597_625773_4066" memberEnd="_17_0_5_1_7b3022e_1401127273660_204346_4244 _17_0_5_1_7b3022e_1401127273641_805134_4174">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273660_204346_4244" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401127273597_625773_4066" association="_17_0_5_1_7b3022e_1401127273597_625773_4066">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362163129_465673_4459"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362163129_214499_4460" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401052702683_505110_41185" memberEnd="_17_0_5_1_7b3022e_1401052698948_696998_41183 _17_0_5_1_7b3022e_1401052702683_605260_41186">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401052702683_605260_41186" visibility="private" type="_17_0_5_1_7b3022e_1401127273593_489373_4055" owningAssociation="_17_0_5_1_7b3022e_1401052702683_505110_41185" association="_17_0_5_1_7b3022e_1401052702683_505110_41185">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362778610_934045_4569"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362778610_170538_4570" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273587_249558_4036" memberEnd="_17_0_5_1_7b3022e_1401127273627_29561_4132 _17_0_5_1_7b3022e_1401127273627_510286_4133">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273627_29561_4132" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401127273587_249558_4036" association="_17_0_5_1_7b3022e_1401127273587_249558_4036">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362341544_748200_4495"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362341544_669560_4496" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273592_462156_4053" memberEnd="_17_0_5_1_7b3022e_1401127273646_561727_4194 _17_0_5_1_7b3022e_1401127273640_62833_4172">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273646_561727_4194" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401127273592_462156_4053" association="_17_0_5_1_7b3022e_1401127273592_462156_4053">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362135645_960329_4453"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362135645_815337_4454" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273594_2626_4059" memberEnd="_17_0_5_1_7b3022e_1401127273650_75336_4209 _17_0_5_1_7b3022e_1401127273648_359818_4203">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273650_75336_4209" type="_17_0_5_1_7b3022e_1401127273593_489373_4055" owningAssociation="_17_0_5_1_7b3022e_1401127273594_2626_4059" association="_17_0_5_1_7b3022e_1401127273594_2626_4059">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363031020_672416_4595"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363031020_405717_4596" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273596_463942_4063" memberEnd="_17_0_5_1_7b3022e_1401127273656_203269_4231 _17_0_5_1_7b3022e_1401127273651_57131_4216">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273656_203269_4231" type="_17_0_5_1_7b3022e_1401127273595_141268_4060" owningAssociation="_17_0_5_1_7b3022e_1401127273596_463942_4063" association="_17_0_5_1_7b3022e_1401127273596_463942_4063">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363556937_295469_4663"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363556937_353785_4664" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1400906872611_449500_42606" memberEnd="_17_0_5_1_7b3022e_1400906751719_500457_42535 _17_0_5_1_7b3022e_1400906872611_878000_42607">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400906872611_878000_42607" visibility="private" type="_17_0_5_1_7b3022e_1401127273593_489373_4055" owningAssociation="_17_0_5_1_7b3022e_1400906872611_449500_42606" association="_17_0_5_1_7b3022e_1400906872611_449500_42606">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362825015_414590_4577"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362825015_322642_4578" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273598_348308_4068" memberEnd="_17_0_5_1_7b3022e_1401127273660_77815_4246 _17_0_5_1_7b3022e_1401127273642_175249_4177">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273660_77815_4246" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401127273598_348308_4068" association="_17_0_5_1_7b3022e_1401127273598_348308_4068">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362289320_121206_4483"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362289320_460848_4484" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273591_331751_4048" memberEnd="_17_0_5_1_7b3022e_1401127273644_844561_4185 _17_0_5_1_7b3022e_1401127273639_410067_4169">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273644_844561_4185" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401127273591_331751_4048" association="_17_0_5_1_7b3022e_1401127273591_331751_4048">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362100012_723468_4447"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362100012_718278_4448" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273592_475763_4052" memberEnd="_17_0_5_1_7b3022e_1401127273646_541465_4193 _17_0_5_1_7b3022e_1401127273640_632273_4171">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273646_541465_4193" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401127273592_475763_4052" association="_17_0_5_1_7b3022e_1401127273592_475763_4052">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362052762_455605_4435"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362052762_48498_4436" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273597_18118_4067" memberEnd="_17_0_5_1_7b3022e_1401127273660_136544_4245 _17_0_5_1_7b3022e_1401127273642_162060_4176">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273660_136544_4245" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401127273597_18118_4067" association="_17_0_5_1_7b3022e_1401127273597_18118_4067">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362310390_258998_4489"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362310390_802_4490" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401127273598_31911_4069" memberEnd="_17_0_5_1_7b3022e_1401127273661_38753_4247 _17_0_5_1_7b3022e_1401127273641_337764_4175">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273661_38753_4247" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401127273598_31911_4069" association="_17_0_5_1_7b3022e_1401127273598_31911_4069">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362190869_100174_4465"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362190869_473480_4466" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273583_49570_4029" name="Agreement">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273613_811360_4094" annotatedElement="_17_0_5_1_7b3022e_1401127273583_49570_4029">
+            <body>A data structure representing an agreement, formal or informal, associated with a service, application or thing, tangible or otherwise.</body>
+          </ownedComment>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273614_601327_4095" name="AgreementDescriptionText" aggregation="composite" isDerived="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273678_508189_4253" annotatedElement="_17_0_5_1_7b3022e_1401127273614_601327_4095">
+              <body>A free text description of an agreement, formal or informal, associated with a service, application or thing, tangible or otherwise.
+[Derived from] Element Documentation</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273678_862015_4254"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273614_530481_4096" name="AgreementURI" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273679_251034_4257" annotatedElement="_17_0_5_1_7b3022e_1401127273614_530481_4096">
+              <body>A locator referencing an agreement, formal or informal, associated with a service, application or thing, tangible or otherwise.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-anyURI"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273679_200418_4258"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273589_426758_4039" name="EntityType">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273629_152375_4138" annotatedElement="_17_0_5_1_7b3022e_1401127273589_426758_4039">
+            <body>A data structure representing either a person or an organization.</body>
+          </ownedComment>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273629_904623_4139" name="choice_1" type="_17_0_5_1_7b3022e_1401127273629_982479_4140"/>
+          <nestedClassifier xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273629_982479_4140" name="choice_1">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273697_719482_4370" name="Organization" type="_17_0_5_1_7b3022e_1401127273589_771970_4040" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273697_781852_4371" name="Person" type="_17_0_5_1_7b3022e_1401127273589_835678_4041" aggregation="composite"/>
+          </nestedClassifier>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273590_713235_4043" name="IEPDReference">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273634_391641_4155" annotatedElement="_17_0_5_1_7b3022e_1401127273590_713235_4043">
+            <body>A data structure describing the name and location of an IEPD.</body>
+          </ownedComment>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273634_32506_4156" name="IEPDName" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273703_452309_4418" annotatedElement="_17_0_5_1_7b3022e_1401127273634_32506_4156">
+              <body>A human readable identification of the IEPD</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273703_244_4417" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273634_105768_4157" name="IEPDURL" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273704_918051_4422" annotatedElement="_17_0_5_1_7b3022e_1401127273634_105768_4157">
+              <body>A URL where the IEPD is posted and available.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-anyURI"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273704_523784_4421" value="*"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273589_771970_4040" name="Organization">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273630_955379_4141" annotatedElement="_17_0_5_1_7b3022e_1401127273589_771970_4040">
+            <body>A data structure describing a body of people grouped together for a common purpose.</body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401128987182_103624_6274" general="_17_0_5_1_7b3022e_1401051392924_253328_40845" specific="_17_0_5_1_7b3022e_1401127273589_771970_4040"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273630_361020_4142" name="OrganizationName" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273698_180352_4374" annotatedElement="_17_0_5_1_7b3022e_1401127273630_361020_4142">
+              <body>A full name of the agency.
+[Derived from] Element Name</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273630_334630_4143" name="OrganizationAcronym" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273698_26077_4378" annotatedElement="_17_0_5_1_7b3022e_1401127273630_334630_4143">
+              <body>An acronym for the agency.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273699_453550_4379"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273630_971789_4144" name="OrganizationFullAddressText" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273699_205357_4382" annotatedElement="_17_0_5_1_7b3022e_1401127273630_971789_4144">
+              <body>A physical address of an agency in full text form.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273699_246828_4383"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273631_303440_4145" name="OrganizationWebSiteURL" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273699_813430_4386" annotatedElement="_17_0_5_1_7b3022e_1401127273631_303440_4145">
+              <body>An internet address of the agency's web site.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-anyURI"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273699_55923_4387"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273631_586518_4146" name="OrganizationRoleDescriptionText" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273700_397970_4390" annotatedElement="_17_0_5_1_7b3022e_1401127273631_586518_4146">
+              <body>An organizations role defined in free form text. Examples could be creator, provider, owner, maintainer, authorities source, etc.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273631_327727_4147" name="OrganizationRoleDetailedDescriptionText" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273700_27885_4394" annotatedElement="_17_0_5_1_7b3022e_1401127273631_327727_4147">
+              <body>A very detailed textual explanation of the role and responsibilities of an organization.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273701_716951_4395"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273631_978952_4148" name="OrganizationPointOfContact" type="_17_0_5_1_7b3022e_1401127273589_835678_4041" aggregation="composite" association="_17_0_5_1_7b3022e_1401127273589_605761_4042">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273701_307771_4398" annotatedElement="_17_0_5_1_7b3022e_1401127273631_978952_4148">
+              <body>A person designated as the point of contact for an organization.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273701_450334_4399"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273589_835678_4041" name="Person">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273632_912876_4149" annotatedElement="_17_0_5_1_7b3022e_1401127273589_835678_4041">
+            <body>A data structure describing a persons name and the means to contact that person.</body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401130627982_598761_6361" general="_17_0_5_1_7b3022e_1401051392924_253328_40845" specific="_17_0_5_1_7b3022e_1401127273589_835678_4041"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273632_922776_4150" name="ContactPersonName" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273701_830370_4402" annotatedElement="_17_0_5_1_7b3022e_1401127273632_922776_4150">
+              <body>A name of a person designated as a point of contact.
+[Derived from] Element Name</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273632_623335_4151" name="ContactPersonEmailID" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273702_525186_4406" annotatedElement="_17_0_5_1_7b3022e_1401127273632_623335_4151">
+              <body>An Email of a person.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273702_321743_4407"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273633_647756_4152" name="ContactPersonPhoneNumberID" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273702_983493_4410" annotatedElement="_17_0_5_1_7b3022e_1401127273633_647756_4152">
+              <body>A phone number of the person designated as the point of contact for the organization.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273633_462555_4153" name="ContactPersonAddress" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273703_118288_4414" annotatedElement="_17_0_5_1_7b3022e_1401127273633_462555_4153">
+              <body>A physical address of a person in full text form.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273703_937859_4415"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273598_980447_4070" name="SecurityClassification">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273661_763330_4248" name="SecurityClassificationText" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273734_164974_4673" annotatedElement="_17_0_5_1_7b3022e_1401127273661_763330_4248">
+              <body>Any applicable classification of the security level of the information exchanged by the service, such as SBU, Secret, etc. If there is no strict classification this field can contain a brief statement regarding the security of the data.
+[Derived from] Security Classification Name</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273734_960746_4674"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273591_486457_4047" name="ServiceCapability">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273644_611122_4183" annotatedElement="_17_0_5_1_7b3022e_1401127273591_486457_4047">
+            <body>A free text format description of the capability provided by a service.</body>
+          </ownedComment>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273644_33502_4184" name="CapabilityDescriptionText" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273713_666920_4500" annotatedElement="_17_0_5_1_7b3022e_1401127273644_33502_4184">
+              <body>A free text format description of the capability provided by a service.
+[Derived from] Element Documentation</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273590_234409_4045" name="ServiceDescription">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273637_74576_4163" annotatedElement="_17_0_5_1_7b3022e_1401127273590_234409_4045">
+            <body>A data structure representing the details describing a service.
+[Realizes] Collaboration
+[Uses] IEPD</body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401127273637_469574_4162" general="_17_0_5_1_7b3022e_1401127273592_109022_4051" specific="_17_0_5_1_7b3022e_1401127273590_234409_4045"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273638_723522_4167" name="ServiceDescription" type="_17_0_5_1_7b3022e_1401147807059_408002_3898" aggregation="shared" association="_17_0_5_1_7b3022e_1401148061140_907010_3932">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273707_557927_4450" annotatedElement="_17_0_5_1_7b3022e_1401127273638_723522_4167">
+              <body>A human readable narrative description of this service—may contain as much detail as you think useful to those with a potential interest in this service and its business usage/application.
+[Derived from] Element Documentation</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273707_975774_4451"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273627_510286_4133" name="ExchangePartner" type="_17_0_5_1_7b3022e_1401051398785_514355_40867" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273587_249558_4036">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273695_844486_4357" annotatedElement="_17_0_5_1_7b3022e_1401127273627_510286_4133">
+              <body>A collection of the types/categories of organizations that would commonly use a service.
+[Derived from] Role in collaboration</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273695_551150_4358"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273695_91653_4356" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273626_891598_4130" name="Classification" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273694_333194_4349" annotatedElement="_17_0_5_1_7b3022e_1401127273626_891598_4130">
+              <body>A collection of classifications defining the relationship between a service and an applicable enterprise architecture and business reference model.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273694_608461_4350"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273628_562114_4137" name="Sponsors" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273696_879234_4365" annotatedElement="_17_0_5_1_7b3022e_1401127273628_562114_4137">
+              <body>A collection of professional or governmental organization(s) or person that sponsored, contributed, or participated in the development of a service.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273696_768836_4366"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273637_311313_4164" name="ServicePurpose" type="_17_0_5_1_7b3022e_1401147807059_408002_3898" aggregation="shared" association="_17_0_5_1_7b3022e_1401148066516_237505_3946">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273705_832866_4438" annotatedElement="_17_0_5_1_7b3022e_1401127273637_311313_4164">
+              <body>A purpose which the service intends or resolves, to perform or accomplish.</body>
+            </ownedComment>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273637_611507_4165" name="ServiceScopeDescription" type="_17_0_5_1_7b3022e_1401147807059_408002_3898" aggregation="shared" association="_17_0_5_1_7b3022e_1401148074555_250137_3960">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273706_242757_4442" annotatedElement="_17_0_5_1_7b3022e_1401127273637_611507_4165">
+              <body>A definition of the scope of a service.</body>
+            </ownedComment>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273638_36333_4166" name="ServiceDescriptionSummaryText" type="_17_0_5_1_7b3022e_1401127273591_178774_4046" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273706_760561_4446" annotatedElement="_17_0_5_1_7b3022e_1401127273638_36333_4166">
+              <body>A brief summary of this service for short display purposes.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273707_561162_4447"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273639_117331_4168" name="ServiceDescriptionKeywordText" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273707_842354_4454" annotatedElement="_17_0_5_1_7b3022e_1401127273639_117331_4168">
+              <body>A search term that would not otherwise be in other metadata attributes (e.g., Child Support Warrant, Domestic Relations Warrant, Domestics).</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273707_459671_4455"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273707_840840_4453" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273639_410067_4169" name="ServiceCapabilities" type="_17_0_5_1_7b3022e_1401127273591_486457_4047" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273591_331751_4048">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273708_371731_4458" annotatedElement="_17_0_5_1_7b3022e_1401127273639_410067_4169">
+              <body>An enumeration of the capabilities provided by a service. The capabilities will be described in a free text format.</body>
+            </ownedComment>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273708_35828_4457" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273640_632273_4171" name="ServiceDependency" type="_17_0_5_1_7b3022e_1401127273592_109022_4051" association="_17_0_5_1_7b3022e_1401127273592_475763_4052">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273708_282422_4466" annotatedElement="_17_0_5_1_7b3022e_1401127273640_632273_4171">
+              <body>A specific service upon which a service directly depends to deliver its real world effects.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273709_123180_4467"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273708_44469_4465" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273640_62833_4172" name="IEPDReference" type="_17_0_5_1_7b3022e_1401127273590_713235_4043" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273592_462156_4053">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273709_302607_4470" annotatedElement="_17_0_5_1_7b3022e_1401127273640_62833_4172">
+              <body>A set or reference information identifying an Information Exchange Package Document which the service uses in its data model
+[Derived from] &lt;Uses> relation to IEPD</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273709_560850_4471"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273709_41738_4469" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273640_31884_4173" name="ServiceSecurityClassification" visibility="private" type="_17_0_5_1_7b3022e_1401127273598_980447_4070" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273598_595206_4071">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273710_669900_4474"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273641_805134_4174" name="Version" type="_17_0_5_1_7b3022e_1401127273597_109776_4065" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273597_625773_4066">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273710_458289_4476" annotatedElement="_17_0_5_1_7b3022e_1401127273641_805134_4174">
+              <body>A structured representation of a version for something, such as a service, document, etc.</body>
+            </ownedComment>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273641_337764_4175" name="ServiceLevelAgreement" type="_17_0_5_1_7b3022e_1401127273595_141268_4060" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273598_31911_4069">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273710_558088_4480" annotatedElement="_17_0_5_1_7b3022e_1401127273641_337764_4175">
+              <body>A collection of policies, agreements, licensing and any other goverenace or performance documentation specifying constraints and any other details regarding the realization of a service.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273710_487472_4481"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273710_512155_4479" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273642_162060_4176" name="RelatedOrganization" type="_17_0_5_1_7b3022e_1401127273589_771970_4040" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273597_18118_4067">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273711_946118_4484" annotatedElement="_17_0_5_1_7b3022e_1401127273642_162060_4176">
+              <body>A collection of organizations that are somehow related to the service.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273711_763654_4485"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273711_948922_4483" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273642_175249_4177" name="ServiceInterface" type="_17_0_5_1_7b3022e_1401127273593_489373_4055" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273598_348308_4068">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273711_307781_4488" annotatedElement="_17_0_5_1_7b3022e_1401127273642_175249_4177">
+              <body>A set of details relating to the interface of a service.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273711_517347_4489"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273711_732921_4487" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273642_159371_4178" name="DomainDescription" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273712_790545_4492" annotatedElement="_17_0_5_1_7b3022e_1401127273642_159371_4178">
+              <body>A primary domain or line of business (LoB) that a service covers.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273712_954084_4493"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273643_645194_4179" name="Endorsements" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273712_217104_4496" annotatedElement="_17_0_5_1_7b3022e_1401127273643_645194_4179">
+              <body>A collection of names and acronyms of professional or governmental organizations or people that endorse this service as an official business exchange.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273712_900402_4497"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273712_201277_4495" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401057254487_78432_41534" name="RealWorldEffect" visibility="public" type="_17_0_5_1_7b3022e_1401057189298_514542_41501" aggregation="shared" association="_17_0_5_1_7b3022e_1401057254487_705344_41533">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401057254498_549490_41542" annotatedElement="_17_0_5_1_7b3022e_1401057254487_78432_41534">
+              <body>A Documented Component</body>
+            </ownedComment>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401128150261_75246_6238" name="ServiceInteraction" visibility="public" type="_17_0_5_1_7b3022e_1401054583938_123597_41356" aggregation="shared" association="_17_0_5_1_7b3022e_1401128150261_240886_6237">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401128150296_145393_6246" annotatedElement="_17_0_5_1_7b3022e_1401128150261_75246_6238">
+              <body>A Documented Component</body>
+            </ownedComment>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401131344774_175332_6415" name="TransformationURI" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401131349762_897530_6418" annotatedElement="_17_0_5_1_7b3022e_1401131344774_175332_6415">
+              <body>URI of an XSLT that transforms the skeleton SSP into a final one as the &quot;phase-2&quot; transform. </body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401131349762_701045_6419" annotatedElement="_17_0_5_1_7b3022e_1401131344774_175332_6415">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-anyURI"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401131349761_238084_6417"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273592_109022_4051" name="ServiceIdentification">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273645_717660_4188" annotatedElement="_17_0_5_1_7b3022e_1401127273592_109022_4051">
+            <body>A data structure representing the means of uniquely identifying a service.</body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401127383254_658407_5717" general="_17_0_5_1_7b3022e_1401051392924_253328_40845" specific="_17_0_5_1_7b3022e_1401127273592_109022_4051"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273645_330968_4189" name="ServiceFullNameText" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273714_815893_4508" annotatedElement="_17_0_5_1_7b3022e_1401127273645_330968_4189">
+              <body>A human readable identification of the service
+[Derived from] Element Name</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273714_173659_4509"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273714_423680_4507" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273645_323818_4190" name="ServiceID" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273714_618579_4512" annotatedElement="_17_0_5_1_7b3022e_1401127273645_323818_4190">
+              <body>An identification of the service in a service registry and/or repository.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273714_722925_4513"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273714_604974_4511" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273646_344607_4191" name="ServiceURI" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273714_253148_4516" annotatedElement="_17_0_5_1_7b3022e_1401127273646_344607_4191">
+              <body>A fully qualified locator of the service interface potentially including version and environment.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-anyURI"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273715_159094_4517"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273714_536793_4515" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273646_548809_4192" name="ServiceNameAbbreviationText" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273715_839692_4520" annotatedElement="_17_0_5_1_7b3022e_1401127273646_548809_4192">
+              <body>A human readable abbreviation of the Service Name.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273715_387432_4521"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273715_469591_4519" value="*"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273592_810160_4054" name="ServiceInteractionProfile">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273646_659038_4195" annotatedElement="_17_0_5_1_7b3022e_1401127273592_810160_4054">
+            <body>A data structure containing information about the Service Interaction Profile Implemented</body>
+          </ownedComment>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273647_261233_4196" name="SIPName" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273716_37553_4524" annotatedElement="_17_0_5_1_7b3022e_1401127273647_261233_4196">
+              <body>A name of the Service Interaction Profile Implemented.
+[Derived from] SIP Name</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273647_849496_4197" name="SIPVersion" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273716_375783_4528" annotatedElement="_17_0_5_1_7b3022e_1401127273647_849496_4197">
+              <body>A version of the Service Interaction Profile Implemented</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_17_0_5_1_7b3022e_1401131869614_247613_6555" value="1"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273593_489373_4055" name="ServiceInterfaceSpecification">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273647_45941_4198" annotatedElement="_17_0_5_1_7b3022e_1401127273593_489373_4055">
+            <body>A data type representing details relating to the interface of a service.</body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401053183130_712584_41208" general="_17_0_5_1_7b3022e_1401051392924_253328_40845" specific="_17_0_5_1_7b3022e_1401127273593_489373_4055"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273647_562443_4199" name="SecurityImplementedIndicator" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273716_242247_4532" annotatedElement="_17_0_5_1_7b3022e_1401127273647_562443_4199">
+              <body>True when security has been implemented to access this service.False otherwise.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1401131611609_735064_6550" value="true"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273647_852163_4200" name="SecurityDescriptionText" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273717_687312_4536" annotatedElement="_17_0_5_1_7b3022e_1401127273647_852163_4200">
+              <body>A text description that identifies the security which was implemented to protect this service interface (GFIPM, Trusted Broker, etc)</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273717_7640_4537"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273648_9359_4202" name="ServiceURI" type="_17_0_5_1_7b3022e_1401127273593_669048_4056" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273594_98101_4057">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273718_681622_4544" annotatedElement="_17_0_5_1_7b3022e_1401127273648_9359_4202">
+              <body>A collection containing URIs information for service deployment</body>
+            </ownedComment>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273648_359818_4203" name="ServiceInteractionProfile" type="_17_0_5_1_7b3022e_1401127273592_810160_4054" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273594_2626_4059">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273718_429807_4548" annotatedElement="_17_0_5_1_7b3022e_1401127273648_359818_4203">
+              <body>A set of information about the Service Interaction Profile Implemented.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273718_736517_4549"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273718_621058_4547" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401052698948_696998_41183" name="port_default" visibility="private" type="_17_0_5_1_7b3022e_1401052273434_333683_41098" association="_17_0_5_1_7b3022e_1401052702683_505110_41185">
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401913049622_150816_3772"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362774100_559417_4566" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400906751719_500457_42535" name="interface_default" visibility="private" type="_17_0_5_1_7b3022e_1401051404988_467521_40898" association="_17_0_5_1_7b3022e_1400906872611_449500_42606">
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401913056574_668718_3774"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362821605_14749_4574" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400906751720_500487_42537" name="operation_default" visibility="private" type="_17_0_5_1_7b3022e_1401051434960_675489_40997" association="_17_0_5_1_7b3022e_1400906869820_117788_42582">
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401913065830_833395_3777"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401378443316_156176_4797" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400906751720_29926_42536" name="message_default" visibility="private" type="_17_0_5_1_7b3022e_1401051440740_460885_41018" association="_17_0_5_1_7b3022e_1400906871355_666343_42594">
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401913301814_667631_3779"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362934462_362924_4582" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1400904255101_886075_41927" name="provider" visibility="private" type="_17_0_5_1_7b3022e_1401051410004_998136_40919" association="_17_0_5_1_7b3022e_1400904263706_412981_41929">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362526158_743658_4526" value="*"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273595_141268_4060" name="ServiceLevelAgreement">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273650_527042_4210" annotatedElement="_17_0_5_1_7b3022e_1401127273595_141268_4060">
+            <body>A collection of policies, agreements, licensing and any other goverenace or performance documentation specifying constraints and any other details regarding the realization of a service.</body>
+          </ownedComment>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273650_559903_4211" name="ApplicablePoliciesIndicator" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273720_393270_4560" annotatedElement="_17_0_5_1_7b3022e_1401127273650_559903_4211">
+              <body>True when there are any applicable policies governing the use, administration, or implementation of a service; False otherwise.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273650_370191_4212" name="ApplicableContractsIndicator" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273720_248131_4564" annotatedElement="_17_0_5_1_7b3022e_1401127273650_370191_4212">
+              <body>True when there are any applicable contracts relating to the use, administration, or implementation of a service; False otherwise.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273651_582335_4213" name="ApplicableAgreementsIndicator" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273721_829526_4568" annotatedElement="_17_0_5_1_7b3022e_1401127273651_582335_4213">
+              <body>True when there are any applicable agreements or Memoranda Of Understanding (MOUs) relating to the use, administration, or implementation of a service; False otherwise.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273651_373271_4214" name="ApplicableUmbrellaAgreementsIndicator" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273721_549405_4572" annotatedElement="_17_0_5_1_7b3022e_1401127273651_373271_4214">
+              <body>True when there are any applicable umbrella agreements relating to the use, administration, or implementation of a service; False otherwise.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273651_154182_4215" name="ApplicablePolicies" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273722_230067_4576" annotatedElement="_17_0_5_1_7b3022e_1401127273651_154182_4215">
+              <body>A collection of all policies that in some way constrain, govern, or control the usage of a service, application, process. etc.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273722_621142_4577"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273651_57131_4216" name="UmbrellaAgreement" type="_17_0_5_1_7b3022e_1401127273583_49570_4029" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273596_463942_4063">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273722_883088_4580" annotatedElement="_17_0_5_1_7b3022e_1401127273651_57131_4216">
+              <body>An umbrella agreement that in some way constrain, govern, or control the usage of a service, application, process. etc.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273723_607336_4581"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273722_702914_4579" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273652_631780_4217" name="Agreement" type="_17_0_5_1_7b3022e_1401127273583_49570_4029" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273596_512854_4062">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273723_226537_4584" annotatedElement="_17_0_5_1_7b3022e_1401127273652_631780_4217">
+              <body>A description or reference to an applicable Agreement or MOU governing the use, administration, or implementation of a service.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273723_65140_4585"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273723_334846_4583" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273652_472644_4218" name="ApplicableContract" type="_17_0_5_1_7b3022e_1401127273583_49570_4029" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273595_813884_4061">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273725_511411_4588" annotatedElement="_17_0_5_1_7b3022e_1401127273652_472644_4218">
+              <body>A formal contract associated with a service, application, process, tranaction, or thing, tangible or otherwise.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273725_191650_4589"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273724_266288_4587" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273652_288368_4219" name="ApprovalRequiredIndicator" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273725_584714_4592" annotatedElement="_17_0_5_1_7b3022e_1401127273652_288368_4219">
+              <body>True when a permission must first be obtained prior to using a service or performing some action in a business process; False otherwise.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1401131770465_751258_6552"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273652_530146_4220" name="LicensingRequiredIndicator" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273725_629249_4596" annotatedElement="_17_0_5_1_7b3022e_1401127273652_530146_4220">
+              <body>True when a license is required to use a service or application; False otherwise.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_17_0_5_1_7b3022e_1401131777707_461065_6553"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273653_966452_4221" name="LicensingAgreement" type="_17_0_5_1_7b3022e_1401127273583_49570_4029" aggregation="shared" association="_17_0_5_1_7b3022e_1401127273596_184451_4064">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273726_689182_4600" annotatedElement="_17_0_5_1_7b3022e_1401127273653_966452_4221">
+              <body>A type of licensing for a service or application. Descriptive values could be In House, No License,  Open Source, Purchase License, etc.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273726_431214_4601"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273653_174302_4222" name="ServiceResponseTime" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273726_915597_4604" annotatedElement="_17_0_5_1_7b3022e_1401127273653_174302_4222">
+              <body>A description of the average response time for a service.  The response time is calculated as the time input is provided to the service until the service completes its process or provides output for the consumer.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-duration"/>
+            <defaultValue xmi:type="uml:Duration" xmi:id="_17_0_5_1_7b3022e_1401127273726_816364_4606">
+              <expr xmi:type="uml:LiteralString" xmi:id="_17_0_5_1_7b3022e_1401131796371_665330_6554" value="10"/>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273653_522014_4223" name="ServiceAverageThroughput" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273727_907108_4609" annotatedElement="_17_0_5_1_7b3022e_1401127273653_522014_4223">
+              <body>A description of how often a service is expected to be, or actually used, averaged over a period of time.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273727_290767_4610"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273654_304604_4224" name="ServiceMaximumThroughput" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273727_94593_4613" annotatedElement="_17_0_5_1_7b3022e_1401127273654_304604_4224">
+              <body>A description of the limit of how often a service is able to be accessed or used at, over a period of time during peak capacity.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273727_213003_4614"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273654_581215_4225" name="ServiceAvailability" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273728_905490_4617" annotatedElement="_17_0_5_1_7b3022e_1401127273654_581215_4225">
+              <body>A description or measurement of the expected availbility that a service is usable.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273728_464483_4618"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273654_433468_4226" name="UsageCostAmount" type="_18_0beta_2aa0151_1401370479046_587106_4734" aggregation="shared" association="_18_0beta_2aa0151_1401606820661_693139_4843">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273728_460564_4621" annotatedElement="_17_0_5_1_7b3022e_1401127273654_433468_4226">
+              <body>A total cost to use something, such as a service, etc. </body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273728_400854_4622"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273655_738380_4227" name="UsageUnitCostAmount" type="_18_0beta_2aa0151_1401370479046_587106_4734" aggregation="shared" association="_18_0beta_2aa0151_1401606828771_824584_4857">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273729_75407_4625" annotatedElement="_17_0_5_1_7b3022e_1401127273655_738380_4227">
+              <body>A cost associated with a service(e.g. transaction, unlimited transactions, minutes of use).</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273729_146333_4626"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273655_855962_4228" name="CreationCostAmount" type="_18_0beta_2aa0151_1401370479046_587106_4734" aggregation="shared" association="_18_0beta_2aa0151_1401606832741_520473_4871">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273730_162541_4629" annotatedElement="_17_0_5_1_7b3022e_1401127273655_855962_4228">
+              <body>A cost create a thing, such as an application or service  This includes the full cost to design, manage, develop, test, implement and maintain.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273730_140408_4630"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273593_669048_4056" name="URIDetail">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273648_613087_4204" annotatedElement="_17_0_5_1_7b3022e_1401127273593_669048_4056">
+            <body>A collection containing URIs information</body>
+          </ownedComment>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273649_224530_4205" name="URIAddress" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273719_839330_4552" annotatedElement="_17_0_5_1_7b3022e_1401127273649_224530_4205">
+              <body>A fully qualified locator of the service interface potentially including version and environment.
+[derived from] Element name</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-anyURI"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273649_612225_4206" name="URIDescription" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273719_851930_4556" annotatedElement="_17_0_5_1_7b3022e_1401127273649_612225_4206">
+              <body>A description of the URI. This would provide better understanding of what is actually at the URI address.
+[derived from] Element description</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273719_327829_4557"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401127273597_109776_4065" name="VersionInformation">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273656_650561_4233" annotatedElement="_17_0_5_1_7b3022e_1401127273597_109776_4065">
+            <body>A data structure representing a version for something, such as a service, document, etc.</body>
+          </ownedComment>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273656_666198_4234" name="MajorVersion" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273730_275186_4633" annotatedElement="_17_0_5_1_7b3022e_1401127273656_666198_4234">
+              <body>A value identifying the primary version number.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273657_723745_4235" name="MinorVersion" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273730_817030_4637" annotatedElement="_17_0_5_1_7b3022e_1401127273657_723745_4235">
+              <body>A value designating a minor version number.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273657_596099_4236" name="RevisionVersion" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273731_744055_4641" annotatedElement="_17_0_5_1_7b3022e_1401127273657_596099_4236">
+              <body>A value designating a minor version revision number.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273731_678181_4642"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273657_20639_4237" name="CreationDate" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273731_792528_4645" annotatedElement="_17_0_5_1_7b3022e_1401127273657_20639_4237">
+              <body>A date designation when a service was first created. Do NOT to be confuse with the date a service is submitted to a registry. The format is YYYY-MM.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-date"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273658_715570_4238" name="ActivationDate" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273732_381499_4649" annotatedElement="_17_0_5_1_7b3022e_1401127273658_715570_4238">
+              <body>A date when a service was or will be first available in production. Do NOT confuse with the date you submitted this service to a registry. The format is YYYY-MM.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-date"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273732_23083_4650"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273658_917849_4239" name="LastRevisionDate" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273733_358652_4653" annotatedElement="_17_0_5_1_7b3022e_1401127273658_917849_4239">
+              <body>A date with the year and month specifying when this service information was last revised. Do NOT confuse with the date the service itself was last revised with generating new service documentation. The format is YYYY-MM.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-date"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273733_19220_4654"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273658_198581_4240" name="NextRevisionDate" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273733_185128_4657" annotatedElement="_17_0_5_1_7b3022e_1401127273658_198581_4240">
+              <body>A year and month (YYYY-MM) a service is expected to be revised.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-date"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273733_252960_4658"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273659_62345_4241" name="ExpirationDate" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273733_987935_4661" annotatedElement="_17_0_5_1_7b3022e_1401127273659_62345_4241">
+              <body>A year and month (YYYY-MM) this service is expected to be no longer available (if applicable).</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-date"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273733_7595_4662"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273659_195843_4242" name="LifecycleStatus" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273734_147826_4665" annotatedElement="_17_0_5_1_7b3022e_1401127273659_195843_4242">
+              <body>A word indicating the current stage of the service within the development lifecycle.  Valid values are; In Design, In Development, Release Candidate, Operational/Production, Deprecated</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273660_361363_4243" name="AlertsAndNotifications" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273734_736030_4669" annotatedElement="_17_0_5_1_7b3022e_1401127273660_361363_4243">
+              <body>A URL to sign up for alerts and notifications for a specific service</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-anyURI"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273734_371749_4670"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_5_1_7b3022e_1401127273734_447585_4668" value="*"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_17_0_5_1_7b3022e_1401127273591_178774_4046" name="SummaryTextType">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273643_768697_4181" annotatedElement="_17_0_5_1_7b3022e_1401127273591_178774_4046">
+            <body>A string limited to 160 characters for summary descriptivr text.</body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401127273643_382028_4180" specific="_17_0_5_1_7b3022e_1401127273591_178774_4046">
+            <general xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-string"/>
+          </generalization>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401147807059_408002_3898" name="Description">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401147914565_349558_3924" annotatedElement="_17_0_5_1_7b3022e_1401147807059_408002_3898">
+            <body>Documentation for any element contained in element documentation</body>
+          </ownedComment>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401147921049_543499_3925" name="Description" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401147926340_211472_3928" annotatedElement="_17_0_5_1_7b3022e_1401147921049_543499_3925">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401147926340_308151_3929" annotatedElement="_17_0_5_1_7b3022e_1401147921049_543499_3925">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401147819939_152460_3918" name="ExternalDocumentation" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401147823919_555828_3921" annotatedElement="_17_0_5_1_7b3022e_1401147819939_152460_3918">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401147823919_60126_3922" annotatedElement="_17_0_5_1_7b3022e_1401147819939_152460_3918">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes-anyURI"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401147823918_416293_3920"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401148061140_907010_3932" memberEnd="_17_0_5_1_7b3022e_1401127273638_723522_4167 _17_0_5_1_7b3022e_1401148061140_455991_3933">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401148061140_455991_3933" visibility="private" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401148061140_907010_3932" association="_17_0_5_1_7b3022e_1401148061140_907010_3932">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362215723_46749_4471"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362215723_650183_4472" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401148066516_237505_3946" memberEnd="_17_0_5_1_7b3022e_1401127273637_311313_4164 _17_0_5_1_7b3022e_1401148066516_532272_3947">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401148066516_532272_3947" visibility="private" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401148066516_237505_3946" association="_17_0_5_1_7b3022e_1401148066516_237505_3946">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362236284_950144_4475"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362236284_29982_4476" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401148074555_250137_3960" memberEnd="_17_0_5_1_7b3022e_1401127273637_611507_4165 _17_0_5_1_7b3022e_1401148074555_21880_3961">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401148074555_21880_3961" visibility="private" type="_17_0_5_1_7b3022e_1401127273590_234409_4045" owningAssociation="_17_0_5_1_7b3022e_1401148074555_250137_3960" association="_17_0_5_1_7b3022e_1401148074555_250137_3960">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401362254504_894165_4479"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401362254504_729331_4480" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401148847752_772560_3979" name="Model">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401053322811_674888_41236" name="ModelURI" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401053342858_847137_41239" annotatedElement="_17_0_5_1_7b3022e_1401053322811_674888_41236">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401053342858_36346_41240" annotatedElement="_17_0_5_1_7b3022e_1401053322811_674888_41236">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401148898273_342976_4016" name="label" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401148902640_130777_4019" annotatedElement="_17_0_5_1_7b3022e_1401148898273_342976_4016">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401148902640_657640_4020" annotatedElement="_17_0_5_1_7b3022e_1401148898273_342976_4016">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401148902639_132035_4018"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_17_0_5_1_7b3022e_1401148887736_331160_4004" memberEnd="_17_0_5_1_7b3022e_1401148887736_588117_4006 _17_0_5_1_7b3022e_1401148887736_283205_4005">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401148887736_588117_4006" visibility="public" type="_17_0_5_1_7b3022e_1401053253162_156811_41210" owningAssociation="_17_0_5_1_7b3022e_1401148887736_331160_4004" association="_17_0_5_1_7b3022e_1401148887736_331160_4004">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401363429036_412316_4659"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401363429036_394925_4660" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_18_0beta_2aa0151_1401370479046_587106_4734" name="AmountType">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273625_535715_4124" annotatedElement="_18_0beta_2aa0151_1401370479046_587106_4734">
+            <body>A data type for an amount of money.</body>
+          </ownedComment>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401127273625_469159_4125" name="currencyText" aggregation="composite">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401127273692_843861_4340" annotatedElement="_17_0_5_1_7b3022e_1401127273625_469159_4125">
+              <body>A unit of money or exchange.</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401127273693_750882_4341"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_17_0_5_1_7b3022e_1401127273693_409440_4342" name="default" value="USD"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_18_0beta_2aa0151_1401370499421_674273_4756" name="value" visibility="public" aggregation="composite">
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Real"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_18_0beta_2aa0151_1401606820661_693139_4843" memberEnd="_17_0_5_1_7b3022e_1401127273654_433468_4226 _18_0beta_2aa0151_1401606820661_591341_4844">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_18_0beta_2aa0151_1401606820661_591341_4844" visibility="private" type="_17_0_5_1_7b3022e_1401127273595_141268_4060" owningAssociation="_18_0beta_2aa0151_1401606820661_693139_4843" association="_18_0beta_2aa0151_1401606820661_693139_4843">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401606873743_373337_4885"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401606873743_514755_4886" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_18_0beta_2aa0151_1401606828771_824584_4857" memberEnd="_17_0_5_1_7b3022e_1401127273655_738380_4227 _18_0beta_2aa0151_1401606828771_550967_4858">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_18_0beta_2aa0151_1401606828771_550967_4858" visibility="private" type="_17_0_5_1_7b3022e_1401127273595_141268_4060" owningAssociation="_18_0beta_2aa0151_1401606828771_824584_4857" association="_18_0beta_2aa0151_1401606828771_824584_4857">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401606909497_927032_4893"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401606909507_898342_4894" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_18_0beta_2aa0151_1401606832741_520473_4871" memberEnd="_17_0_5_1_7b3022e_1401127273655_855962_4228 _18_0beta_2aa0151_1401606832741_230221_4872">
+          <ownedEnd xmi:type="uml:Property" xmi:id="_18_0beta_2aa0151_1401606832741_230221_4872" visibility="private" type="_17_0_5_1_7b3022e_1401127273595_141268_4060" owningAssociation="_18_0beta_2aa0151_1401606832741_520473_4871" association="_18_0beta_2aa0151_1401606832741_520473_4871">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0beta_2aa0151_1401606893723_863427_4889"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0beta_2aa0151_1401606893723_487201_4890" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Profile" xmi:id="_17_0_5_1_7b3022e_1401062448547_646492_3790" name="GRAProfile" metamodelReference="_17_0_5_1_7b3022e_1401062448547_708619_3791">
+        <xmi:Extension extender="http://www.eclipse.org/emf/2002/Ecore">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rFO70fFgEeO2kvev-D6PtQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <contents xmi:type="ecore:EPackage" xmi:id="_76dzkfFgEeO2kvev-D6PtQ" name="GRAProfile" nsURI="http://Data.GRAUML/schemas/GRAProfile/_76dzkPFgEeO2kvev-D6PtQ/1" nsPrefix="GRAProfile">
+              <eClassifiers xmi:type="ecore:EClass" xmi:id="_76dzkvFgEeO2kvev-D6PtQ" name="Provider">
+                <xmi:Extension extender="http://www.eclipse.org/emf/2002/Ecore">
+                  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_76dzk_FgEeO2kvev-D6PtQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_17_0_5_1_7b3022e_1401062467171_20084_3825"/>
+                </xmi:Extension>
+                <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_76dzlPFgEeO2kvev-D6PtQ" name="base_Association" ordered="false" lowerBound="1">
+                  <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
+                </eStructuralFeatures>
+              </eClassifiers>
+              <eClassifiers xmi:type="ecore:EClass" xmi:id="_76dzlvFgEeO2kvev-D6PtQ" name="Consumer">
+                <xmi:Extension extender="http://www.eclipse.org/emf/2002/Ecore">
+                  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_76dzl_FgEeO2kvev-D6PtQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_17_0_5_1_7b3022e_1401062517330_223032_3855"/>
+                </xmi:Extension>
+                <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_76dzmPFgEeO2kvev-D6PtQ" name="base_Association" ordered="false" lowerBound="1">
+                  <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
+                </eStructuralFeatures>
+              </eClassifiers>
+            </contents>
+            <contents xmi:type="ecore:EPackage" xmi:id="_rFVCcPFgEeO2kvev-D6PtQ" name="GRAProfile" nsURI="http://Data.GRAUML/schemas/GRAProfile/_rFO70PFgEeO2kvev-D6PtQ/0" nsPrefix="GRAProfile">
+              <eClassifiers xmi:type="ecore:EClass" xmi:id="_rFVCcfFgEeO2kvev-D6PtQ" name="Provider">
+                <xmi:Extension extender="http://www.eclipse.org/emf/2002/Ecore">
+                  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rFVCcvFgEeO2kvev-D6PtQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_17_0_5_1_7b3022e_1401062467171_20084_3825"/>
+                </xmi:Extension>
+                <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_rFVCc_FgEeO2kvev-D6PtQ" name="base_Association" ordered="false" lowerBound="1">
+                  <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
+                </eStructuralFeatures>
+              </eClassifiers>
+              <eClassifiers xmi:type="ecore:EClass" xmi:id="_rFVCdfFgEeO2kvev-D6PtQ" name="Consumer">
+                <xmi:Extension extender="http://www.eclipse.org/emf/2002/Ecore">
+                  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rFVCdvFgEeO2kvev-D6PtQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_17_0_5_1_7b3022e_1401062517330_223032_3855"/>
+                </xmi:Extension>
+                <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_rFVCd_FgEeO2kvev-D6PtQ" name="base_Association" ordered="false" lowerBound="1">
+                  <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
+                </eStructuralFeatures>
+              </eClassifiers>
+            </contents>
+          </eAnnotations>
+        </xmi:Extension>
+        <packageImport xmi:type="uml:PackageImport" xmi:id="_17_0_5_1_7b3022e_1401062448547_708619_3791" importingNamespace="_17_0_5_1_7b3022e_1401062448547_646492_3790">
+          <importedPackage xmi:type="uml:Model" href="http://www.omg.org/spec/UML/20110701/UML.xmi#_0"/>
+        </packageImport>
+        <packagedElement xmi:type="uml:Stereotype" xmi:id="_17_0_5_1_7b3022e_1401062467171_20084_3825" name="Provider">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401156818669_960978_4021" name="base_Association" visibility="private" association="_17_0_5_1_7b3022e_1401156818668_442801_4020">
+            <type xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20110701/UML.xmi#Association"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Stereotype" xmi:id="_17_0_5_1_7b3022e_1401062517330_223032_3855" name="Consumer">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401156831861_410321_4026" name="base_Association" visibility="private" association="_17_0_5_1_7b3022e_1401156831861_329945_4025">
+            <type xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20110701/UML.xmi#Association"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Extension" xmi:id="_17_0_5_1_7b3022e_1401156818668_442801_4020" memberEnd="_17_0_5_1_7b3022e_1401156818670_147673_4022 _17_0_5_1_7b3022e_1401156818669_960978_4021" navigableOwnedEnd="_17_0_5_1_7b3022e_1401156818670_147673_4022">
+          <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_17_0_5_1_7b3022e_1401156818670_147673_4022" name="extension_Provider" visibility="private" type="_17_0_5_1_7b3022e_1401062467171_20084_3825" aggregation="composite" owningAssociation="_17_0_5_1_7b3022e_1401156818668_442801_4020" association="_17_0_5_1_7b3022e_1401156818668_442801_4020">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401156818670_367215_4023"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Extension" xmi:id="_17_0_5_1_7b3022e_1401156831861_329945_4025" memberEnd="_17_0_5_1_7b3022e_1401156831861_906841_4027 _17_0_5_1_7b3022e_1401156831861_410321_4026" navigableOwnedEnd="_17_0_5_1_7b3022e_1401156831861_906841_4027">
+          <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_17_0_5_1_7b3022e_1401156831861_906841_4027" name="extension_Consumer" visibility="private" type="_17_0_5_1_7b3022e_1401062517330_223032_3855" aggregation="composite" owningAssociation="_17_0_5_1_7b3022e_1401156831861_329945_4025" association="_17_0_5_1_7b3022e_1401156831861_329945_4025">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401156831861_59716_4028"/>
+          </ownedEnd>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_17_0_5_1_7b3022e_1401063291644_98073_4085" clientDependency="_17_0_5_1_7b3022e_1401112005133_880685_17637" name="GRA_WSDL">
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401063309093_95946_4088" name="WSDLServiceInterface">
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401063344797_569555_4112" general="_17_0_5_1_7b3022e_1401127273593_489373_4055" specific="_17_0_5_1_7b3022e_1401063309093_95946_4088"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401063350874_607587_4114" name="WSDLService">
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401063364066_746423_4136" general="_17_0_5_1_7b3022e_1401051410004_998136_40919" specific="_17_0_5_1_7b3022e_1401063350874_607587_4114"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401063372386_340482_4140" name="WSDLPort">
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401063411954_730052_4225" general="_17_0_5_1_7b3022e_1401052273434_333683_41098" specific="_17_0_5_1_7b3022e_1401063372386_340482_4140"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401064133761_591363_4345" name="certificate" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401064140476_777630_4348" annotatedElement="_17_0_5_1_7b3022e_1401064133761_591363_4345">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401064140476_117080_4349" annotatedElement="_17_0_5_1_7b3022e_1401064133761_591363_4345">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401064140475_960253_4347"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401063386914_118597_4161" name="WSDLInterface">
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401063415337_650272_4228" general="_17_0_5_1_7b3022e_1401051404988_467521_40898" specific="_17_0_5_1_7b3022e_1401063386914_118597_4161"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401063965356_393663_4339" name="BindingCode" visibility="public" type="_17_0_5_1_7b3022e_1401063892386_361012_4312" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401063965361_693006_4342" annotatedElement="_17_0_5_1_7b3022e_1401063965356_393663_4339">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401063965361_194382_4343" annotatedElement="_17_0_5_1_7b3022e_1401063965356_393663_4339">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401063965360_803289_4341"/>
+            <defaultValue xmi:type="uml:InstanceValue" xmi:id="_17_0_5_1_7b3022e_1401064660493_330627_4378" instance="_17_0_5_1_7b3022e_1401063928745_145145_4333"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401063394594_342813_4182" name="WSDLOperation">
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401063421083_856837_4231" general="_17_0_5_1_7b3022e_1401051434960_675489_40997" specific="_17_0_5_1_7b3022e_1401063394594_342813_4182"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401063544908_150451_4272" name="OperationKindCode" visibility="public" type="_17_0_5_1_7b3022e_1401063509963_187029_4249" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401063544913_599217_4275" annotatedElement="_17_0_5_1_7b3022e_1401063544908_150451_4272">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401063544913_444675_4276" annotatedElement="_17_0_5_1_7b3022e_1401063544908_150451_4272">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401063544912_995543_4274"/>
+            <defaultValue xmi:type="uml:InstanceValue" xmi:id="_17_0_5_1_7b3022e_1401063660921_126313_4302" instance="_17_0_5_1_7b3022e_1401063521801_730849_4268"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_17_0_5_1_7b3022e_1401063401442_909597_4203" name="WSDLMessage">
+          <generalization xmi:type="uml:Generalization" xmi:id="_17_0_5_1_7b3022e_1401063424194_98701_4234" general="_17_0_5_1_7b3022e_1401051440740_460885_41018" specific="_17_0_5_1_7b3022e_1401063401442_909597_4203"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401063677451_84117_4303" name="MessageLocationCode" visibility="public" type="_17_0_5_1_7b3022e_1401063628217_198571_4279" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401063677455_133786_4306" annotatedElement="_17_0_5_1_7b3022e_1401063677451_84117_4303">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401063677456_839053_4307" annotatedElement="_17_0_5_1_7b3022e_1401063677451_84117_4303">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401063677455_635654_4305"/>
+            <defaultValue xmi:type="uml:InstanceValue" xmi:id="_17_0_5_1_7b3022e_1401063684820_9483_4309" instance="_17_0_5_1_7b3022e_1401063637746_918860_4298"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401064899769_923754_4384" name="encoding" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401064904357_400274_4387" annotatedElement="_17_0_5_1_7b3022e_1401064899769_923754_4384">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401064904357_981800_4388" annotatedElement="_17_0_5_1_7b3022e_1401064899769_923754_4384">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401064904356_234686_4386"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401064951922_880468_4390" name="mimeType" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401064956438_148638_4393" annotatedElement="_17_0_5_1_7b3022e_1401064951922_880468_4390">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401064956439_422085_4394" annotatedElement="_17_0_5_1_7b3022e_1401064951922_880468_4390">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401064956437_954944_4392"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_5_1_7b3022e_1401065097017_723233_4400" name="soapAction" visibility="public" aggregation="shared">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401065107357_497442_4403" annotatedElement="_17_0_5_1_7b3022e_1401065097017_723233_4400">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_17_0_5_1_7b3022e_1401065107357_516894_4404" annotatedElement="_17_0_5_1_7b3022e_1401065097017_723233_4400">
+              <body>A Documented Component</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_5_1_7b3022e_1401065107356_36044_4402"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Enumeration" xmi:id="_17_0_5_1_7b3022e_1401063509963_187029_4249" name="OperationKind">
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1401063521801_730849_4268" name="doc" enumeration="_17_0_5_1_7b3022e_1401063509963_187029_4249"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1401063532834_335905_4270" name="rpc" enumeration="_17_0_5_1_7b3022e_1401063509963_187029_4249"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Enumeration" xmi:id="_17_0_5_1_7b3022e_1401063628217_198571_4279" name="MessageLocation">
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1401063637746_918860_4298" name="body" enumeration="_17_0_5_1_7b3022e_1401063628217_198571_4279"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1401063644753_554105_4300" name="header" enumeration="_17_0_5_1_7b3022e_1401063628217_198571_4279"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1401064984274_78155_4396" name="url" enumeration="_17_0_5_1_7b3022e_1401063628217_198571_4279"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Enumeration" xmi:id="_17_0_5_1_7b3022e_1401063892386_361012_4312" name="BindingType">
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1401063921929_349091_4331" name="soap" enumeration="_17_0_5_1_7b3022e_1401063892386_361012_4312"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1401063928745_145145_4333" name="soap_12" enumeration="_17_0_5_1_7b3022e_1401063892386_361012_4312"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1401063936145_437854_4335" name="http_get" enumeration="_17_0_5_1_7b3022e_1401063892386_361012_4312"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_17_0_5_1_7b3022e_1401063945601_327639_4337" name="http_put" enumeration="_17_0_5_1_7b3022e_1401063892386_361012_4312"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_17_0_5_1_7b3022e_1401112005133_880685_17637" client="_17_0_5_1_7b3022e_1401063291644_98073_4085" supplier="_17_0_5_1_7b3022e_1400902783881_406273_40692"/>
+      </packagedElement>
+    </packagedElement>
+  </uml:Model>
+  <NIEM_PIM_Profile:InformationModel xmi:id="_17_0_5_1_7b3022e_1401052791007_813345_41197" base_Package="_17_0_5_1_7b3022e_1400902783881_406273_40692" targetNamespace="http://ijis.org/GRA/Annotations" isConformant="true" defaultPurpose="extension" defaultPrefix="SAN" version="&quot;1&quot;"/>
+  <NIEM_PIM_Profile:InformationModel xmi:id="_17_0_5_1_7b3022e_1401065560268_210894_4468" base_Package="_17_0_5_1_7b3022e_1401063291644_98073_4085" targetNamespace="http:/ijis.org/GRA/WSDLAnnotations" isConformant="true" defaultPrefix="SANWSDL" version="&quot;1&quot;"/>
+  <cmof:Tag xmi:id="_5" name="org.omg.xmi.nsPrefix" value="GRAProfile" element="_17_0_5_1_7b3022e_1401062448547_646492_3790"/>
+</xmi:XMI>
