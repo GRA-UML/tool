@@ -33,26 +33,15 @@ import data.grauml.graAnnotationModel.ServiceInteractionProfile;
 import data.grauml.graAnnotationModel.ServiceInterfaceSpecification;
 import data.grauml.graAnnotationModel.ServiceLevelAgreement;
 import data.grauml.graAnnotationModel.UseCase;
-
-import data.grauml.graAnnotationModel.util.GraAnnotationModelValidator;
-
 import data.grauml.graWsdl.GraWsdlPackage;
-
 import data.grauml.graWsdl.impl.GraWsdlPackageImpl;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EGenericType;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EValidator;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import types.TypesPackage;
-
 import types.impl.TypesPackageImpl;
 
 /**
@@ -325,15 +314,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		theGraWsdlPackage.initializePackageContents();
 		theTypesPackage.initializePackageContents();
 
-		// Register package validator
-		EValidator.Registry.INSTANCE.put
-			(theGraAnnotationModelPackage, 
-			 new EValidator.Descriptor() {
-				 public EValidator getEValidator() {
-					 return GraAnnotationModelValidator.INSTANCE;
-				 }
-			 });
-
 		// Mark meta-data to indicate it can't be changed
 		theGraAnnotationModelPackage.freeze();
 
@@ -564,24 +544,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGraServiceAnnotationBase__NameDerivation__DiagnosticChain_Map() {
-		return graServiceAnnotationBaseEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getGraServiceAnnotationBase__DocDerivation__DiagnosticChain_Map() {
-		return graServiceAnnotationBaseEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getModelReference() {
 		return modelReferenceEClass;
 	}
@@ -636,15 +598,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getModelReference__Derivation__DiagnosticChain_Map() {
-		return modelReferenceEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getModel() {
 		return modelEClass;
 	}
@@ -692,15 +645,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 */
 	public EReference getParticipant_Generalization() {
 		return (EReference)participantEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParticipant__RealizesActor__DiagnosticChain_Map() {
-		return participantEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -888,24 +832,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOperation__RealizesOperationOrReception__DiagnosticChain_Map() {
-		return operationEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getOperation__PurposeDerivation__DiagnosticChain_Map() {
-		return operationEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getParameter() {
 		return parameterEClass;
 	}
@@ -926,24 +852,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 */
 	public EReference getParameter_Message() {
 		return (EReference)parameterEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParameter__Derivation__DiagnosticChain_Map() {
-		return parameterEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParameter__UseDerivation__DiagnosticChain_Map() {
-		return parameterEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1032,15 +940,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getService__RealizesComponent__DiagnosticChain_Map() {
-		return serviceEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPort() {
 		return portEClass;
 	}
@@ -1061,15 +960,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 */
 	public EAttribute getPort_AddressUri() {
 		return (EAttribute)portEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getPort__RealizesPort__DiagnosticChain_Map() {
-		return portEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1122,15 +1012,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceInteraction__RealizesInteraction__DiagnosticChain_Map() {
-		return serviceInteractionEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getUseCase() {
 		return useCaseEClass;
 	}
@@ -1151,15 +1032,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 */
 	public EReference getUseCase_Consumer() {
 		return (EReference)useCaseEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUseCase__Derivation__DiagnosticChain_Map() {
-		return useCaseEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1203,15 +1075,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAgreement__DocDerivation__DiagnosticChain_Map() {
-		return agreementEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getIepdReference() {
 		return iepdReferenceEClass;
 	}
@@ -1239,15 +1102,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getIepdReference__Derivation__DiagnosticChain_Map() {
-		return iepdReferenceEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSecurityClassification() {
 		return securityClassificationEClass;
 	}
@@ -1266,15 +1120,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSecurityClassification__NameDerivation__DiagnosticChain_Map() {
-		return securityClassificationEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getServiceCapability() {
 		return serviceCapabilityEClass;
 	}
@@ -1286,15 +1131,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 */
 	public EAttribute getServiceCapability_Documentation() {
 		return (EAttribute)serviceCapabilityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getServiceCapability__DocDerivation__DiagnosticChain_Map() {
-		return serviceCapabilityEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1581,17 +1417,8 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getServiceDescription_ServiceDescriptionUri() {
-		return (EAttribute)serviceDescriptionEClass.getEStructuralFeatures().get(30);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getServiceDescription_ExecutionContext() {
-		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(31);
+		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(30);
 	}
 
 	/**
@@ -1600,7 +1427,7 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * @generated
 	 */
 	public EReference getServiceDescription_Security() {
-		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(32);
+		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(31);
 	}
 
 	/**
@@ -1609,7 +1436,7 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * @generated
 	 */
 	public EReference getServiceDescription_Privacy() {
-		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(33);
+		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(32);
 	}
 
 	/**
@@ -1618,7 +1445,7 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * @generated
 	 */
 	public EReference getServiceDescription_ServiceAssumption() {
-		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(34);
+		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(33);
 	}
 
 	/**
@@ -1627,7 +1454,7 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * @generated
 	 */
 	public EReference getServiceDescription_OtherRequirement() {
-		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(35);
+		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(34);
 	}
 
 	/**
@@ -1636,7 +1463,7 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * @generated
 	 */
 	public EReference getServiceDescription_DataProvenance() {
-		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(36);
+		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(35);
 	}
 
 	/**
@@ -1645,25 +1472,7 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * @generated
 	 */
 	public EReference getServiceDescription_ProcessModel() {
-		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(37);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getServiceDescription__RealizesCollaborationAndUsesIepd__DiagnosticChain_Map() {
-		return serviceDescriptionEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getServiceDescription__ExchangePartnerDerivation__DiagnosticChain_Map() {
-		return serviceDescriptionEClass.getEOperations().get(1);
+		return (EReference)serviceDescriptionEClass.getEStructuralFeatures().get(36);
 	}
 
 	/**
@@ -1727,15 +1536,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 */
 	public EAttribute getDescription_ExternalDocumentation() {
 		return (EAttribute)descriptionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getDescription__DocDerivation__DiagnosticChain_Map() {
-		return descriptionEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1888,15 +1688,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * @generated
 	 */
 	public EAttribute getServiceLevelAgreement_UsageCostAmount() {
-		return (EAttribute)serviceLevelAgreementEClass.getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getServiceLevelAgreement_UsageUnitCostAmount() {
 		return (EAttribute)serviceLevelAgreementEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -1905,7 +1696,7 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getServiceLevelAgreement_CreationCostAmount() {
+	public EAttribute getServiceLevelAgreement_UsageUnitCostAmount() {
 		return (EAttribute)serviceLevelAgreementEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -1914,26 +1705,8 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceLevelAgreement__ApplicableContractsIndicatorDerivation__DiagnosticChain_Map() {
-		return serviceLevelAgreementEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getServiceLevelAgreement__ApplicableAgreementsIndicatorDerivation__DiagnosticChain_Map() {
-		return serviceLevelAgreementEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getServiceLevelAgreement__ApplicableUmbrellaAgreementsIndicatorDerivation__DiagnosticChain_Map() {
-		return serviceLevelAgreementEClass.getEOperations().get(2);
+	public EAttribute getServiceLevelAgreement_CreationCostAmount() {
+		return (EAttribute)serviceLevelAgreementEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -1986,26 +1759,8 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getServiceInterfaceSpecification_UriAddress() {
-		return (EAttribute)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getServiceInterfaceSpecification_MessageDefinitionMechanism() {
-		return (EReference)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getServiceInterfaceSpecification_ServiceInterfaceDescriptionUri() {
-		return (EAttribute)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(6);
+		return (EReference)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2014,7 +1769,7 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * @generated
 	 */
 	public EAttribute getServiceInterfaceSpecification_TargetNamespace() {
-		return (EAttribute)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2023,7 +1778,7 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * @generated
 	 */
 	public EAttribute getServiceInterfaceSpecification_Prefix() {
-		return (EAttribute)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2032,7 +1787,7 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * @generated
 	 */
 	public EReference getServiceInterfaceSpecification_ServiceTesting() {
-		return (EReference)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(9);
+		return (EReference)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2041,7 +1796,7 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * @generated
 	 */
 	public EReference getServiceInterfaceSpecification_SchemaReference() {
-		return (EReference)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(10);
+		return (EReference)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -2050,7 +1805,7 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * @generated
 	 */
 	public EAttribute getServiceInterfaceSpecification_ServiceInterfaceNameAbbreviationText() {
-		return (EAttribute)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(11);
+		return (EAttribute)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -2059,7 +1814,7 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 * @generated
 	 */
 	public EReference getServiceInterfaceSpecification_PhysicalModel() {
-		return (EReference)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(12);
+		return (EReference)serviceInterfaceSpecificationEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -2087,15 +1842,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 */
 	public EAttribute getServiceInteractionProfile_SipVersion() {
 		return (EAttribute)serviceInteractionProfileEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getServiceInteractionProfile__NameDerivation__DiagnosticChain_Map() {
-		return serviceInteractionProfileEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2132,15 +1878,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 	 */
 	public EAttribute getSchemaReference_SchemaLocation() {
 		return (EAttribute)schemaReferenceEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSchemaReference__Derivation__DiagnosticChain_Map() {
-		return schemaReferenceEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2214,8 +1951,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		createEReference(graServiceAnnotationBaseEClass, GRA_SERVICE_ANNOTATION_BASE__MODEL_REFERENCE);
 		createEAttribute(graServiceAnnotationBaseEClass, GRA_SERVICE_ANNOTATION_BASE__FLAG);
 		createEAttribute(graServiceAnnotationBaseEClass, GRA_SERVICE_ANNOTATION_BASE__DIAGNOSTICS);
-		createEOperation(graServiceAnnotationBaseEClass, GRA_SERVICE_ANNOTATION_BASE___NAME_DERIVATION__DIAGNOSTICCHAIN_MAP);
-		createEOperation(graServiceAnnotationBaseEClass, GRA_SERVICE_ANNOTATION_BASE___DOC_DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		modelReferenceEClass = createEClass(MODEL_REFERENCE);
 		createEAttribute(modelReferenceEClass, MODEL_REFERENCE__NAME);
@@ -2223,7 +1958,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		createEAttribute(modelReferenceEClass, MODEL_REFERENCE__ELEMENT_ID);
 		createEAttribute(modelReferenceEClass, MODEL_REFERENCE__DIAGRAM_LINK);
 		createEReference(modelReferenceEClass, MODEL_REFERENCE__MODEL);
-		createEOperation(modelReferenceEClass, MODEL_REFERENCE___DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		modelEClass = createEClass(MODEL);
 		createEAttribute(modelEClass, MODEL__MODEL_URI);
@@ -2232,7 +1966,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		participantEClass = createEClass(PARTICIPANT);
 		createEReference(participantEClass, PARTICIPANT__PARTICIPATING_ORGANIZATION);
 		createEReference(participantEClass, PARTICIPANT__GENERALIZATION);
-		createEOperation(participantEClass, PARTICIPANT___REALIZES_ACTOR__DIAGNOSTICCHAIN_MAP);
 
 		organizationEClass = createEClass(ORGANIZATION);
 		createEAttribute(organizationEClass, ORGANIZATION__ORGANIZATION_ACRONYM);
@@ -2257,14 +1990,10 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		createEAttribute(operationEClass, OPERATION__ACTION_NAME);
 		createEAttribute(operationEClass, OPERATION__ACTION_PURPOSE);
 		createEAttribute(operationEClass, OPERATION__ACTION_PROVENANCE);
-		createEOperation(operationEClass, OPERATION___REALIZES_OPERATION_OR_RECEPTION__DIAGNOSTICCHAIN_MAP);
-		createEOperation(operationEClass, OPERATION___PURPOSE_DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		parameterEClass = createEClass(PARAMETER);
 		createEAttribute(parameterEClass, PARAMETER__USE);
 		createEReference(parameterEClass, PARAMETER__MESSAGE);
-		createEOperation(parameterEClass, PARAMETER___DERIVATION__DIAGNOSTICCHAIN_MAP);
-		createEOperation(parameterEClass, PARAMETER___USE_DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		messageEClass = createEClass(MESSAGE);
 		createEAttribute(messageEClass, MESSAGE__PREFIX);
@@ -2276,12 +2005,10 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		createEReference(serviceEClass, SERVICE__PORT);
 		createEReference(serviceEClass, SERVICE__SERVICE_PROVIDER);
 		createEReference(serviceEClass, SERVICE__SAMPLE_DATA);
-		createEOperation(serviceEClass, SERVICE___REALIZES_COMPONENT__DIAGNOSTICCHAIN_MAP);
 
 		portEClass = createEClass(PORT);
 		createEReference(portEClass, PORT__INTERFACE);
 		createEAttribute(portEClass, PORT__ADDRESS_URI);
-		createEOperation(portEClass, PORT___REALIZES_PORT__DIAGNOSTICCHAIN_MAP);
 
 		sampleDataEClass = createEClass(SAMPLE_DATA);
 		createEAttribute(sampleDataEClass, SAMPLE_DATA__INPUT);
@@ -2289,31 +2016,25 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 
 		serviceInteractionEClass = createEClass(SERVICE_INTERACTION);
 		createEReference(serviceInteractionEClass, SERVICE_INTERACTION__PARTICIPANT);
-		createEOperation(serviceInteractionEClass, SERVICE_INTERACTION___REALIZES_INTERACTION__DIAGNOSTICCHAIN_MAP);
 
 		useCaseEClass = createEClass(USE_CASE);
 		createEReference(useCaseEClass, USE_CASE__PROVIDER);
 		createEReference(useCaseEClass, USE_CASE__CONSUMER);
-		createEOperation(useCaseEClass, USE_CASE___DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		agreementEClass = createEClass(AGREEMENT);
 		createEAttribute(agreementEClass, AGREEMENT__DOCUMENTATION);
 		createEAttribute(agreementEClass, AGREEMENT__AGREEMENT_URI);
 		createEAttribute(agreementEClass, AGREEMENT__AUTOMATED_AGREEMENT_INDICATOR);
-		createEOperation(agreementEClass, AGREEMENT___DOC_DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		iepdReferenceEClass = createEClass(IEPD_REFERENCE);
 		createEAttribute(iepdReferenceEClass, IEPD_REFERENCE__NAME);
 		createEAttribute(iepdReferenceEClass, IEPD_REFERENCE__IEPDURL);
-		createEOperation(iepdReferenceEClass, IEPD_REFERENCE___DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		securityClassificationEClass = createEClass(SECURITY_CLASSIFICATION);
 		createEAttribute(securityClassificationEClass, SECURITY_CLASSIFICATION__NAME);
-		createEOperation(securityClassificationEClass, SECURITY_CLASSIFICATION___NAME_DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		serviceCapabilityEClass = createEClass(SERVICE_CAPABILITY);
 		createEAttribute(serviceCapabilityEClass, SERVICE_CAPABILITY__DOCUMENTATION);
-		createEOperation(serviceCapabilityEClass, SERVICE_CAPABILITY___DOC_DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		serviceDescriptionEClass = createEClass(SERVICE_DESCRIPTION);
 		createEReference(serviceDescriptionEClass, SERVICE_DESCRIPTION__EXCHANGE_PARTNER);
@@ -2346,7 +2067,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		createEAttribute(serviceDescriptionEClass, SERVICE_DESCRIPTION__LIFECYCLE_STATUS);
 		createEAttribute(serviceDescriptionEClass, SERVICE_DESCRIPTION__ALERT_AND_NOTIFICATION_URI);
 		createEReference(serviceDescriptionEClass, SERVICE_DESCRIPTION__ADDITIONAL_INFORMATION);
-		createEAttribute(serviceDescriptionEClass, SERVICE_DESCRIPTION__SERVICE_DESCRIPTION_URI);
 		createEReference(serviceDescriptionEClass, SERVICE_DESCRIPTION__EXECUTION_CONTEXT);
 		createEReference(serviceDescriptionEClass, SERVICE_DESCRIPTION__SECURITY);
 		createEReference(serviceDescriptionEClass, SERVICE_DESCRIPTION__PRIVACY);
@@ -2354,8 +2074,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		createEReference(serviceDescriptionEClass, SERVICE_DESCRIPTION__OTHER_REQUIREMENT);
 		createEReference(serviceDescriptionEClass, SERVICE_DESCRIPTION__DATA_PROVENANCE);
 		createEReference(serviceDescriptionEClass, SERVICE_DESCRIPTION__PROCESS_MODEL);
-		createEOperation(serviceDescriptionEClass, SERVICE_DESCRIPTION___REALIZES_COLLABORATION_AND_USES_IEPD__DIAGNOSTICCHAIN_MAP);
-		createEOperation(serviceDescriptionEClass, SERVICE_DESCRIPTION___EXCHANGE_PARTNER_DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		serviceIdentificationEClass = createEClass(SERVICE_IDENTIFICATION);
 		createEAttribute(serviceIdentificationEClass, SERVICE_IDENTIFICATION__SERVICE_ID);
@@ -2365,7 +2083,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		descriptionEClass = createEClass(DESCRIPTION);
 		createEAttribute(descriptionEClass, DESCRIPTION__DOCUMENTATION);
 		createEAttribute(descriptionEClass, DESCRIPTION__EXTERNAL_DOCUMENTATION);
-		createEOperation(descriptionEClass, DESCRIPTION___DOC_DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		serviceLevelAgreementEClass = createEClass(SERVICE_LEVEL_AGREEMENT);
 		createEAttribute(serviceLevelAgreementEClass, SERVICE_LEVEL_AGREEMENT__APPLICABLE_POLICIES_INDICATOR);
@@ -2383,21 +2100,16 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		createEAttribute(serviceLevelAgreementEClass, SERVICE_LEVEL_AGREEMENT__SERVICE_AVERAGE_THROUGHPUT);
 		createEAttribute(serviceLevelAgreementEClass, SERVICE_LEVEL_AGREEMENT__SERVICE_MAXIMUM_THROUGHPUT);
 		createEAttribute(serviceLevelAgreementEClass, SERVICE_LEVEL_AGREEMENT__SERVICE_AVAILABILITY);
+		createEAttribute(serviceLevelAgreementEClass, SERVICE_LEVEL_AGREEMENT__CREATION_COST_AMOUNT);
 		createEAttribute(serviceLevelAgreementEClass, SERVICE_LEVEL_AGREEMENT__USAGE_COST_AMOUNT);
 		createEAttribute(serviceLevelAgreementEClass, SERVICE_LEVEL_AGREEMENT__USAGE_UNIT_COST_AMOUNT);
-		createEAttribute(serviceLevelAgreementEClass, SERVICE_LEVEL_AGREEMENT__CREATION_COST_AMOUNT);
-		createEOperation(serviceLevelAgreementEClass, SERVICE_LEVEL_AGREEMENT___APPLICABLE_CONTRACTS_INDICATOR_DERIVATION__DIAGNOSTICCHAIN_MAP);
-		createEOperation(serviceLevelAgreementEClass, SERVICE_LEVEL_AGREEMENT___APPLICABLE_AGREEMENTS_INDICATOR_DERIVATION__DIAGNOSTICCHAIN_MAP);
-		createEOperation(serviceLevelAgreementEClass, SERVICE_LEVEL_AGREEMENT___APPLICABLE_UMBRELLA_AGREEMENTS_INDICATOR_DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		serviceInterfaceSpecificationEClass = createEClass(SERVICE_INTERFACE_SPECIFICATION);
 		createEAttribute(serviceInterfaceSpecificationEClass, SERVICE_INTERFACE_SPECIFICATION__SECURITY_IMPLEMENTED_INDICATOR);
 		createEAttribute(serviceInterfaceSpecificationEClass, SERVICE_INTERFACE_SPECIFICATION__SECURITY_DESCRIPTION_TEXT);
 		createEReference(serviceInterfaceSpecificationEClass, SERVICE_INTERFACE_SPECIFICATION__SERVICE_INTERACTION_PROFILE);
 		createEReference(serviceInterfaceSpecificationEClass, SERVICE_INTERFACE_SPECIFICATION__SERVICE);
-		createEAttribute(serviceInterfaceSpecificationEClass, SERVICE_INTERFACE_SPECIFICATION__URI_ADDRESS);
 		createEReference(serviceInterfaceSpecificationEClass, SERVICE_INTERFACE_SPECIFICATION__MESSAGE_DEFINITION_MECHANISM);
-		createEAttribute(serviceInterfaceSpecificationEClass, SERVICE_INTERFACE_SPECIFICATION__SERVICE_INTERFACE_DESCRIPTION_URI);
 		createEAttribute(serviceInterfaceSpecificationEClass, SERVICE_INTERFACE_SPECIFICATION__TARGET_NAMESPACE);
 		createEAttribute(serviceInterfaceSpecificationEClass, SERVICE_INTERFACE_SPECIFICATION__PREFIX);
 		createEReference(serviceInterfaceSpecificationEClass, SERVICE_INTERFACE_SPECIFICATION__SERVICE_TESTING);
@@ -2408,13 +2120,11 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		serviceInteractionProfileEClass = createEClass(SERVICE_INTERACTION_PROFILE);
 		createEAttribute(serviceInteractionProfileEClass, SERVICE_INTERACTION_PROFILE__SIP_NAME);
 		createEAttribute(serviceInteractionProfileEClass, SERVICE_INTERACTION_PROFILE__SIP_VERSION);
-		createEOperation(serviceInteractionProfileEClass, SERVICE_INTERACTION_PROFILE___NAME_DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		schemaReferenceEClass = createEClass(SCHEMA_REFERENCE);
 		createEAttribute(schemaReferenceEClass, SCHEMA_REFERENCE__NAMESPACE);
 		createEAttribute(schemaReferenceEClass, SCHEMA_REFERENCE__PREFIX);
 		createEAttribute(schemaReferenceEClass, SCHEMA_REFERENCE__SCHEMA_LOCATION);
-		createEOperation(schemaReferenceEClass, SCHEMA_REFERENCE___DERIVATION__DIAGNOSTICCHAIN_MAP);
 
 		// Create enums
 		exchangePatternEEnum = createEEnum(EXCHANGE_PATTERN);
@@ -2493,39 +2203,12 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		initEAttribute(getGraServiceAnnotationBase_Flag(), theTypesPackage.getString(), "flag", null, 0, -1, GraServiceAnnotationBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getGraServiceAnnotationBase_Diagnostics(), theTypesPackage.getString(), "diagnostics", null, 0, -1, GraServiceAnnotationBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		EOperation op = initEOperation(getGraServiceAnnotationBase__NameDerivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "nameDerivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getGraServiceAnnotationBase__DocDerivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "docDerivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(modelReferenceEClass, ModelReference.class, "ModelReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelReference_Name(), theTypesPackage.getString(), "name", null, 0, 1, ModelReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getModelReference_Documentation(), theTypesPackage.getString(), "documentation", null, 0, 1, ModelReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getModelReference_ElementId(), theTypesPackage.getString(), "elementId", null, 1, 1, ModelReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getModelReference_DiagramLink(), theTypesPackage.getString(), "diagramLink", null, 0, -1, ModelReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getModelReference_Model(), this.getModel(), null, "model", null, 0, 1, ModelReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = initEOperation(getModelReference__Derivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "derivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModel_ModelUri(), theTypesPackage.getString(), "modelUri", null, 1, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2534,15 +2217,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		initEClass(participantEClass, Participant.class, "Participant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParticipant_ParticipatingOrganization(), this.getOrganization(), null, "participatingOrganization", null, 0, 1, Participant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getParticipant_Generalization(), this.getParticipant(), null, "generalization", null, 0, -1, Participant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = initEOperation(getParticipant__RealizesActor__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "realizesActor", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(organizationEClass, Organization.class, "Organization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOrganization_OrganizationAcronym(), theTypesPackage.getString(), "organizationAcronym", null, 0, 1, Organization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2568,45 +2242,9 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		initEAttribute(getOperation_ActionPurpose(), theTypesPackage.getString(), "actionPurpose", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getOperation_ActionProvenance(), theTypesPackage.getString(), "actionProvenance", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getOperation__RealizesOperationOrReception__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "realizesOperationOrReception", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getOperation__PurposeDerivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "purposeDerivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameter_Use(), this.getParameterUse(), "use", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getParameter_Message(), this.getMessage(), null, "message", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = initEOperation(getParameter__Derivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "derivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getParameter__UseDerivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "useDerivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMessage_Prefix(), theTypesPackage.getString(), "prefix", null, 1, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2619,27 +2257,9 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		initEReference(getService_ServiceProvider(), this.getParticipant(), null, "serviceProvider", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getService_SampleData(), this.getSampleData(), null, "sampleData", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getService__RealizesComponent__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "realizesComponent", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(portEClass, Port.class, "Port", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPort_Interface(), this.getInterface(), null, "interface", null, 0, -1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getPort_AddressUri(), theTypesPackage.getString(), "addressUri", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = initEOperation(getPort__RealizesPort__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "realizesPort", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(sampleDataEClass, SampleData.class, "SampleData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSampleData_Input(), theTypesPackage.getString(), "input", null, 1, -1, SampleData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2648,78 +2268,24 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		initEClass(serviceInteractionEClass, ServiceInteraction.class, "ServiceInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getServiceInteraction_Participant(), this.getParticipant(), null, "participant", null, 0, -1, ServiceInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getServiceInteraction__RealizesInteraction__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "realizesInteraction", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUseCase_Provider(), this.getParticipant(), null, "provider", null, 1, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getUseCase_Consumer(), this.getParticipant(), null, "consumer", null, 1, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = initEOperation(getUseCase__Derivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "derivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(agreementEClass, Agreement.class, "Agreement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAgreement_Documentation(), theTypesPackage.getString(), "documentation", null, 0, 1, Agreement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getAgreement_AgreementUri(), theTypesPackage.getString(), "agreementUri", null, 0, 1, Agreement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getAgreement_AutomatedAgreementIndicator(), theTypesPackage.getBoolean(), "automatedAgreementIndicator", null, 0, 1, Agreement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getAgreement__DocDerivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "docDerivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(iepdReferenceEClass, IepdReference.class, "IepdReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIepdReference_Name(), theTypesPackage.getString(), "name", null, 0, 1, IepdReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getIepdReference_Iepdurl(), theTypesPackage.getString(), "iepdurl", null, 0, 1, IepdReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getIepdReference__Derivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "derivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(securityClassificationEClass, SecurityClassification.class, "SecurityClassification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSecurityClassification_Name(), theTypesPackage.getString(), "name", null, 0, 1, SecurityClassification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getSecurityClassification__NameDerivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "nameDerivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(serviceCapabilityEClass, ServiceCapability.class, "ServiceCapability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServiceCapability_Documentation(), theTypesPackage.getString(), "documentation", null, 0, 1, ServiceCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = initEOperation(getServiceCapability__DocDerivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "docDerivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(serviceDescriptionEClass, ServiceDescription.class, "ServiceDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getServiceDescription_ExchangePartner(), this.getParticipant(), null, "exchangePartner", null, 0, -1, ServiceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2752,7 +2318,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		initEAttribute(getServiceDescription_LifecycleStatus(), theTypesPackage.getString(), "lifecycleStatus", null, 0, 1, ServiceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getServiceDescription_AlertAndNotificationUri(), theTypesPackage.getString(), "alertAndNotificationUri", null, 0, 1, ServiceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getServiceDescription_AdditionalInformation(), this.getDescription(), null, "additionalInformation", null, 0, -1, ServiceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getServiceDescription_ServiceDescriptionUri(), theTypesPackage.getString(), "serviceDescriptionUri", null, 0, 1, ServiceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getServiceDescription_ExecutionContext(), this.getDescription(), null, "executionContext", null, 0, 1, ServiceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getServiceDescription_Security(), this.getDescription(), null, "security", null, 0, 1, ServiceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getServiceDescription_Privacy(), this.getDescription(), null, "privacy", null, 0, 1, ServiceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2760,24 +2325,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		initEReference(getServiceDescription_OtherRequirement(), this.getDescription(), null, "otherRequirement", null, 0, 1, ServiceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getServiceDescription_DataProvenance(), this.getDescription(), null, "dataProvenance", null, 0, 1, ServiceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getServiceDescription_ProcessModel(), this.getDescription(), null, "processModel", null, 0, 1, ServiceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = initEOperation(getServiceDescription__RealizesCollaborationAndUsesIepd__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "realizesCollaborationAndUsesIepd", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getServiceDescription__ExchangePartnerDerivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "exchangePartnerDerivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(serviceIdentificationEClass, ServiceIdentification.class, "ServiceIdentification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServiceIdentification_ServiceId(), theTypesPackage.getString(), "serviceId", null, 0, 1, ServiceIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2787,15 +2334,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		initEClass(descriptionEClass, Description.class, "Description", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDescription_Documentation(), theTypesPackage.getString(), "documentation", null, 0, 1, Description.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getDescription_ExternalDocumentation(), theTypesPackage.getString(), "externalDocumentation", null, 0, 1, Description.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = initEOperation(getDescription__DocDerivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "docDerivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(serviceLevelAgreementEClass, ServiceLevelAgreement.class, "ServiceLevelAgreement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServiceLevelAgreement_ApplicablePoliciesIndicator(), theTypesPackage.getBoolean(), "applicablePoliciesIndicator", null, 0, 1, ServiceLevelAgreement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2813,45 +2351,16 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		initEAttribute(getServiceLevelAgreement_ServiceAverageThroughput(), theTypesPackage.getString(), "serviceAverageThroughput", null, 0, 1, ServiceLevelAgreement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getServiceLevelAgreement_ServiceMaximumThroughput(), theTypesPackage.getString(), "serviceMaximumThroughput", null, 0, 1, ServiceLevelAgreement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getServiceLevelAgreement_ServiceAvailability(), theTypesPackage.getString(), "serviceAvailability", null, 0, 1, ServiceLevelAgreement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getServiceLevelAgreement_CreationCostAmount(), theTypesPackage.getString(), "creationCostAmount", null, 0, 1, ServiceLevelAgreement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getServiceLevelAgreement_UsageCostAmount(), theTypesPackage.getString(), "usageCostAmount", null, 0, 1, ServiceLevelAgreement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getServiceLevelAgreement_UsageUnitCostAmount(), theTypesPackage.getString(), "usageUnitCostAmount", null, 0, 1, ServiceLevelAgreement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getServiceLevelAgreement_CreationCostAmount(), theTypesPackage.getString(), "creationCostAmount", null, 0, 1, ServiceLevelAgreement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = initEOperation(getServiceLevelAgreement__ApplicableContractsIndicatorDerivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "applicableContractsIndicatorDerivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getServiceLevelAgreement__ApplicableAgreementsIndicatorDerivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "applicableAgreementsIndicatorDerivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getServiceLevelAgreement__ApplicableUmbrellaAgreementsIndicatorDerivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "applicableUmbrellaAgreementsIndicatorDerivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(serviceInterfaceSpecificationEClass, ServiceInterfaceSpecification.class, "ServiceInterfaceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServiceInterfaceSpecification_SecurityImplementedIndicator(), theTypesPackage.getBoolean(), "securityImplementedIndicator", null, 0, 1, ServiceInterfaceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getServiceInterfaceSpecification_SecurityDescriptionText(), theTypesPackage.getString(), "securityDescriptionText", null, 0, 1, ServiceInterfaceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getServiceInterfaceSpecification_ServiceInteractionProfile(), this.getServiceInteractionProfile(), null, "serviceInteractionProfile", null, 1, 1, ServiceInterfaceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getServiceInterfaceSpecification_Service(), this.getService(), null, "service", null, 1, -1, ServiceInterfaceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getServiceInterfaceSpecification_UriAddress(), theTypesPackage.getString(), "uriAddress", null, 0, 1, ServiceInterfaceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getServiceInterfaceSpecification_MessageDefinitionMechanism(), this.getDescription(), null, "messageDefinitionMechanism", null, 0, -1, ServiceInterfaceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getServiceInterfaceSpecification_ServiceInterfaceDescriptionUri(), theTypesPackage.getString(), "serviceInterfaceDescriptionUri", null, 0, 1, ServiceInterfaceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getServiceInterfaceSpecification_TargetNamespace(), theTypesPackage.getString(), "targetNamespace", null, 1, 1, ServiceInterfaceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getServiceInterfaceSpecification_Prefix(), theTypesPackage.getString(), "prefix", null, 1, 1, ServiceInterfaceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getServiceInterfaceSpecification_ServiceTesting(), this.getDescription(), null, "serviceTesting", null, 0, 1, ServiceInterfaceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2863,28 +2372,10 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 		initEAttribute(getServiceInteractionProfile_SipName(), theTypesPackage.getString(), "sipName", null, 1, 1, ServiceInteractionProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getServiceInteractionProfile_SipVersion(), theTypesPackage.getString(), "sipVersion", null, 1, 1, ServiceInteractionProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getServiceInteractionProfile__NameDerivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "nameDerivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(schemaReferenceEClass, SchemaReference.class, "SchemaReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSchemaReference_Namespace(), theTypesPackage.getString(), "namespace", null, 1, 1, SchemaReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getSchemaReference_Prefix(), theTypesPackage.getString(), "prefix", null, 1, 1, SchemaReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getSchemaReference_SchemaLocation(), theTypesPackage.getString(), "schemaLocation", null, 1, 1, SchemaReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = initEOperation(getSchemaReference__Derivation__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "derivation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(exchangePatternEEnum, ExchangePattern.class, "ExchangePattern");
@@ -2904,181 +2395,6 @@ public class GraAnnotationModelPackageImpl extends EPackageImpl implements GraAn
 
 		// Create resource
 		createResource(eNS_URI);
-
-		// Create annotations
-		// http://www.eclipse.org/uml2/1.1.0/GenModel
-		createGenModel_1Annotations();
-		// duplicates
-		createDuplicatesAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/uml2/1.1.0/GenModel</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createGenModel_1Annotations() {
-		String source = "http://www.eclipse.org/uml2/1.1.0/GenModel";	
-		addAnnotation
-		  (getGraServiceAnnotationBase__NameDerivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "stringValueOf(\"Name\") = (if name->notEmpty and name <> \"\" then  name else if realizesElement() then realizedElement.name else \"\" endif endif)"
-		   });	
-		addAnnotation
-		  (getGraServiceAnnotationBase__DocDerivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "stringValue(\"Documentation\") = if realizesElement() then  realizedElement().docComment() else docComment() endif"
-		   });	
-		addAnnotation
-		  (getModelReference__Derivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "TODO: define derivation from realization"
-		   });	
-		addAnnotation
-		  (getParticipant__RealizesActor__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "realizesElement() and realizedElement().oclIsKindOf(Actor)"
-		   });	
-		addAnnotation
-		  (getOperation__RealizesOperationOrReception__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "realizesElement() and (realizedElement().oclIsKindOf(Operation) or realizedElement().oclIsKindOf(Reception))"
-		   });	
-		addAnnotation
-		  (getOperation__PurposeDerivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "stringValueOf(\"ActionPurpose\") = realizedElement().docComment()"
-		   });	
-		addAnnotation
-		  (getParameter__Derivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "TODO: define derivation of Parameter"
-		   });	
-		addAnnotation
-		  (getParameter__UseDerivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "TODO: Define derivation of Use"
-		   });	
-		addAnnotation
-		  (getService__RealizesComponent__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "realizesElement() and realizedElement().oclIsKindOf(Component)"
-		   });	
-		addAnnotation
-		  (getPort__RealizesPort__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "realizesElement() and realizedElement().oclIsKindOf(Port)\n-- TODO: the port must be a port of the Service Component"
-		   });	
-		addAnnotation
-		  (getServiceInteraction__RealizesInteraction__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "realizesElement() and realizedElement().oclIsKindOf(Interaction)\n-- TODO: the partipants must realize Actors involved in the interaction"
-		   });	
-		addAnnotation
-		  (getUseCase__Derivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "TODO: define derivation."
-		   });	
-		addAnnotation
-		  (getAgreement__DocDerivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "stringValueOf(\"Documentation\") = docComment()"
-		   });	
-		addAnnotation
-		  (getIepdReference__Derivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "TODO: define derivation from uses relationship"
-		   });	
-		addAnnotation
-		  (getSecurityClassification__NameDerivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "stringValue(\"Name\") = name"
-		   });	
-		addAnnotation
-		  (getServiceCapability__DocDerivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "stringValueOf(\"Documentation\") = docComment()"
-		   });	
-		addAnnotation
-		  (getServiceDescription__RealizesCollaborationAndUsesIepd__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "realizesElement() and realizedElement().oclIsKindOf(Collaboration) and usesElement() and usedElement().isIEPD()"
-		   });	
-		addAnnotation
-		  (getServiceDescription__ExchangePartnerDerivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "TODO: derived from Role in Collaboration"
-		   });	
-		addAnnotation
-		  (getDescription__DocDerivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "stringValueOf(\"Documentation\")=docComment()"
-		   });	
-		addAnnotation
-		  (getServiceLevelAgreement__ApplicableContractsIndicatorDerivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "applicableContractsIndicator = (applicableContract->notEmpty())"
-		   });	
-		addAnnotation
-		  (getServiceLevelAgreement__ApplicableAgreementsIndicatorDerivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "applicableAgreementsIndicator = (Agreement->notEmpty())"
-		   });	
-		addAnnotation
-		  (getServiceLevelAgreement__ApplicableUmbrellaAgreementsIndicatorDerivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "applicableUmbrellaAgreementsIndicator = (UmbrellaAgreement->notEmpty())"
-		   });	
-		addAnnotation
-		  (getServiceInteractionProfile__NameDerivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "stringValueOf(\"SIPName\") = name"
-		   });	
-		addAnnotation
-		  (getSchemaReference__Derivation__DiagnosticChain_Map(), 
-		   source, 
-		   new String[] {
-			 "body", "TODO: derivation"
-		   });
-	}
-
-	/**
-	 * Initializes the annotations for <b>duplicates</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createDuplicatesAnnotations() {
-		String source = "duplicates";	
-		addAnnotation
-		  (operationEClass, 
-		   source, 
-		   new String[] {
-		   });
 	}
 
 } //GraAnnotationModelPackageImpl

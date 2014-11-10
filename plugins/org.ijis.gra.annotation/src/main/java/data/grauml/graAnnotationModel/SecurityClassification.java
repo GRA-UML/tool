@@ -2,8 +2,6 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -32,7 +30,7 @@ public interface SecurityClassification extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Any applicable classification of the security level of the information exchanged by the service, such as SBU, Secret, etc. If there is no strict classification this field can contain a brief statement regarding the security of the data.
+	 * The name, derived from the instance name.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -51,17 +49,5 @@ public interface SecurityClassification extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='stringValue(\"Name\") = name'"
-	 * @generated
-	 */
-	boolean nameDerivation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // SecurityClassification

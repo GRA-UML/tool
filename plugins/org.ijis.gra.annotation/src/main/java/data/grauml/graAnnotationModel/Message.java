@@ -9,7 +9,7 @@ package data.grauml.graAnnotationModel;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Represents the data of an operation parameter or a signal.
+ * Represents the data of an operation parameter or a signal. If not declared as an annotation, derived during phase-1 provisioning for the data type of every UML Parameter in the service hierarchy.  For each Message there must be a property of its corresponding type in the NIEM-UML model.
  * 
  * <!-- end-model-doc -->
  *
@@ -33,7 +33,7 @@ public interface Message extends GraServiceAnnotationBase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Prefix used to reference Schema Namespace.
+	 * Prefix used to reference Schema Namespace. Derived from the defaultPrefix tag on the NIEM information model containing the type relating to this Message.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Prefix</em>' attribute.
 	 * @see #setPrefix(String)
@@ -58,7 +58,7 @@ public interface Message extends GraServiceAnnotationBase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Prefix used to reference Schema Namespace of an element reference.
+	 * Prefix used to reference Schema Namespace of an element reference. Derived from the defaultPrefix tag on the NIEM information model containing the element relating to this Message.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Element Prefix</em>' attribute.
 	 * @see #setElementPrefix(String)

@@ -1,223 +1,99 @@
 import GRAcommon;// common GRA operations
 import NIEMmpdmodel2artifact;// NIEM 2.1 UML QVT
 import NIEMpsm2xsd;// NIEM 2.1 UML QVT
-import NIEMpim2psm;
-modeltype UML uses 'http://www.omg.org/spec/UML/20110701';
-modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+import NIEMpim2psm;// NIEM 2.1 UML QVT
+modeltype UML uses 'http://www.omg.org/spec/UML/20110701';// UML metamodel
 
-modeltype XSD  uses 'http://www.eclipse.org/xsd/2002/XSD';// implicit metamodel for Schemas ala XMI Specification
-modeltype SPPCAT  uses 'http://gra.ijis.org/catalog/1.0.0';// metamodel for SPP Catalog
-modeltype METADATA  uses 'http://it.ojp.gov/gsp/services/1.0.0';// metamodel for SPP metadata
-
-
-//modeltype CAT  uses 'http://reference.niem.gov/niem/resource/mpd/catalog/1.0/';// NIEM 2.1 Catalog metamodel
+modeltype XSD  uses 'http://www.eclipse.org/xsd/2002/XSD';// implicit metamodel for Schemas, namespace ala MOF XMI Specification
 
 modeltype GRAA uses 'http://ijis.org/GRA/Annotations';// GRA Annotation metamodel
-modeltype GRAW uses 'http:/ijis.org/GRA/WSDLAnnotations';// GRA WSDL Annotation metamodel
+modeltype GRAW uses 'http://ijis.org/GRA/WSDLAnnotations';// GRA WSDL Annotation metamodel
 
 transformation GraSspModel2artifact (in uml:UML,in schemaForProxy:XSD,
-	out cat:SPPCAT,out metadata:METADATA,
 	out graa:GRAA)
 	;
 main() {
-	GraSspModel2artifact_run();
+	GraSspModel2artifact_run();// run the transformation: initialize globals and start mapping uml to annotations.xmi
 }	
-property graRoot:UML::Model=null;
-property sppCatalogUml:UML::InstanceSpecification=null;
-property metadataDocument:METADATA::DocumentRoot=null;	
-property theServiceCollaboration:UML::Collaboration=null;
+property graRoot:UML::Model=null;// the root of the UML Model
+property sppCatalogUml:UML::InstanceSpecification=null;// the UML InstanceSpecification representing instantiation of the SSP Catalog
+property theServiceCollaboration:UML::Collaboration=null;// the UML Collaboration representing the service collaboration
+property gatherAllGraSchemas:Set(UML::Package)=Set{};// collection of all <<InformationModel>>Packages referenced by this SSP
+
+property gatherAllPimSchemas:Set(UML::Package)=Set{};// collection of all IEPD-contained UML <<InformationModel>>Packages referenced by this SSP
+	
 helper GraSspModel2artifact_run() {
+	// initialize global containing schema for proxy
 	umlSchemaForProxy:=schemaForProxy.objectsOfType(XSD::XSDSchema)->asSequence()->first();
 	// initialize the Schema for Schemas
 	umlSchemaForSchema:=umlSchemaForProxy.schemaForSchema;
-	
+	// graRoot is the root UML Model within the model resource
 	graRoot:=
 			uml.rootObjects()
 			->select(r|r.oclIsKindOf(UML::Model)).oclAsType(UML::Model)
 			->asSequence()->first();
     log('GRA uml model root '+graRoot.repr());    
 
-	graRoot.initializeProfileGlobals();	
-	graRoot.initializeSppProfileGlobals();
+	graRoot.initializeProfileGlobals();	// initialize global values for all profiles
 	// locate the uml spp catalog and map it to target catalog
 	graRoot.allSubobjectsOfKind(UML::Package).oclAsType(UML::Package).packagedElement
-		->select(e|e.isGraCatalog()).oclAsType(UML::InstanceSpecification)
-		.map SppCatalog_DocumentRoot();	 
+		->select(e|e.isGraCatalog()).oclAsType(UML::InstanceSpecification) // select InstanceSpecification which represents the GRA Catalog
+		->forEach(sppCatalog){
+			sppCatalogUml:=sppCatalog;// save the InstanceSpecification as a global during this transformation
+			sppCatalog.iepdCatalog().IepdCatalogType();// gather and record all schemas references by NIEM IEPD Catalogs
+			
+			var serviceDescription:GRAA::ServiceDescription=sppCatalog.map GRA_WSDL();// create annotation xmi based on sppCatalog
+			sppCatalog.GRA_WSDL(serviceDescription);// populate content of annotation xmi
+		};	 
 	return;
 	}
+// the UML Element represents a GRA Classifier if it is an InstanceSpecification instantiation of a ServiceDescription Classifier	
 query UML::Element::isGraCatalog():Boolean=
 	self.oclIsKindOf(UML::InstanceSpecification) 
 	and 
 	self.oclAsType(UML::InstanceSpecification).classifier->exists(c|c.name='ServiceDescription');
 	 
-/////////////////////////////////////////////////catalog mappings
-// represents the ssp model as a whole, all elements will be contained in the model
-// within the model, it is also a servicesArchitecture
-// context is GRA Service Specification
-
-mapping 	UML::InstanceSpecification::SppCatalog_DocumentRoot():SPPCAT::DocumentRoot@cat{
-	catalog:=self.map SppCatalog_ProvisioningComponent();
-}
-
-// context is GRA Service Specification
-mapping 	UML::InstanceSpecification::SppCatalog_ProvisioningComponent():SPPCAT::CatalogType1@cat{
-	sppCatalogUml:=self;
-	
-	//  get metadata and other artifacts during Catalog processing
-	//  fully expand wsdl target content
-	//  in the process, expand the spp schemas
-	// process all content
-	// create the items, establish containment, set stereotypes and apply tags discretely
-	// catalog implicit
-	// metadata : combine-in
-	// service-description implicit
-	// 	service-interface-description implicit from wsdl-schema
-	//  wsdl-schema : similar to NIEM FileType
-	//  soap-sample : similar to NIEM FileType
-	// iepd-catalog : similar to NIEM FileType
-	self.map Catalog(result);// entry for SSP Catalog
-	var serviceDescription:GRAA::ServiceDescription=self.map GRA_WSDL();// annotation xmi creation
-	self.map Metadata(result,serviceDescription);// entry for SSP Metadata
-	self.map ServiceDescriptionType(result,serviceDescription);// entry for SDD
-
-	self.wsdlInterfaceSchema().map ServiceInterfaceDescriptionType(self,result,serviceDescription);// entries for SIDD
-	// self.soapSample().map SoapSampleType(result);// Soap Samples via stage 2 processing
-	self.wsdlSchema().map WsdlSchemaType(result,serviceDescription);// entries for WSDL documents
-	self.iepdCatalog().map IepdCatalogType(result);// entry for NIEM IEPD Catalog
-	
-	self.GRA_WSDL(serviceDescription);
-}
-
-/*
-    - <!--   Service Description Files Section    -->
-	<service-description href="artifacts/SIRS_SDD_v_1.0.0.doc">Service Description Document</service-description>
-    - <!--   Service Interface Files Section    -->
-	<service-interface-description href="artifacts/Notification Service Interface/SIRS_SIDD_NSI_v_1.0.0.doc">Service Interface Description Document</service-interface-description>
-	<service-interface-description href="artifacts/Relocation Service Interface/SIRS_SIDD_RSI_v_1.0.0.doc">Service Interface Description Document</service-interface-description>
-
-*/
-// context is property whose type is a component representing ServiceInterfaceDescription
-// return value of href to the SIDD
-
-helper UML::Property::SIDDhref(serviceMetadata:METADATA::ServiceMetadataType,serviceInterfaceNameAbbreviationText:String,inout diagnosticContext:GRAA::GraServiceAnnotationBase):String{
-		
-	var serviceIdentification:METADATA::ServiceIdentificationType=serviceMetadata.serviceIdentification;
-	// gather components of document name from metadata; provide defaults if undefined
-	var abbrev:String=serviceIdentification.serviceNameAbbreviationText->first();	
-	if(abbrev.oclIsUndefined())then{
-		abbrev:='UNK(no ServiceIdentification@serviceNameAbbreviationText)';
-		diagnosticContext.diagnostics+='ERROR: ServiceIdentification does not have serviceNameAbbreviationText';
-	}endif;
-	var versionInformation:METADATA::VersionInformationType=serviceMetadata.versionInformation;
-	var majorVersion:Integer=versionInformation.majorVersion;
-	var minorVersion:Integer=versionInformation.minorVersion;
-	var revisionVersion:Integer=versionInformation.revisionVersion;
-	if(majorVersion.oclIsUndefined())then{
-		majorVersion:=1;
-		diagnosticContext.diagnostics+='ERROR: ServiceIdentification does not have majorVersion';
-	}endif;
-	if(minorVersion.oclIsUndefined())then{
-		minorVersion:=0;
-		diagnosticContext.diagnostics+='ERROR: ServiceIdentification does not have minorVersion';
-	}endif;
-	if(revisionVersion.oclIsUndefined())then{
-		revisionVersion:=0;
-		diagnosticContext.diagnostics+='ERROR: ServiceIdentification does not have revisionVersion';
-	}endif;
-	// the SIDD abbreviation from serviceInterfaceSpecification
-//	var ifcAbbrev:String=self.name.replace(' ','');
-	var ifcAbbrev:String=serviceInterfaceNameAbbreviationText;
-	if(ifcAbbrev.oclIsUndefined())then{
-		ifcAbbrev:=self.name.replace(' ','');
-		if(ifcAbbrev.oclIsUndefined())then{
-			ifcAbbrev:='UNK(no @serviceInterfaceNameAbbreviationText)';
-			diagnosticContext.diagnostics+='ERROR: No have serviceInterfaceNameAbbreviationText';
-		}endif;
-	}endif;
-	// directory name based on name of component
-	var ifcName:String=self.type.name;
-	if(ifcName.oclIsUndefined())then{
-		ifcName:=self.name.replace(' ','');
-		if(ifcName.oclIsUndefined())then{
-			ifcName:='UNK(no role name or role type name)';
-			diagnosticContext.diagnostics+='ERROR: no role name and no type name for '+self.qualifiedName;
-		}endif;
-	}endif;
-//	var href:String='artifacts/'+ifcName+'/'+abbrev+'_SIDD_'+ifcAbbrev+'_v_'+majorVersion.toString()+'.'+minorVersion.toString()+'.'+revisionVersion.toString()+'.docx';
-	var href:String='artifacts/'+ifcName+'/'+abbrev+'_SIDD_'+ifcAbbrev+'_v_'+majorVersion.toString()+'.'+minorVersion.toString()+'.'+revisionVersion.toString()+'.xhtml';
-	return href;
-}
-
-
-mapping 	UML::Property::ServiceInterfaceDescriptionType(spp:UML::InstanceSpecification,inout catalog:SPPCAT::CatalogType1,inout diagnosticContext:GRAA::GraServiceAnnotationBase):SPPCAT::ServiceInterfaceDescriptionType@cat{
-	// create ServiceInterfaceDescription element, add to catalog, populate with href and value attributes
-	catalog.serviceInterfaceDescription+=result;
-	var serviceMetadata:METADATA::ServiceMetadataType=spp.map MetadataDocument(catalog.metadata,diagnosticContext).serviceMetadata->asSequence()->first();
-	var serviceComponent:UML::Type=self.type;
-	var serviceInterface:UML::InstanceSpecification=spp.getInstanceValues('ServiceInterface')
-		->select(si|si.getInstanceValues('Service').realizedComponent()->exists(c|c=serviceComponent))->asSequence()->first();
-	var 	serviceInterfaceNameAbbreviationText:String=serviceInterface.getStringValue('ServiceInterfaceNameAbbreviationText');
-		
-	href:=self.SIDDhref(serviceMetadata,serviceInterfaceNameAbbreviationText,diagnosticContext);
-	value:='Service Interface Description Document';
-}
-
-// compute href entry to the SDD document; name constructed from metadata
-
-helper 	METADATA::ServiceMetadataType::SDDhref(inout diagnosticContext:GRAA::GraServiceAnnotationBase):String{
-	var serviceIdentification:METADATA::ServiceIdentificationType=self.serviceIdentification;
-	var abbrev:String=serviceIdentification.serviceNameAbbreviationText->first();
-	if(abbrev.oclIsUndefined())	then{
-		abbrev:='UNK';
-			diagnosticContext.diagnostics+='ERROR: no serviceNameAbbreviationText';
-	}endif;
-	var versionInformation:METADATA::VersionInformationType=self.versionInformation;
-	
-	var majorVersion:Integer=versionInformation.majorVersion;
-	var minorVersion:Integer=versionInformation.minorVersion;
-	var revisionVersion:Integer=versionInformation.revisionVersion;
-	// name of document, per SSP specification
-//	var href:String='artifacts/'+abbrev+'_SDD_v_'+majorVersion.toString()+'.'+minorVersion.toString()+'.'+revisionVersion.toString()+'.docx';
-	var href:String='artifacts/'+abbrev+'_SDD_v_'+majorVersion.toString()+'.'+minorVersion.toString()+'.'+revisionVersion.toString()+'.xhtml';
-	return href;
-}
-
-
-mapping 	UML::InstanceSpecification::ServiceDescriptionType(inout catalog:SPPCAT::CatalogType1,inout diagnosticContext:GRAA::GraServiceAnnotationBase):SPPCAT::ServiceDescriptionType@cat{
-	// create serviceDescription entry in catalog and populate attributes href, value
-	catalog.serviceDescription:=result;
-	var serviceMetadata:METADATA::ServiceMetadataType=self.map MetadataDocument(catalog.metadata,diagnosticContext).serviceMetadata->asSequence()->first();
-	href:=serviceMetadata.SDDhref(diagnosticContext);
-	value:='Service Description Document';
-}
-
 // various specialized navigations across realizations from client to supplier, specialized by type of supplier	
+// Realizations for which the context is a client 
 query UML::NamedElement::clientRealization():Sequence(UML::Realization)=
 	self.clientDependency->select(s|s.oclIsKindOf(UML::Realization)).oclAsType(UML::Realization)->asSequence();
+// Collaborations which are the supplier of a Realization   for which the context is a client  
 query UML::NamedElement::realizedCollaboration():Sequence(UML::Collaboration)=
 	self.realizedNamedElement()->select(s|s.oclIsKindOf(UML::Collaboration)).oclAsType(UML::Collaboration)->asSequence();
+// NamedElements which are the supplier of a Realization   for which the context is a client  
 query UML::NamedElement::realizedNamedElement():Sequence(UML::NamedElement)=
 	self.clientRealization().supplier->select(s|s.oclIsKindOf(UML::NamedElement)).oclAsType(UML::NamedElement)->asSequence();
+// Packages which are the supplier of a Realization   for which the context is a client  
 query UML::NamedElement::realizedPackage():Sequence(UML::Package)=
 	self.realizedNamedElement()->select(s|s.oclIsKindOf(UML::Package)).oclAsType(UML::Package)->asSequence();
+// UseCases which are the supplier of a Realization   for which the context is a client  
 query UML::NamedElement::realizedUseCase():Sequence(UML::UseCase)=
 	self.realizedNamedElement()->select(s|s.oclIsKindOf(UML::UseCase)).oclAsType(UML::UseCase)->asSequence();
+// Components which are the supplier of a Realization   for which the context is a client  
 query UML::NamedElement::realizedComponent():Sequence(UML::Component)=
 	self.realizedNamedElement()->select(s|s.oclIsKindOf(UML::Component)).oclAsType(UML::Component)->asSequence();
+// Ports which are the supplier of a Realization   for which the context is a client  
 query UML::NamedElement::realizedPort():Sequence(UML::Port)=
 	self.realizedNamedElement()->select(s|s.oclIsKindOf(UML::Port)).oclAsType(UML::Port)->asSequence();
+// Parameters which are the supplier of a Realization   for which the context is a client  
 query UML::NamedElement::realizedParameter():Sequence(UML::Parameter)=
 	self.realizedNamedElement()->select(s|s.oclIsKindOf(UML::Parameter)).oclAsType(UML::Parameter)->asSequence();
+// TypedElements which are the supplier of a Realization   for which the context is a client  
 query UML::NamedElement::realizedTypedElement():Sequence(UML::TypedElement)=
 	self.realizedNamedElement()->select(s|s.oclIsKindOf(UML::TypedElement)).oclAsType(UML::TypedElement)->asSequence();
+// BehavioralFeatures which are the supplier of a Realization   for which the context is a client  
 query UML::NamedElement::realizedBehavioralFeature():Sequence(UML::BehavioralFeature)=
 	self.realizedNamedElement()->select(s|s.oclIsKindOf(UML::BehavioralFeature)).oclAsType(UML::BehavioralFeature)->asSequence();
+// Interfaces which are the supplier of a Realization   for which the context is a client  
 query UML::NamedElement::realizedInterface():Sequence(UML::Interface)=
 	self.realizedNamedElement()->select(s|s.oclIsKindOf(UML::Interface)).oclAsType(UML::Interface)->asSequence();
+// Actors which are the supplier of a Realization   for which the context is a client  
 query UML::NamedElement::realizedActor():Sequence(UML::Actor)=
 	self.realizedNamedElement()->select(s|s.oclIsKindOf(UML::Actor)).oclAsType(UML::Actor)->asSequence();
+// Interactions which are the supplier of a Realization   for which the context is a client  
 query UML::NamedElement::realizedInteraction():Sequence(UML::Interaction)=
 	self.realizedNamedElement()->select(s|s.oclIsKindOf(UML::Interaction)).oclAsType(UML::Interaction)->asSequence();
+// Types which are the supplier of a Realization   for which the context is a client  
 query UML::NamedElement::realizedType():Sequence(UML::Type)=
 	self.realizedNamedElement()->select(s|s.oclIsKindOf(UML::Type)).oclAsType(UML::Type)->asSequence();
 // is a wsdl component if it matches the pattern of owning ports with provided interfaces	
@@ -236,123 +112,27 @@ query UML::InstanceSpecification::wsdlSchema():Sequence(UML::Property)=
 query UML::InstanceSpecification::iepdCatalog():Sequence(UML::Usage)=
 	self.clientDependency->select(d|d.oclIsKindOf(UML::Usage)).oclAsType(UML::Usage)
 		->select(d|d.supplier->forAll(s|s.isStereotypeApplied(prompdStereotype)))->asSequence();
-// adjust href, if necessary, to be relative to spp package
-query UML::Usage::toRelativeSppLocation():String{
-	// client is spp catalog, we want relative path to supplier from catalog's package
-	// 	<service-interface-description href="artifacts/Notification Service Interface/SIRS_SIDD_NSI_v_1.0.0.doc">Service Interface Description Document</service-interface-description>
-	var sppRootPackage:UML::Package=self.client->asSequence()->first().getNearestPackage();
-	var target:UML::NamedElement=self.supplier->asSequence()->first();
-	// if not in containment of spp package, then assume it is an iepd
-	var relativePackagePath:String=target.qualifiedName.substringAfter(sppRootPackage.qualifiedName+'::');
-	if(relativePackagePath.oclIsUndefined())then{
-		// default package path if not in spp containment structure
-		relativePackagePath:='artifacts::service model::information model::'+target.name;
-	}endif;
-	// convert qualifiedName to path
-	return relativePackagePath.replace('::','/');
-};
-// location of wsdl based on an instance specification
-query UML::InstanceSpecification::toRelativeSppLocation():String{
-	// have to assume this is wsdl at standard location, plus name of instance
-	var relativePackagePath:String:='schema::SIP::'+self.name;
-	return relativePackagePath.replace('::','/');
-};
-// location of wsdl based on a component
-	
-query UML::Component::toRelativeSppLocation():String{
-	// have to assume this is wsdl at standard location, plus name of instance
-	var relativePackagePath:String:='schema::SIP::'+self.name;
-	return relativePackagePath.replace('::','/');
-};
-// context is GRA Service Specification
-// create metadata entry in catalog, populate attributes href and value, create the metadata document 
-
-mapping 	UML::InstanceSpecification::Metadata(inout catalog:SPPCAT::CatalogType1,inout diagnosticContext:GRAA::GraServiceAnnotationBase):SPPCAT::MetadataType@cat{
-	catalog.metadata:=result;
-	href:='metadata.xml';
-	value:='Metadata';
-	//	<metadata href="metadata.xml">Metadata</metadata>
-	self.map MetadataDocument(result,diagnosticContext);
-}
-
+// get Realizations for which this context is the supplier		
 query UML::NamedElement::supplierRealization():Sequence(UML::Realization)=
 	self.getTargetDirectedRelationships()->select(d|d.oclIsKindOf(UML::Realization)).oclAsType(UML::Realization)->asSequence();
+// get InstanceSpecification which instantiates a Classifier named "artifactName" 
+// and which is the client of a Realization for which this context is the supplier 	
 query UML::NamedElement::realizingInstance(artifactName:String):Sequence(InstanceSpecification)=
 	self.supplierRealization().client
 		->select(d|d.oclIsKindOf(UML::InstanceSpecification) 
 			and d.oclAsType(UML::InstanceSpecification).classifier->exists(c|c.name=artifactName))
 			.oclAsType(UML::InstanceSpecification)->asSequence();
+// get InstanceSpecification which is the client of a Realization for which this context is the supplier 	
 query UML::NamedElement::realizingInstance():Sequence(InstanceSpecification)=
 	self.supplierRealization().client
 		->select(d|d.oclIsKindOf(UML::InstanceSpecification)).oclAsType(UML::InstanceSpecification);
-helper UML::Property::wsdlLocation(inout diagnosticContext:GRAA::GraServiceAnnotationBase):String{
-	var wsdlComponent:UML::Component=self.type.oclAsType(UML::Component);
-	//var serviceInterfaceDescription:UML::InstanceSpecification=wsdlComponent.realizingInstance('ServiceInterfaceDescription')->first();
-	var value:String=self.name;
-	if(value.oclIsUndefined())then{
-		if(wsdlComponent.oclIsUndefined())then{
-			value:='unknown(role type is not service component)';
-			diagnosticContext.diagnostics+='ERROR: role type is not service component';
-		}else{
-			value:=wsdlComponent.name;
-			if(value.oclIsUndefined())then{
-				value:='unknown(unnamed service component)';
-				diagnosticContext.diagnostics+='ERROR: unnamed service component';
-			}endif;
-		}endif;
-	}endif;
-	var wsdlLocation:String:='schema/SIP/'+value+'.wsdl';
-	return wsdlLocation;
-}		
-query UML::Property::wsdlDescription():String{
-	var wsdlComponent:UML::Component=self.type.oclAsType(UML::Component);
-	var serviceInterfaceDescription:UML::InstanceSpecification=wsdlComponent.realizingInstance('ServiceInterfaceDescription')->first();
-	var value:String=serviceInterfaceDescription.name;
-	if(value.oclIsUndefined())then{
-		value:=wsdlComponent.name;
-	}endif;
-	return value+' Service Schema';
-}		
-// context is property in collaboration whose type is a component corresponding to wsdl
-
-mapping 	UML::Property::WsdlSchemaType(inout catalog:SPPCAT::CatalogType1,inout diagnosticContext:GRAA::GraServiceAnnotationBase):SPPCAT::WsdlSchemaType@cat
-{
-	catalog.wsdlSchema+=result;
-	var wsdlComponent:UML::Component=self.type.oclAsType(UML::Component);
-	var serviceInterfaceDescription:UML::InstanceSpecification=wsdlComponent.realizingInstance('ServiceInterfaceDescription')->first();
-	value:=self.wsdlDescription();
-	var wsdlLocation:String:=self.wsdlLocation(diagnosticContext);
-	href:=wsdlLocation;
-	//log('Catalog WsdlSchemaType reference '+result.href);
-	//wsdlComponent.);// no wsdl
-	
-}
-mapping 	UML::Usage::IepdCatalogType(inout catalog:SPPCAT::CatalogType1):SPPCAT::IepdCatalogType@cat
-{
-	catalog.iepdCatalog:=result;
-	href:=self.toRelativeSppLocation();
-	if(not(result.href.endsWith('catalog.xml')))then{href:=result.href+'/catalog.xml';}endif;
-	value:=self.name;
-	if(value.oclIsUndefined())then{
-		self.supplier->forEach(s){
-			value:=s.name;
-		};
-	}endif;
-	// accumulate schemas for use during element/type resolution
-	self.supplier->select(p|p.oclIsKindOf(UML::Component)).oclAsType(UML::Component)
-		->forEach(iepd){gatherAllGraSchemas+=iepd.gatherAllPimSchemas();};
-	// iepd catalog constructed in a separate process via NIEM 2.1 UML QVT
-}
-
-property gatherAllGraSchemas:Set(UML::Package)=Set{};
-
-property gatherAllPimSchemas:Set(UML::Package)=Set{};
-
+// for given <<ModelPackageDescription>> Component, initialize global variable 'gatherAllPinSchemas' to transitive closure of all <<InformationModel>>s directly or indirectly referenced by this MPD
 helper  UML::Component::gatherAllPimSchemas():Set(UML::Package){
 	gatherAllPimSchemas:=Set{};
 	self.getPimInformationModels().gatherAllPimSchemas();	
 	return 	gatherAllPimSchemas;
 	}
+// for given <<ModelPackageDescription>> component, return set of all <<InformationModel>>s (logically) referenced via <<ModelPackageDescriptionFile>> 	
 query UML::Component::getPimInformationModels():Set(UML::Package)=
 		self.elementImport.importedElement.oclAsType(UML::NamedElement)->asSet()
 		->union(self.clientDependency.supplier->select(p|p.oclIsKindOf(UML::Package))
@@ -362,7 +142,7 @@ query UML::Component::getPimInformationModels():Set(UML::Package)=
 		->asSet())
 		.oclAsType(UML::Package)
 		->asSet();
-	
+// for given <<InformationModel>> Package, accumulate transitive closure of all referenced <<InformationModel>>s into 'gatherAllPimSchemas' global variable	
 helper  UML::Package::gatherAllPimSchemas(){
 	if(gatherAllPimSchemas->includes(self))then{return;}endif;
         if(self.name=XMLPrimitiveTypesPackageName)then{return ;}endif;
@@ -384,6 +164,7 @@ helper  UML::Package::gatherAllPimSchemas(){
 			};
 	return;
 	}
+// for given context, get nearest owner in containment hierarchy that is a <<InformationModel>>, <<Namespace>>, the XML Primitive Type library, or UML Primitive Type library	
 query UML::Element::getNearestNIEMSchemaPackage():UML::Package{
     var schemaPackage:UML::Package=self.getNearestPackage();
     if(schemaPackage.IsStereotypeApplied(NIEMSchemaStereotype) or schemaPackage.IsStereotypeApplied(NIEMInformationModelStereotype)) then {return schemaPackage;} endif;
@@ -394,909 +175,76 @@ query UML::Element::getNearestNIEMSchemaPackage():UML::Package{
     if(nestingPackage.oclIsUndefined())then{return null;}endif;
     return nestingPackage.getNearestNIEMSchemaPackage();
 }
-
-
-mapping 	UML::InstanceSpecification::Catalog(inout catalog:SPPCAT::CatalogType1):SPPCAT::CatalogType@cat{
-	catalog.catalog:=result;
-	href:='catalog.html';
-	value:='Catalog';
-}
-////////////////////////////////////////////metadata
-// context is GRA Service Specification
-
-mapping 	UML::InstanceSpecification::MetadataDocument(inout metadataType:SPPCAT::MetadataType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::DocumentRoot@metadata{
-	metadataDocument:=result;
-	self.map ServiceMetadataType(result,diagnosticContext);
-	result.addXsiSchemaLocation('http://it.ojp.gov/gsp/services/1.0.0','Metadata.xsd');// via blackbox
-}
-
+// is ServiceIdentification if context is a Component which provides some interface via owned ports
 query UML::Element::isServiceIdentification():Boolean=
 	self.oclIsKindOf(UML::Component) and self.oclAsType(UML::Component).ownedPort->exists(p|p.provided->notEmpty())
 	;
-	
-query UML::Element::isServiceInterfaceSpecification():Boolean=
-	self.oclIsKindOf(UML::Class) or self.oclIsKindOf(UML::Interface)
-	;
-query UML::Collaboration::serviceIdentifications():Sequence(UML::InstanceSpecification)=
-	self.realizingInstance();
-	
-query UML::Collaboration::serviceIdentification():METADATA::ServiceIdentificationType=
-	self.serviceIdentifications()->first().map ServiceIdentificationType();
-	
-// context is GRA Service Specification
-mapping 	UML::InstanceSpecification::ServiceMetadataType(inout document:METADATA::DocumentRoot,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ServiceMetadataType@metadata
-{
-	document.serviceMetadata:=result;
-	var serviceCollaboration:UML::Collaboration=self.realizedCollaboration()->first();
-	theServiceCollaboration:=serviceCollaboration;
-	// serviceIdentification is a participant component and a role of the services architecture 
-	serviceIdentification:=serviceCollaboration.serviceIdentification();
-	serviceCollaboration.map RelatedOrganizationInformationType(result,diagnosticContext);
-	
-	serviceCollaboration.ownedAttribute
-		.type
-		->select(t|t.isServiceIdentification()).oclAsType(UML::Component)
-		.map ServiceInterfaceSpecification(result,diagnosticContext);
-		
-	self.map ServiceDescription(result,diagnosticContext);
-	self.map VersionInformation(result,diagnosticContext);
-	self.map BusinessContext(result,diagnosticContext);
-	/*
-	self.slot->select(s|s.definingFeature.name='ServiceLevelAgreement').value.oclAsType(UML::InstanceValue).instance	
-		.map ServiceLevelAgreements(result);
-		*/
-	self.map ServiceLevelAgreements(result,diagnosticContext);
-}
-/*
-mapping UML::InstanceSpecification::ServiceLevelAgreements(inout serviceMetadata:METADATA::ServiceMetadataType):METADATA::ServiceLevelAgreementsType
-{
-	serviceMetadata.serviceLevelAgreements:=result;
-	self.map ServicePolicyAndContracts(result);
-	self.map PerformanceMetrics(result);
-	self.map ServiceUsageDetails(result);
-}
-*/
-mapping UML::InstanceSpecification::ServiceLevelAgreements(inout serviceMetadata:METADATA::ServiceMetadataType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ServiceLevelAgreementsType
-{
-	serviceMetadata.serviceLevelAgreements:=result;
-	self.map ServicePolicyAndContracts(result,diagnosticContext);
-	self.map PerformanceMetrics(result,diagnosticContext);
-	self.map ServiceUsageDetails(result,diagnosticContext);
-}
-mapping UML::InstanceSpecification::ServiceUsageDetails(inout serviceLevelAgreementsType:METADATA::ServiceLevelAgreementsType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ServiceUsageType
-{
-	serviceLevelAgreementsType.serviceUsageDetails:=result;
-	var appliedStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='ServiceLevelAgreement').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();	
-	
-//	var appliedStereotype:UML::InstanceSpecification=self;
-	
-	approvalRequiredIndicator:=false;
-	if(not(appliedStereotype.oclIsUndefined())and  appliedStereotype.slot->select(s|s.definingFeature.name='ApprovalRequiredIndicator').value.oclAsType(UML::LiteralBoolean).value->notEmpty())then{
-		approvalRequiredIndicator:=appliedStereotype.slot->select(s|s.definingFeature.name='ApprovalRequiredIndicator').value.oclAsType(UML::LiteralBoolean).value->asSequence()->first();
-	}else{
-				diagnosticContext.diagnostics+='ERROR: ApprovalRequiredIndicator not set';
-	}endif;
-	licensingRequiredIndicator:=true;
-	if(not(appliedStereotype.oclIsUndefined())and  appliedStereotype.slot->select(s|s.definingFeature.name='LicensingRequiredIndicator').value.oclAsType(UML::LiteralBoolean).value->notEmpty())then{
-		licensingRequiredIndicator:=appliedStereotype.slot->select(s|s.definingFeature.name='LicensingRequiredIndicator').value.oclAsType(UML::LiteralBoolean).value->asSequence()->first();
-	}else{
-				diagnosticContext.diagnostics+='ERROR: LicensingRequiredIndicator not set';
-	}endif;
-	
-//	self.map LicensingAgreement(result);
-//	self.map ServiceCost(result);
-	appliedStereotype.map LicensingAgreement(result,diagnosticContext);
-	appliedStereotype.map ServiceCost(result,diagnosticContext);
-}
-mapping UML::InstanceSpecification::ServiceCost(inout serviceUsageDetailsType:METADATA::ServiceUsageType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::CostType
-{
-	serviceUsageDetailsType.serviceCost:=result;
-	self.map UsageCostAmount(result,diagnosticContext);
-	self.map UsageUnitCostAmount(result,diagnosticContext);
-	self.map CreationCostAmount(result,diagnosticContext);
-}
-mapping UML::InstanceSpecification::CreationCostAmount(inout serviceCostType:METADATA::CostType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::AmountType
-{
-	serviceCostType.creationCostAmount:=result;
-	var appliedStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='CreationCostAmount').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	value:=appliedStereotype.slot->select(s|s.definingFeature.name='value').value.oclAsType(UML::LiteralReal).value->asSequence()->first();
-	currencyText:=appliedStereotype.slot->select(s|s.definingFeature.name='currencyText').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	if(value.oclIsUndefined())then{
-		value:=0;
-				diagnosticContext.diagnostics+='ERROR: CreationCostAmount value not set';
-	}endif;
-	
-}
-mapping UML::InstanceSpecification::UsageUnitCostAmount(inout serviceCostType:METADATA::CostType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::AmountType
-{
-	serviceCostType.usageUnitCostAmount:=result;
-	var appliedStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='UsageUnitCostAmount').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	value:=appliedStereotype.slot->select(s|s.definingFeature.name='value').value.oclAsType(UML::LiteralReal).value->asSequence()->first();
-	currencyText:=appliedStereotype.slot->select(s|s.definingFeature.name='currencyText').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	if(value.oclIsUndefined())then{
-				diagnosticContext.diagnostics+='ERROR: UsageUnitCostAmount value not set';
-		value:=0;
-	}endif;
-	
-}
-mapping UML::InstanceSpecification::UsageCostAmount(inout serviceCostType:METADATA::CostType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::AmountType
-{
-	serviceCostType.usageCostAmount:=result;
-	var appliedStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='UsageCostAmount').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	value:=appliedStereotype.slot->select(s|s.definingFeature.name='value').value.oclAsType(UML::LiteralReal).value->asSequence()->first();
-	currencyText:=appliedStereotype.slot->select(s|s.definingFeature.name='currencyText').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	if(value.oclIsUndefined())then{
-				diagnosticContext.diagnostics+='ERROR: UsageCostAmount value not set';
-		value:=0;
-	}endif;
-	
-}
-mapping UML::InstanceSpecification::LicensingAgreement(inout serviceUsageDetailsType:METADATA::ServiceUsageType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::AgreementType
-{
-	serviceUsageDetailsType.licensingAgreement:=result;
-	var appliedStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='LicensingAgreement').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	agreementDescriptionText:=appliedStereotype.ownedComment.body->asSequence()->first();
-	agreementURI:=appliedStereotype.slot->select(s|s.definingFeature.name='AgreementURI').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	if(agreementDescriptionText.oclIsUndefined() and agreementURI.oclIsUndefined())then{
-				diagnosticContext.diagnostics+='ERROR: no LicensingAgreement description';
-		agreementDescriptionText:='unknownDescription';
-	}endif;
-	
-}
-mapping UML::InstanceSpecification::PerformanceMetrics(inout serviceLevelAgreementsType:METADATA::ServiceLevelAgreementsType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::PerformanceMetricsType
-{
-	serviceLevelAgreementsType.performanceMetrics:=result;
-	var appliedStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='ServiceLevelAgreement').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();	
-	
-//	var appliedStereotype:UML::InstanceSpecification=self;
-	serviceResponseTime:=appliedStereotype.slot->select(s|s.definingFeature.name='ServiceResponseTime').value.oclAsType(UML::LiteralString).value->asSequence()->first().toDuration();
-	serviceAverageThroughput:=appliedStereotype.slot->select(s|s.definingFeature.name='ServiceAverageThroughput').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	serviceMaximumThroughput:=appliedStereotype.slot->select(s|s.definingFeature.name='ServiceMaximumThroughput').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	serviceAvailability:=appliedStereotype.slot->select(s|s.definingFeature.name='ServiceAvailability').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	if(serviceResponseTime.oclIsUndefined())then{
-				diagnosticContext.diagnostics+='ERROR: no ServiceResponseTime duration';
-		serviceResponseTime:='P1Y2M3DT10H30M'.toDuration();
-	}endif;
-	
-}
-
-mapping UML::InstanceSpecification::ServicePolicyAndContracts(inout serviceLevelAgreementsType:METADATA::ServiceLevelAgreementsType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ServicePolicyAndContractsType
-{
-	serviceLevelAgreementsType.servicePolicyAndContracts:=result;
-	var appliedStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='ServiceLevelAgreement').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();	
-	
-//	var appliedStereotype:UML::InstanceSpecification=self;
-	
-//	var appliedContractStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='ApplicableContract').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	var appliedContractStereotype:UML::InstanceSpecification=appliedStereotype.slot->select(s|s.definingFeature.name='ApplicableContract').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	var contractAgreementDescriptionTexts:Sequence(String)=appliedContractStereotype.ownedComment.body->asSequence();
-	if(contractAgreementDescriptionTexts->notEmpty())then{
-//		self.map ApplicableContracts(result);	
-		appliedStereotype.map ApplicableContracts(result,diagnosticContext);	
-	}endif;
-	
-	if(not(appliedStereotype.oclIsUndefined())and  appliedStereotype.slot->select(s|s.definingFeature.name='ApplicableContractsIndicator').value.oclAsType(UML::LiteralBoolean).value->notEmpty())then{
-		applicableContractsIndicator:=appliedStereotype.slot->select(s|s.definingFeature.name='ApplicableContractsIndicator').value.oclAsType(UML::LiteralBoolean).value->asSequence()->first();
-	}else{
-		applicableContractsIndicator:=not(applicableContracts.oclIsUndefined());		
-	}endif;
-	
-	/*
-			<xs:element ref="gra:ApplicableContractsIndicator"/>
-	*/
-//	var appliedApplicableAgreementStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='Agreement').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	var appliedApplicableAgreementStereotype:UML::InstanceSpecification=appliedStereotype.slot->select(s|s.definingFeature.name='Agreement').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	var agreementAgreementDescriptionTexts:Sequence(String)=appliedApplicableAgreementStereotype.ownedComment.body->asSequence();
-	var agreementAgreementURIs:Sequence(String)=appliedApplicableAgreementStereotype.slot->select(s|s.definingFeature.name='AgreementURI').value.oclAsType(UML::LiteralString).value->asSequence();
-	if(agreementAgreementDescriptionTexts->notEmpty() and agreementAgreementURIs->notEmpty())then{
-//		self.map ApplicableAgreements(result);	
-		appliedStereotype.map ApplicableAgreements(result);	
-	}endif;
-	if(not(appliedStereotype.oclIsUndefined())and  appliedStereotype.slot->select(s|s.definingFeature.name='ApplicableAgreementsIndicator').value.oclAsType(UML::LiteralBoolean).value->notEmpty())then{
-		applicableAgreementsIndicator:=appliedStereotype.slot->select(s|s.definingFeature.name='ApplicableAgreementsIndicator').value.oclAsType(UML::LiteralBoolean).value->asSequence()->first();
-	}else{
-		applicableAgreementsIndicator:=not(applicableAgreements.oclIsUndefined());		
-	}endif;
-	
-//	var appliedUmbrellaStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='UmbrellaAgreement').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	var appliedUmbrellaStereotype:UML::InstanceSpecification=appliedStereotype.slot->select(s|s.definingFeature.name='UmbrellaAgreement').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	var umbrellaAgreementAgreementDescriptionTexts:Sequence(String)=appliedUmbrellaStereotype.ownedComment.body->asSequence();
-	if(umbrellaAgreementAgreementDescriptionTexts->notEmpty())then{
-//	self.map ApplicableUmbrellaAgreements(result);	
-	appliedStereotype.map ApplicableUmbrellaAgreements(result,diagnosticContext);	
-	}endif;
-	
-	
-	
-	if(not(appliedStereotype.oclIsUndefined())and  appliedStereotype.slot->select(s|s.definingFeature.name='ApplicableUmbrellaAgreementsIndicator').value.oclAsType(UML::LiteralBoolean).value->notEmpty())then{
-		applicableUmbrellaAgreementsIndicator:=appliedStereotype.slot->select(s|s.definingFeature.name='ApplicableUmbrellaAgreementsIndicator').value.oclAsType(UML::LiteralBoolean).value->asSequence()->first();
-	}else{
-		applicableUmbrellaAgreementsIndicator:=not(applicableUmbrellaAgreements.oclIsUndefined());		
-	}endif;
-	
-	applicablePoliciesIndicator:=false;// make sure it is set
-	if(not(appliedStereotype.oclIsUndefined())and  appliedStereotype.slot->select(s|s.definingFeature.name='ApplicablePoliciesIndicator').value.oclAsType(UML::LiteralBoolean).value->notEmpty())then{
-		applicablePoliciesIndicator:=appliedStereotype.slot->select(s|s.definingFeature.name='ApplicablePoliciesIndicator').value.oclAsType(UML::LiteralBoolean).value->asSequence()->first();	
-	}endif;
-	
-}
-mapping UML::InstanceSpecification::ApplicablePolicies(inout servicePolicyAndContractsType:METADATA::ServicePolicyAndContractsType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ApplicablePoliciesType
-{
-	servicePolicyAndContractsType.applicablePolicies:=result;
-	var appliedStereotype:UML::InstanceSpecification=self;
-	policyText:=appliedStereotype.slot->select(s|s.definingFeature.name='ApplicablePolicies').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-		if((policyText.oclIsUndefined() or (policyText='')))then{
-			diagnosticContext.diagnostics+='ERROR: no ApplicablePolicies value';
-			policyText:='undefinedPolicy';
-		}endif;
-	
-}
-
-mapping UML::InstanceSpecification::ApplicableUmbrellaAgreements(inout servicePolicyAndContractsType:METADATA::ServicePolicyAndContractsType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ApplicableUmbrellaAgreementsType
-{
-	servicePolicyAndContractsType.applicableUmbrellaAgreements:=result;
-	var appliedStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='UmbrellaAgreement').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	var umbrellaAgreementAgreementDescriptionTexts:Sequence(String)=appliedStereotype.ownedComment.body->asSequence();
-	var umbrellaAgreementAgreementURIs:Sequence(String)=appliedStereotype.slot->select(s|s.definingFeature.name='AgreementURI').value.oclAsType(UML::LiteralString).value->asSequence();
-	
-	umbrellaAgreementAgreementDescriptionTexts->forEach(umbrellaAgreementAgreementDescriptionText){
-		umbrellaAgreementAgreementDescriptionText.map UmbrellaAgreement(result,umbrellaAgreementAgreementURIs->at(umbrellaAgreementAgreementDescriptionTexts->indexOf(umbrellaAgreementAgreementDescriptionText))); 
-	};
-	if(umbrellaAgreement->isEmpty())	then{
-			diagnosticContext.diagnostics+='ERROR: no umbrellaAgreement';
-		var umbrellaAgreementNew:METADATA::AgreementType=new METADATA::AgreementType();
-		umbrellaAgreement+=umbrellaAgreementNew;
-		umbrellaAgreementNew.agreementDescriptionText:='unknownDescription';
-		//umbrellaAgreementNew.agreementURI:='unknownURI';
-	}endif;
-	
-}
-mapping String::UmbrellaAgreement(inout applicableUmbrellaAgreementsType:METADATA::ApplicableUmbrellaAgreementsType,umbrellaAgreementAgreementURIIn:String):METADATA::AgreementType
-{
-	applicableUmbrellaAgreementsType.umbrellaAgreement+=result;
-	agreementDescriptionText:=self;
-	agreementURI:=umbrellaAgreementAgreementURIIn;
-}
-
-mapping UML::InstanceSpecification::ApplicableAgreements(inout servicePolicyAndContractsType:METADATA::ServicePolicyAndContractsType):METADATA::ApplicableAgreementsType
-{
-	servicePolicyAndContractsType.applicableAgreements:=result;
-	var appliedStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='Agreement').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	var agreementAgreementDescriptionTexts:Sequence(String)=appliedStereotype.ownedComment.body->asSequence();
-	
-	var agreementAgreementURIs:Sequence(String)=appliedStereotype.slot->select(s|s.definingFeature.name='AgreementURI').value.oclAsType(UML::LiteralString).value->asSequence();
-	agreementAgreementDescriptionTexts.map Agreement(result); 
-	agreementAgreementURIs.map AgreementURI(result); 
-	
-}
-//mapping String::Agreement(inout applicableAgreementsType:METADATA::ApplicableAgreementsType,agreementAgreementURIIn:String):METADATA::AgreementType
-mapping String::Agreement(inout applicableAgreementsType:METADATA::ApplicableAgreementsType):METADATA::AgreementType
-{
-	applicableAgreementsType.agreement+=result;
-	agreementDescriptionText:=self;
-	//agreementURI:=agreementAgreementURIIn;
-}
-mapping String::AgreementURI(inout applicableAgreementsType:METADATA::ApplicableAgreementsType):METADATA::AgreementType
-{
-	applicableAgreementsType.agreement+=result;
-	agreementURI:=self;
-}
-mapping UML::InstanceSpecification::ApplicableContracts(inout servicePolicyAndContractsType:METADATA::ServicePolicyAndContractsType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ApplicableContractsType
-{
-	servicePolicyAndContractsType.applicableContracts:=result;
-	var appliedStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='ApplicableContract').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	var contractAgreementDescriptionTexts:Sequence(String)=appliedStereotype.ownedComment.body->asSequence();
-	
-	var contractAgreementURIs:Sequence(String)=appliedStereotype.slot->select(s|s.definingFeature.name='AgreementURI').value.oclAsType(UML::LiteralString).value->asSequence();
-//	log('ApplicableContracts '+contractAgreementDescriptionTexts->size().repr()+', '+contractAgreementURIs->size().repr());
-	contractAgreementDescriptionTexts->forEach(contractAgreementDescriptionText){
-		contractAgreementDescriptionText.map Contract(result,contractAgreementURIs->at(contractAgreementDescriptionTexts->indexOf(contractAgreementDescriptionText))); 
-	};
-	if(contract->isEmpty())	then{
-			diagnosticContext.diagnostics+='ERROR: no ApplicableContract';
-		var contractNew:METADATA::AgreementType=new METADATA::AgreementType();
-		contract+=contractNew;
-		contractNew.agreementDescriptionText:='unknownDescription';
-		//contractNew.agreementURI:='unknownURI';
-	}endif;
-	
-}
-mapping String::Contract(inout applicableContractsType:METADATA::ApplicableContractsType,contractAgreementURIIn:String):METADATA::AgreementType
-{
-	applicableContractsType.contract+=result;
-	agreementDescriptionText:=self;
-	agreementURI:=contractAgreementURIIn;
-	log('Contract  '+self+', '+contractAgreementURIIn);
-}
-// context is exchange partner 
-mapping UML::InstanceSpecification::BusinessContext(inout serviceMetadata:METADATA::ServiceMetadataType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::BusinessContextType
-{
-	serviceMetadata.businessContext:=result;
-	self.map DomainDescription(result,diagnosticContext);
-	if(self.slot->select(s|s.definingFeature.name='Classification').value.oclAsType(UML::LiteralString).value->notEmpty())then{
-		self.map Classifications(result);
-	}endif;
-	if(self.realizedCollaboration().role
-		->select(r|r.oclIsKindOf(UML::Property) and r.oclAsType(UML::Property).isComposite).type
-		->select(s|s.oclIsKindOf(UML::Component))->notEmpty())then{
-			self.map ExchangePartnerTypes(result,diagnosticContext);
-		}endif;
-	
-	
-	if(self.slot->select(s|s.definingFeature.name='Endorsements').value.oclAsType(UML::LiteralString).value->notEmpty())then{
-		self.map Endorsements(result);
-	}endif;
-	if(self.slot->select(s|s.definingFeature.name='Sponsors').value.oclAsType(UML::LiteralString).value->notEmpty())then{
-		self.map Sponsors(result,diagnosticContext);
-	}endif;
-	
-}
-//mapping UML::Component::Classifications(inout businessContext:METADATA::BusinessContextType):METADATA::ClassificationsType
-mapping UML::InstanceSpecification::Classifications(inout businessContext:METADATA::BusinessContextType):METADATA::ClassificationsType
-{
-	var appliedStereotype:UML::InstanceSpecification=self;
-	classification:=appliedStereotype.slot->select(s|s.definingFeature.name='Classification').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	if(result.classification.oclIsUndefined())then{
-		classification:='unknownClassification';
-	}endif;
-	
-}
-mapping UML::InstanceSpecification::DomainDescription(inout businessContext:METADATA::BusinessContextType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::DomainDescriptionType
-{
-	businessContext.domainDescription:=result;
-	var serviceCollaboration:UML::Collaboration=self.realizedCollaboration()->first();
-	domainNameText:=serviceCollaboration.ownedComment.body->asSequence()->first();
-	if(result.domainNameText.oclIsUndefined())then{
-			diagnosticContext.diagnostics+='ERROR: no DomainNameText';
-		domainNameText:='unknownDomainNameText';
-	}endif;
-}
-
-mapping UML::InstanceSpecification::Sponsors(inout businessContext:METADATA::BusinessContextType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::SponsorsType
-{
-	businessContext.sponsors:=result;
-	var appliedStereotype:UML::InstanceSpecification=self;
-	sponsor+=appliedStereotype.slot->select(s|s.definingFeature.name='Sponsors').value.oclAsType(UML::LiteralString).value->asSequence();
-	if(sponsor->isEmpty())then{
-			diagnosticContext.diagnostics+='ERROR: no sponsor';
-		sponsor+='unnamedSponsor';
-	}endif;
-		
-}
-mapping UML::InstanceSpecification::Endorsements(inout businessContext:METADATA::BusinessContextType):METADATA::EndorsementsType
-{
-	businessContext.endorsements:=result;
-	var appliedStereotype:UML::InstanceSpecification=self;
-	endorser+=appliedStereotype.slot->select(s|s.definingFeature.name='Endorsements').value.oclAsType(UML::LiteralString).value->asSequence();
-}
-mapping UML::InstanceSpecification::ExchangePartnerTypes(inout businessContext:METADATA::BusinessContextType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ExchangePartnerTypesType
-{
-	businessContext.exchangePartnerTypes:=result;
-	var serviceCollaboration:UML::Collaboration=self.realizedCollaboration()->first();
-	exchangePartnerTypeDescriptionText:=serviceCollaboration.role
-		->select(r|r.oclIsKindOf(UML::Property) and r.oclAsType(UML::Property).isComposite).type
-		->select(s|s.oclIsKindOf(UML::Component)).ownedComment.body->asSequence()->first();
-	if(result.exchangePartnerTypeDescriptionText.oclIsUndefined())then{
-			diagnosticContext.diagnostics+='ERROR: no exchangePartnerTypeDescriptionText';
-		exchangePartnerTypeDescriptionText:='unknown ExchangePartnerType Description';
-	}endif;
-}
-// context is GRA Service Specification
-
-mapping UML::InstanceSpecification::VersionInformation(inout serviceMetadata:METADATA::ServiceMetadataType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::VersionInformationType
-{
-	serviceMetadata.versionInformation:=result;
-	var appliedStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='Version').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	majorVersion:=appliedStereotype.slot->select(s|s.definingFeature.name='MajorVersion').value.oclAsType(UML::LiteralInteger).value->asSequence()->first();
-	minorVersion:=appliedStereotype.slot->select(s|s.definingFeature.name='MinorVersion').value.oclAsType(UML::LiteralInteger).value->asSequence()->first();
-	if(result.majorVersion.oclIsUndefined())then{
-			diagnosticContext.diagnostics+='ERROR: no majorVersion';
-		majorVersion:=1;
-	}endif;
-	if(result.minorVersion.oclIsUndefined())then{
-			diagnosticContext.diagnostics+='ERROR: no minorVersion';
-		minorVersion:=0;
-	}endif;
-	lastRevisionDate:=appliedStereotype.slot->select(s|s.definingFeature.name='LastRevisionDate').value.oclAsType(UML::LiteralString).value->asSequence()->first().toDate();
-	lifecycleStatus:=appliedStereotype.slot->select(s|s.definingFeature.name='LifecycleStatus').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	
-	revisionVersion:=appliedStereotype.slot->select(s|s.definingFeature.name='RevisionVersion').value.oclAsType(UML::LiteralInteger).value->asSequence()->first();
-	creationDate:=appliedStereotype.slot->select(s|s.definingFeature.name='CreationDate').value.oclAsType(UML::LiteralString).value->asSequence()->first().toDate();
-	activationDate:=appliedStereotype.slot->select(s|s.definingFeature.name='ActivationDate').value.oclAsType(UML::LiteralString).value->asSequence()->first().toDate();
-	nextRevisionDate:=appliedStereotype.slot->select(s|s.definingFeature.name='NextRevisionDate').value.oclAsType(UML::LiteralString).value->asSequence()->first().toDate();
-	expirationDate:=appliedStereotype.slot->select(s|s.definingFeature.name='ExpirationDate').value.oclAsType(UML::LiteralString).value->asSequence()->first().toDate();
-	alertsAndNotifications+=appliedStereotype.slot->select(s|s.definingFeature.name='AlertsAndNotification').value.oclAsType(UML::LiteralString).value->asSequence();
-	if(result.revisionVersion.oclIsUndefined())then{
-			diagnosticContext.diagnostics+='ERROR: no revisionVersion';
-		revisionVersion:=0;
-	}endif;
-	if(result.creationDate.oclIsUndefined())then{
-			diagnosticContext.diagnostics+='ERROR: no creationDate';
-		creationDate:='dummy'.date();
-	}endif;
-	if(result.lifecycleStatus.oclIsUndefined())then{
-			diagnosticContext.diagnostics+='ERROR: no lifecycleStatus';
-		lifecycleStatus:='In Design';
-	}endif;
-	
-}
-// context is GRA Service Specification
-
-mapping UML::InstanceSpecification::ServiceDescription(inout serviceMetadata:METADATA::ServiceMetadataType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ServiceDescriptionType
-{
-	serviceMetadata.serviceDescription:=result;
-	var appliedStereotype:UML::InstanceSpecification=self;
-	
-	servicePurposeText:=appliedStereotype.descriptionText('ServicePurpose');
-	serviceScopeDescriptionText:=appliedStereotype.descriptionText('ServiceScopeDescription');
-	serviceDescriptionSummaryText:=appliedStereotype.slot->select(s|s.definingFeature.name='ServiceDescriptionSummaryText').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	serviceDescriptionText:=appliedStereotype.descriptionText('ServiceDescription');
-	
-	serviceDescriptionKeywordText+=appliedStereotype.slot->select(s|s.definingFeature.name='ServiceDescriptionKeywordText').value.oclAsType(UML::LiteralString).value->asSequence();
-	self.map ServiceCapabilities(result,diagnosticContext);
-	self.map ServiceRealWorldEffects(result);
-	
-	securityClassificationText:=appliedStereotype.slot->select(s|s.definingFeature.name='ServiceSecurityClassification').value.oclAsType(UML::InstanceValue).instance.name->asSequence()->first();
-	if(self.slot->select(s|s.definingFeature.name='ServiceDependency').value.oclAsType(UML::InstanceValue).instance->notEmpty())then{
-		self.map ServiceDependencies(result);
-	}endif;
-	if(	self.clientDependency->select(d|d.oclIsKindOf(UML::Usage)).supplier->select(s|s.isStereotypeApplied(prompdStereotype))->notEmpty())then{
-		self.map IEPDReferences(result);
-	}endif;
-	
-	if(servicePurposeText.oclIsUndefined())then{
-			diagnosticContext.diagnostics+='ERROR: unknown purpose';
-		servicePurposeText:='unknownPurpose';
-	}endif;
-	if(serviceScopeDescriptionText.oclIsUndefined())then{
-			diagnosticContext.diagnostics+='ERROR: unknown description';
-		serviceScopeDescriptionText:='unknownDescription';
-	}endif;
-	
-	
-	
-}
-query UML::InstanceSpecification::descriptionText(featureName:String):String=
-	self.slot->select(s|s.definingFeature.name=featureName).value.oclAsType(UML::InstanceValue).instance
-		.realizedNamedElement().ownedComment.body->asSequence()->first();
-// context is GRA Service Specification
-mapping UML::InstanceSpecification::ServiceRealWorldEffects(inout serviceDescription:METADATA::ServiceDescriptionType):METADATA::ServiceRealWorldEffectsType
-{
-	serviceDescription.serviceRealWorldEffects:=result;
-	var appliedStereotype:Sequence(UML::InstanceSpecification)=self.slot->select(s|s.definingFeature.name='RealWorldEffect').value.oclAsType(UML::InstanceValue).instance->asSequence();
-	realWorldEffectDescriptionText+=appliedStereotype.realizedPackage().packagedElement->select(p|p.oclIsKindOf(UML::UseCase)).name;
-	realWorldEffectDescriptionText+=appliedStereotype.realizedUseCase().name;
-	
-}
-// context is GRA Service Specification
-mapping UML::InstanceSpecification::ServiceCapabilities(inout serviceDescription:METADATA::ServiceDescriptionType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ServiceCapabilitiesType
-{
-	serviceDescription.serviceCapabilities:=result;
-	capabilityDescriptionText+=self.slot->select(s|s.definingFeature.name='ServiceCapabilities').value.oclAsType(UML::InstanceValue).instance
-		.realizedNamedElement().ownedComment.body;
-	if(capabilityDescriptionText->isEmpty())	then{
-		capabilityDescriptionText+=self.ownedComment.body;
-		if(capabilityDescriptionText->isEmpty())	then{
-			diagnosticContext.diagnostics+='ERROR: unspecified service capability description';
-			capabilityDescriptionText+='unknownServiceCapabilityDescription';
-		}endif;
-	}endif;
-		
-}
-
-// context is GRA Service Specification
-mapping UML::InstanceSpecification::IEPDReferences(inout serviceDescription:METADATA::ServiceDescriptionType):METADATA::IEPDReferencesType
-{
-	serviceDescription.iEPDReferences:=result;
-	self.clientDependency->select(d|d.oclIsKindOf(UML::Usage)).supplier->select(s|s.isStereotypeApplied(prompdStereotype)).oclAsType(UML::Component)->forEach(mpd){
-		mpd.map IEPDReference(result);
-	};
-}
-mapping 	UML::Component::IEPDReference(inout iEPDReferencesType:METADATA::IEPDReferencesType):METADATA::IEPDReferenceType
-{
-	iEPDReferencesType.iEPDReference+=result;
-	var pimmpd:Stdlib::Element=self.GetStereotypeApplication(prompdStereotype).oclAsType(Stdlib::Element);
-	var baseURI:String=pimmpd.getMpdBaseURI();
-	iEPDURL+=baseURI;
-	iEPDName+=baseURI.getLastSegmentGRA();
-}
-// context is GRA Service Specification
-mapping UML::InstanceSpecification::ServiceDependencies(inout serviceDescription:METADATA::ServiceDescriptionType):METADATA::ServiceDependenciesType
-{
-	serviceDescription.serviceDependencies:=result;
-	serviceDependency+=self.slot->select(s|s.definingFeature.name='ServiceDependency').value.oclAsType(UML::InstanceValue).instance
-		.map ServiceIdentificationType();
-}
-
-mapping UML::Component::ServiceInterfaceSpecification(inout serviceMetadata:METADATA::ServiceMetadataType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ServiceInterfaceSpecificationType
-{
-	serviceMetadata.serviceInterface+=result;
-	var appliedStereotype:UML::InstanceSpecification=self.realizingInstance()->first();
-	// make sure explicitly set to something otherwise will have no value
-	securityImplementedIndicator:=false;
-	if(not(appliedStereotype.oclIsUndefined()))then{
-		appliedStereotype.slot->select(s|s.definingFeature.name='SecurityImplementedIndicator').value.oclAsType(UML::LiteralBoolean).value->forEach(indicator){
-			securityImplementedIndicator:=indicator;
-		};
-	}endif;
-	
-	securityDescriptionText:=appliedStereotype.slot->select(s|s.definingFeature.name='SecurityDescriptionText').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	
-	appliedStereotype.map URIDetails(result,diagnosticContext);
-	self
-		.ownedPort.type
-		->select(s|s.isServiceInterfaceSpecification()).oclAsType(UML::Classifier)
-		.map ServiceActions(result,diagnosticContext);
-		
-	var appliedServiceInteractionStereotype:UML::InstanceSpecification=appliedStereotype.slot->select(s|s.definingFeature.name='ServiceInteractionProfile').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	var sIPNames:Sequence(String)=appliedServiceInteractionStereotype.slot->select(s|s.definingFeature.name='SIPName').value.oclAsType(UML::LiteralString).value->asSequence();
-	if(sIPNames->notEmpty())then{
-		appliedStereotype.map ServiceInteractionProfiles(result,diagnosticContext);
-	}endif;
-}
-// context is a ServiceInterface, a Class or Interface
-mapping 	UML::InstanceSpecification::ServiceInteractionProfiles(inout serviceInterfaceSpecification:METADATA::ServiceInterfaceSpecificationType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ServiceInteractionProfilesType
-{
-	serviceInterfaceSpecification.serviceInteractionProfiles:=result;
-	var appliedStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='ServiceInteractionProfile').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	var sIPNames:Sequence(String)=appliedStereotype.slot->select(s|s.definingFeature.name='SIPName').value.oclAsType(UML::LiteralString).value->asSequence();
-	var sIPVersions:Sequence(String)=appliedStereotype.slot->select(s|s.definingFeature.name='SIPVersion').value.oclAsType(UML::LiteralString).value->asSequence();
-	log('ServiceInteractionProfiles '+sIPNames->size().repr()+', '+sIPVersions->size().repr());
-	sIPNames->forEach(sIPName){
-		sIPName.map ServiceInteractionProfile(result,sIPVersions->at(sIPNames->indexOf(sIPName))); 
-	};
-	if(serviceInteractionProfile->isEmpty())	then{
-			diagnosticContext.diagnostics+='ERROR: no service interaction profile';
-		var serviceInteractionProfileType:METADATA::ServiceInteractionProfileType=new METADATA::ServiceInteractionProfileType();
-		serviceInteractionProfile+=serviceInteractionProfileType;
-		serviceInteractionProfileType.sIPName:='unknownName';
-		serviceInteractionProfileType.sIPVersion:='unknownVersion';
-	}endif;
-	
-}
-mapping 	String::ServiceInteractionProfile(inout serviceInteractionProfiles:METADATA::ServiceInteractionProfilesType,sIPVersionIn:String):METADATA::ServiceInteractionProfileType
-{
-	serviceInteractionProfiles.serviceInteractionProfile+=result;
-	sIPName:=self;
-	sIPVersion:=sIPVersionIn;
-}
-// context is a ServiceInterface, a Class or Interface
-mapping 	UML::Classifier::ServiceActions(inout serviceInterfaceSpecification:METADATA::ServiceInterfaceSpecificationType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ServiceActionsType
-{
-	serviceInterfaceSpecification.serviceActions+=result;
-	var operations:Sequence(UML::BehavioralFeature)=self.feature
-		->select(f|f.oclIsKindOf(UML::BehavioralFeature)).oclAsType(UML::BehavioralFeature)->asSequence();
-	if(operations->isEmpty() and self.oclIsKindOf(UML::BehavioredClassifier))then{
-		operations:=self.oclAsType(UML::BehavioredClassifier).getAllImplementedInterfaces().feature
-			->select(f|f.oclIsKindOf(UML::BehavioralFeature)).oclAsType(UML::BehavioralFeature)->asSequence();		
-	}endif;
-	operations->forEach(operation){
-		var appliedStereotype:UML::InstanceSpecification=operation.realizingInstance()->first();
-		var actionName:String=operation.name;
-		if((actionName.oclIsUndefined() or (actionName=''))and operation.oclIsKindOf(UML::Reception))then{
-			actionName:=operation.oclAsType(UML::Reception).signal.name;
-		}endif;
-		actionName.map ServiceAction(result,operation.ownedComment.body->asSequence()->first(),
-				appliedStereotype.slot->select(s|s.definingFeature.name='MessageExchangePattern').value.oclAsType(UML::InstanceValue).instance.oclAsType(UML::EnumerationLiteral).name->asSequence()->first(),
-				diagnosticContext); 
-	};
-}
-mapping 	String::ServiceAction(inout serviceActions:METADATA::ServiceActionsType,actionPurposeIn:String,messageExchangePatternIn:String,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::ServiceActionType
-{
-	serviceActions.serviceAction+=result;
-	actionName:=self;
-	actionPurpose:=actionPurposeIn;
-		if(actionPurpose.oclIsUndefined() or (actionPurpose=''))then{
-			diagnosticContext.diagnostics+='ERROR: action purpose is undefined';
-			actionPurpose:='unknownPurpose';
-		}endif;
-	messageExchangePattern:=messageExchangePatternIn;
-		if(messageExchangePattern.oclIsUndefined() or (messageExchangePattern=''))then{
-			diagnosticContext.diagnostics+='ERROR: message exchange pattern is undefined';
-			messageExchangePattern:='unknownMessageExchangePattern';
-		}endif;
-	
-	
-}
-
-// context is a ServiceInterface, a Class or Interface
-mapping 	UML::InstanceSpecification::URIDetails(
-	inout serviceInterfaceSpecification:METADATA::ServiceInterfaceSpecificationType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::URIDetailsType
-{
-	serviceInterfaceSpecification.uRIDetails:=result;
-	var appliedStereotype:UML::InstanceSpecification=self;
-	var uriDescription:String=appliedStereotype.slot
-		->select(s|s.definingFeature.name='URIDescription').value
-		.oclAsType(UML::LiteralString).value->asSequence()->first();
-	appliedStereotype.slot
-		->select(s|s.definingFeature.name='URIAddress').value
-		.oclAsType(UML::LiteralString).value
-		.map URIDetail(result,uriDescription);
-	if(uRIDetail->isEmpty())	then{
-			diagnosticContext.diagnostics+='ERROR: no URI Detail';
-		var uriDetailNew:METADATA::URIDetailType=new METADATA::URIDetailType();
-		uRIDetail+=uriDetailNew;
-		uriDetailNew.uRIAddress:='unknownURI';
-		uriDetailNew.uRIDescription:='unknownDescription';
-	}endif;
-}
-mapping 	String::URIDetail(inout uriDetails:METADATA::URIDetailsType,uRIDescriptionIn:String):METADATA::URIDetailType
-{
-	uriDetails.uRIDetail+=result;
-	uRIAddress:=self;
-	uRIDescription:=uRIDescriptionIn;
-}
-
-mapping 	UML::Collaboration::RelatedOrganizationInformationType(inout serviceMetadata:METADATA::ServiceMetadataType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::RelatedOrganizationInformationType
-{
-	serviceMetadata.relatedOrganizationInformation+=result;
-	var serviceDescription:UML::InstanceSpecification=self.realizingInstance()->first();
-	serviceDescription.slot->select(s|s.definingFeature.name='RelatedOrganization').value.oclAsType(UML::InstanceValue).instance.map OrganizationType(result,diagnosticContext);
-		
-}
-mapping 	UML::InstanceSpecification::OrganizationType(inout relatedOrganization:METADATA::RelatedOrganizationInformationType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::OrganizationType
-{
-	relatedOrganization.organization+=result;
-	var appliedStereotype:UML::InstanceSpecification=self;
-	organizationAcronym:=appliedStereotype.slot->select(s|s.definingFeature.name='OrganizationAcronym').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	organizationFullAddressText:=appliedStereotype.slot->select(s|s.definingFeature.name='OrganizationFullAddressText').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	organizationWebSiteURL:=appliedStereotype.slot->select(s|s.definingFeature.name='OrganizationWebSiteURL').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	organizationRoleDescriptionText:=appliedStereotype.slot->select(s|s.definingFeature.name='OrganizationRoleDescriptionText').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	if(organizationRoleDescriptionText.oclIsUndefined())then{
-			diagnosticContext.diagnostics+='ERROR: no role description';
-		organizationRoleDescriptionText:='unspecifiedRoleDescription';
-	}endif;
-	organizationRoleDetailedDescriptionText:=appliedStereotype.slot->select(s|s.definingFeature.name='OrganizationRoleDetailedDescriptionText').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	
-	organizationName:=self.realizedComponent()->first().name;
-	if(organizationName.oclIsUndefined())then{
-		organizationName:=self.name;
-		if(organizationName.oclIsUndefined())then{
-			diagnosticContext.diagnostics+='ERROR: organization has no name';
-			organizationName:='unnamedOrganization';
-		}endif;
-	}endif;
-	self.map OrganizationPointOfContact(result,diagnosticContext);	
-}
-mapping 	UML::InstanceSpecification::OrganizationPointOfContact(inout organization:METADATA::OrganizationType,inout diagnosticContext:GRAA::GraServiceAnnotationBase):METADATA::PersonContactInformationType
-{
-	organization.organizationPointOfContact:=result;
-	var appliedStereotype:UML::InstanceSpecification=self.slot->select(s|s.definingFeature.name='OrganizationPointOfContact').value.oclAsType(UML::InstanceValue).instance->asSequence()->first();
-	contactPersonName:=appliedStereotype.realizedNamedElement()->first().name;
-	contactPersonEmailID:=appliedStereotype.slot->select(s|s.definingFeature.name='ContactPersonEmailID').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	contactPersonPhoneNumberID:=appliedStereotype.slot->select(s|s.definingFeature.name='ContactPersonPhoneNumberID').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	contactPersonAddress:=appliedStereotype.slot->select(s|s.definingFeature.name='ContactPersonAddress').value.oclAsType(UML::LiteralString).value->asSequence()->first();
-	
-	if(contactPersonName.oclIsUndefined())then{
-		contactPersonName:=appliedStereotype.name;
-		if(contactPersonName.oclIsUndefined())then{
-			diagnosticContext.diagnostics+='ERROR: contact person has no name';
-			contactPersonName:='unnamedContactPerson';
-		}endif;
-	}endif;
-	if(contactPersonPhoneNumberID.oclIsUndefined())then{
-			diagnosticContext.diagnostics+='ERROR: contact person has no phone number';
-		contactPersonPhoneNumberID:='unspecifiedPersonPhoneNumber';
-	}endif;
-	
-}
-
-mapping UML::InstanceSpecification::ServiceIdentificationType():METADATA::ServiceIdentificationType
-{	
-	var appliedStereotype:UML::InstanceSpecification=self;// ServiceIdentification
-	serviceFullNameText+=self.realizedCollaboration().name;
-	serviceID+=appliedStereotype.slot->select(s|s.definingFeature.name='ServiceID').value.oclAsType(UML::LiteralString).value	;
-	serviceURI+=appliedStereotype.slot->select(s|s.definingFeature.name='ServiceURI').value.oclAsType(UML::LiteralString).value	;
-	serviceNameAbbreviationText+=appliedStereotype.slot->select(s|s.definingFeature.name='ServiceNameAbbreviationText').value.oclAsType(UML::LiteralString).value	;
-}
-
-
-///////////////////////////////////////////iepd
-helper UML::NamedElement::displayQualifiedName(serviceInterface:UML::NamedElement):String{
-	if(self=serviceInterface)then{return 'this';}else{}endif;
-	return self.qualifiedName;
-}
-helper UML::InteractionFragment::getCoveredTypes():Set(UML::Type)=self.covered.represents.type->asSet();
-helper UML::InteractionFragment::isCoveredType(type:UML::Type):Boolean=self.covered.represents.type->includes(type);
-helper UML::InteractionFragment::interactionFragmentSequence(inout fragmentElement:OclAny,serviceInterface:UML::Classifier,useDelegation:Boolean){
-	//  get prior and next
-	if(self.enclosingInteraction.oclIsUndefined())then{
-		if(self.enclosingOperand.oclIsUndefined())then{}else{
-			self.fromToInteraction(self.enclosingOperand.fragment,fragmentElement,serviceInterface,useDelegation);
-		}endif;
-	}else{
-		self.fromToInteraction(self.enclosingInteraction.fragment,fragmentElement,serviceInterface,useDelegation);
-	}endif;
-}	
-helper UML::InteractionFragment::interactionFragment(inout fragmentElement:OclAny,serviceInterface:UML::Classifier){
-	//  get prior and next
-	self.interactionFragmentSequence(fragmentElement,serviceInterface,false);
-	return;
-}	
-helper UML::InteractionFragment::getFromFragment(fragmentsIn:OrderedSet(UML::InteractionFragment),
-	serviceInterface:UML::Classifier,useDelegation:Boolean):UML::InteractionFragment{
-	var fragments:OrderedSet(UML::InteractionFragment)=fragmentsIn;
-	if(useDelegation)then{
-		fragments:=fragmentsIn->select(f|f.oclIsKindOf(UML::MessageOccurrenceSpecification));
-	}else{}endif;
-	var myIndex:Integer=fragments->indexOf(self);
-	if(myIndex>1)then{
-		var fromFragment:UML::InteractionFragment=fragments->at(myIndex-1);
-		return fromFragment;
-	}else{}endif;
-	return null;
-}	
-query UML::InteractionFragment::isCombinedMOS():Boolean=
-	self.oclIsKindOf(UML::MessageOccurrenceSpecification)or self.oclIsKindOf(UML::CombinedFragment);
-query UML::CombinedFragment::getNestedMessageOccurrenceSpecifications(serviceInterface:UML::Classifier):Set(UML::MessageOccurrenceSpecification){
-	var operands:Set(UML::InteractionOperand)=self.operand
-		->select(o|o.fragment->select(f|f.isCombinedMOS())->first().isCoveredType(serviceInterface))
-		->select(o|o.fragment->select(f|f.isCombinedMOS())->size()>1 or o.fragment->select(f|f.oclIsKindOf(UML::CombinedFragment))->notEmpty());
-	var fragments:Set(UML::InteractionFragment)=operands
-		->collect(o|
-			if(o.fragment->first().oclIsKindOf(UML::CombinedFragment))
-			then o.fragment->first()
-			else o.fragment->select(f|f.isCombinedMOS())->at(2)
-			endif
-			)
-		->asSet();	
-	return fragments
-				->collect(f|
-					if(f.oclIsKindOf(UML::MessageOccurrenceSpecification))
-					then Set{f.oclAsType(UML::MessageOccurrenceSpecification)}
-					else f.oclAsType(UML::CombinedFragment).getNestedMessageOccurrenceSpecifications(serviceInterface)
-					endif
-				)	
-		->asSet();
-}
-helper UML::InteractionFragment::getToFragments(fragmentsIn:OrderedSet(UML::InteractionFragment),
-	serviceInterface:UML::Classifier,useDelegation:Boolean):Set(UML::InteractionFragment){
-	var fragments:OrderedSet(UML::InteractionFragment)=fragmentsIn;
-	if(useDelegation)then{
-		fragments:=fragmentsIn->select(f|f.isCombinedMOS());
-	}else{}endif;
-	var myIndex:Integer=fragments->indexOf(self);
-	if(myIndex<fragments->size())then{
-		var toFragment:UML::InteractionFragment=fragments->at(myIndex+1);
-		if(useDelegation and (toFragment.oclIsKindOf(UML::CombinedFragment)))then{
-			return toFragment.oclAsType(UML::CombinedFragment).getNestedMessageOccurrenceSpecifications(serviceInterface);
-		}else{}endif;
-		return OrderedSet{toFragment};
-	}else{}endif;
-	return null;
-}	
-helper UML::InteractionFragment::fromToInteraction(fragments:OrderedSet(UML::InteractionFragment),
-	inout fragmentElement:OclAny,serviceInterface:UML::Classifier,useDelegation:Boolean){
-	if(fragments->includes(self))then{}else{return;}endif;
-	return;
-}	
-////////////////////////////////////////////was GRAsoaml2wsdl
-
-property wsdlNamespace:String='http://schemas.xmlsoap.org/wsdl/';
-property soapNamespace:String='http://schemas.xmlsoap.org/wsdl/soap/';
-property soapPrefix:String='soap';
-property wsawsNamespace:String='http://www.w3.org/2006/05/addressing/wsdl';
-property wsawsPrefix:String='wsaws';
-property wspNamespace:String='http://schemas.xmlsoap.org/ws/2004/09/policy';
-property wspPrefix:String='wsp';
-property wsuNamespace:String='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd';
-property wsuPrefix:String='wsu';
-property wsrmNamespace:String='http://schemas.xmlsoap.org/ws/2005/02/rm/policy';
-property wsrmPrefix:String='wsrm';
-property spNamespace:String='http://schemas.xmlsoap.org/ws/2005/07/securitypolicy';
-property spPrefix:String='sp';
-
-property templateNamespace:String='http://gra.ijis.org/template';
-property templatePrefix:String='template';
-////////////////////abstract methods
-///////////////////////////////queries and helpers
-////////////////////////////extensions
-//////////////////////////////////////////////////////////////////////////////////////////wsdl leaf mapping
-property annotationModelNamespace:String='http://ijis.org/GRA/Annotations';
-query UML::InstanceSpecification::isPolicy():Boolean=self.classifier->exists(c|c.name='Policy');
-query UML::InstanceSpecification::isPolicyReference():Boolean=self.classifier->exists(c|c.name='PolicyReference');
-query UML::InstanceSpecification::isEndpointReference():Boolean=self.classifier->exists(c|c.name='EndpointReference');
-query UML::Slot::hasBeenMapped(hasBeenMappedSet:Set(UML::Slot)):Boolean=hasBeenMappedSet->includes(self);
-query UML::NamedElement::findRealizingExtensions():Sequence(UML::InstanceSpecification)=
-	self.getTargetDirectedRelationships()
-		->select(r|r.oclIsKindOf(UML::Realization)).oclAsType(UML::Realization).client
-		->select(r|r.oclIsKindOf(UML::InstanceSpecification)).oclAsType(UML::InstanceSpecification)->asSequence();
-
-query UML::Component::service():UML::Component=self;
-query UML::Component::port():Set(UML::Port)=self.ownedPort;
-query UML::Port::binding():UML::Classifier=self.type->select(t|t.oclIsKindOf(UML::Classifier)).oclAsType(UML::Classifier)->asSequence()->first();
-query UML::Classifier::portType(port:UML::Port):UML::Interface{
-	if(self.oclIsKindOf(UML::Interface)and not(port.isConjugated))then {return self.oclAsType(UML::Interface);} endif;
-	if(self.oclIsKindOf(UML::Class))then {
-		if(port.isConjugated)
-			then {return self.oclAsType(UML::Class).getAllUsedInterfaces()->asSequence()->first();} 
-			else {return self.oclAsType(UML::Class).getRealizedInterfaces()->asSequence()->first();}
-			endif;
-		}endif;	
-	return null;	
-	}	
-	/*
-mapping UML::Package::NamespaceGRA():XSD::XSDSchema
-	inherits UML::Package::XSDSchema
-{
-	var catalog:UML::Package:=sppCatalogUml.getNearestPackage();
-	var relativePath:String='';
-	if(catalog.oclIsUndefined())then{
-		relativePath:=self.qualifiedName;
-	}else{
-		relativePath:=self.qualifiedName.substringAfter(catalog.qualifiedName);
-		if(relativePath.oclIsUndefined())then{
-			var targetPath:String=self.qualifiedName.substringAfter(catalog.nestingPackage.qualifiedName);// TODO: should be relative to package above MPD
-			relativePath:='artifacts::service model::information model::'+targetPath;
-		}endif;
-		
-	}endif;
-	relativePath:=relativePath.replace('::','/');
-	if(relativePath='')then {relativePath:='./';}else{relativePath:='.'+relativePath;}endif;
-	if(not(relativePath.endsWith('.xsd')))then{relativePath:=relativePath+'.xsd';}else{}endif;
-	var relativePath:String=self.sspSchemaRelativePath(sppCatalogUml);	
-	
-	schemaLocation:=relativePath;
-	log("added schema for uml package "+self.qualifiedName);
-}
-	*/
-// overrides
-query UML::Classifier::isObjectType():Boolean=
-	self.oclIsKindOf(UML::Class);
-
-mapping UML::Property::TopLevelElement_declarationGRA(inout psmClass:XSD::XSDSchema):XSD::XSDElementDeclaration
-		inherits UML::Property::XSDElementDeclaration_topLevel
-{
-	typeDefinition:=self.type.oclAsType(UML::Classifier).toPsmClassifier();
-}
-
 
 /////////////////////////////////////////Annotations
 // queries to extract various types of value(s) from an instanceSpecification, based on name of feature
+// get first string value for feature 'featureName' in context of IstanceSpecification
 query UML::InstanceSpecification::getStringValue(featureName:String):String=
 	self.getStringValues(featureName)->first();
+// get all string values for feature 'featureName' in context of IstanceSpecification
 query UML::InstanceSpecification::getStringValues(featureName:String):Sequence(String)=
 	self.slot->select(s|s.definingFeature.name=featureName).value.oclAsType(UML::LiteralString).value->asSequence();
+// get first integer value for feature 'featureName' in context of IstanceSpecification
 query UML::InstanceSpecification::getIntegerValue(featureName:String):Integer=
 	self.getIntegerValues(featureName)->first();
+// get all integer values for feature 'featureName' in context of IstanceSpecification
 query UML::InstanceSpecification::getIntegerValues(featureName:String):Sequence(Integer)=
 	self.slot->select(s|s.definingFeature.name=featureName).value.oclAsType(UML::LiteralInteger).value->asSequence();
+// get first boolean value for feature 'featureName' in context of IstanceSpecification
 query UML::InstanceSpecification::getBooleanValue(featureName:String):Boolean=
 	self.getBooleanValues(featureName)->first();
+// get all boolean values for feature 'featureName' in context of IstanceSpecification
 query UML::InstanceSpecification::getBooleanValues(featureName:String):Sequence(Boolean)=
 	self.slot->select(s|s.definingFeature.name=featureName).value.oclAsType(UML::LiteralBoolean).value->asSequence();
+// get first instance value for feature 'featureName' in context of IstanceSpecification
 query UML::InstanceSpecification::getInstanceValue(featureName:String):UML::InstanceSpecification=
 	self.getInstanceValues(featureName)->first();
+// get all instance values for feature 'featureName' in context of IstanceSpecification
 query UML::InstanceSpecification::getInstanceValues(featureName:String):Sequence(UML::InstanceSpecification)=
 	self.slot->select(s|s.definingFeature.name=featureName).value.oclAsType(UML::InstanceValue).instance->asSequence();
+// get default instance values for feature 'featureName' in context of IstanceSpecification
 query UML::InstanceSpecification::getDefaultInstanceValues(featureName:String):Sequence(UML::InstanceSpecification)=
-	self.getInstanceValues(featureName)
-	//->select(v|v.realizedNamedElement()->isEmpty()) // back to including default whether or not it realizes anything
+	self.getInstanceValues(featureName)// include default whether or not it realizes anything
 	;
+// get first real value for feature 'featureName' in context of IstanceSpecification
 query UML::InstanceSpecification::getRealValue(featureName:String):Real=
 	self.getRealValues(featureName)->first();
+// get all real values for feature 'featureName' in context of IstanceSpecification
 query UML::InstanceSpecification::getRealValues(featureName:String):Sequence(Real)=
 	self.slot->select(s|s.definingFeature.name=featureName).value.oclAsType(UML::LiteralReal).value->asSequence();
+// set properties of GraServiceAnnotationBase; common logic for various mappings inheriting from GraServiceAnnotationBase	
+helper 	UML::InstanceSpecification::GRAServiceAnnotationBase(modeledElement:UML::NamedElement,inout base:GRAA::GraServiceAnnotationBase){
+	base.template:=self.getStringValue('Template');
+	base.flag+=self.getStringValues('Flag');
+	//  derived
+		base.name:=self.name;
+		base.documentation:=self.ownedComment.body->asSequence()->first();
+	var realizedElement:UML::NamedElement=modeledElement;
+	if(realizedElement.oclIsUndefined())then{
+		realizedElement:=self.realizedNamedElement()->asSequence()->first();
+	}endif;
+	if(base.name.oclIsUndefined()or(base.name=''))then{
+		base.name:=realizedElement.name;
+	}endif;
+	if(base.documentation.oclIsUndefined())then{
+		base.documentation:=realizedElement.ownedComment.body->asSequence()->first();
+	}endif;
+	
+	base.modelReference:=realizedElement.mapModelReference()->asSequence()->first();
+	base.requirement:=self.getInstanceValue('Requirement').map InteractionRequirements();
+	return;
+}
+// common mapping logic for GraServiceAnnotationBase	
 mapping 	UML::InstanceSpecification::GRAServiceAnnotationBase():GRAA::GraServiceAnnotationBase@graa 
 {
 	init{}
-	template:=self.getStringValue('Template');
-	flag+=self.getStringValues('Flag');
-	//  derived
-		name:=self.name;
-		documentation:=self.ownedComment.body->asSequence()->first();
-	var realizedElement:UML::NamedElement=self.realizedNamedElement()->asSequence()->first();
-	if(result.name.oclIsUndefined()or(result.name=''))then{
-		name:=realizedElement.name;
-	}endif;
-	if(result.documentation.oclIsUndefined())then{
-		documentation:=realizedElement.ownedComment.body->asSequence()->first();
-	}endif;
-	
-//	modelReference:=realizedElement.map ModelReference(self,self.oclAsType(ECORE::EObject))->asSequence()->first();
-	modelReference:=realizedElement.mapModelReference()->asSequence()->first();
-	requirement:=self.getInstanceValue('Requirement').map InteractionRequirements();
+	self.GRAServiceAnnotationBase(null,result);
 }
+// common mapping logic for GraServiceAnnotationBase when subtype defines defaults
 mapping 	UML::InstanceSpecification::GRAServiceAnnotationBaseDefault(modeledElement:UML::NamedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -1304,49 +252,15 @@ mapping 	UML::InstanceSpecification::GRAServiceAnnotationBaseDefault(modeledElem
 	messageDefaults:Sequence(UML::InstanceSpecification)):GRAA::GraServiceAnnotationBase@graa 
 {
 	init{}
-	template:=self.getStringValue('Template');
-	flag+=self.getStringValues('Flag');
-	//  derived
-		name:=self.name;
-		documentation:=self.ownedComment.body->asSequence()->first();
-	var realizedElement:UML::NamedElement=modeledElement;
-	if(realizedElement.oclIsUndefined())then{
-		realizedElement:=self.realizedNamedElement()->asSequence()->first();
-	}endif;
-	
-	if(result.name.oclIsUndefined() or(result.name=''))then{
-		name:=realizedElement.name;
-	}endif;
-	if(result.documentation.oclIsUndefined())then{
-		documentation:=realizedElement.ownedComment.body->asSequence()->first();
-	}endif;
-	
-//	modelReference:=realizedElement.map ModelReference(self,self.oclAsType(ECORE::EObject))->asSequence()->first();
-	modelReference:=realizedElement.mapModelReference()->asSequence()->first();
-	requirement:=self.getInstanceValue('Requirement').map InteractionRequirements();
+	self.GRAServiceAnnotationBase(modeledElement,result);
 }
-// cases which do not have sufficient uniqueness
+// common mapping logic for GraServiceAnnotationBase when subtype needs uniqueness context
 mapping 	UML::InstanceSpecification::GRAServiceAnnotationBaseDefaultAnnotationContext(context:UML::NamedElement):GRAA::GraServiceAnnotationBase@graa 
 {
 	init{}
-	template:=self.getStringValue('Template');
-	flag+=self.getStringValues('Flag');
-	//  derived
-		name:=self.name;
-		documentation:=self.ownedComment.body->asSequence()->first();
-	var realizedElement:UML::NamedElement=self.realizedNamedElement()->asSequence()->first();
-	if(result.name.oclIsUndefined() or(result.name=''))then{
-		name:=realizedElement.name;
-	}endif;
-	if(result.documentation.oclIsUndefined())then{
-		documentation:=realizedElement.ownedComment.body->asSequence()->first();
-	}endif;
-	
-//	modelReference:=realizedElement.map ModelReference(self,context.oclAsType(ECORE::EObject))->asSequence()->first();
-	modelReference:=realizedElement.mapModelReference()->asSequence()->first();
-	requirement:=self.getInstanceValue('Requirement').map InteractionRequirements();
+	self.GRAServiceAnnotationBase(null,result);
 }
-// cases which do not have sufficient uniqueness
+// common mapping logic for GraServiceAnnotationBase when subtype defines defaults and needs uniqueness context
 mapping 	UML::InstanceSpecification::GRAServiceAnnotationBaseDefaultContext(modeledElement:UML::NamedElement,context:UML::NamedElement,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -1354,44 +268,9 @@ mapping 	UML::InstanceSpecification::GRAServiceAnnotationBaseDefaultContext(mode
 	messageDefaults:Sequence(UML::InstanceSpecification)):GRAA::GraServiceAnnotationBase@graa 
 {
 	init{}
-	template:=self.getStringValue('Template');
-	flag+=self.getStringValues('Flag');
-	//  derived
-		name:=self.name;
-		documentation:=self.ownedComment.body->asSequence()->first();
-	var realizedElement:UML::NamedElement=modeledElement;
-	if(realizedElement.oclIsUndefined())then{
-		realizedElement:=self.realizedNamedElement()->asSequence()->first();
-	}endif;
-	
-	if(result.name.oclIsUndefined() or(result.name=''))then{
-		name:=realizedElement.name;
-	}endif;
-	if(result.documentation.oclIsUndefined())then{
-		documentation:=realizedElement.ownedComment.body->asSequence()->first();
-	}endif;
-	
-//	modelReference:=realizedElement.map ModelReference(self,context.oclAsType(ECORE::EObject))->asSequence()->first();
-	modelReference:=realizedElement.mapModelReference()->asSequence()->first();
-	requirement:=self.getInstanceValue('Requirement').map InteractionRequirements();
+	self.GRAServiceAnnotationBase(modeledElement,result);
 }
-/*	
-mapping 	UML::NamedElement::ModelReference(context:UML::NamedElement,uniqueMappingContext:ECORE::EObject):GRAA::ModelReference@graa 
-{
-	name:=self.name;
-	documentation:=self.ownedComment.body->asSequence()->first();
-	elementId:=self.getURIFragment();// via blackbox
-	// TODO: diagramLink
-	//diagramLink+=self.getStringValues('DiagramLink');
-	model:=self.map Model(context,uniqueMappingContext);
-}
-
-	mapping 	UML::NamedElement::Model(context:UML::NamedElement,uniqueMappingContext:ECORE::EObject):GRAA::Model@graa 
-{
-	modelUri:=self.getRelativeURI();// via blackbox
-	label:=self.emofContextURI();// via blackbox
-}	
-*/	
+// create a ModelReference for given UML NamedElement context
 helper 	UML::NamedElement::mapModelReference():GRAA::ModelReference 
 {
 	var modelReference:GRAA::ModelReference=new GRAA::ModelReference@graa();
@@ -1404,6 +283,7 @@ helper 	UML::NamedElement::mapModelReference():GRAA::ModelReference
 	return modelReference;
 }
 
+// create a GRA Model for given UML NamedElement context
 	helper 	UML::NamedElement::mapModel():GRAA::Model 
 {
 	var model:GRAA::Model=new GRAA::Model@graa();
@@ -1411,6 +291,7 @@ helper 	UML::NamedElement::mapModelReference():GRAA::ModelReference
 	model.label:=self.emofContextURI();// via blackbox
 	return model;
 }	
+// map a InstanceSpecification of a 'Requirement' to InteractionRequirements and populate its content
 mapping 	UML::InstanceSpecification::InteractionRequirements():GRAA::InteractionRequirements@graa 
 {
 
@@ -1431,6 +312,7 @@ mapping 	UML::InstanceSpecification::InteractionRequirements():GRAA::Interaction
 	extendedRequirement+=self.getStringValues('ExtendedRequirement');
 	serviceResponsiveness:=self.getBooleanValue('ServiceResponsiveness');
 }	
+// map a subtype of ServiceIdentification mapping, or an InstanceSpecification of a 'ServiceDependency', to ServiceIdentification and populate its content
 mapping 	UML::InstanceSpecification::ServiceIdentification():GRAA::ServiceIdentification@graa 
 	inherits UML::InstanceSpecification::GRAServiceAnnotationBase 
 	
@@ -1448,20 +330,16 @@ mapping 	UML::InstanceSpecification::ServiceIdentification():GRAA::ServiceIdenti
 		serviceUri:='http://unknown(ServiceIdentification.ServiceURI undefined)';
 	}endif;
 }	
+// map a InstanceSpecification corresponding to SSP Catalog to InteractionRequirements 
 mapping 	UML::InstanceSpecification::GRA_WSDL():GRAA::ServiceDescription@graa
 	inherits UML::InstanceSpecification::ServiceIdentification 
 {
 }	
+// populate the content of a previously created ServiceDescription
 helper 	UML::InstanceSpecification::GRA_WSDL(inout serviceDescription:GRAA::ServiceDescription):GRAA::ServiceDescription
-	//inherits UML::InstanceSpecification::ServiceIdentification 
 {
-		var serviceMetadata:METADATA::ServiceMetadataType=metadataDocument.serviceMetadata->asSequence()->first();
-	//serviceDescription:=self.getInstanceValue('ServiceDescription').map Description(self);// changed to documentation
 	serviceDescription.classification+=self.getStringValues('Classification');
 	serviceDescription.sponsor+=self.getStringValues('Sponsor');
-	serviceDescription.servicePurpose:=self.getInstanceValue('ServicePurpose').map Description(self);
-	serviceDescription.otherRequirement:=self.getInstanceValue('OtherRequirement').map Description(self);
-	
 	serviceDescription.serviceDescriptionSummaryText:=self.getStringValue('ServiceDescriptionSummaryText');
 	serviceDescription.serviceDescriptionKeywordText+=self.getStringValues('ServiceDescriptionKeywordText');
 	serviceDescription.domainDescription:=self.getStringValue('DomainDescription');
@@ -1477,69 +355,47 @@ helper 	UML::InstanceSpecification::GRA_WSDL(inout serviceDescription:GRAA::Serv
 	serviceDescription.expirationDate:=self.getStringValue('ExpirationDate');
 	serviceDescription.lifecycleStatus:=self.getStringValue('LifecycleStatus');
 	serviceDescription.alertAndNotificationUri:=self.getStringValue('AlertAndNotificationURI');
-	serviceDescription.serviceDescriptionUri:=serviceMetadata.SDDhref(serviceDescription);
+
+	// exchangePartner	
+	var exchangePartnerInstances:Set(UML::InstanceSpecification)=self.getInstanceValues('ExchangePartner')->asSet();
 	
+	var collaboration:UML::Collaboration=self.realizedCollaboration()->first();
+	var partners:Set(UML::Actor)=exchangePartnerInstances.realizedPackage().packagedElement->select(p|p.oclIsKindOf(UML::Actor)).oclAsType(UML::Actor)->asSet();
+	exchangePartnerInstances->select(i|i.realizedPackage()->isEmpty()).realizedActor()->forEach(partner){partners+=partner;};
+	collaboration.role.type->select(t|t.oclIsKindOf(UML::Actor)).oclAsType(UML::Actor)->forEach(partner){partners+=partner;};
+	partners->forEach(partner){
+		serviceDescription.exchangePartner+=partner.mapParticipant(partner);
+	};
+	serviceDescription.servicePurpose:=self.getInstanceValue('ServicePurpose').map Description(self);
 	serviceDescription.serviceScopeDescription:=self.getInstanceValue('ServiceScopeDescription').map Description(self);
-	serviceDescription.dataProvenance:=self.getInstanceValue('DataProvenance').map Description(self);
-
-	serviceDescription.serviceDependency+=self.getInstanceValues('ServiceDependency').map ServiceIdentification();
-	serviceDescription.serviceSecurityClassification:=self.getInstanceValue('ServiceSecurityClassification').map SecurityClassification();
 	serviceDescription.serviceCapability+=self.getInstanceValues('ServiceCapability').map ServiceCapability();
-	
-	serviceDescription.serviceAssumption:=self.getInstanceValue('ServiceAssumption').map Description(self);
-	serviceDescription.executionContext:=self.getInstanceValue('ExecutionContext').map Description(self);
-	serviceDescription.security:=self.getInstanceValue('Security').map Description(self);
-	serviceDescription.privacy:=self.getInstanceValue('Privacy').map Description(self);
-	
-	
-	serviceDescription.serviceLevelAgreement+=self.getInstanceValues('ServiceLevelAgreement').map ServiceLevelAgreement(serviceDescription);
-	serviceDescription.serviceInterface+=self.getInstanceValues('ServiceInterface').map AbstractServiceInterfaceSpecification();
-	serviceDescription.relatedOrganization+=self.getInstanceValues('RelatedOrganization').map Organization();
-	serviceDescription.realWorldEffect+=self.getInstanceValues('RealWorldEffect').realizedPackage().packagedElement->select(p|p.oclIsKindOf(UML::UseCase)).oclAsType(UML::UseCase).map ImplicitUseCase(self);
-	serviceDescription.realWorldEffect+=self.getInstanceValues('RealWorldEffect')->select(i|i.realizedPackage()->isEmpty()).map UseCase();
-
+	serviceDescription.serviceDependency+=self.getInstanceValues('ServiceDependency').map ServiceIdentification();
 	self.clientDependency->select(d|d.oclIsKindOf(UML::Usage)).supplier->select(s|s.isStereotypeApplied(prompdStereotype)).oclAsType(UML::Component)->forEach(mpd){
 		serviceDescription.iepdReference+=mpd.map IEPDReference();
 	};
+	serviceDescription.serviceSecurityClassification:=self.getInstanceValue('ServiceSecurityClassification').map SecurityClassification();
+	serviceDescription.serviceLevelAgreement+=self.getInstanceValues('ServiceLevelAgreement').map ServiceLevelAgreement(serviceDescription);
+	serviceDescription.relatedOrganization+=self.getInstanceValues('RelatedOrganization').map Organization();
+	serviceDescription.serviceInterface+=self.getInstanceValues('ServiceInterface').map AbstractServiceInterfaceSpecification();
+	serviceDescription.realWorldEffect+=self.getInstanceValues('RealWorldEffect').realizedPackage().packagedElement->select(p|p.oclIsKindOf(UML::UseCase)).oclAsType(UML::UseCase).map ImplicitUseCase(self);
+	serviceDescription.realWorldEffect+=self.getInstanceValues('RealWorldEffect')->select(i|i.realizedPackage()->isEmpty()).map UseCase();
 
-	var exchangePartnerInstances:Set(UML::InstanceSpecification)=self.getInstanceValues('ExchangePartner')->asSet();
-	//exchangePartner+=exchangePartnerInstances.map Participant();
-	
-	exchangePartnerInstances.realizedPackage().packagedElement->select(p|p.oclIsKindOf(UML::Actor)).oclAsType(UML::Actor)
-		->forEach(partner){serviceDescription.exchangePartner+=partner.mapParticipant(partner);};
-	//exchangePartner+=exchangePartnerInstances->select(i|i.realizedPackage()->isEmpty()).realizedActor().mapParticipant(self);
-	exchangePartnerInstances->select(i|i.realizedPackage()->isEmpty()).realizedActor()->forEach(actor){
-		serviceDescription.exchangePartner+=actor.mapParticipant(self);
-//		log('mapped exchange partner '+actor.qualifiedName);
-	};
-	
-	var collaboration:UML::Collaboration=self.realizedCollaboration()->first();
-	var modeledExchangePartners:Set(UML::Actor)=collaboration.role.type->select(t|t.oclIsKindOf(UML::Actor)).oclAsType(UML::Actor)->asSet();
-	//var exchangePartnerRealized:Set(UML::Actor)=self.realizedActor()->asSet();
-	modeledExchangePartners
-		->forEach(modeledProvider){
-		serviceDescription.exchangePartner+=modeledProvider.mapParticipant(modeledProvider);
-	};
-	// no ServiceInteraction any more
-	//var serviceInteractionInstances:Set(UML::InstanceSpecification)=self.getInstanceValues('ServiceInteraction')->asSet();
-//	serviceInteraction+=serviceInteractionInstances.map ServiceInteraction(collaboration)->asSequence()->first();
-	//serviceInteraction+=serviceInteractionInstances.map ServiceInteraction(collaboration)->asSequence();
 	var modeledServiceInteractions:Set(UML::Interaction)=collaboration.ownedBehavior->select(t|t.oclIsKindOf(UML::Interaction)).oclAsType(UML::Interaction)->asSet();
-	//log('modeledServiceInteractions ');
-	//log('collaboration '+collaboration.repr());
-	//log('modeledServiceInteractions '+modeledServiceInteractions->size().repr());
-	//var serviceInteractionRealized:Set(UML::Interaction)=self.realizedInteraction()->asSet();
-	//if(result.serviceInteraction->isEmpty())then{
 		modeledServiceInteractions
-//			->select(p|not(serviceInteractionRealized->includes(p)))
 			->forEach(modeledProvider){
 			serviceDescription.serviceInteraction+=modeledProvider.map ServiceInteraction(collaboration);
 		};
-	//}endif;
-	
 	serviceDescription.additionalInformation:=self.getInstanceValues('AdditionalInformation').map Description(self);
+	serviceDescription.executionContext:=self.getInstanceValue('ExecutionContext').map Description(self);
+	serviceDescription.security:=self.getInstanceValue('Security').map Description(self);
+	serviceDescription.privacy:=self.getInstanceValue('Privacy').map Description(self);
+	serviceDescription.serviceAssumption:=self.getInstanceValue('ServiceAssumption').map Description(self);
+	serviceDescription.otherRequirement:=self.getInstanceValue('OtherRequirement').map Description(self);
+	serviceDescription.dataProvenance:=self.getInstanceValue('DataProvenance').map Description(self);
+	serviceDescription.processModel:=self.getInstanceValue('ProcessModel').map Description(self);
 	return serviceDescription;
-}	
+}
+// create an IepdReference for a <<ModelPackageDescription>> Component	
 mapping 	UML::Component::IEPDReference():GRAA::IepdReference@graa 
 {
 	// derived
@@ -1549,18 +405,29 @@ mapping 	UML::Component::IEPDReference():GRAA::IepdReference@graa
 	var iEPDName:String=baseURI.getLastSegmentGRA();
 	name:=iEPDName;
 	iepdurl:=iEPDURL;
+}
+// in context of a Usage of an IEPD Catalog, add transitive closure of all <<InformationModel>> packages referenced by that IEPD to global 'gatherAllGraSchemas'
+ helper UML::Usage::IepdCatalogType()
+{
+	// accumulate schemas for use during element/type resolution
+	self.supplier->select(p|p.oclIsKindOf(UML::Component)).oclAsType(UML::Component)
+		->forEach(iepd){gatherAllGraSchemas+=iepd.gatherAllPimSchemas();};
+	// iepd catalog constructed in a separate process via NIEM 2.1 UML QVT
+}
 	
-}	
+// map InstanceSpecification instantiation of 'SecurityClassification' to SecurityClassification
 mapping 	UML::InstanceSpecification::SecurityClassification():GRAA::SecurityClassification@graa 
 {
 	// derived
 		name:=self.name;
 }	
+// map InstanceSpecification instantiation of 'ServiceCapability' to ServiceCapability
 mapping 	UML::InstanceSpecification::ServiceCapability():GRAA::ServiceCapability@graa 
 {
 	// derived
 	documentation:=self.ownedComment.body->asSequence()->first();
 }	
+// map InstanceSpecification instantiation of 'Description' to Description
 mapping 	UML::InstanceSpecification::Description(context:UML::NamedElement):GRAA::Description@graa 
 {
 	externalDocumentation:=self.getStringValue('ExternalDocumentation');
@@ -1568,15 +435,9 @@ mapping 	UML::InstanceSpecification::Description(context:UML::NamedElement):GRAA
 	// derived
 	documentation:=self.ownedComment.body->asSequence()->first();
 }	
+// map InstanceSpecification instantiation of 'ServiceLevelAgreement' to ServiceLevelAgreement
 mapping 	UML::InstanceSpecification::ServiceLevelAgreement(inout diagnosticContext:GRAA::ServiceDescription):GRAA::ServiceLevelAgreement@graa 
 {
-	applicablePoliciesIndicator:=self.getBooleanValue('ApplicablePoliciesIndicator');
-	applicableContractsIndicator:=self.getBooleanValue('ApplicableContractsIndicator');
-	applicableAgreementsIndicator:=self.getBooleanValue('ApplicableAgreementsIndicator');
-	applicableUmbrellaAgreementsIndicator:=self.getBooleanValue('ApplicableUmbrellaAgreementsIndicator');
-
-//	applicablePolicy+=self.getInstanceValues('ApplicablePolicy').map Description(self);
-	applicablePolicy+=self.getInstanceValues('ApplicablePolicy').map Agreement();
 	approvalRequiredIndicator:=self.getBooleanValue('ApprovalRequiredIndicator');
 	licensingRequiredIndicator:=self.getBooleanValue('LicensingRequiredIndicator');
 	serviceResponseTime:=self.getStringValue('ServiceResponseTime');
@@ -1588,28 +449,22 @@ mapping 	UML::InstanceSpecification::ServiceLevelAgreement(inout diagnosticConte
 	agreement+=self.getInstanceValues('Agreement').map Agreement();
 	applicableContract+=self.getInstanceValues('ApplicableContract').map Agreement();
 	licensingAgreement:=self.getInstanceValue('LicensingAgreement').map Agreement();
+	applicablePolicy+=self.getInstanceValues('ApplicablePolicy').map Agreement();
 	
 	usageUnitCostAmount:=self.getStringValue('UsageUnitCostAmount');
 	creationCostAmount:=self.getStringValue('CreationCostAmount');
 	usageCostAmount:=self.getStringValue('UsageCostAmount');
-	if(usageCostAmount.oclIsUndefined()or(usageCostAmount=''))then{
-			diagnosticContext.diagnostics+='ERROR: no UsageCostAmount';
-		usageCostAmount:='0';
-	}endif;
-	if(usageUnitCostAmount.oclIsUndefined()or(usageUnitCostAmount=''))then{
-			diagnosticContext.diagnostics+='ERROR: no UsageUnitCostAmount';
-		usageUnitCostAmount:='0';
-	}endif;
-	if(creationCostAmount.oclIsUndefined()or(creationCostAmount=''))then{
-			diagnosticContext.diagnostics+='ERROR: no CreationCostAmount';
-		creationCostAmount:='0';
-	}endif;
-	
+	applicablePoliciesIndicator:=result.applicablePolicy->notEmpty();
+	applicableContractsIndicator:=result.applicableContract->notEmpty();
+	applicableAgreementsIndicator:=result.agreement->notEmpty();
+	applicableUmbrellaAgreementsIndicator:=result.umbrellaAgreement->notEmpty();
 }	
+// map InstanceSpecification instantiation of 'ServiceInterfaceSpecification' to ServiceInterfaceSpecification
 mapping 	UML::InstanceSpecification::AbstractServiceInterfaceSpecification():GRAA::ServiceInterfaceSpecification@graa 
-	disjuncts UML::InstanceSpecification::WSDLServiceInterface,
+	disjuncts 
 		 UML::InstanceSpecification::ServiceInterfaceSpecification
 		 {}
+// map InstanceSpecification instantiation of 'ServiceInterfaceSpecification' to ServiceInterfaceSpecification
 mapping 	UML::InstanceSpecification::ServiceInterfaceSpecification():GRAA::ServiceInterfaceSpecification@graa 
 	inherits UML::InstanceSpecification::GRAServiceAnnotationBase 
 	
@@ -1617,9 +472,20 @@ mapping 	UML::InstanceSpecification::ServiceInterfaceSpecification():GRAA::Servi
 	init{}
 	securityImplementedIndicator:=self.getBooleanValue('SecurityImplementedIndicator');
 	securityDescriptionText:=self.getStringValue('SecurityDescriptionText');
+
+	targetNamespace:=self.getStringValue('TargetNamespace');
 	serviceInterfaceNameAbbreviationText:=self.getStringValue('ServiceInterfaceNameAbbreviationText');
+		if(result.serviceInterfaceNameAbbreviationText.oclIsUndefined()or (result.serviceInterfaceNameAbbreviationText=''))then{
+			prefix:='prefix';
+			diagnostics+='ERROR: no ServiceInterfaceNameAbbreviationText';
+	
+		}else{
+			prefix:=result.serviceInterfaceNameAbbreviationText;
+		}	endif;
+
 	messageDefinitionMechanism+=self.getInstanceValues('MessageDefinitionMechanism').map Description(self);
 	serviceTesting:=self.getInstanceValue('ServiceTesting').map Description(self);
+	physicalModel:=self.getInstanceValue('PhysicalModel').map Description(self);
 	serviceInteractionProfile:=self.getInstanceValue('ServiceInteractionProfile').map ServiceInteractionProfile();
 	var portDefaults:Sequence(UML::InstanceSpecification)=self.getDefaultInstanceValues('PortDefault');
 	var interfaceDefaults:Sequence(UML::InstanceSpecification)=self.getDefaultInstanceValues('InterfaceDefault');
@@ -1627,72 +493,43 @@ mapping 	UML::InstanceSpecification::ServiceInterfaceSpecification():GRAA::Servi
 	var parameterDefaults:Sequence(UML::InstanceSpecification)=self.getDefaultInstanceValues('ParameterDefault');
 	var messageDefaults:Sequence(UML::InstanceSpecification)=self.getDefaultInstanceValues('MessageDefault');
 	service+=self.getInstanceValues('Service').map AbstractService(null,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-
-	targetNamespace:=self.getStringValue('TargetNamespace');
-	prefix:=self.getStringValue('Prefix');
-	if(result.prefix.oclIsUndefined()or (result.prefix=''))then{
-		if(result.serviceInterfaceNameAbbreviationText.oclIsUndefined()or (result.serviceInterfaceNameAbbreviationText=''))then{
-			prefix:='prefix';
-		}else{
-			prefix:=result.serviceInterfaceNameAbbreviationText;
-		}	endif;
-	}endif;
 	// derived
 	// the wsdlProperty is the property in the collaboration whose type is a component realized by provider instance
 	var theServiceComponent:UML::Component=self.getInstanceValues('Service').realizedComponent()->asSequence()->first();
 	var wsdlProperty:UML::Property=	theServiceCollaboration.ownedAttribute
 		->select(a|a.type.isServiceIdentification()and(a.type=theServiceComponent))->asSequence()->first();
 	
-	var serviceMetadata:METADATA::ServiceMetadataType=metadataDocument.serviceMetadata->asSequence()->first();
-	if(wsdlProperty.oclIsUndefined())then{
-			diagnostics+='ERROR: no service component for collaboration';
-		uriAddress:='schema/SIP/unknown(service component unresolved from collaboration).wsdl';
-		serviceInterfaceDescriptionUri:='artifacts/unknown(service component unresolved from collaboration)/abbrev_SIDD_ifcAbbrev_v_0.0.0.xhtml';
-	}else{
-		uriAddress:=wsdlProperty.wsdlLocation(result);
-		serviceInterfaceDescriptionUri:=wsdlProperty.SIDDhref(serviceMetadata,result.serviceInterfaceNameAbbreviationText,result);
-		
-	}endif;
 	// get all referenced schemas, both type and element refs
 	var schemas:Set(UML::Package)=Set{};
 	theServiceComponent.ownedPort.provided.allBehavioralFeatures()->forEach(feature){
 		var behavioralFeature:UML::BehavioralFeature=feature.oclAsType(UML::BehavioralFeature);
-			//schemas+=feature.raisedException.getNearestPackage()->select(p|p.IsStereotypeApplied(NIEMSchemaStereotype) or p.IsStereotypeApplied(NIEMInformationModelStereotype));
 		// collect both type and element references	
-//		if(behavioralFeature.isDocumentStyle())then{
 			// use an element (property whose type is messagetype): either 
-//			schemas+=behavioralFeature.messagePartElement().getNearestPackage()->select(p|p.IsStereotypeApplied(NIEMSchemaStereotype) or p.IsStereotypeApplied(NIEMInformationModelStereotype));
 			feature.raisedException.messagePartElements().getNearestPackage()
 				->select(p|not(p.oclIsUndefined()) and (p.IsStereotypeApplied(NIEMSchemaStereotype) or p.IsStereotypeApplied(NIEMInformationModelStereotype)))
 				->forEach(p){schemas+=p;};
 			if(feature.oclIsKindOf(UML::Reception))then{
-//				schemas+=feature.oclAsType(UML::Reception).signal.ownedAttribute.messagePartElement().getNearestPackage()->select(p|p.IsStereotypeApplied(NIEMSchemaStereotype) or p.IsStereotypeApplied(NIEMInformationModelStereotype));
 				feature.oclAsType(UML::Reception).signal.ownedAttribute.messagePartElements().getNearestPackage()
 				->select(p|not(p.oclIsUndefined()) and (p.IsStereotypeApplied(NIEMSchemaStereotype) or p.IsStereotypeApplied(NIEMInformationModelStereotype)))
 					->forEach(p){schemas+=p;};
 			}else{
-//				schemas+=feature.ownedParameter.messagePartElement().getNearestPackage()
 				feature.ownedParameter.messagePartElements().getNearestPackage()
 				->select(p|not(p.oclIsUndefined()) and (p.IsStereotypeApplied(NIEMSchemaStereotype) or p.IsStereotypeApplied(NIEMInformationModelStereotype)))
 					->forEach(p){schemas+=p;};
 			}endif;
 			
-//		}else{
 			feature.raisedException.getNearestPackage()
 				->select(p|not(p.oclIsUndefined()) and (p.IsStereotypeApplied(NIEMSchemaStereotype) or p.IsStereotypeApplied(NIEMInformationModelStereotype)))
 				->forEach(p){schemas+=p;};
 			if(feature.oclIsKindOf(UML::Reception))then{
-//				schemas+=feature.oclAsType(UML::Reception).signal.ownedAttribute.type.getNearestPackage()->select(p|p.IsStereotypeApplied(NIEMSchemaStereotype) or p.IsStereotypeApplied(NIEMInformationModelStereotype));
 				feature.oclAsType(UML::Reception).signal.ownedAttribute.type.getNearestPackage()
 				->select(p|not(p.oclIsUndefined()) and (p.IsStereotypeApplied(NIEMSchemaStereotype) or p.IsStereotypeApplied(NIEMInformationModelStereotype)))
 					->forEach(p){schemas+=p;};
 			}else{
-//				schemas+=feature.ownedParameter.type.getNearestPackage()->select(p|p.IsStereotypeApplied(NIEMSchemaStereotype) or p.IsStereotypeApplied(NIEMInformationModelStereotype));
 				feature.ownedParameter.type.getNearestPackage()
 				->select(p|not(p.oclIsUndefined()) and (p.IsStereotypeApplied(NIEMSchemaStereotype) or p.IsStereotypeApplied(NIEMInformationModelStereotype)))
 					->forEach(p){schemas+=p;};
 			}endif;
-//		}endif;
 		
 	};		
 			
@@ -1701,6 +538,7 @@ mapping 	UML::InstanceSpecification::ServiceInterfaceSpecification():GRAA::Servi
 		schemaReference+=schema.map SchemaReference(self,result);
 	};
 }	
+// compute the relative path from the ssp catalog to the context <<InformationModel>> Package (schema) based on location of <<ModelPackageDescription>> Component (MPD Catalog)
 query UML::Package::sspSchemaRelativePath(mpdcatalog:UML::Component):String{
 	var catalog:UML::Package:=mpdcatalog.getNearestPackage();
 	var relativePath:String='';
@@ -1712,12 +550,6 @@ query UML::Package::sspSchemaRelativePath(mpdcatalog:UML::Component):String{
 		if(targetPath.oclIsUndefined())then{
 			// probably best path is simply path with two top levels removed
 			targetPath:=mpdcatalog.name+'::'+self.qualifiedName.substringAfter('::').substringAfter('::');
-			/*
-			targetPath:=mpdcatalog.name+self.qualifiedName.substringAfter(catalog.nestingPackage.qualifiedName);//  should be relative to package above MPD
-			if(targetPath.oclIsUndefined())then{
-				targetPath:=mpdcatalog.name+self.qualifiedName.substringAfter(catalog.nestingPackage.nestingPackage.qualifiedName);
-			}endif;
-			*/
 		}endif;
 		relativePath:='artifacts::service model::information model::'+targetPath;
 		
@@ -1727,6 +559,7 @@ query UML::Package::sspSchemaRelativePath(mpdcatalog:UML::Component):String{
 	if(not(relativePath.endsWith('.xsd')))then{relativePath:=relativePath+'.xsd';}else{}endif;
 	return relativePath;	
 }
+// map <<InformationModel>> Package to SchemaReference
 mapping 	UML::Package::SchemaReference(context:UML::NamedElement,inout diagnosticsContext:GRAA::ServiceInterfaceSpecification):GRAA::SchemaReference@graa 
 {
 	
@@ -1743,37 +576,17 @@ mapping 	UML::Package::SchemaReference(context:UML::NamedElement,inout diagnosti
 	prefix:=pimStereotypeInstance.getSsspSchemaDefaultPrefix();
 	if(result.prefix.oclIsUndefined()or (result.prefix=''))then{
 			diagnosticsContext.diagnostics+='WARNING: information model has no default prefix';
-//		prefix:='NoSchemaDefaultPrefixInInformationModel';
 		prefix:=self.name;
 	}endif;
 
 	// schemaLocation
 	var mpdcatalog:UML::Component:=sppCatalogUml.clientDependency.supplier->select(c|c.oclIsKindOf(UML::Component)).oclAsType(UML::Component)->asSequence()->first();
-	/*
-	var catalog:UML::Package:=mpdcatalog.getNearestPackage();
-	var relativePath:String='';
-	if(catalog.oclIsUndefined())then{
-		relativePath:=self.qualifiedName;
-	}else{
-		var targetPath:String=mpdcatalog.name+self.qualifiedName.substringAfter(catalog.qualifiedName);
-		if(targetPath.oclIsUndefined())then{
-			targetPath:=mpdcatalog.name+self.qualifiedName.substringAfter(catalog.nestingPackage.qualifiedName);//  should be relative to package above MPD
-			if(targetPath.oclIsUndefined())then{
-				targetPath:=mpdcatalog.name+self.qualifiedName.substringAfter(catalog.nestingPackage.nestingPackage.qualifiedName);
-			}endif;
-		}endif;
-		relativePath:='artifacts::service model::information model::'+targetPath;
-		
-	}endif;
-	relativePath:=relativePath.replace('::','/');
-	if(relativePath='')then {relativePath:='./';}endif;
-	if(not(relativePath.endsWith('.xsd')))then{relativePath:=relativePath+'.xsd';}else{}endif;
-	*/
 	var relativePath:String=self.sspSchemaRelativePath(mpdcatalog);	
 	schemaLocation:=relativePath;
 	
 }
-
+// for given <<InformationModel>> Stereotype application, compute the default prefix, which may be defined in <<InformationModel>> tag value
+//  in the case of reference schemas, lookup the prefix to be used if it is not explicitly defined
 query  Stdlib::Element::getSsspSchemaDefaultPrefix():String { 
 	// if namespace has standard prefix defined, use it
     var prefix:String= self.getSchemaDefaultPrefix();
@@ -1788,13 +601,7 @@ query  Stdlib::Element::getSsspSchemaDefaultPrefix():String {
     return prefix;
 }
 
-
-mapping 	UML::InstanceSpecification::WSDLServiceInterface():GRAW::WsdlServiceInterface@graa 
-	inherits UML::InstanceSpecification::ServiceInterfaceSpecification
-	when{self.classifier.name->asSet()->includes('WSDLServiceInterface')}
-{
-}
-
+// map InstanceSpecification instantiation of 'Organization' to Organization
 	mapping 	UML::InstanceSpecification::Organization():GRAA::Organization@graa 
 	inherits UML::InstanceSpecification::GRAServiceAnnotationBase 
 	
@@ -1810,21 +617,7 @@ mapping 	UML::InstanceSpecification::WSDLServiceInterface():GRAW::WsdlServiceInt
 	organizationRoleDetailedDescriptionText:=self.getStringValue('OrganizationRoleDetailedDescriptionText');
 	organizationPointOfContact:=self.getInstanceValue('OrganizationPointOfContact').map Person();
 }	
-	mapping 	UML::InstanceSpecification::OrganizationDefault(modeledElement:UML::NamedElement,portDefaults:Sequence(UML::InstanceSpecification),
-	interfaceDefaults:Sequence(UML::InstanceSpecification),
-	operationDefaults:Sequence(UML::InstanceSpecification),
-	parameterDefaults:Sequence(UML::InstanceSpecification),
-	messageDefaults:Sequence(UML::InstanceSpecification)):GRAA::Organization@graa 
-	inherits UML::InstanceSpecification::GRAServiceAnnotationBaseDefault 
-	
-{
-	organizationAcronym:=self.getStringValue('OrganizationAcronym');
-	organizationFullAddressText:=self.getStringValue('OrganizationFullAddressText');
-	organizationWebSiteUrl:=self.getStringValue('OrganizationWebSiteURL');
-	organizationRoleDescriptionText:=self.getStringValue('OrganizationRoleDescriptionText');
-	organizationRoleDetailedDescriptionText:=self.getStringValue('OrganizationRoleDetailedDescriptionText');
-	organizationPointOfContact:=self.getInstanceValue('OrganizationPointOfContact').map Person();
-}	
+// map InstanceSpecification instantiation of 'Person' to Person
 	mapping 	UML::InstanceSpecification::Person():GRAA::Person@graa 
 	inherits UML::InstanceSpecification::GRAServiceAnnotationBase 
 	
@@ -1833,38 +626,9 @@ mapping 	UML::InstanceSpecification::WSDLServiceInterface():GRAW::WsdlServiceInt
 	contactPersonPhoneNumberId:=self.getStringValue('ContactPersonPhoneNumberID');
 	contactPersonAddress:=self.getStringValue('ContactPersonAddress');
 }	
-/*
-	mapping 	UML::InstanceSpecification::Participant():GRAA::Participant@graa 
-	inherits UML::InstanceSpecification::GRAServiceAnnotationBase 
-	
-{
-	participatingOrganization:=self.getInstanceValue('ParticipatingOrganization').map Organization();
-	generalization:=self.getInstanceValues('Generalization').map Participant(self);
-}
-	mapping 	UML::InstanceSpecification::Participant(context:UML::NamedElement):GRAA::Participant@graa 
-	inherits UML::InstanceSpecification::GRAServiceAnnotationBaseDefaultAnnotationContext
-{
-	participatingOrganization:=self.getInstanceValue('ParticipatingOrganization').map Organization();
-	generalization:=self.getInstanceValues('Generalization').map Participant(self);
-}
-	mapping 	UML::Actor::Participant(context:UML::NamedElement):GRAA::Participant@graa 
-	inherits UML::NamedElement::ImplicitGRAServiceAnnotationBaseSimple
-{
-	// empty
-	generalization:=self.general->select(g|g.oclIsKindOf(UML::Actor)).oclAsType(UML::Actor).map Participant(self);
-}
-	mapping 	UML::Type::Participant(context:UML::NamedElement):GRAA::Participant@graa 
-	inherits UML::NamedElement::ImplicitGRAServiceAnnotationBaseSimple
-{
-	// empty
-	if(self.oclIsKindOf(UML::Classifier))then{
-		generalization:=self.oclAsType(UML::Classifier).general.map Participant(self);
-	}endif;
-}
-*/
+// common logic for setting content of a participant in the context of a mapping from InstanceSpecification instantiation of a Participant
 helper 	UML::InstanceSpecification::inheritsGRAServiceAnnotationBase(inout participant:GRAA::Participant):GRAA::GraServiceAnnotationBase 
 {
-	//init{}
 	participant.template:=self.getStringValue('Template');
 	participant.flag+=self.getStringValues('Flag');
 	//  derived
@@ -1878,11 +642,11 @@ helper 	UML::InstanceSpecification::inheritsGRAServiceAnnotationBase(inout parti
 		participant.documentation:=realizedElement.ownedComment.body->asSequence()->first();
 	}endif;
 	
-//	participant.modelReference:=realizedElement.map ModelReference(self,self.oclAsType(ECORE::EObject))->asSequence()->first();
 	participant.modelReference:=realizedElement.mapModelReference()->asSequence()->first();
 	participant.requirement:=self.getInstanceValue('Requirement').map InteractionRequirements();
 	return participant;
 }
+// common logic for setting content of a participant in the context of a mapping from InstanceSpecification instantiation of a Participant
 helper UML::InstanceSpecification::inheritsGRAServiceAnnotationBaseDefaultAnnotationContext(context:UML::NamedElement,inout participant:GRAA::Participant):GRAA::GraServiceAnnotationBase 
 {
 	//init{}
@@ -1899,25 +663,23 @@ helper UML::InstanceSpecification::inheritsGRAServiceAnnotationBaseDefaultAnnota
 		participant.documentation:=realizedElement.ownedComment.body->asSequence()->first();
 	}endif;
 	
-//	participant.modelReference:=realizedElement.map ModelReference(self,context.oclAsType(ECORE::EObject))->asSequence()->first();
 	participant.modelReference:=realizedElement.mapModelReference()->asSequence()->first();
 	participant.requirement:=self.getInstanceValue('Requirement').map InteractionRequirements();
 	return participant;
 }
+// common logic for setting content of a participant in the context of a mapping from InstanceSpecification instantiation of a Participant
 helper 	UML::NamedElement::inheritsImplicitGRAServiceAnnotationBaseSimple(context:UML::NamedElement,inout participant:GRAA::Participant):GRAA::GraServiceAnnotationBase 
 {
-	//init{}
 	//  derived
 	participant.name:=self.name;
 	participant.documentation:=self.ownedComment.body->asSequence()->first();
-//	participant.modelReference:=self.map ModelReference(context,context.oclAsType(ECORE::EObject));
 	participant.modelReference:=self.mapModelReference();
 	return participant;
 }	
 
 
+// common logic for setting content of a participant in the context of a mapping from InstanceSpecification instantiation of a Participant
 	helper 	UML::InstanceSpecification::mapParticipant():GRAA::Participant 
-	
 {
 	var participant:GRAA::Participant=new GRAA::Participant@graa();
 	self.inheritsGRAServiceAnnotationBase(participant);
@@ -1925,8 +687,9 @@ helper 	UML::NamedElement::inheritsImplicitGRAServiceAnnotationBaseSimple(contex
 	participant.generalization:=self.getInstanceValues('Generalization').mapParticipant(self);
 	return participant;
 }
+
+// common logic for setting content of a participant in the context of a mapping from InstanceSpecification instantiation of a Participant
 	helper 	UML::InstanceSpecification::mapParticipant(inout context:UML::NamedElement):GRAA::Participant 
-	//inherits UML::InstanceSpecification::GRAServiceAnnotationBaseDefaultAnnotationContext
 {
 	var participant:GRAA::Participant=new GRAA::Participant@graa();
 	self.inheritsGRAServiceAnnotationBaseDefaultAnnotationContext(context,participant);
@@ -1934,8 +697,9 @@ helper 	UML::NamedElement::inheritsImplicitGRAServiceAnnotationBaseSimple(contex
 	participant.generalization:=self.getInstanceValues('Generalization').mapParticipant(self);
 	return participant;
 }
+
+// common logic for setting content of a participant in the context of a mapping from InstanceSpecification instantiation of a Participant
 	helper 	UML::Actor::mapParticipant(inout context:UML::NamedElement):GRAA::Participant 
-//	inherits UML::NamedElement::ImplicitGRAServiceAnnotationBaseSimple
 {
 	var participant:GRAA::Participant=new GRAA::Participant@graa();
 	self.inheritsImplicitGRAServiceAnnotationBaseSimple(context,participant);
@@ -1943,29 +707,8 @@ helper 	UML::NamedElement::inheritsImplicitGRAServiceAnnotationBaseSimple(contex
 	participant.generalization:=self.general->select(g|g.oclIsKindOf(UML::Actor)).oclAsType(UML::Actor).mapParticipant(self);
 	return participant;
 }
-	helper 	UML::Type::mapParticipant(inout context:UML::NamedElement):GRAA::Participant 
-//	inherits UML::NamedElement::ImplicitGRAServiceAnnotationBaseSimple
-{
-	var participant:GRAA::Participant=new GRAA::Participant@graa();
-	self.inheritsImplicitGRAServiceAnnotationBaseSimple(context,participant);
-	// empty
-	if(self.oclIsKindOf(UML::Classifier))then{
-		participant.generalization:=self.oclAsType(UML::Classifier).general.mapParticipant(self);
-	}endif;
-	return participant;
-}
-/*
-	mapping 	UML::InstanceSpecification::ParticipantDefault(modeledElement:UML::NamedElement,portDefaults:Sequence(UML::InstanceSpecification),
-	interfaceDefaults:Sequence(UML::InstanceSpecification),
-	operationDefaults:Sequence(UML::InstanceSpecification),
-	parameterDefaults:Sequence(UML::InstanceSpecification),
-	messageDefaults:Sequence(UML::InstanceSpecification)):GRAA::Participant@graa 
-	inherits UML::InstanceSpecification::GRAServiceAnnotationBaseDefault 
-	
-{
-	// empty
-}
-*/
+
+// map a UML UseCase to GRA UseCase for a unique context
 	mapping 	UML::UseCase::ImplicitUseCase(context:UML::NamedElement):GRAA::UseCase@graa 
 	inherits UML::NamedElement::ImplicitGRAServiceAnnotationBaseSimple
 	
@@ -1974,10 +717,6 @@ helper 	UML::NamedElement::inheritsImplicitGRAServiceAnnotationBaseSimple(contex
 
 	var modeledProviders:Set(UML::Actor)= self.getProviderActors()->asSet();
 	var modeledConsumers:Set(UML::Actor)= self.getConsumerActors()->asSet();
-	//log('modeledProviders implicit');
-	//log('modeledProviders implicit '+modeledProviders->size().repr());
-	//log('modeledConsumers implicit '+modeledConsumers->size().repr());
-	
 	modeledProviders->forEach(modeledProvider){
 		provider+=modeledProvider.mapParticipant(self);
 	};
@@ -1987,6 +726,7 @@ helper 	UML::NamedElement::inheritsImplicitGRAServiceAnnotationBaseSimple(contex
 	
 }	
 		
+// map a UML UseCase to GRA UseCase 
 	mapping 	UML::InstanceSpecification::UseCase():GRAA::UseCase@graa 
 	inherits UML::InstanceSpecification::GRAServiceAnnotationBase 
 	
@@ -2000,14 +740,8 @@ helper 	UML::NamedElement::inheritsImplicitGRAServiceAnnotationBaseSimple(contex
 
 	var realizedProviders:Set(UML::Actor)= providerInstances.realizedActor()->asSet();
 	var realizedConsumers:Set(UML::Actor)= consumerInstances.realizedActor()->asSet();
-	//log('realizedProviders ');
-	//log('realizedProviders '+realizedProviders->size().repr());
-	//log('realizedConsumers '+realizedConsumers->size().repr());
 	var modeledProviders:Set(UML::Actor)= useCases.getProviderActors()->asSet();
 	var modeledConsumers:Set(UML::Actor)= useCases.getConsumerActors()->asSet();
-	//log('modeledProviders implicit');
-	//log('modeledProviders implicit '+modeledProviders->size().repr());
-	//log('modeledConsumers implicit '+modeledConsumers->size().repr());
 	
 	modeledProviders->select(p|not(realizedProviders->includes(p)))->forEach(modeledProvider){
 		provider+=modeledProvider.mapParticipant(modeledProvider);
@@ -2017,71 +751,48 @@ helper 	UML::NamedElement::inheritsImplicitGRAServiceAnnotationBaseSimple(contex
 	};
 	
 }	
-
+// returns set of <<Provider>> Associations which are relationships for the given Element context
 query UML::Element::getProviderAssociation():Set(UML::Association){
 	return self.getRelationships()
 		->select(t|t.oclIsKindOf(UML::Association) and t.getAppliedStereotypes().name->exists(n|n='Provider')).oclAsType(UML::Association)->asSet();
 }
+// returns set of <<Consumer>> Associations which are relationships for the given Element context
 query UML::Element::getConsumerAssociation():Set(UML::Association){
 	return self.getRelationships()
 		->select(t|t.oclIsKindOf(UML::Association) and t.getAppliedStereotypes().name->exists(n|n='Consumer')).oclAsType(UML::Association)->asSet();
 }
 	
+// returns set of Actors which have <<Provider>> Associations with the given UML UseCase
 query UML::UseCase::getProviderActors():Set(UML::Actor){
 	return self.getProviderAssociation().ownedEnd.type->select(t|t.oclIsKindOf(UML::Actor)).oclAsType(UML::Actor)->asSet();
 }
+// returns set of Actors which have <<Consumer>> Associations with the given UML UseCase
 query UML::UseCase::getConsumerActors():Set(UML::Actor){
 	return self.getConsumerAssociation().ownedEnd.type->select(t|t.oclIsKindOf(UML::Actor)).oclAsType(UML::Actor)->asSet();
 }
-
-	mapping 	UML::InstanceSpecification::ServiceInteraction():GRAA::ServiceInteraction@graa 
-	inherits UML::InstanceSpecification::GRAServiceAnnotationBase 
-{
-	participant+=self.getInstanceValues('Participant').mapParticipant();
-}	
-mapping 	UML::InstanceSpecification::ServiceInteraction(context:UML::Collaboration):GRAA::ServiceInteraction@graa 
-	inherits UML::NamedElement::ImplicitGRAServiceAnnotationBaseSimple 
-{
-	var modeledParticipants:Set(UML::Type)=context.ownedBehavior
-		->select(t|t.oclIsKindOf(UML::Interaction)).oclAsType(UML::Interaction).lifeline.represents.type->asSet();
-	var participants:Sequence(UML::InstanceSpecification)=self.getInstanceValues('Participant');
-	participant+=participants.mapParticipant();
-	var participantsRealized:Set(UML::Type)=participants.realizedType()->asSet();
-	modeledParticipants->select(p|not(participantsRealized->includes(p)))->forEach(modeledParticipant){
-		participant+=modeledParticipant.mapParticipant(modeledParticipant);
-	};
-	
-}	
+// map a UML Interaction to a GRA ServiceInteraction using a given context for uniqueness
 mapping 	UML::Interaction::ServiceInteraction(context:UML::NamedElement):GRAA::ServiceInteraction@graa 
 	inherits UML::NamedElement::ImplicitGRAServiceAnnotationBaseSimple 
 {
-//	participant+=self.getInstanceValues('participant').map Participant();
-	var types:Set(UML::Type)=self.lifeline.represents.type->asSet();
+	var typeTests:Set(UML::Type)=self.lifeline.represents.type->asSet();
+	var types:Set(UML::Actor)=typeTests->select(t|t.oclIsKindOf(UML::Actor)).oclAsType(UML::Actor)->asSet();
+	types+=typeTests->select(t|not(t.oclIsKindOf(UML::Actor))).realizedActor();
 	types->forEach(type){
 		participant+=type.mapParticipant(type);
 	};
 }	
 
-
+// map a UML InstanceSpecification instantiating a 'Service' to GRA Service
 mapping 	UML::InstanceSpecification::AbstractService(modeledComponent:UML::Component,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
 	parameterDefaults:Sequence(UML::InstanceSpecification),
 	messageDefaults:Sequence(UML::InstanceSpecification)):GRAA::Service@graa 
-	disjuncts UML::InstanceSpecification::WSDLService,
+	disjuncts 
 		 UML::InstanceSpecification::Service
 		 {}
-mapping 	UML::InstanceSpecification::WSDLService(modeledComponent:UML::Component,portDefaults:Sequence(UML::InstanceSpecification),
-	interfaceDefaults:Sequence(UML::InstanceSpecification),
-	operationDefaults:Sequence(UML::InstanceSpecification),
-	parameterDefaults:Sequence(UML::InstanceSpecification),
-	messageDefaults:Sequence(UML::InstanceSpecification)):GRAW::WsdlService@graa 
-	inherits UML::InstanceSpecification::Service
-	when{self.classifier.name->asSet()->includes('WSDLService')}
-{
-}
-
-	mapping 	UML::InstanceSpecification::Service(modeledComponent:UML::Component,portDefaults:Sequence(UML::InstanceSpecification),
+// map a UML InstanceSpecification instantiating a 'Service' to GRA Service
+mapping 	UML::InstanceSpecification::Service(modeledComponent:UML::Component,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
 	parameterDefaults:Sequence(UML::InstanceSpecification),
@@ -2114,39 +825,46 @@ mapping 	UML::InstanceSpecification::WSDLService(modeledComponent:UML::Component
 	}endif;
 	// ports in uml model owned by the realized component
 	var modeledPorts:Set(UML::Port)= serviceComponent.ownedPort;
+	var allPortInstances:Set(UML::InstanceSpecification)= portInstances;
+	allPortInstances+=portDefaults;
 	// each explicitly modeled port instance mapped to AbstractPort
-	port+=portInstances.map AbstractPort(null,portDefaults,interfaceDefaultsy,operationDefaultsy,parameterDefaultsy,messageDefaultsy);
 	// each port owned by realized component is mapped, if it was not already included in ports realized by instances
-	modeledPorts->select(p|not(portsRealized->includes(p)))->forEach(modeledPort){
-		/*
-		if(portDefaults->notEmpty())then{
-			port+=portDefaults.map AbstractPort(modeledPort,portDefaults,interfaceDefaultsy,operationDefaultsy,parameterDefaultsy,messageDefaultsy);
-			//port+=portDefaults.map AbstractPort(modeledPort,portDefaults,interfaceDefaults,operationDefaults,messageDefaults);
-		}else{
-			// there were no instance port defaults; map the modeled port implicitly
-			port+=modeledPort.mapImplicitPort(modeledPort,portDefaults,interfaceDefaultsy,operationDefaultsy,parameterDefaultsy,messageDefaultsy);
-		}endif;
-		*/
-		var targetPort:GRAA::Port=modeledPort.mapImplicitPort(modeledPort,portDefaults,interfaceDefaultsy,operationDefaultsy,parameterDefaultsy,messageDefaultsy);
+	modeledPorts->forEach(modeledPort){
+		var targetPort:GRAA::Port=modeledPort.mapImplicitPort(modeledPort,allPortInstances->asSequence(),interfaceDefaultsy,operationDefaultsy,parameterDefaultsy,messageDefaultsy);
 		if(not(targetPort.oclIsUndefined()))then{
 			port+=targetPort;
 		}endif;
 	};
 		//Plus SampleData, each with an optional Input and ExpectedOutput
 	sampleData+=self.getInstanceValues('SampleData').map SampleData();
-	serviceProvider:=self.getInstanceValue('ServiceProvider').mapParticipant(self);
-	
-	
+		serviceProvider:=serviceComponent.realizedActor().mapParticipant(self)->asSequence()->first();
+}
+// populate GraServiceAnnotationBase content for given UML NamedElement	
+helper 	UML::NamedElement::ImplicitGRAServiceAnnotationBase(inout base:GRAA::GraServiceAnnotationBase) 
+{
+	if(self.name.oclIsUndefined() or (self.name=''))then{
+		// special case:Reception may use signal name
+		if(self.oclIsKindOf(UML::Reception))then{
+			base.name:=self.oclAsType(UML::Reception).signal.name;
+		}endif;
+		if(base.name.oclIsUndefined() or (base.name=''))then{
+			base.diagnostics+='ERROR: No name';
+			base.name:='unNamed';
+		}endif;	
+	}else{
+		base.name:=self.name;
+	}endif;
+	base.documentation:=self.ownedComment.body->asSequence()->first();
+	base.modelReference:=self.mapModelReference();
+	return;
 }	
+// map given UML NamedElement to GraServiceAnnotationBase content with unique context	
 mapping 	UML::NamedElement::ImplicitGRAServiceAnnotationBaseSimple(context:UML::NamedElement):GRAA::GraServiceAnnotationBase@graa 
 {
 	init{}
-	//  derived
-	name:=self.name;
-	documentation:=self.ownedComment.body->asSequence()->first();
-//	modelReference:=self.map ModelReference(context,context.oclAsType(ECORE::EObject));
-	modelReference:=self.mapModelReference();
+	self.ImplicitGRAServiceAnnotationBase(result);
 }	
+// map given UML NamedElement to GraServiceAnnotationBase content with unique context and defaults	
 mapping 	UML::NamedElement::ImplicitGRAServiceAnnotationBase(context:UML::NamedElement,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -2154,17 +872,10 @@ mapping 	UML::NamedElement::ImplicitGRAServiceAnnotationBase(context:UML::NamedE
 	messageDefaults:Sequence(UML::InstanceSpecification)):GRAA::GraServiceAnnotationBase@graa 
 {
 	init{}
-	//  derived
-	if(self.name.oclIsUndefined() or (self.name=''))then{
-			diagnostics+='ERROR: No name';
-		name:='unNamed';
-	}else{
-		name:=self.name;
-	}endif;
-	documentation:=self.ownedComment.body->asSequence()->first();
-//	modelReference:=self.map ModelReference(self,self.oclAsType(ECORE::EObject));
-	modelReference:=self.mapModelReference();
-}	
+	self.ImplicitGRAServiceAnnotationBase(result);
+}
+// map context UML Port to a GRA Port given unique context and defaults; 
+//  use a matching portDefault or concrete port instance to map to an Abstract Port, otherwise map to Implicit Port	
 helper 	UML::Port::mapImplicitPort(context:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -2174,16 +885,6 @@ helper 	UML::Port::mapImplicitPort(context:UML::TypedElement,portDefaults:Sequen
 	// if none, check defaults
 	// if none, do implicitPorte
 	var resultOperation:GRAA::Port=null;
-	/* no general defaults
-	// check for WSDLPort
-	self.realizingInstance('WSDLPort')->forEach(wsdlPort){
-		return wsdlPort.map AbstractPort(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	// check for Port
-	self.realizingInstance('Port')->forEach(wsdlPort){
-		return wsdlPort.map AbstractPort(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	*/
 	// check portDefaults, if default realizes this port, map it
 	portDefaults->select(p|p.realizedPort()->exists(rp|self=rp))->forEach(wsdlPort){
 		return wsdlPort.map AbstractPort(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
@@ -2195,11 +896,10 @@ helper 	UML::Port::mapImplicitPort(context:UML::TypedElement,portDefaults:Sequen
 	// general defaults not supported --back track, need to have default here
 	// if we get this far, model does not have qualifying port instance, so map implicitly
 	return self.map ImplicitPort(self,null,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	//return null;// failed
 } 
 // general defaults not supported - backtrack,
 //	implicit mapping for port when no qualying port instance defined
-	mapping 	UML::Port::ImplicitPort(context:UML::NamedElement,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
+mapping 	UML::Port::ImplicitPort(context:UML::NamedElement,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
 	parameterDefaults:Sequence(UML::InstanceSpecification),
@@ -2214,29 +914,19 @@ helper 	UML::Port::mapImplicitPort(context:UML::TypedElement,portDefaults:Sequen
 			name:=self.type.name;
 		}endif;
 	}endif;
-	addressUri:='http://'+result.name;
+	//addressUri:='http://'+result.name; // another cardinality change
 }	
-
+// map a concrete port instantiation or a default Port applied to a modeled port to a GRA Port, assemble and propagate defaults 
 mapping 	UML::InstanceSpecification::AbstractPort(modeledPort:UML::Port,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
 	parameterDefaults:Sequence(UML::InstanceSpecification),
 	messageDefaults:Sequence(UML::InstanceSpecification)):GRAA::Port@graa 
-	disjuncts UML::InstanceSpecification::WSDLPort,
+	disjuncts 
 		 UML::InstanceSpecification::Port
 		 {}
-mapping 	UML::InstanceSpecification::WSDLPort(modeledPort:UML::Port,portDefaults:Sequence(UML::InstanceSpecification),
-	interfaceDefaults:Sequence(UML::InstanceSpecification),
-	operationDefaults:Sequence(UML::InstanceSpecification),
-	parameterDefaults:Sequence(UML::InstanceSpecification),
-	messageDefaults:Sequence(UML::InstanceSpecification)):GRAW::WsdlPort@graa 
-	inherits UML::InstanceSpecification::Port
-	when{self.classifier.name->asSet()->includes('WSDLPort')}
-{
-		certificate:=self.getStringValue('Certificate');
-
-}
-	mapping 	UML::InstanceSpecification::Port(modeledPort:UML::Port,portDefaults:Sequence(UML::InstanceSpecification),
+// map a concrete port instantiation or a default Port applied to a modeled port to a GRA Port, assemble and propagate defaults 
+mapping 	UML::InstanceSpecification::Port(modeledPort:UML::Port,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
 	parameterDefaults:Sequence(UML::InstanceSpecification),
@@ -2257,11 +947,6 @@ mapping 	UML::InstanceSpecification::WSDLPort(modeledPort:UML::Port,portDefaults
 	
 	
 	addressUri:=self.getStringValue('AddressURI');
-	if(result.addressUri.oclIsUndefined())then{
-			diagnostics+='ERROR: No AddressURI';
-		addressUri:='http://'+result.name;
-	}endif;
-	
 	// add explicitly modeled interfaces; if not modeled, add implicit interfaces
 	var interfaceInstances:Set(UML::InstanceSpecification)= self.getInstanceValues('Interface')->asSet();
 	var interfacesRealized:Set(UML::Interface)= interfaceInstances.realizedInterface()->asSet();
@@ -2271,16 +956,10 @@ mapping 	UML::InstanceSpecification::WSDLPort(modeledPort:UML::Port,portDefaults
 	}endif;
 	
 	var modeledInterfaces:Set(UML::Interface)= servicePorts.provided->asSet();
-	interface+=interfaceInstances.map AbstractInterface(null,portDefaults,interfaceDefaults,operationDefaultsy,parameterDefaultsy,messageDefaultsy);
-	modeledInterfaces->select(p|not(interfacesRealized->includes(p)))->forEach(modeledInterface){
-		/*
-		if(interfaceDefaults->notEmpty())then{
-			interface+=interfaceDefaults.map AbstractInterface(modeledInterface,portDefaults,interfaceDefaults,operationDefaultsy,parameterDefaultsy,messageDefaultsy);
-		}else{
-			interface+=modeledInterface.mapImplicitInterface(modeledPort,portDefaults,interfaceDefaults,operationDefaultsy,parameterDefaultsy,messageDefaultsy);
-		}endif;
-		*/
-		var targetInterface:GRAA::Interface=modeledInterface.mapImplicitInterface(modeledPort,portDefaults,interfaceDefaults,operationDefaultsy,parameterDefaultsy,messageDefaultsy);
+	var allInterfaceInstances:Set(UML::InstanceSpecification)= interfaceInstances;
+	allInterfaceInstances+=interfaceDefaults;
+	modeledInterfaces->forEach(modeledInterface){
+		var targetInterface:GRAA::Interface=modeledInterface.mapImplicitInterface(modeledPort,portDefaults,allInterfaceInstances->asSequence(),operationDefaultsy,parameterDefaultsy,messageDefaultsy);
 		if(not(targetInterface.oclIsUndefined()))then{
 			interface+=targetInterface;
 		}endif;
@@ -2294,6 +973,8 @@ mapping 	UML::InstanceSpecification::WSDLPort(modeledPort:UML::Port,portDefaults
 		}endif;
 	}endif;
 }	
+// map context UML Interface to a GRA Interface given unique context and defaults; 
+//  use a matching interfaceDefault or concrete Interface instance to map to an Abstract Interface, otherwise map to Implicit Interface	
 helper 	UML::Interface::mapImplicitInterface(context:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -2303,23 +984,6 @@ helper 	UML::Interface::mapImplicitInterface(context:UML::TypedElement,portDefau
 	// if none, check defaults
 	// if none, do implicitInterface
 	var resultOperation:GRAA::Interface=null;
-	/*
-	// check for WSDLOperation
-	self.realizingInstance('WSDLInterface')->forEach(wsdlInterface){
-		return wsdlInterface.map AbstractInterface(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	// check for Operation
-	self.realizingInstance('Interface')->forEach(wsdlInterface){
-		return wsdlInterface.map AbstractInterface(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	*/
-	// check InterfaceDefaults
-	/*
-	interfaceDefaults->forEach(operationDefault){
-		return operationDefault.map AbstractInterface(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	return self.map ImplicitInterface(context,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	*/
 	// check InterfaceDefaults, if default realizes this port, map it
 	interfaceDefaults->select(p|p.realizedInterface()->exists(rp|self=rp))->forEach(operationDefault){
 		return operationDefault.map AbstractInterface(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
@@ -2331,11 +995,9 @@ helper 	UML::Interface::mapImplicitInterface(context:UML::TypedElement,portDefau
 	// general defaults not supported - backtrack
 	// if we get this far, then no qualifying interface instance, so we must make implicit interface
 	return self.map ImplicitInterface(context,null,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	//return null;// failed
-	
 } 
-
-	mapping 	UML::Interface::ImplicitInterface(context:UML::NamedElement,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
+//	implicit mapping for Interface when no qualying Interface instance defined
+mapping 	UML::Interface::ImplicitInterface(context:UML::NamedElement,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
 	parameterDefaults:Sequence(UML::InstanceSpecification),
@@ -2346,6 +1008,7 @@ helper 	UML::Interface::mapImplicitInterface(context:UML::TypedElement,portDefau
 		operation+=behavioralFeature.mapImplicitOperation(behavioralFeature,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
 	};
 }	
+// map a concrete Interface instantiation or a default Interface applied to a modeled Interface to a GRA Interface, assemble and propagate defaults 
 mapping 	UML::InstanceSpecification::AbstractInterface(modeledInterface:UML::Interface,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -2354,6 +1017,7 @@ mapping 	UML::InstanceSpecification::AbstractInterface(modeledInterface:UML::Int
 	disjuncts UML::InstanceSpecification::WSDLInterface,
 		 UML::InstanceSpecification::Interface
 		 {}
+// map a concrete Interface instantiation or a default Interface applied to a modeled Interface to a GRA Interface, assemble and propagate defaults 
 mapping 	UML::InstanceSpecification::WSDLInterface(modeledInterface:UML::Interface,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -2379,7 +1043,8 @@ mapping 	UML::InstanceSpecification::WSDLInterface(modeledInterface:UML::Interfa
 		};
 	
 }
-	mapping 	UML::InstanceSpecification::Interface(modeledInterface:UML::Interface,portDefaults:Sequence(UML::InstanceSpecification),
+// map a concrete Interface instantiation or a default Interface applied to a modeled Interface to a GRA Interface, assemble and propagate defaults 
+mapping 	UML::InstanceSpecification::Interface(modeledInterface:UML::Interface,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
 	parameterDefaults:Sequence(UML::InstanceSpecification),
@@ -2389,13 +1054,10 @@ mapping 	UML::InstanceSpecification::WSDLInterface(modeledInterface:UML::Interfa
 
 	var parameterDefaultsx:Sequence(UML::InstanceSpecification)=self.getDefaultInstanceValues('ParameterDefault');
 	var messageDefaultsx:Sequence(UML::InstanceSpecification)=self.getDefaultInstanceValues('MessageDefault');
-	//messageDefault+=messageDefaultsx.map AbstractMessage(null,Sequence{},Sequence{},Sequence{},Sequence{});
 	var parameterDefaultsy:Sequence(UML::InstanceSpecification)=parameterDefaults;
 	var messageDefaultsy:Sequence(UML::InstanceSpecification)=messageDefaults;
 	if(parameterDefaultsx->notEmpty())then{parameterDefaultsy:=parameterDefaultsx;}endif;
 	if(messageDefaultsx->notEmpty())then{messageDefaultsy:=messageDefaultsx;}endif;
-	
-	
 	
 	// add explicitly modeled operations; if not modeled, add implicit operations
 	var operationInstances:Set(UML::InstanceSpecification)= self.getInstanceValues('Operation')->asSet();
@@ -2405,23 +1067,18 @@ mapping 	UML::InstanceSpecification::WSDLInterface(modeledInterface:UML::Interfa
 		serviceInterfaces:=Set{modeledInterface};
 	}endif;
 	var modeledOperations:Set(UML::BehavioralFeature)= serviceInterfaces.allBehavioralFeatures()->asSet();
-	operation+=operationInstances.map AbstractOperation(null,portDefaults,interfaceDefaults,operationDefaults,parameterDefaultsy,messageDefaultsy);
-	modeledOperations->select(p|not(operationsRealized->includes(p)))->forEach(modeledOperation){
-		/*
-		if(operationDefaults->notEmpty())then{
-			operation+=operationDefaults.map AbstractOperation(modeledOperation,portDefaults,interfaceDefaults,operationDefaults,parameterDefaultsy,messageDefaultsy);
-		}else{
-			operation+=modeledOperation.mapImplicitOperation(modeledOperation,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-		}endif;
-		*/
-		var targetOperation:GRAA::Operation=modeledOperation.mapImplicitOperation(modeledOperation,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
+	var allOperationInstances:Set(UML::InstanceSpecification)= operationInstances;
+	allOperationInstances+=operationDefaults;
+	modeledOperations->forEach(modeledOperation){
+		var targetOperation:GRAA::Operation=modeledOperation.mapImplicitOperation(modeledOperation,portDefaults,interfaceDefaults,allOperationInstances->asSequence(),parameterDefaults,messageDefaults);
 		if(not(targetOperation.oclIsUndefined()))then{
 			operation+=targetOperation;
 		}endif;
 	};
 	
 }	
-// determine if implicit, a default, explicit realization for a modeled behavioral feature
+// map a UML BehavioralFeature to a GRA Operation
+// determine if modeled behavioral feature maps to explicit Operation default, or unmapped Operation Default, or implicit Operation 
 helper 	UML::BehavioralFeature::mapImplicitOperation(context:UML::BehavioralFeature,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -2431,23 +1088,6 @@ helper 	UML::BehavioralFeature::mapImplicitOperation(context:UML::BehavioralFeat
 	// if none, check defaults
 	// if none, do implicitOperation
 	var resultOperation:GRAA::Operation=null;
-	/*
-	// check for WSDLOperation
-	self.realizingInstance('WSDLOperation')->forEach(wsdlOperation){
-		return wsdlOperation.map AbstractOperation(context,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	// check for Operation
-	self.realizingInstance('Operation')->forEach(wsdlOperation){
-		return wsdlOperation.map AbstractOperation(context,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	*/
-	/*
-	// check operationDefaults
-	operationDefaults->forEach(operationDefault){
-		return operationDefault.map AbstractOperation(context,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	return self.map ImplicitOperation(context,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	*/
 	
 	// check InterfaceDefaults, if default realizes this port, map it
 	operationDefaults->select(p|p.realizedBehavioralFeature()->exists(rp|self=rp))->forEach(operationDefault){
@@ -2460,11 +1100,10 @@ helper 	UML::BehavioralFeature::mapImplicitOperation(context:UML::BehavioralFeat
 	// general defaults not supported - backtract
 	// if we get this far, no qualifying operation instance so we must implicitly create the operation instance
 	return self.map ImplicitOperation(context,null,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	//return null;// failed
-	
 } 
 
-	mapping 	UML::BehavioralFeature::ImplicitOperation(context:UML::NamedElement,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
+//	implicit mapping for BehavioralFeature when no qualying Operation instance defined
+mapping 	UML::BehavioralFeature::ImplicitOperation(context:UML::NamedElement,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
 	parameterDefaults:Sequence(UML::InstanceSpecification),
@@ -2483,17 +1122,12 @@ helper 	UML::BehavioralFeature::mapImplicitOperation(context:UML::BehavioralFeat
 		}endif;
 	}else{
 		parameter+=self.ownedParameter.mapImplicitParameter(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-/* only one message per parameter, must handle multiple in/out via xslt
-		var inParameter:UML::Parameter=self.ownedParameter->select(p|(p.direction=UML::ParameterDirectionKind::_in)or(p.direction=UML::ParameterDirectionKind::_inout))->asSequence()->first();
-		var outParameter:UML::Parameter=self.ownedParameter->select(p|p.direction<>UML::ParameterDirectionKind::_in)->asSequence()->first();
-		if(not(inParameter.oclIsUndefined()))then{parameter+=inParameter.mapImplicitParameter(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);}endif;
-		if(not(outParameter.oclIsUndefined()))then{parameter+=outParameter.mapImplicitParameter(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);}endif;
-*/		
 	}endif;
 	isAsynchronous:=self.oclIsKindOf(UML::Reception);
 	actionPurpose:=self.ownedComment.body->asSequence()->first();
 }
 
+// map a concrete BehavioralFeature instantiation or a default BehavioralFeature applied to a modeled BehavioralFeature to a GRA Operation, assemble and propagate defaults 
 mapping 	UML::InstanceSpecification::AbstractOperation(modeledOperation:UML::BehavioralFeature,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -2502,6 +1136,7 @@ mapping 	UML::InstanceSpecification::AbstractOperation(modeledOperation:UML::Beh
 	disjuncts UML::InstanceSpecification::WSDLOperation,
 		 UML::InstanceSpecification::Operation
 		 {}
+// map a concrete WSDLOperation instantiation or a default WSDLOperation applied to a modeled BehavioralFeature to a GRA WSDLOperation, assemble and propagate defaults 
 mapping 	UML::InstanceSpecification::WSDLOperation(modeledOperation:UML::BehavioralFeature,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -2522,7 +1157,8 @@ mapping 	UML::InstanceSpecification::WSDLOperation(modeledOperation:UML::Behavio
 }
 
 	
-	mapping 	UML::InstanceSpecification::Operation(modeledOperation:UML::BehavioralFeature,portDefaults:Sequence(UML::InstanceSpecification),
+// map a concrete Operation instantiation or a default Operation applied to a modeled BehavioralFeature to a GRA Operation, assemble and propagate defaults 
+mapping 	UML::InstanceSpecification::Operation(modeledOperation:UML::BehavioralFeature,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
 	parameterDefaults:Sequence(UML::InstanceSpecification),
@@ -2533,8 +1169,8 @@ mapping 	UML::InstanceSpecification::WSDLOperation(modeledOperation:UML::Behavio
 	var messageDefaultsy:Sequence(UML::InstanceSpecification)=messageDefaults;
 	if(messageDefaultsx->notEmpty())then{messageDefaultsy:=messageDefaultsx;}endif;
 	// add explicitly modeled messages; if not modeled, add implicit messages
-	var messageInstances:Set(UML::InstanceSpecification)= self.getInstanceValues('Parameter')->asSet();
-	var messagesRealized:Set(UML::TypedElement)= messageInstances.realizedTypedElement()->asSet();
+	var parameterInstances:Set(UML::InstanceSpecification)= self.getInstanceValues('Parameter')->asSet();
+	var parametersRealized:Set(UML::TypedElement)= parameterInstances.realizedTypedElement()->asSet();
 	var serviceOperations:Set(UML::BehavioralFeature)=self.realizedBehavioralFeature()->asSet();
 	if(not(modeledOperation.oclIsUndefined()))then{
 		serviceOperations:=Set{modeledOperation};
@@ -2555,53 +1191,24 @@ mapping 	UML::InstanceSpecification::WSDLOperation(modeledOperation:UML::Behavio
 	}else{
 		modeledMessages+=modeledOperation.ownedParameter;
 	}endif;
-	parameter+=messageInstances.map AbstractParameter(null,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaultsy);
+	var allParameterInstances:Set(UML::InstanceSpecification)= parameterInstances;
+	allParameterInstances+=parameterDefaults;
 	
-	modeledMessages->select(p|not(messagesRealized->includes(p)))->forEach(modeledMessage){
-		/*
-		if(parameterDefaults->notEmpty())then{
-			parameter+=parameterDefaults.map AbstractParameter(modeledMessage,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaultsy);
-		}else{
-			parameter+=modeledMessage.mapImplicitParameter(modeledOperation,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaultsy);
-		}endif;
-		*/
-		var targetParameter:GRAA::Parameter=modeledMessage.mapImplicitParameter(modeledOperation,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaultsy);
+	modeledMessages->forEach(modeledMessage){
+		var targetParameter:GRAA::Parameter=modeledMessage.mapImplicitParameter(modeledOperation,portDefaults,interfaceDefaults,operationDefaults,allParameterInstances->asSequence(),messageDefaultsy);
 		if(not(targetParameter.oclIsUndefined()))then{
 			parameter+=targetParameter;
 		}endif;
 	};
 	
-	/* can not do multile message per part, so let phase 2 handle
-		var inParameter:UML::TypedElement=modeledMessages->select(p|not(messagesRealized->includes(p)))
-			->select(p|p.oclIsKindOf(UML::Parameter) or (p.oclIsKindOf(UML::Parameter) and (p.oclAsType(UML::Parameter).direction=UML::ParameterDirectionKind::_in)or(p.oclAsType(UML::Parameter).direction=UML::ParameterDirectionKind::_inout)))
-				->asSequence()->first();
-		var outParameter:UML::TypedElement=modeledMessages->select(p|p.oclIsKindOf(UML::Parameter) and not(messagesRealized->includes(p))).oclAsType(UML::Parameter)
-			->select(p|p.direction<>UML::ParameterDirectionKind::_in)->asSequence()->first();
-		if(not(inParameter.oclIsUndefined()))then{parameter+=inParameter.mapImplicitParameter(modeledOperation,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);}endif;
-		if(not(outParameter.oclIsUndefined()))then{parameter+=outParameter.mapImplicitParameter(modeledOperation,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);}endif;
-	*/
 	// exceptions
-	var messagesExceptionRealized:Set(UML::Type)= messageInstances.realizedType()->asSet();
-//	parameter+=messagesExceptionRealized.map AbstractParameter(null,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaultsy);
-	parameter+=messagesExceptionRealized.mapImplicitParameter(modeledOperation,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaultsy);
-//	parameter+=messageInstances.map AbstractParameter(null,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaultsy);
-	//modeledOperation.raisedException->select(p|not(messagesExceptionRealized->includes(p)))->forEach(modeledMessage){
-	serviceOperations.raisedException->select(p|not(messagesExceptionRealized->includes(p)))->forEach(modeledMessage){
-		/*
-		if(parameterDefaults->notEmpty())then{
-			parameter+=parameterDefaults.map AbstractParameter(modeledMessage,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaultsy);
-		}else{
-			parameter+=modeledMessage.mapImplicitParameter(modeledOperation,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaultsy);
-		}endif;
-		*/
-		var targetParameter:GRAA::Parameter=modeledMessage.mapImplicitParameter(modeledOperation,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaultsy);
+	serviceOperations.raisedException->forEach(modeledMessage){
+		var targetParameter:GRAA::Parameter=modeledMessage.mapImplicitParameter(modeledOperation,portDefaults,interfaceDefaults,operationDefaults,allParameterInstances->asSequence(),messageDefaultsy);
 		if(not(targetParameter.oclIsUndefined()))then{
 			parameter+=targetParameter;
 		}endif;
 		
 	};
-
-	
 	
 		var messageExchangePatternName:String=self.getInstanceValue('MessageExchangePattern').name;
 		switch{
@@ -2627,12 +1234,15 @@ mapping 	UML::InstanceSpecification::WSDLOperation(modeledOperation:UML::Behavio
 		isAsynchronous:=serviceOperations->exists(p|p.oclIsKindOf(UML::Reception));
 		actionPurpose:=serviceOperations.ownedComment.body->asSequence()->first();
 }
-	mapping 	UML::InstanceSpecification::SampleData():GRAA::SampleData@graa 
+// map an InstanceSpecification 'SampleData' instantiation to GRA SampleData
+mapping 	UML::InstanceSpecification::SampleData():GRAA::SampleData@graa 
 {
 	// Input, ExpectedOutput
 	input+=self.getStringValues('Input');
 	expectedOutput:=self.getStringValue('ExpectedOutput');
 }	
+// map a UML NamedElement to a GRA Parameter
+// determine if modeled namedElement maps to explicit Parameter default, or unmapped Parameter Default, or implicit Parameter 
 helper 	UML::NamedElement::mapImplicitParameter(context:UML::BehavioralFeature,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -2640,25 +1250,8 @@ helper 	UML::NamedElement::mapImplicitParameter(context:UML::BehavioralFeature,p
 	messageDefaults:Sequence(UML::InstanceSpecification)):GRAA::Parameter{
 	// find instance which is WSDLParameter or Parameter
 	// if none, check defaults
-	// if none, do implicitOperation
+	// if none, do ImplicitParameter
 	var resultOperation:GRAA::Parameter=null;
-	/*
-	// check for WSDLParameter
-	self.realizingInstance('WSDLParameter')->forEach(wsdlParameter){
-		return wsdlParameter.map AbstractParameter(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	// check for Parameter
-	self.realizingInstance('Parameter')->forEach(wsdlParameter){
-		return wsdlParameter.map AbstractParameter(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	*/
-	/*
-	// check operationDefaults
-	parameterDefaults->forEach(operationDefault){
-		return operationDefault.map AbstractParameter(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	return self.map ImplicitParameter(context,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	*/
 	// check parameterDefaults, if default realizes this parameter, map it
 	parameterDefaults->select(p|p.realizedNamedElement()->exists(rp|self=rp))->forEach(operationDefault){
 		return operationDefault.map AbstractParameter(self,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
@@ -2670,11 +1263,10 @@ helper 	UML::NamedElement::mapImplicitParameter(context:UML::BehavioralFeature,p
 	// general defaults not supported - backtract
 	// if we get this far, then there are no qualifying parameter instances, so we must create one implicitly
 	return self.map ImplicitParameter(context,null,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	//return null;// failed
-	
 } 
 
-	mapping 	UML::NamedElement::ImplicitParameter(context:UML::BehavioralFeature,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
+//	implicit mapping for BehavioralFeature when no qualying Operation instance defined
+mapping 	UML::NamedElement::ImplicitParameter(context:UML::BehavioralFeature,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
 	parameterDefaults:Sequence(UML::InstanceSpecification),
@@ -2693,15 +1285,6 @@ helper 	UML::NamedElement::mapImplicitParameter(context:UML::BehavioralFeature,p
 	}endif;
 	// either a type or an element, depending upon whether style is document or rpc
 	partElement:=self.messagePartElement();
-	/*
-	if(context.isDocumentStyle())then{
-		// use an element (property whose type is messagetype): either 
-		var messagetypetest:UML::NamedElement=self.messagePartElement();
-		if(not(messagetypetest.oclIsUndefined()))then{
-			messagetype:=messagetypetest;
-		}endif;
-	}endif;
-	*/
 	if(self.oclIsKindOf(UML::Parameter))then{	
 		//  derived
 		switch{
@@ -2720,9 +1303,6 @@ helper 	UML::NamedElement::mapImplicitParameter(context:UML::BehavioralFeature,p
 		};
 	}else{
 		if(self.oclIsKindOf(UML::Type))then{	
-//			if(not(context.isDocumentStyle()))then{
-//				messagetype:=self.oclAsType(UML::Type);
-//			}endif;
 			//  derived
 			use:=graAnnotationModel::ParameterUse::_exception;
 		}else{
@@ -2738,61 +1318,17 @@ helper 	UML::NamedElement::mapImplicitParameter(context:UML::BehavioralFeature,p
 	}endif;
 	message:=messagetype.mapImplicitMessage(self,partElement,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
 }
-/*
-query UML::BehavioralFeature::isDocumentStyle():Boolean{	
-	// default is document style; check if override iva modeled instance Operation
-	var isDocument:Boolean=true;
-	self.realizingInstance('WSDLOperation')->forEach(operation){
-		var operationKindCode:UML::InstanceSpecification=operation.getInstanceValue('OperationKindCode');
-		if(not(operationKindCode.oclIsUndefined()))then{
-			var kindName:String=operationKindCode.name;
-			switch{
-				case(kindName='rpc'){
-					return false;
-				};	
-			};
-		}endif;
-	};
-	return true;
-}
-*/
+// locate a plausible Property (mapping to XSD Element) which types the context Type
 query UML::NamedElement::messagePartElement():UML::Property{
-	/*
-	// context is a typedElement (or a Type in case of Exception)
-		if(self.oclIsKindOf(UML::Type))then{	
-			// exception; for now can not be resolved
-		}else{
-			// typedElement: resolve via realization or some exchange property holder
-			if(self.oclIsKindOf(UML::TypedElement))then{	
-				var modeledType:UML::Type=self.oclAsType(UML::TypedElement).type;
-				modeledType.realizedTypedElement()
-					->select(t|t.oclIsKindOf(UML::Property)).oclAsType(UML::Property)->forEach(typedElement){
-						return typedElement;
-					};
-				// no realization, check if there is an exchange which defines such a property
-				modeledType.getReferencingTypedElements()
-					->select(t|t.oclIsKindOf(UML::Property)).oclAsType(UML::Property)->forEach(typedElement){
-						return typedElement;
-					};
-				// otherwise just find any informationModel defining such a property	
-			}else{
-				// could not resolve
-			}endif;
-		}endif;
-	return null;// could not resolve property
-	*/
 	return self.messagePartElements()->asSequence()->first();
 }
+// locate all plausible Properties (mapping to XSD Element) which types the context Type
 query UML::NamedElement::messagePartElements():Set(UML::Property){
 	// context is a typedElement (or a Type in case of Exception)
 	var properties:Set(UML::Property)=Set{};
 		if(self.oclIsKindOf(UML::Type))then{	
 			// exception, find referencing property
 				var modeledType:UML::Type=self.oclAsType(UML::Type);
-				modeledType.realizedTypedElement()
-					->select(t|t.oclIsKindOf(UML::Property)).oclAsType(UML::Property)->forEach(typedElement){
-						properties+= typedElement;
-					};
 				// no realization, check if there is an exchange which defines such a property
 				modeledType.getReferencingTypedElements()
 					->select(t|t.oclIsKindOf(UML::Property)).oclAsType(UML::Property)->forEach(typedElement){
@@ -2803,28 +1339,26 @@ query UML::NamedElement::messagePartElements():Set(UML::Property){
 			// typedElement: resolve via realization or some exchange property holder
 			if(self.oclIsKindOf(UML::TypedElement))then{	
 				var modeledType:UML::Type=self.oclAsType(UML::TypedElement).type;
-				modeledType.realizedTypedElement()
-					->select(t|t.oclIsKindOf(UML::Property)).oclAsType(UML::Property)->forEach(typedElement){
-						properties+= typedElement;
-					};
 				// no realization, check if there is an exchange which defines such a property
 				modeledType.getReferencingTypedElements()
 					->select(t|t.oclIsKindOf(UML::Property)).oclAsType(UML::Property)->forEach(typedElement){
 						properties+= typedElement;
 					};
 				// otherwise just find any informationModel defining such a property	
+	
 			}else{
 				// could not resolve
 			}endif;
 		}endif;
-	return properties;// could not resolve property
+	return properties;// all properties satisfying condition
 }
-
+// the typedElements which have as their type the context UML Type
 query UML::Type::getReferencingTypedElements():Set(UML::TypedElement)=
 	gatherAllGraSchemas.ownedType->select(e|e.oclIsKindOf(UML::Classifier)).oclAsType(UML::Classifier).attribute
 		->select(a|a.type=self)->asSet();
 		
 		
+// map a concrete InstanceSpecification instantiation of 'Parameter' or a default Parameter applied to a modeled Parameter, assemble and propagate defaults 
 mapping 	UML::InstanceSpecification::AbstractParameter(modeledMessage:UML::NamedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -2833,6 +1367,7 @@ mapping 	UML::InstanceSpecification::AbstractParameter(modeledMessage:UML::Named
 	disjuncts UML::InstanceSpecification::WSDLParameter,
 		 UML::InstanceSpecification::Parameter
 		 {}
+// map a concrete InstanceSpecification instantiation of 'WSDLParameter' or a default WSDLParameter applied to a modeled Parameter, assemble and propagate defaults 
 mapping 	UML::InstanceSpecification::WSDLParameter(modeledMessage:UML::NamedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -2841,25 +1376,26 @@ mapping 	UML::InstanceSpecification::WSDLParameter(modeledMessage:UML::NamedElem
 	inherits UML::InstanceSpecification::Parameter
 	when{self.classifier.name->asSet()->includes('WSDLParameter')}
 {
-	mimeType:=self.getStringValue('mimeType');
+	mimeType:=self.getStringValue('MimeType');
 
 }
-	mapping 	UML::InstanceSpecification::Parameter(modeledMessage:UML::NamedElement,portDefaults:Sequence(UML::InstanceSpecification),
+// map a concrete InstanceSpecification instantiation of 'Parameter' or a default Parameter applied to a modeled Parameter, assemble and propagate defaults 
+mapping 	UML::InstanceSpecification::Parameter(modeledParameter:UML::NamedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
 	parameterDefaults:Sequence(UML::InstanceSpecification),
 	messageDefaults:Sequence(UML::InstanceSpecification)):GRAA::Parameter@graa 
 	inherits UML::InstanceSpecification::GRAServiceAnnotationBaseDefault 
 {
-	var messageRealized:UML::TypedElement= self.realizedTypedElement()->asSequence()->first();
-	if(modeledMessage.oclIsUndefined())then{
+	var parameterRealized:UML::TypedElement= self.realizedTypedElement()->asSequence()->first();
+	if(modeledParameter.oclIsUndefined())then{
 		
 	}else{
-		if(modeledMessage.oclIsKindOf(UML::TypedElement))then{
-			messageRealized:=modeledMessage.oclAsType(UML::TypedElement);
+		if(modeledParameter.oclIsKindOf(UML::TypedElement))then{
+			parameterRealized:=modeledParameter.oclAsType(UML::TypedElement);
 		}endif;
 	}endif;
-	messageRealized->forEach(parameter){
+	parameterRealized->forEach(parameter){
 		//  derived
 		if(parameter.oclIsKindOf(UML::Parameter))then{	
 			switch{
@@ -2880,66 +1416,56 @@ mapping 	UML::InstanceSpecification::WSDLParameter(modeledMessage:UML::NamedElem
 					use:=graAnnotationModel::ParameterUse::_in;
 		}	endif;
 	};
-	var messagetype:UML::Type=messageRealized.type;
-//	var messagetype:UML::NamedElement=messageRealized.type;
+	var parametertype:UML::Type=parameterRealized.type;
 	var elementPart:UML::TypedElement=null;
-	// either a type or an element, depending upon whether style is document or rpc
-	var test:UML::Element=modeledMessage.owner;
-	if(test.oclIsKindOf(UML::BehavioralFeature))then{
-		var behavioralFeature:UML::BehavioralFeature=test.oclAsType(UML::BehavioralFeature);
-		elementPart:=behavioralFeature.messagePartElement();
-//		if(behavioralFeature.isDocumentStyle())then{
-			// use an element (property whose type is messagetype): either 
-//			messagetype:=behavioralFeature.messagePartElement();
-//		}endif;
+	if(not(parametertype.oclIsUndefined()))then{
+		elementPart:=parametertype.messagePartElement();
 	}endif;
-	// exceptions
+	// either a type or an element, depending upon whether style is document or rpc
+	// exceptions; self will represent the exception type
 	var typeRealized:UML::Type= self.realizedType()->asSequence()->first();
 	if(not(typeRealized.oclIsUndefined()))then{
-		messagetype:=typeRealized;
-		if(modeledMessage.oclIsUndefined())then{
+		parametertype:=typeRealized;
+		if(modeledParameter.oclIsUndefined())then{
 			
 		}else{
-			if(modeledMessage.oclIsKindOf(UML::Type))then{
-				messagetype:=modeledMessage.oclAsType(UML::Type);
+			if(modeledParameter.oclIsKindOf(UML::Type))then{
+				parametertype:=modeledParameter.oclAsType(UML::Type);
 			}endif;
 		}endif;
-		elementPart:=messagetype.messagePartElement();
+		elementPart:=parametertype.messagePartElement();
 		use:=graAnnotationModel::ParameterUse::_exception;
 	}endif;
-//	dataProvenance:=self.getStringValue('DataProvenance');
 	if(result.name.oclIsUndefined() or (result.name=''))then{
-		name:=messageRealized.name;
+		name:=parameterRealized.name;
 		if(result.name.oclIsUndefined() or (result.name=''))then{
 			diagnostics+='ERROR: No parameter name';
-			name:=messagetype.name;
+			name:=parametertype.name;
 		}endif;
 	}endif;
 	var messageInstances:UML::InstanceSpecification= self.getInstanceValue('Message');
-	if(messageInstances.oclIsUndefined())then{
-		/*
-		if(messageDefaults->notEmpty())then{
-			message:=messageDefaults.map AbstractMessage(messagetype,messageRealized,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults)->first();
-		}else{
-			message:=messagetype.mapImplicitMessage(messageRealized,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-		}endif;
-		*/
-		var targetMessage:GRAA::Message=messagetype.mapImplicitMessage(messageRealized,elementPart,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
+	// if messageInstances is defined and either realizes the modeled parameter or has no realizations, then AbstractMessage; otherwise implicit message
+	if(messageInstances.oclIsUndefined() 
+		or 
+		not(messageInstances.clientDependency->isEmpty() or messageInstances.clientDependency.supplier->includes(parameterRealized))
+		)then{
+		var targetMessage:GRAA::Message=parametertype.mapImplicitMessage(parameterRealized,elementPart,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
 		if(not(targetMessage.oclIsUndefined()))then{
 			message:=targetMessage;
 		}endif;
 		
 	}else{
-		message:=messageInstances.map AbstractMessage(messagetype,messageRealized,elementPart,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
+		message:=messageInstances.map AbstractMessage(parametertype,parameterRealized,elementPart,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
 	}endif;
 	
 	
 	
 }	
 
-///////////////////////////////////////////////////////////////////////////////////////////////////	
-//helper 	UML::Type::mapImplicitMessage(context:UML::NamedElement,portDefaults:Sequence(UML::InstanceSpecification),
-//helper 	UML::NamedElement::mapImplicitMessage(context:UML::NamedElement,portDefaults:Sequence(UML::InstanceSpecification),
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// map a UML Type to a GRA Message
+// determine if modeled Type maps to explicit Message default, or unmapped Message Default, or implicit Message 
+	
 helper 	UML::Type::mapImplicitMessage(context:UML::NamedElement,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -2949,30 +1475,11 @@ helper 	UML::Type::mapImplicitMessage(context:UML::NamedElement,elementPart:UML:
 	// if none, check defaults
 	// if none, do implicitOperation
 	var resultOperation:GRAA::Message=null;
-	/*
-	// check for WSDLOperation
-	self.realizingInstance('WSDLMessage')->forEach(wsdlMessage){
-		return wsdlMessage.map AbstractMessage(self,context,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	// check for Operation
-	self.realizingInstance('Message')->forEach(wsdlMessage){
-		return wsdlMessage.map AbstractMessage(self,context,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	*/
-	/*
-	// check operationDefaults
-	messageDefaults->forEach(wsdlMessage){
-		return wsdlMessage.map AbstractMessage(self,context,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	};
-	return self.map ImplicitMessage(context,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	*/
 	// check InterfaceDefaults, if default realizes this port, map it
-//	messageDefaults->select(p|p.realizedType()->exists(rp|self=rp))->forEach(wsdlMessage){
 	messageDefaults->select(p|p.realizedNamedElement()->exists(rp|self=rp))->forEach(wsdlMessage){
 		return wsdlMessage.map AbstractMessage(self,context,elementPart,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
 	};
 	// otherwise, try to map an unrealized default
-//	messageDefaults->select(p|p.realizedType()->isEmpty())->forEach(wsdlMessage){
 	messageDefaults->select(p|p.realizedNamedElement()->isEmpty())->forEach(wsdlMessage){
 		return wsdlMessage.map AbstractMessage(self,context,elementPart,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
 	};
@@ -2982,11 +1489,8 @@ helper 	UML::Type::mapImplicitMessage(context:UML::NamedElement,elementPart:UML:
 	// we either use type or element, depending upon context;  if we need element backtrack via context
 
 	return self.map ImplicitMessage(context,elementPart,portDefaults,interfaceDefaults,operationDefaults,parameterDefaults,messageDefaults);
-	//return null;// failed
-	
 } 
-
-//	mapping 	UML::Type::ImplicitMessage(context:UML::NamedElement,portDefaults:Sequence(UML::InstanceSpecification),
+//	implicit mapping for Type when no qualying Message instance defined
 mapping 	UML::NamedElement::ImplicitMessage(context:UML::NamedElement,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -2996,40 +1500,10 @@ mapping 	UML::NamedElement::ImplicitMessage(context:UML::NamedElement,elementPar
 {
 //	var messagetype:UML::Type=self;
 	var messagetype:UML::NamedElement=self;
-	var typePackage:UML::Package=messagetype.getNearestPackage();
-	var pimStereotypeInstance:Stdlib::Element=typePackage.GetStereotypeApplication(NIEMSchemaStereotype).oclAsType(Stdlib::Element);
-	if(pimStereotypeInstance.oclIsUndefined())then{
-		pimStereotypeInstance:=typePackage.GetStereotypeApplication(NIEMInformationModelStereotype).oclAsType(Stdlib::Element);
-	}endif;
-	// set prefix to be used for Schema namespace
-	prefix:=pimStereotypeInstance.getSsspSchemaDefaultPrefix();
-	if(result.prefix.oclIsUndefined()or (result.prefix=''))then{
-		prefix:=typePackage.name;
-	}endif;
-//	name:=messagetype.name;
-		name:=messagetype.toNiemName();
-		// element part:  need another modelReference, prefix, 
-		
-	var elementPackage:UML::Package=elementPart.getNearestPackage();
-	var elementStereotypeInstance:Stdlib::Element=elementPackage.GetStereotypeApplication(NIEMSchemaStereotype).oclAsType(Stdlib::Element);
-	if(elementStereotypeInstance.oclIsUndefined())then{
-		elementStereotypeInstance:=elementPackage.GetStereotypeApplication(NIEMInformationModelStereotype).oclAsType(Stdlib::Element);
-	}endif;
-	// set prefix to be used for Schema namespace
-	elementPrefix:=elementStereotypeInstance.getSsspSchemaDefaultPrefix();
-	if(result.elementPrefix.oclIsUndefined()or (result.elementPrefix=''))then{
-		elementPrefix:=elementPackage.name;
-	}endif;
-	elementName:=elementPart.toNiemName();
-		
-
-//	elementModelReference:=elementPart.map ModelReference(self,result.oclAsType(ECORE::EObject));
-	elementModelReference:=elementPart.mapModelReference();
-		
-		
+	messagetype.Message(result,elementPart);
 }
 	
-//mapping 	UML::InstanceSpecification::AbstractMessage(modeledMessage:UML::Type,context:UML::NamedElement,portDefaults:Sequence(UML::InstanceSpecification),
+// map a concrete InstanceSpecification instantiation of 'Message' or a default Message applied to a modeled Message, assemble and propagate defaults 
 mapping 	UML::InstanceSpecification::AbstractMessage(modeledMessage:UML::NamedElement,context:UML::NamedElement,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -3038,7 +1512,7 @@ mapping 	UML::InstanceSpecification::AbstractMessage(modeledMessage:UML::NamedEl
 	disjuncts UML::InstanceSpecification::WSDLMessage,
 		 UML::InstanceSpecification::Message
 		 {}
-//mapping 	UML::InstanceSpecification::WSDLMessage(modeledMessage:UML::Type,context:UML::NamedElement,portDefaults:Sequence(UML::InstanceSpecification),
+// map a concrete InstanceSpecification instantiation of 'WSDLMessage' or a default WSDLMessage applied to a modeled Message, assemble and propagate defaults 
 mapping 	UML::InstanceSpecification::WSDLMessage(modeledMessage:UML::NamedElement,context:UML::NamedElement,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -3059,11 +1533,9 @@ mapping 	UML::InstanceSpecification::WSDLMessage(modeledMessage:UML::NamedElemen
 				messageLocationCode:=GRAW::MessageLocation::url;
 			};	
 		};
-	encoding:=self.getStringValue('Encoding');
-	soapAction:=self.getStringValue('SoapAction');
 
 }
-//mapping 	UML::InstanceSpecification::Message(modeledMessage:UML::Type,context:UML::NamedElement,portDefaults:Sequence(UML::InstanceSpecification),
+// map a concrete InstanceSpecification instantiation of 'Message' or a default Message applied to a modeled Message, assemble and propagate defaults 
 mapping 	UML::InstanceSpecification::Message(modeledMessage:UML::NamedElement,context:UML::NamedElement,elementPart:UML::TypedElement,portDefaults:Sequence(UML::InstanceSpecification),
 	interfaceDefaults:Sequence(UML::InstanceSpecification),
 	operationDefaults:Sequence(UML::InstanceSpecification),
@@ -3071,80 +1543,60 @@ mapping 	UML::InstanceSpecification::Message(modeledMessage:UML::NamedElement,co
 	messageDefaults:Sequence(UML::InstanceSpecification)):GRAA::Message@graa 
 	inherits UML::InstanceSpecification::GRAServiceAnnotationBaseDefaultContext 
 {
-//	var messageRealized:UML::Type= self.realizedType()->asSequence()->first();
 	var messageRealized:UML::NamedElement= self.realizedNamedElement()->asSequence()->first();
 	if(modeledMessage.oclIsUndefined())then{
 		
 	}else{
 		messageRealized:=modeledMessage;
 	}endif;
-//	var messagetype:UML::Type=messageRealized;
 	var messagetype:UML::NamedElement=messageRealized;
-	var typePackage:UML::Package=messagetype.getNearestPackage();
+	messagetype.Message(result,elementPart);
+}
+// populate the targetMessage based on context type, include both type and element target properties
+helper 	UML::NamedElement::Message(inout targetMessage:GRAA::Message,
+		elementPart:UML::TypedElement) 
+{
+	var typePackage:UML::Package=self.getNearestPackage();
 	var pimStereotypeInstance:Stdlib::Element=typePackage.GetStereotypeApplication(NIEMSchemaStereotype).oclAsType(Stdlib::Element);
 	if(pimStereotypeInstance.oclIsUndefined())then{
 		pimStereotypeInstance:=typePackage.GetStereotypeApplication(NIEMInformationModelStereotype).oclAsType(Stdlib::Element);
 	}endif;
 	// set prefix to be used for Schema namespace
-	prefix:=pimStereotypeInstance.getSsspSchemaDefaultPrefix();
-	if(result.prefix.oclIsUndefined()or (result.prefix=''))then{
-		prefix:='prefix';
+	targetMessage.prefix:=pimStereotypeInstance.getSsspSchemaDefaultPrefix();
+	if(targetMessage.prefix.oclIsUndefined()or (targetMessage.prefix=''))then{
+		targetMessage.prefix:='prefix';
+		targetMessage.diagnostics+='ERROR: no prefix defined for namespace'
 	}endif;
-//		name:=messageRealized.name;
-		name:=messageRealized.toNiemName();
+	targetMessage.name:=self.toNiemName();
 		
-	var elementPackage:UML::Package=elementPart.getNearestPackage();
-	var elementStereotypeInstance:Stdlib::Element=elementPackage.GetStereotypeApplication(NIEMSchemaStereotype).oclAsType(Stdlib::Element);
-	if(elementStereotypeInstance.oclIsUndefined())then{
-		elementStereotypeInstance:=elementPackage.GetStereotypeApplication(NIEMInformationModelStereotype).oclAsType(Stdlib::Element);
+	if(elementPart.oclIsUndefined())then{
+		targetMessage.diagnostics+='ERROR: No element referencing '+self.qualifiedName;
+		targetMessage.elementPrefix:='unknown';
+		targetMessage.elementName:='unknown';
+	}else{	
+		var elementPackage:UML::Package=elementPart.getNearestPackage();
+		var elementStereotypeInstance:Stdlib::Element=elementPackage.GetStereotypeApplication(NIEMSchemaStereotype).oclAsType(Stdlib::Element);
+		if(elementStereotypeInstance.oclIsUndefined())then{
+			elementStereotypeInstance:=elementPackage.GetStereotypeApplication(NIEMInformationModelStereotype).oclAsType(Stdlib::Element);
+		}endif;
+		// set prefix to be used for Schema namespace
+		targetMessage.elementPrefix:=elementStereotypeInstance.getSsspSchemaDefaultPrefix();
+		if(targetMessage.elementPrefix.oclIsUndefined()or (targetMessage.elementPrefix=''))then{
+			targetMessage.diagnostics+='WARNING: No prefix defined for element';
+			targetMessage.elementPrefix:=elementPackage.name;
+		}endif;
+		targetMessage.elementName:=elementPart.toNiemName();
+		targetMessage.elementModelReference:=elementPart.mapModelReference();
 	}endif;
-	// set prefix to be used for Schema namespace
-	elementPrefix:=elementStereotypeInstance.getSsspSchemaDefaultPrefix();
-	if(result.elementPrefix.oclIsUndefined()or (result.elementPrefix=''))then{
-			diagnostics+='WARNING: No prefix defined for element';
-		elementPrefix:=elementPackage.name;
-	}endif;
-	elementName:=elementPart.toNiemName();
-		
-
-//	elementModelReference:=elementPart.map ModelReference(self,result.oclAsType(ECORE::EObject));
-	elementModelReference:=elementPart.mapModelReference();
-		
+	return;		
 }	
-/*
-query UML::NamedElement::toNiemName():String{
-	var resultName:String=self.name;
-	if(resultName.oclIsUndefined())then{
-		resultName:='unNamed';
-	}endif;
-	return resultName;
-}
-	
-query UML::Type::toNiemName():String{
-	var resultName:String=self.name;
-	if(self.isMetadataType() and not(resultName.endsWith('MetadataType')or resultName.endsWith('Metadata')))then{
-		resultName:=resultName+'MetadataType';
-	}endif;
-	if(self.isNiemType() and not(resultName.endsWith('Type')))then{
-		resultName:=resultName+'Type';
-	}endif;
-	return resultName;
-}
-*/
-query UML::Type::isNiemType():Boolean{
-	var typePackage:UML::Package=self.getNearestPackage();
-	return not(typePackage.GetStereotypeApplication(NIEMSchemaStereotype).oclIsUndefined())
-		or not(typePackage.GetStereotypeApplication(NIEMInformationModelStereotype).oclIsUndefined());
-}
-query UML::Type::isMetadataType():Boolean{
-	return not(self.GetStereotypeApplication(NIEMMetadataStereotype).oclIsUndefined())
-		or (self.name.endsWith('MetadataType')or self.name.endsWith('Metadata'));
-}
+// map InstanceSpecification instantiation of 'ServiceInteractionProfile' to GRA ServiceInteractionProfile	
 	mapping 	UML::InstanceSpecification::ServiceInteractionProfile():GRAA::ServiceInteractionProfile@graa 
 {
 	sipName:=self.getStringValue('SIPName');
 	sipVersion:=self.getStringValue('SIPVersion');
 }	
+// map InstanceSpecification instantiation of 'Agreement' to GRA Agreement	
 	mapping 	UML::InstanceSpecification::Agreement():GRAA::Agreement@graa 
 {
 	agreementUri:=self.getStringValue('AgreementURI');

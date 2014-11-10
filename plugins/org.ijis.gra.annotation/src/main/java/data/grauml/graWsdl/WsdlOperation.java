@@ -31,7 +31,7 @@ public interface WsdlOperation extends Operation {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Represents the style of a <soap:operation> within a <wsdl:binding><wsdl:operation> which has a <soap:binding>.
+	 * Represents the style {doc, rpc} of a <soap:operation> within a <wsdl:binding><wsdl:operation> which has a <soap:binding>.  Doc is recommended by GRA.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Operation Kind Code</em>' attribute.
 	 * @see data.grauml.graWsdl.OperationKind

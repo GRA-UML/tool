@@ -2,8 +2,6 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -78,17 +76,5 @@ public interface ServiceInteractionProfile extends EObject {
 	 * @generated
 	 */
 	void setSipVersion(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='stringValueOf(\"SIPName\") = name'"
-	 * @generated
-	 */
-	boolean nameDerivation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ServiceInteractionProfile

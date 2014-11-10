@@ -5,23 +5,15 @@ package data.grauml.graAnnotationModel.impl;
 import data.grauml.graAnnotationModel.Agreement;
 import data.grauml.graAnnotationModel.GraAnnotationModelPackage;
 import data.grauml.graAnnotationModel.ServiceLevelAgreement;
-import data.grauml.graAnnotationModel.util.GraAnnotationModelValidator;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -46,9 +38,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceLevelAgreementImpl#getServiceAverageThroughput <em>Service Average Throughput</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceLevelAgreementImpl#getServiceMaximumThroughput <em>Service Maximum Throughput</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceLevelAgreementImpl#getServiceAvailability <em>Service Availability</em>}</li>
+ *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceLevelAgreementImpl#getCreationCostAmount <em>Creation Cost Amount</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceLevelAgreementImpl#getUsageCostAmount <em>Usage Cost Amount</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceLevelAgreementImpl#getUsageUnitCostAmount <em>Usage Unit Cost Amount</em>}</li>
- *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceLevelAgreementImpl#getCreationCostAmount <em>Creation Cost Amount</em>}</li>
  * </ul>
  * </p>
  *
@@ -306,6 +298,26 @@ public class ServiceLevelAgreementImpl extends MinimalEObjectImpl.Container impl
 	protected String serviceAvailability = SERVICE_AVAILABILITY_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getCreationCostAmount() <em>Creation Cost Amount</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreationCostAmount()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CREATION_COST_AMOUNT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCreationCostAmount() <em>Creation Cost Amount</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreationCostAmount()
+	 * @generated
+	 * @ordered
+	 */
+	protected String creationCostAmount = CREATION_COST_AMOUNT_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getUsageCostAmount() <em>Usage Cost Amount</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,26 +356,6 @@ public class ServiceLevelAgreementImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected String usageUnitCostAmount = USAGE_UNIT_COST_AMOUNT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getCreationCostAmount() <em>Creation Cost Amount</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCreationCostAmount()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CREATION_COST_AMOUNT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getCreationCostAmount() <em>Creation Cost Amount</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCreationCostAmount()
-	 * @generated
-	 * @ordered
-	 */
-	protected String creationCostAmount = CREATION_COST_AMOUNT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -753,81 +745,6 @@ public class ServiceLevelAgreementImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean applicableContractsIndicatorDerivation(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 GraAnnotationModelValidator.DIAGNOSTIC_SOURCE,
-						 GraAnnotationModelValidator.SERVICE_LEVEL_AGREEMENT__APPLICABLE_CONTRACTS_INDICATOR_DERIVATION,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "applicableContractsIndicatorDerivation", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean applicableAgreementsIndicatorDerivation(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 GraAnnotationModelValidator.DIAGNOSTIC_SOURCE,
-						 GraAnnotationModelValidator.SERVICE_LEVEL_AGREEMENT__APPLICABLE_AGREEMENTS_INDICATOR_DERIVATION,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "applicableAgreementsIndicatorDerivation", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean applicableUmbrellaAgreementsIndicatorDerivation(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 GraAnnotationModelValidator.DIAGNOSTIC_SOURCE,
-						 GraAnnotationModelValidator.SERVICE_LEVEL_AGREEMENT__APPLICABLE_UMBRELLA_AGREEMENTS_INDICATOR_DERIVATION,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "applicableUmbrellaAgreementsIndicatorDerivation", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -883,12 +800,12 @@ public class ServiceLevelAgreementImpl extends MinimalEObjectImpl.Container impl
 				return getServiceMaximumThroughput();
 			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__SERVICE_AVAILABILITY:
 				return getServiceAvailability();
+			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__CREATION_COST_AMOUNT:
+				return getCreationCostAmount();
 			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__USAGE_COST_AMOUNT:
 				return getUsageCostAmount();
 			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__USAGE_UNIT_COST_AMOUNT:
 				return getUsageUnitCostAmount();
-			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__CREATION_COST_AMOUNT:
-				return getCreationCostAmount();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -951,14 +868,14 @@ public class ServiceLevelAgreementImpl extends MinimalEObjectImpl.Container impl
 			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__SERVICE_AVAILABILITY:
 				setServiceAvailability((String)newValue);
 				return;
+			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__CREATION_COST_AMOUNT:
+				setCreationCostAmount((String)newValue);
+				return;
 			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__USAGE_COST_AMOUNT:
 				setUsageCostAmount((String)newValue);
 				return;
 			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__USAGE_UNIT_COST_AMOUNT:
 				setUsageUnitCostAmount((String)newValue);
-				return;
-			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__CREATION_COST_AMOUNT:
-				setCreationCostAmount((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1017,14 +934,14 @@ public class ServiceLevelAgreementImpl extends MinimalEObjectImpl.Container impl
 			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__SERVICE_AVAILABILITY:
 				setServiceAvailability(SERVICE_AVAILABILITY_EDEFAULT);
 				return;
+			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__CREATION_COST_AMOUNT:
+				setCreationCostAmount(CREATION_COST_AMOUNT_EDEFAULT);
+				return;
 			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__USAGE_COST_AMOUNT:
 				setUsageCostAmount(USAGE_COST_AMOUNT_EDEFAULT);
 				return;
 			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__USAGE_UNIT_COST_AMOUNT:
 				setUsageUnitCostAmount(USAGE_UNIT_COST_AMOUNT_EDEFAULT);
-				return;
-			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__CREATION_COST_AMOUNT:
-				setCreationCostAmount(CREATION_COST_AMOUNT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1068,33 +985,14 @@ public class ServiceLevelAgreementImpl extends MinimalEObjectImpl.Container impl
 				return SERVICE_MAXIMUM_THROUGHPUT_EDEFAULT == null ? serviceMaximumThroughput != null : !SERVICE_MAXIMUM_THROUGHPUT_EDEFAULT.equals(serviceMaximumThroughput);
 			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__SERVICE_AVAILABILITY:
 				return SERVICE_AVAILABILITY_EDEFAULT == null ? serviceAvailability != null : !SERVICE_AVAILABILITY_EDEFAULT.equals(serviceAvailability);
+			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__CREATION_COST_AMOUNT:
+				return CREATION_COST_AMOUNT_EDEFAULT == null ? creationCostAmount != null : !CREATION_COST_AMOUNT_EDEFAULT.equals(creationCostAmount);
 			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__USAGE_COST_AMOUNT:
 				return USAGE_COST_AMOUNT_EDEFAULT == null ? usageCostAmount != null : !USAGE_COST_AMOUNT_EDEFAULT.equals(usageCostAmount);
 			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__USAGE_UNIT_COST_AMOUNT:
 				return USAGE_UNIT_COST_AMOUNT_EDEFAULT == null ? usageUnitCostAmount != null : !USAGE_UNIT_COST_AMOUNT_EDEFAULT.equals(usageUnitCostAmount);
-			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT__CREATION_COST_AMOUNT:
-				return CREATION_COST_AMOUNT_EDEFAULT == null ? creationCostAmount != null : !CREATION_COST_AMOUNT_EDEFAULT.equals(creationCostAmount);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT___APPLICABLE_CONTRACTS_INDICATOR_DERIVATION__DIAGNOSTICCHAIN_MAP:
-				return applicableContractsIndicatorDerivation((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
-			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT___APPLICABLE_AGREEMENTS_INDICATOR_DERIVATION__DIAGNOSTICCHAIN_MAP:
-				return applicableAgreementsIndicatorDerivation((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
-			case GraAnnotationModelPackage.SERVICE_LEVEL_AGREEMENT___APPLICABLE_UMBRELLA_AGREEMENTS_INDICATOR_DERIVATION__DIAGNOSTICCHAIN_MAP:
-				return applicableUmbrellaAgreementsIndicatorDerivation((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -1127,12 +1025,12 @@ public class ServiceLevelAgreementImpl extends MinimalEObjectImpl.Container impl
 		result.append(serviceMaximumThroughput);
 		result.append(", serviceAvailability: ");
 		result.append(serviceAvailability);
+		result.append(", creationCostAmount: ");
+		result.append(creationCostAmount);
 		result.append(", usageCostAmount: ");
 		result.append(usageCostAmount);
 		result.append(", usageUnitCostAmount: ");
 		result.append(usageUnitCostAmount);
-		result.append(", creationCostAmount: ");
-		result.append(creationCostAmount);
 		result.append(')');
 		return result.toString();
 	}

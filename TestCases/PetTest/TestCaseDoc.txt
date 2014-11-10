@@ -1,0 +1,5 @@
+PetTest test case
+
+This test case adds elements to represent all of the "layers" in the servide interface: Port, interface, operation, parameter and message
+
+It also utilizes RS WS SIP

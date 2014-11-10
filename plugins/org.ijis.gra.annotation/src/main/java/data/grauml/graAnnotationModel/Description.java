@@ -2,8 +2,6 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -33,7 +31,7 @@ public interface Description extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The documentation for the element. Derived from the UML element's comment.
+	 * The documentation for the element. Derived from the instance documentation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' attribute.
 	 * @see #setDocumentation(String)
@@ -77,17 +75,5 @@ public interface Description extends EObject {
 	 * @generated
 	 */
 	void setExternalDocumentation(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='stringValueOf(\"Documentation\")=docComment()'"
-	 * @generated
-	 */
-	boolean docDerivation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Description

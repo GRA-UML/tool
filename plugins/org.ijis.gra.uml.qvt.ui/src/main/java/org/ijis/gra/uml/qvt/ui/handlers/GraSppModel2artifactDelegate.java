@@ -136,9 +136,9 @@ final class GraSppModel2artifactDelegate
     //private ModelExtent theTargetContents;
     protected URI targetFolder;
     
-    protected ModelExtent catTarget;
-    protected ModelExtent metadataTarget;
-    protected ModelExtent wsdlTarget;
+    //protected ModelExtent catTarget;
+    //protected ModelExtent metadataTarget;
+    //protected ModelExtent wsdlTarget;
     protected ModelExtent annotationTarget;
 
     protected GraSppModel2artifactDelegate(final URI selection) {
@@ -220,9 +220,9 @@ final class GraSppModel2artifactDelegate
                 true);
         
         ModelExtent psmContents = new BasicModelExtent(theSelectedResource.getContents());
-        catTarget = new BasicModelExtent(Collections.<EObject> emptyList());
-        metadataTarget = new BasicModelExtent(Collections.<EObject> emptyList());
-        wsdlTarget = new BasicModelExtent(Collections.<EObject> emptyList());
+        //catTarget = new BasicModelExtent(Collections.<EObject> emptyList());
+        //metadataTarget = new BasicModelExtent(Collections.<EObject> emptyList());
+        //wsdlTarget = new BasicModelExtent(Collections.<EObject> emptyList());
         annotationTarget = new BasicModelExtent(Collections.<EObject> emptyList());
         final Collection<ModelExtent> modelExtents = new ArrayList<>();
         modelExtents.add(psmContents);
@@ -233,8 +233,8 @@ final class GraSppModel2artifactDelegate
             break;
         }
         
-        modelExtents.add(catTarget);
-        modelExtents.add(metadataTarget);
+        //modelExtents.add(catTarget);
+        //modelExtents.add(metadataTarget);
         //modelExtents.add(wsdlTarget);// no longer
         modelExtents.add(annotationTarget);
         return modelExtents.toArray(new ModelExtent[modelExtents.size()]);
@@ -250,16 +250,17 @@ final class GraSppModel2artifactDelegate
         final URI theCatalogParent = theCatalogURI.trimSegments(1);
         LOG.info("catalog URI "+theCatalogURI+", base "+targetGraFolder()+", catalog "+getMPDCatalogName());
         refresh();// refresh now to pick up possible added target folder, otherwise will get "resource already exists" error
-        final Resource theCatalog = new CatalogResourceFactoryImpl().createResource(theCatalogURI);
-        theCatalog.getContents().addAll(catTarget.getContents());
-        theCatalog.save(resourceSet.getLoadOptions());
+        //final Resource theCatalog = new CatalogResourceFactoryImpl().createResource(theCatalogURI);
+        //theCatalog.getContents().addAll(catTarget.getContents());
+        //theCatalog.save(resourceSet.getLoadOptions());
 
-        final URI theMetadataURI = appendPath(targetGraFolder(), getMetadataName());
-        final Resource theMetadata = new graResourceFactoryImpl().createResource(theMetadataURI);
-        theMetadata.getContents().addAll(metadataTarget.getContents());
-        theMetadata.save(resourceSet.getLoadOptions());
+        //final URI theMetadataURI = appendPath(targetGraFolder(), getMetadataName());
+        //final Resource theMetadata = new graResourceFactoryImpl().createResource(theMetadataURI);
+        //theMetadata.getContents().addAll(metadataTarget.getContents());
+        //theMetadata.save(resourceSet.getLoadOptions());
 
         // multiple wsdls
+        /*
         LOG.info("wsdls "+wsdlTarget.getContents()+", "+getTargetWsdls());
         for (final Definition definition : getTargetWsdls()) {
             final Resource wsdl = new WSDLResourceImpl(appendPath(targetFolder, definition.getLocation()));
@@ -267,9 +268,9 @@ final class GraSppModel2artifactDelegate
             wsdl.getContents().add(definition);
             wsdl.save(resourceSet.getLoadOptions());
         }
-        
+        */
         LOG.info("annotations "+annotationTarget.getContents()+", "+getTargetAnnotations());
-        String templateURI="http://lib.modeldriven.org/MDLibrary/trunk/Specifications/GRA/GRA-UML-Modeling-Tool/StandardTemplate/SSP/";
+        String templateURI="http://repository.ijis.org/GRAUML/template/SSP/";
         for (final ServiceDescription serviceDescription : getTargetAnnotations()) {
         	String testTransformationURI=serviceDescription.getTransformationUri();
         	if((testTransformationURI!=null)&&(testTransformationURI.length()>0)){
@@ -292,7 +293,9 @@ final class GraSppModel2artifactDelegate
             		.replace("xmi:type=","xsi:type=")
             		.replace("xmlns:xmi=\"http://www.omg.org/XMI\"", 
             				"xmlns:xmi=\"http://www.omg.org/spec/XMI/20110701\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\""+
-            				" xsi:schemaLocation=\"http://ijis.org/GRA/Annotations  http://lib.modeldriven.org/MDLibrary/trunk/Specifications/GRA/GRA-UML-Modeling-Tool/plugins/org.ijis.gra.annotation/src/main/resources/model/data.grauml.graAnnotationModelXMI.xsd http:/ijis.org/GRA/WSDLAnnotations http://lib.modeldriven.org/MDLibrary/trunk/Specifications/GRA/GRA-UML-Modeling-Tool/plugins/org.ijis.gra.annotation/src/main/resources/model/data.grauml.graWsdlXMI.xsd\""
+//            				" xsi:schemaLocation=\"http://ijis.org/GRA/Annotations  http://lib.modeldriven.org/MDLibrary/trunk/Specifications/GRA/GRA-UML-Modeling-Tool/plugins/org.ijis.gra.annotation/src/main/resources/model/data.grauml.graAnnotationModelXMI.xsd http:/ijis.org/GRA/WSDLAnnotations http://lib.modeldriven.org/MDLibrary/trunk/Specifications/GRA/GRA-UML-Modeling-Tool/plugins/org.ijis.gra.annotation/src/main/resources/model/data.grauml.graWsdlXMI.xsd\""
+            				" xsi:schemaLocation=\"http://ijis.org/GRA/Annotations  http://repository.ijis.org/GRAUML/schema/graAnnotationModelXMI.xsd http://ijis.org/GRA/WSDLAnnotations http://repository.ijis.org/GRAUML/schema/graWsdlXMI.xsd\""
+//            				" xsi:schemaLocation=\"http://ijis.org/GRA/Annotations  http://repository.ijis.org/GRAUML/schema/data.grauml.graAnnotationModelXMI.xsd http://ijis.org/GRA/WSDLAnnotations http://repository.ijis.org/GRAUML/schema/data.grauml.graWsdlXMI.xsd\""
 					// supposedly, the OMG AB would not like this (harmless) emof declaration inserted by eclipse
 					);
             xmlDocument=xmlDocument.replace("xmlns:emof=\"http://schema.omg.org/spec/MOF/2.0/emof.xml\"","");
@@ -312,6 +315,7 @@ final class GraSppModel2artifactDelegate
         //		and selectively execute to pim to niem for each target 
         // this could be a CompostedTransformation if we could hand off some state to the pim-niem set
         // for now, look at catalog and determine the iepd
+        /*
 		System.out.println("GraSppMod2artifactDelegate catalog "+theCatalog);
         for(EObject test:theCatalog.getContents()){
     		System.out.println("GraSppModel2artifactDelegate catalog content "+test);
@@ -329,6 +333,7 @@ final class GraSppModel2artifactDelegate
         		}
         	}
         }
+        */
         // and we want to generate the SDD/SIDD in this sequence as well
         // determine the "template" location, by default:
         String antScriptURI=templateURI+"graPhase2.ant.xml";
@@ -363,9 +368,11 @@ final class GraSppModel2artifactDelegate
 			e.printStackTrace();
 		}
     }
+    /*
     protected final Iterable<Definition> getTargetWsdls() {
         return getObjectsByType(wsdlTarget.getContents(), WSDLPackage.Literals.DEFINITION);
     }
+    */
     protected final Iterable<ServiceDescription> getTargetAnnotations() {
 //        return getObjectsByType(annotationTarget.getContents(), GraAnnotationModelPackage.Literals.SERVICE_DESCRIPTION);
         return getObjectsByType(annotationTarget.getContents(), GraAnnotationModelPackage.Literals.SERVICE_DESCRIPTION);

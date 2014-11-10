@@ -57,9 +57,6 @@ public class GraWsdlFactoryImpl extends EFactoryImpl implements GraWsdlFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case GraWsdlPackage.WSDL_SERVICE_INTERFACE: return createWsdlServiceInterface();
-			case GraWsdlPackage.WSDL_SERVICE: return createWsdlService();
-			case GraWsdlPackage.WSDL_PORT: return createWsdlPort();
 			case GraWsdlPackage.WSDL_INTERFACE: return createWsdlInterface();
 			case GraWsdlPackage.WSDL_OPERATION: return createWsdlOperation();
 			case GraWsdlPackage.WSDL_MESSAGE: return createWsdlMessage();
@@ -105,36 +102,6 @@ public class GraWsdlFactoryImpl extends EFactoryImpl implements GraWsdlFactory {
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public WsdlServiceInterface createWsdlServiceInterface() {
-		WsdlServiceInterfaceImpl wsdlServiceInterface = new WsdlServiceInterfaceImpl();
-		return wsdlServiceInterface;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public WsdlService createWsdlService() {
-		WsdlServiceImpl wsdlService = new WsdlServiceImpl();
-		return wsdlService;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public WsdlPort createWsdlPort() {
-		WsdlPortImpl wsdlPort = new WsdlPortImpl();
-		return wsdlPort;
 	}
 
 	/**

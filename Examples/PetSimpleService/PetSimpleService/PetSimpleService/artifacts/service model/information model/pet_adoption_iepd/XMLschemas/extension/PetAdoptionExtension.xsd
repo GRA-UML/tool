@@ -1,95 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <xsd:schema xmlns:NC="http://niem.gov/niem/niem-core/2.0" xmlns:PetExtension="http://www.modeldriven.org/niem/examples/PetAdoptionExtension" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:i2="http://niem.gov/niem/appinfo/2.1" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.modeldriven.org/niem/examples/PetAdoptionExtension" version="&quot;1&quot;">
   <xsd:import namespace="http://niem.gov/niem/niem-core/2.0" schemaLocation="../../XMLschemas/subset/niem/niem-core/2.0/PetAdoptionNIEMCoreSubset.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/appinfo/2.0" schemaLocation="../../XMLschemas/appinfo/2.0/appinfo.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../../XMLschemas/structures/2.0/structures.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/appinfo/2.1" schemaLocation="../../XMLschemas/appinfo/2.1/appinfo.xsd"/>
-  <xsd:complexType abstract="false" mixed="false" name="TelephoneNumberType">
-    <xsd:annotation>
-      <xsd:appinfo>
-        <i2:AugmentedTypeIndicator>true</i2:AugmentedTypeIndicator>
-        <i:Base i:name="TelephoneNumberType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="NC:TelephoneNumberType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="PetExtension:TelephoneNumberAugmentation"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="TelephoneNumberAugmentation" nillable="false" substitutionGroup="s:Augmentation" type="PetExtension:TelephoneNumberAugmentationType">
-    <xsd:annotation>
-      <xsd:appinfo>
-        <i:AppliesTo i:name="TelephoneNumberType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="TelephoneNumberAugmentationType">
-    <xsd:annotation>
-      <xsd:appinfo>
-        <i:Base i:name="AugmentationType" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="s:AugmentationType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="PetExtension:TelephoneTypeDescriptionText"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="TelephoneTypeDescriptionText" nillable="false" type="NC:TextType">
-    <xsd:annotation>
-      <xsd:documentation>A Documented Component</xsd:documentation>
-      <xsd:documentation>A Documented Component</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="ExceptionType">
-    <xsd:annotation>
-      <xsd:appinfo>
-        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="s:ComplexObjectType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="PetExtension:ExceptionCodeText"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="PetExtension:ExceptionDescriptionText"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="ExceptionCodeText" nillable="false" type="niem-xsd:string">
-    <xsd:annotation>
-      <xsd:documentation>A Documented Component</xsd:documentation>
-      <xsd:documentation>A Documented Component</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="ExceptionDescriptionText" nillable="false" type="niem-xsd:string">
-    <xsd:annotation>
-      <xsd:documentation>A Documented Component</xsd:documentation>
-      <xsd:documentation>A Documented Component</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:simpleType name="MyEnumeration1CodeSimpleType">
-    <xsd:annotation>
-      <xsd:appinfo>
-        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:token"/>
-  </xsd:simpleType>
-  <xsd:simpleType name="MyEnumerationCodeSimpleType">
-    <xsd:annotation>
-      <xsd:appinfo>
-        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:token"/>
-  </xsd:simpleType>
+  <xsd:import namespace="http://niem.gov/niem/appinfo/2.0" schemaLocation="../../XMLschemas/appinfo/2.0/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../../XMLschemas/structures/2.0/structures.xsd"/>
   <xsd:complexType abstract="false" mixed="false" name="PetAdoptionCenterType">
     <xsd:annotation>
       <xsd:documentation>A data type for an organization that manages pet adoptions</xsd:documentation>
@@ -338,6 +253,91 @@
       <xsd:documentation>A Documented Component</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="TelephoneNumberType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i2:AugmentedTypeIndicator>true</i2:AugmentedTypeIndicator>
+        <i:Base i:name="TelephoneNumberType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="NC:TelephoneNumberType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="PetExtension:TelephoneNumberAugmentation"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="TelephoneNumberAugmentation" nillable="false" substitutionGroup="s:Augmentation" type="PetExtension:TelephoneNumberAugmentationType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i:AppliesTo i:name="TelephoneNumberType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="TelephoneNumberAugmentationType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i:Base i:name="AugmentationType" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:AugmentationType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="PetExtension:TelephoneTypeDescriptionText"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="TelephoneTypeDescriptionText" nillable="false" type="NC:TextType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:simpleType name="MyEnumeration1CodeSimpleType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:token"/>
+  </xsd:simpleType>
+  <xsd:complexType abstract="false" mixed="false" name="ExceptionType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="PetExtension:ExceptionCodeText"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="PetExtension:ExceptionDescriptionText"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="ExceptionCodeText" nillable="false" type="niem-xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ExceptionDescriptionText" nillable="false" type="niem-xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:simpleType name="MyEnumerationCodeSimpleType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:token"/>
+  </xsd:simpleType>
   <xsd:annotation>
     <xsd:appinfo>
       <i:ConformantIndicator>true</i:ConformantIndicator>

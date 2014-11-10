@@ -13,8 +13,8 @@
    <service-interface-description href="./artifacts/SIRS-N_SIDD_v_1.0.0.xhtml">Service Interface Description Document</service-interface-description>
 
    <!--SIRS Service Description WSDL and Schema Section-->
-<wsdl-schema href="./schemas/sip/sirs-r.wsdl">ReceivingJurisdictionServiceSIP WSDL</wsdl-schema>
-   <wsdl-schema href="./schemas/sip/sirs-n.wsdl">SendingJuridictionSIP WSDL</wsdl-schema>
+<wsdl-schema href="./schemas/sip_ws_1.3/sirs-r.wsdl">ReceivingJurisdictionServiceSIP WSDL</wsdl-schema>
+   <wsdl-schema href="./schemas/ws-sip1.3/sirs-n.wsdl">SendingJuridictionSIP WSDL</wsdl-schema>
 
    <!--SORNA Relocation IEPD Reference Section-->
 <iepd-catalog href="./artifacts/service model/information model/SORNA Relocation IEPD/catalog.xml">IEPD Catalog</iepd-catalog>

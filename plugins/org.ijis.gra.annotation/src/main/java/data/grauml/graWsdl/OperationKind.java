@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * and utility methods for working with them.
  * <!-- end-user-doc -->
  * <!-- begin-model-doc -->
- * WSDL DOC or RPC Biding. Note for GRA "doc" should always be used.
+ * WSDL doc or rpc binding. Note for GRA "doc" should always be used.
  * <!-- end-model-doc -->
  * @see data.grauml.graWsdl.GraWsdlPackage#getOperationKind()
  * @model
@@ -46,7 +46,7 @@ public enum OperationKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Represents a soap:operation style of "document".
+	 * Represents a soap:operation style of "document". Doc is recommended by GRA.
 	 * <!-- end-model-doc -->
 	 * @see #DOC
 	 * @model name="doc"

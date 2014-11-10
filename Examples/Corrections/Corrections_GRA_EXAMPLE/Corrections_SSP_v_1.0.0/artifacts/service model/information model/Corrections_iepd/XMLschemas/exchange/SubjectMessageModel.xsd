@@ -1,25 +1,206 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:CRSUB="http://it.ojp.gov/gist/200/Corrections/SubjectMessageTypes" xmlns:ENTITY="http://it.ojp.gov/gist/200/Corrections/entities" xmlns:HOUSE="http://it.ojp.gov/gist/200/Corrections/housing" xmlns:MetaR="http://it.ojp.gov/gist/201/Metadata/MetadataReference" xmlns:PLAN="http://it.ojp.gov/gist/200/Corrections/plan" xmlns:Q1="http://domain.gov/myDomain/" xmlns:SERVICE="http://it.ojp.gov/gist/200/Corrections/service" xmlns:SUBJ="http://it.ojp.gov/gist/200/Corrections/subject" xmlns:TREAT="http://it.ojp.gov/gist/200/Corrections/treatments" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:i2="http://niem.gov/niem/appinfo/2.1" xmlns:j="http://niem.gov/niem/domains/jxdm/4.1" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://it.ojp.gov/gist/200/Corrections/SubjectMessageTypes" version="&quot;1&quot;">
-  <xsd:import namespace="http://niem.gov/niem/domains/jxdm/4.1" schemaLocation="../../XMLschemas/Content/subset/niem/2.0/jxdm.xsd"/>
-  <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/entities" schemaLocation="../../XMLschemas/Content/extension/EntityExtension.xsd"/>
+<xsd:schema xmlns:CRSUB="http://it.ojp.gov/gist/200/Corrections/SubjectMessageTypes" xmlns:ENTITY="http://it.ojp.gov/gist/200/Corrections/entities" xmlns:HOUSE="http://it.ojp.gov/gist/200/Corrections/housing" xmlns:MetaR="http://it.ojp.gov/gist/201/Metadata/MetadataReference" xmlns:PLAN="http://it.ojp.gov/gist/200/Corrections/plan" xmlns:Q1="http://it.ojp.gov/gist/200/Corrections/EntityIdentification" xmlns:SERVICE="http://it.ojp.gov/gist/200/Corrections/service" xmlns:SUBJ="http://it.ojp.gov/gist/200/Corrections/subject" xmlns:TREAT="http://it.ojp.gov/gist/200/Corrections/treatments" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:i2="http://niem.gov/niem/appinfo/2.1" xmlns:j="http://niem.gov/niem/domains/jxdm/4.1" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://it.ojp.gov/gist/200/Corrections/SubjectMessageTypes" version="&quot;1&quot;">
   <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/subject" schemaLocation="../../XMLschemas/Content/extension/CorrectionsSubjectExtension.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/niem-core/2.0" schemaLocation="../../XMLschemas/Content/subset/niem/2.0/niem-core.xsd"/>
-  <xsd:import namespace="http://it.ojp.gov/gist/201/Metadata/MetadataReference" schemaLocation="../../XMLschemas/Metadata/MetadataReference.xsd"/>
-  <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/housing" schemaLocation="../../XMLschemas/Content/extension/HousingExtension.xsd"/>
   <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/service" schemaLocation="../../XMLschemas/Content/extension/SubjectServicesAndAssessments.xsd"/>
+  <xsd:import namespace="http://it.ojp.gov/gist/201/Metadata/MetadataReference" schemaLocation="../../XMLschemas/Metadata/MetadataReference.xsd"/>
+  <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/entities" schemaLocation="../../XMLschemas/Content/extension/EntityExtension.xsd"/>
+  <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/EntityIdentification" schemaLocation="../../XMLschemas/Content/extension/EntityIdentification.xsd"/>
   <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/treatments" schemaLocation="../../XMLschemas/Content/extension/TreatmentAndPerscriptionExtension.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/niem-core/2.0" schemaLocation="../../XMLschemas/Content/subset/niem/2.0/niem-core.xsd"/>
+  <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/housing" schemaLocation="../../XMLschemas/Content/extension/HousingExtension.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/domains/jxdm/4.1" schemaLocation="../../XMLschemas/Content/subset/niem/2.0/jxdm.xsd"/>
   <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/plan" schemaLocation="../../XMLschemas/Content/extension/PlanExtension.xsd"/>
-  <xsd:import namespace="http://domain.gov/myDomain/" schemaLocation="../../XMLschemas/Content/extension/EntityIdentification.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../../XMLschemas/structures/2.0/structures.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/appinfo/2.1" schemaLocation="../../XMLschemas/appinfo/2.1/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/appinfo/2.0" schemaLocation="../../XMLschemas/appinfo/2.0/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../../XMLschemas/structures/2.0/structures.xsd"/>
   <xsd:annotation>
     <xsd:documentation>Corrections subject message types</xsd:documentation>
     <xsd:appinfo>
       <i:ConformantIndicator>true</i:ConformantIndicator>
     </xsd:appinfo>
   </xsd:annotation>
+  <xsd:complexType abstract="false" mixed="false" name="OperationResultType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for the result of an operation</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="ExchangeAgreedMessageType" i:namespace="http://it.ojp.gov/gist/201/Metadata/MetadataReference"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="MetaR:ExchangeAgreedMessageType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="CRSUB:OperationResultCode"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:OperaionResultText"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="OperationResultCode" nillable="false" type="CRSUB:OperationResultCodesCodeSimpleType">
+    <xsd:annotation>
+      <xsd:documentation>An indicator of the success of an operation</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:simpleType name="OperationResultCodesCodeSimpleType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a set of operation result codes</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:token">
+      <xsd:enumeration value="Success">
+        <xsd:annotation>
+          <xsd:documentation>Operation was a success</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="AuthorizationFailure">
+        <xsd:annotation>
+          <xsd:documentation>The operation could not be concluded due to insufficient privileges or failure to authenticate</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="TechnicalFailure">
+        <xsd:annotation>
+          <xsd:documentation>The operation could not be concluded for technical reasons</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="BusinessFailure">
+        <xsd:annotation>
+          <xsd:documentation>The operation could not be concluded for business information or rule reasons</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="OperaionResultText" nillable="false" type="nc:TextType">
+    <xsd:annotation>
+      <xsd:documentation>A result of a query or subscription</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="SubscriptionIDTextType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for An identity for a subscription</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="nc:TextType"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="false" mixed="false" name="SubscriptionMessageType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a message to establish a subscription.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="ExchangeAgreedMessageType" i:namespace="http://it.ojp.gov/gist/201/Metadata/MetadataReference"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="MetaR:ExchangeAgreedMessageType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="CRSUB:SubscriptionIDText"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" ref="CRSUB:EntitySubscribedTo"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" ref="CRSUB:CategorySubscribedToURI"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="CRSUB:SubscriberEntity"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:SubscriberAuthorizingOrganization"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:DetailLevelCode"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" ref="nc:ContactMeans"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:ReasonForSubscriptionText"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:SubscriptionStartDate"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:SubscriptionEndDate"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="SubscriptionIDText" nillable="false" type="CRSUB:SubscriptionIDTextType">
+    <xsd:annotation>
+      <xsd:documentation>An identity of a subscription which must be unique</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="EntitySubscribedTo" nillable="false" type="MetaR:InformationRecordLinkType">
+    <xsd:annotation>
+      <xsd:documentation>A set of specific entities to subscribe to. Either EntitySubscribedTo or CategorySubscribedTo must have a value.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="CategorySubscribedToURI" nillable="false" type="MetaR:CategoryURIType">
+    <xsd:annotation>
+      <xsd:documentation>A set of categories for entities to subscribe to.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="SubscriberEntity" nillable="false" type="MetaR:InformationRecordLinkType">
+    <xsd:annotation>
+      <xsd:documentation>A subscribing entity</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="SubscriberAuthorizingOrganization" nillable="false" type="MetaR:InformationRecordLinkType">
+    <xsd:annotation>
+      <xsd:documentation>An organization of the subscriber entity that may provide the authority for the subscription</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="DetailLevelCode" nillable="false" type="MetaR:DetailLevelCodeSimpleType">
+    <xsd:annotation>
+      <xsd:documentation>A Level of detail to subscribe to</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ReasonForSubscriptionText" nillable="false" type="nc:TextType">
+    <xsd:annotation>
+      <xsd:documentation>A reason for the subscription</xsd:documentation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="SubscriptionStartDate" nillable="false" type="nc:DateType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A date the subscription starts</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="SubscriptionEndDate" nillable="false" type="nc:DateType">
+    <xsd:annotation>
+      <xsd:documentation>A Documented Component</xsd:documentation>
+      <xsd:documentation>A date the subscription ends</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="SubjectQueryMessageType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a query about an individual</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="ExchangeAgreedMessageType" i:namespace="http://it.ojp.gov/gist/201/Metadata/MetadataReference"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="MetaR:ExchangeAgreedMessageType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:PersonLocator"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:DetailLevelCode"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="PersonLocator" nillable="false" type="ENTITY:PersonMinimalType">
+    <xsd:annotation>
+      <xsd:documentation>A recored locater for a person</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="EntityQueryMessageType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a message to get information about any entity in a data resource</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="ExchangeAgreedMessageType" i:namespace="http://it.ojp.gov/gist/201/Metadata/MetadataReference"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="MetaR:ExchangeAgreedMessageType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="CRSUB:EntityIdentification"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:DetailLevelCode"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="EntityIdentification" nillable="false" type="Q1:EntityIdentityType">
+    <xsd:annotation>
+      <xsd:documentation>An identity of an entity and link to find additional information about that entity.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType abstract="false" mixed="false" name="SubjectInformationMessageType">
     <xsd:annotation>
       <xsd:documentation>A data type for a message about one or more subjects</xsd:documentation>
@@ -264,187 +445,6 @@
   <xsd:element abstract="false" name="OperationResult" nillable="false" type="CRSUB:OperationResultType">
     <xsd:annotation>
       <xsd:documentation>A result of an operation to get subject information</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="OperationResultType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for the result of an operation</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="ExchangeAgreedMessageType" i:namespace="http://it.ojp.gov/gist/201/Metadata/MetadataReference"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="MetaR:ExchangeAgreedMessageType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="CRSUB:OperationResultCode"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:OperaionResultText"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="OperationResultCode" nillable="false" type="CRSUB:OperationResultCodesCodeSimpleType">
-    <xsd:annotation>
-      <xsd:documentation>An indicator of the success of an operation</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:simpleType name="OperationResultCodesCodeSimpleType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a set of operation result codes</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:token">
-      <xsd:enumeration value="Success">
-        <xsd:annotation>
-          <xsd:documentation>Operation was a success</xsd:documentation>
-        </xsd:annotation>
-      </xsd:enumeration>
-      <xsd:enumeration value="AuthorizationFailure">
-        <xsd:annotation>
-          <xsd:documentation>The operation could not be concluded due to insufficient privileges or failure to authenticate</xsd:documentation>
-        </xsd:annotation>
-      </xsd:enumeration>
-      <xsd:enumeration value="TechnicalFailure">
-        <xsd:annotation>
-          <xsd:documentation>The operation could not be concluded for technical reasons</xsd:documentation>
-        </xsd:annotation>
-      </xsd:enumeration>
-      <xsd:enumeration value="BusinessFailure">
-        <xsd:annotation>
-          <xsd:documentation>The operation could not be concluded for business information or rule reasons</xsd:documentation>
-        </xsd:annotation>
-      </xsd:enumeration>
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:element abstract="false" name="OperaionResultText" nillable="false" type="nc:TextType">
-    <xsd:annotation>
-      <xsd:documentation>A result of a query or subscription</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="EntityQueryMessageType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a message to get information about any entity in a data resource</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="ExchangeAgreedMessageType" i:namespace="http://it.ojp.gov/gist/201/Metadata/MetadataReference"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="MetaR:ExchangeAgreedMessageType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="CRSUB:EntityIdentification"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:DetailLevelCode"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="EntityIdentification" nillable="false" type="Q1:EntityIdentityType">
-    <xsd:annotation>
-      <xsd:documentation>An identity of an entity and link to find additional information about that entity.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="DetailLevelCode" nillable="false" type="MetaR:DetailLevelCodeSimpleType">
-    <xsd:annotation>
-      <xsd:documentation>A Level of detail requested</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="SubjectQueryMessageType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a query about an individual</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="ExchangeAgreedMessageType" i:namespace="http://it.ojp.gov/gist/201/Metadata/MetadataReference"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="MetaR:ExchangeAgreedMessageType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:PersonLocator"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:DetailLevelCode"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="PersonLocator" nillable="false" type="ENTITY:PersonMinimalType">
-    <xsd:annotation>
-      <xsd:documentation>A recored locater for a person</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="SubscriptionIDTextType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for An identity for a subscription</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:simpleContent>
-      <xsd:extension base="nc:TextType"/>
-    </xsd:simpleContent>
-  </xsd:complexType>
-  <xsd:complexType abstract="false" mixed="false" name="SubscriptionMessageType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a message to establish a subscription.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="ExchangeAgreedMessageType" i:namespace="http://it.ojp.gov/gist/201/Metadata/MetadataReference"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="MetaR:ExchangeAgreedMessageType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="CRSUB:SubscriptionIDText"/>
-          <xsd:element maxOccurs="unbounded" minOccurs="1" ref="CRSUB:EntitySubscribedTo"/>
-          <xsd:element maxOccurs="unbounded" minOccurs="1" ref="CRSUB:CategorySubscribedToURI"/>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="CRSUB:SubscriberEntity"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:SubscriberAuthorizingOrganization"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:DetailLevelCode"/>
-          <xsd:element maxOccurs="unbounded" minOccurs="1" ref="nc:ContactMeans"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:ReasonForSubscriptionText"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:SubscriptionStartDate"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="CRSUB:SubscriptionEndDate"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="SubscriptionIDText" nillable="false" type="CRSUB:SubscriptionIDTextType">
-    <xsd:annotation>
-      <xsd:documentation>An identity of a subscription which must be unique</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="EntitySubscribedTo" nillable="false" type="MetaR:InformationRecordLinkType">
-    <xsd:annotation>
-      <xsd:documentation>A set of specific entities to subscribe to. Either EntitySubscribedTo or CategorySubscribedTo must have a value.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="CategorySubscribedToURI" nillable="false" type="MetaR:CategoryURIType">
-    <xsd:annotation>
-      <xsd:documentation>A set of categories for entities to subscribe to.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="SubscriberEntity" nillable="false" type="MetaR:InformationRecordLinkType">
-    <xsd:annotation>
-      <xsd:documentation>A subscribing entity</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="SubscriberAuthorizingOrganization" nillable="false" type="MetaR:InformationRecordLinkType">
-    <xsd:annotation>
-      <xsd:documentation>An organization of the subscriber entity that may provide the authority for the subscription</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="ReasonForSubscriptionText" nillable="false" type="nc:TextType">
-    <xsd:annotation>
-      <xsd:documentation>A Documented Component</xsd:documentation>
-      <xsd:documentation>A reason for the subscription</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="SubscriptionStartDate" nillable="false" type="nc:DateType">
-    <xsd:annotation>
-      <xsd:documentation>A date the subscription starts</xsd:documentation>
-      <xsd:documentation>A Documented Component</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="SubscriptionEndDate" nillable="false" type="nc:DateType">
-    <xsd:annotation>
-      <xsd:documentation>A date the subscription ends</xsd:documentation>
-      <xsd:documentation>A Documented Component</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
 </xsd:schema>

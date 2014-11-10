@@ -3,11 +3,11 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.ijis.gra.annotation/src/main/java" modelPluginID="org.ijis.gra.annotation"
     modelName="GRAAnnotationModel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    classNamePattern="" operationReflection="true" importOrganizing="true">
+    operationReflection="true" importOrganizing="true">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
     <genAnnotations source="selectedPackages">
       <details key="http://ijis.org/GRA/Annotations" value="data.grauml.graAnnotationModelXMI.xsd"/>
-      <details key="http:/ijis.org/GRA/WSDLAnnotations" value="data.grauml.graWsdlXMI.xsd"/>
+      <details key="http://ijis.org/GRA/WSDLAnnotations" value="data.grauml.graWsdlXMI.xsd"/>
       <details key="http://www.eclipse.org/uml2/4.0.0/Types" value="GRAAnnotationModelTypesXMI.xsd"/>
     </genAnnotations>
     <details key="directoryURI" value="."/>
@@ -60,14 +60,6 @@
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.GraServiceAnnotationBase.modelReference"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.GraServiceAnnotationBase.flag"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.GraServiceAnnotationBase.diagnostics"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.GraServiceAnnotationBase.nameDerivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.GraServiceAnnotationBase.nameDerivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.GraServiceAnnotationBase.nameDerivation.context"/>
-          </genOperations>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.GraServiceAnnotationBase.docDerivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.GraServiceAnnotationBase.docDerivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.GraServiceAnnotationBase.docDerivation.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ModelReference">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ModelReference.name"/>
@@ -75,10 +67,6 @@
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ModelReference.elementId"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ModelReference.diagramLink"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ModelReference.model"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ModelReference.derivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ModelReference.derivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ModelReference.derivation.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Model">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Model.modelUri"/>
@@ -87,10 +75,6 @@
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Participant">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Participant.participatingOrganization"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Participant.generalization"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Participant.realizesActor">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Participant.realizesActor.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Participant.realizesActor.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Organization">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Organization.organizationAcronym"/>
@@ -115,26 +99,10 @@
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Operation.actionName"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Operation.actionPurpose"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Operation.actionProvenance"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Operation.realizesOperationOrReception">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Operation.realizesOperationOrReception.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Operation.realizesOperationOrReception.context"/>
-          </genOperations>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Operation.purposeDerivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Operation.purposeDerivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Operation.purposeDerivation.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Parameter">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Parameter.use"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Parameter.message"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Parameter.derivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Parameter.derivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Parameter.derivation.context"/>
-          </genOperations>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Parameter.useDerivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Parameter.useDerivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Parameter.useDerivation.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Message">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Message.prefix"/>
@@ -146,18 +114,10 @@
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Service.port"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Service.serviceProvider"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Service.sampleData"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Service.realizesComponent">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Service.realizesComponent.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Service.realizesComponent.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Port">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Port.interface"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Port.addressUri"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Port.realizesPort">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Port.realizesPort.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Port.realizesPort.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SampleData">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SampleData.input"/>
@@ -165,49 +125,25 @@
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInteraction">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInteraction.participant"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInteraction.realizesInteraction">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInteraction.realizesInteraction.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInteraction.realizesInteraction.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.UseCase">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.UseCase.provider"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.UseCase.consumer"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.UseCase.derivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.UseCase.derivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.UseCase.derivation.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Agreement">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Agreement.documentation"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Agreement.agreementUri"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Agreement.automatedAgreementIndicator"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Agreement.docDerivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Agreement.docDerivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Agreement.docDerivation.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.IepdReference">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.IepdReference.name"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.IepdReference.iepdurl"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.IepdReference.derivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.IepdReference.derivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.IepdReference.derivation.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SecurityClassification">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SecurityClassification.name"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SecurityClassification.nameDerivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SecurityClassification.nameDerivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SecurityClassification.nameDerivation.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceCapability">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceCapability.documentation"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceCapability.docDerivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceCapability.docDerivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceCapability.docDerivation.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.exchangePartner"/>
@@ -240,7 +176,6 @@
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.lifecycleStatus"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.alertAndNotificationUri"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.additionalInformation"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.serviceDescriptionUri"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.executionContext"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.security"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.privacy"/>
@@ -248,14 +183,6 @@
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.otherRequirement"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.dataProvenance"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.processModel"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.realizesCollaborationAndUsesIepd">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.realizesCollaborationAndUsesIepd.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.realizesCollaborationAndUsesIepd.context"/>
-          </genOperations>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.exchangePartnerDerivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.exchangePartnerDerivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceDescription.exchangePartnerDerivation.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceIdentification">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceIdentification.serviceId"/>
@@ -265,10 +192,6 @@
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Description">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Description.documentation"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Description.externalDocumentation"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Description.docDerivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Description.docDerivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.Description.docDerivation.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.applicablePoliciesIndicator"/>
@@ -286,30 +209,16 @@
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.serviceAverageThroughput"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.serviceMaximumThroughput"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.serviceAvailability"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.creationCostAmount"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.usageCostAmount"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.usageUnitCostAmount"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.creationCostAmount"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableContractsIndicatorDerivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableContractsIndicatorDerivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableContractsIndicatorDerivation.context"/>
-          </genOperations>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableAgreementsIndicatorDerivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableAgreementsIndicatorDerivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableAgreementsIndicatorDerivation.context"/>
-          </genOperations>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableUmbrellaAgreementsIndicatorDerivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableUmbrellaAgreementsIndicatorDerivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableUmbrellaAgreementsIndicatorDerivation.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInterfaceSpecification">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInterfaceSpecification.securityImplementedIndicator"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInterfaceSpecification.securityDescriptionText"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInterfaceSpecification.serviceInteractionProfile"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInterfaceSpecification.service"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInterfaceSpecification.uriAddress"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInterfaceSpecification.messageDefinitionMechanism"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInterfaceSpecification.serviceInterfaceDescriptionUri"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInterfaceSpecification.targetNamespace"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInterfaceSpecification.prefix"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInterfaceSpecification.serviceTesting"/>
@@ -320,19 +229,11 @@
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInteractionProfile">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInteractionProfile.sipName"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInteractionProfile.sipVersion"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInteractionProfile.nameDerivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInteractionProfile.nameDerivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.ServiceInteractionProfile.nameDerivation.context"/>
-          </genOperations>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SchemaReference">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SchemaReference.namespace"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SchemaReference.prefix"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SchemaReference.schemaLocation"/>
-          <genOperations ecoreOperation="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SchemaReference.derivation">
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SchemaReference.derivation.diagnostics"/>
-            <genParameters ecoreParameter="GRAAnnotationModel.emof#data.grauml.graAnnotationModel.SchemaReference.derivation.context"/>
-          </genOperations>
         </genClasses>
       </nestedGenPackages>
       <nestedGenPackages prefix="GraWsdl" disposableProviderFactory="true" ecorePackage="GRAAnnotationModel.emof#data.grauml.graWsdl">
@@ -354,11 +255,6 @@
           <genEnumLiterals ecoreEnumLiteral="GRAAnnotationModel.emof#data.grauml.graWsdl.MessageLocation.header"/>
           <genEnumLiterals ecoreEnumLiteral="GRAAnnotationModel.emof#data.grauml.graWsdl.MessageLocation.url"/>
         </genEnums>
-        <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graWsdl.WsdlServiceInterface"/>
-        <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graWsdl.WsdlService"/>
-        <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graWsdl.WsdlPort">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graWsdl.WsdlPort.certificate"/>
-        </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graWsdl.WsdlInterface">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graWsdl.WsdlInterface.bindingCode"/>
         </genClasses>
@@ -367,8 +263,6 @@
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graWsdl.WsdlMessage">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graWsdl.WsdlMessage.messageLocationCode"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graWsdl.WsdlMessage.encoding"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graWsdl.WsdlMessage.soapAction"/>
         </genClasses>
         <genClasses ecoreClass="GRAAnnotationModel.emof#data.grauml.graWsdl.WsdlParameter">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GRAAnnotationModel.emof#data.grauml.graWsdl.WsdlParameter.mimeType"/>

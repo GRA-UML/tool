@@ -3,9 +3,7 @@
 package data.grauml.graWsdl.impl;
 
 import data.grauml.graAnnotationModel.GraAnnotationModelPackage;
-
 import data.grauml.graAnnotationModel.impl.GraAnnotationModelPackageImpl;
-
 import data.grauml.graWsdl.BindingType;
 import data.grauml.graWsdl.GraWsdlFactory;
 import data.grauml.graWsdl.GraWsdlPackage;
@@ -15,19 +13,12 @@ import data.grauml.graWsdl.WsdlInterface;
 import data.grauml.graWsdl.WsdlMessage;
 import data.grauml.graWsdl.WsdlOperation;
 import data.grauml.graWsdl.WsdlParameter;
-import data.grauml.graWsdl.WsdlPort;
-import data.grauml.graWsdl.WsdlService;
-import data.grauml.graWsdl.WsdlServiceInterface;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import types.TypesPackage;
-
 import types.impl.TypesPackageImpl;
 
 /**
@@ -37,27 +28,6 @@ import types.impl.TypesPackageImpl;
  * @generated
  */
 public class GraWsdlPackageImpl extends EPackageImpl implements GraWsdlPackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass wsdlServiceInterfaceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass wsdlServiceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass wsdlPortEClass = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -181,42 +151,6 @@ public class GraWsdlPackageImpl extends EPackageImpl implements GraWsdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getWsdlServiceInterface() {
-		return wsdlServiceInterfaceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getWsdlService() {
-		return wsdlServiceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getWsdlPort() {
-		return wsdlPortEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getWsdlPort_Certificate() {
-		return (EAttribute)wsdlPortEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getWsdlInterface() {
 		return wsdlInterfaceEClass;
 	}
@@ -264,24 +198,6 @@ public class GraWsdlPackageImpl extends EPackageImpl implements GraWsdlPackage {
 	 */
 	public EAttribute getWsdlMessage_MessageLocationCode() {
 		return (EAttribute)wsdlMessageEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getWsdlMessage_Encoding() {
-		return (EAttribute)wsdlMessageEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getWsdlMessage_SoapAction() {
-		return (EAttribute)wsdlMessageEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -357,13 +273,6 @@ public class GraWsdlPackageImpl extends EPackageImpl implements GraWsdlPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		wsdlServiceInterfaceEClass = createEClass(WSDL_SERVICE_INTERFACE);
-
-		wsdlServiceEClass = createEClass(WSDL_SERVICE);
-
-		wsdlPortEClass = createEClass(WSDL_PORT);
-		createEAttribute(wsdlPortEClass, WSDL_PORT__CERTIFICATE);
-
 		wsdlInterfaceEClass = createEClass(WSDL_INTERFACE);
 		createEAttribute(wsdlInterfaceEClass, WSDL_INTERFACE__BINDING_CODE);
 
@@ -372,8 +281,6 @@ public class GraWsdlPackageImpl extends EPackageImpl implements GraWsdlPackage {
 
 		wsdlMessageEClass = createEClass(WSDL_MESSAGE);
 		createEAttribute(wsdlMessageEClass, WSDL_MESSAGE__MESSAGE_LOCATION_CODE);
-		createEAttribute(wsdlMessageEClass, WSDL_MESSAGE__ENCODING);
-		createEAttribute(wsdlMessageEClass, WSDL_MESSAGE__SOAP_ACTION);
 
 		wsdlParameterEClass = createEClass(WSDL_PARAMETER);
 		createEAttribute(wsdlParameterEClass, WSDL_PARAMETER__MIME_TYPE);
@@ -416,22 +323,12 @@ public class GraWsdlPackageImpl extends EPackageImpl implements GraWsdlPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		wsdlServiceInterfaceEClass.getESuperTypes().add(theGraAnnotationModelPackage.getServiceInterfaceSpecification());
-		wsdlServiceEClass.getESuperTypes().add(theGraAnnotationModelPackage.getService());
-		wsdlPortEClass.getESuperTypes().add(theGraAnnotationModelPackage.getPort());
 		wsdlInterfaceEClass.getESuperTypes().add(theGraAnnotationModelPackage.getInterface());
 		wsdlOperationEClass.getESuperTypes().add(theGraAnnotationModelPackage.getOperation());
 		wsdlMessageEClass.getESuperTypes().add(theGraAnnotationModelPackage.getMessage());
 		wsdlParameterEClass.getESuperTypes().add(theGraAnnotationModelPackage.getParameter());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(wsdlServiceInterfaceEClass, WsdlServiceInterface.class, "WsdlServiceInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(wsdlServiceEClass, WsdlService.class, "WsdlService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(wsdlPortEClass, WsdlPort.class, "WsdlPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getWsdlPort_Certificate(), theTypesPackage.getString(), "certificate", null, 0, 1, WsdlPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(wsdlInterfaceEClass, WsdlInterface.class, "WsdlInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWsdlInterface_BindingCode(), this.getBindingType(), "bindingCode", null, 0, 1, WsdlInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -440,8 +337,6 @@ public class GraWsdlPackageImpl extends EPackageImpl implements GraWsdlPackage {
 
 		initEClass(wsdlMessageEClass, WsdlMessage.class, "WsdlMessage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWsdlMessage_MessageLocationCode(), this.getMessageLocation(), "messageLocationCode", null, 0, 1, WsdlMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getWsdlMessage_Encoding(), theTypesPackage.getString(), "encoding", null, 0, 1, WsdlMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getWsdlMessage_SoapAction(), theTypesPackage.getString(), "soapAction", null, 0, 1, WsdlMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(wsdlParameterEClass, WsdlParameter.class, "WsdlParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWsdlParameter_MimeType(), theTypesPackage.getString(), "mimeType", null, 0, 1, WsdlParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

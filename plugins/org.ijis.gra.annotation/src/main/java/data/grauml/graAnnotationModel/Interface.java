@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Represents an abstract service interface.
+ * Represents an abstract service interface.  If not declared as an annotation, derived during phase-1 provisioning for every UML Interface in the service hierarchy.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -31,7 +31,7 @@ public interface Interface extends GraServiceAnnotationBase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The operations contained by the interface.
+	 * The operations contained by the interface. Either explicitly declared or derived during phase-1 provisioning from the Operations/Receptions in the service hierarchy.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Operation</em>' containment reference list.
 	 * @see data.grauml.graAnnotationModel.GraAnnotationModelPackage#getInterface_Operation()

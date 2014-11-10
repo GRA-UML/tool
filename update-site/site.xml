@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="GRA UML Modeling Tool" url="https://dev.enterprisecomponent.com/repository/MDLibrary/trunk/Specifications/GRA/GRA-UML-Modeling-Tool/update-site">
+      
+   </description>
+   <feature url="features/org.ijis.gra.uml.feature_1.0.0.201407240541.jar" id="org.ijis.gra.uml.feature" version="1.0.0.201407240541">
+      <category name="GRA"/>
+   </feature>
+   <feature url="features/org.search.niem.uml.feature_1.0.0.201402221251.jar" id="org.search.niem.uml.feature" version="1.0.0.201402221251">
+      <category name="GRA"/>
+   </feature>
+   <category-def name="GRA" label="GRA"/>
+</site>

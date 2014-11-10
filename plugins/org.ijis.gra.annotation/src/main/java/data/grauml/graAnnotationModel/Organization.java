@@ -109,7 +109,7 @@ public interface Organization extends GraServiceAnnotationBase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An organization's role defined in free form text. Examples could be creator, provider, owner, maintainer, authorities source, etc.
+	 * An organization's role defined in free form text. Examples could be creator, provider, owner, maintainer, authority's source, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Organization Role Description Text</em>' attribute.
 	 * @see #setOrganizationRoleDescriptionText(String)

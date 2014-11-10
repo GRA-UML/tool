@@ -2,8 +2,6 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -32,8 +30,7 @@ public interface ServiceCapability extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text format description of the capability provided by a service.
-	 * [Derived from] Element Documentation
+	 * A free text format description of the capability provided by a service.   Derived from the instance documentation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' attribute.
 	 * @see #setDocumentation(String)
@@ -52,17 +49,5 @@ public interface ServiceCapability extends EObject {
 	 * @generated
 	 */
 	void setDocumentation(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='stringValueOf(\"Documentation\") = docComment()'"
-	 * @generated
-	 */
-	boolean docDerivation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ServiceCapability

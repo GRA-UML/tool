@@ -2,8 +2,6 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -12,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A data structure representing a service action.
+ * A data structure representing a service action.  If not declared as an annotation, derived during phase-1 provisioning for every UML Operation in the service hierarchy.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -38,7 +36,7 @@ public interface Operation extends GraServiceAnnotationBase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The parameters of an operation
+	 * The parameters of an operation.  Either explicitly declared or derived during phase-1 provisioning from the parameters of Operations/Receptions in the service hierarchy.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Parameter</em>' containment reference list.
 	 * @see data.grauml.graAnnotationModel.GraAnnotationModelPackage#getOperation_Parameter()
@@ -80,7 +78,7 @@ public interface Operation extends GraServiceAnnotationBase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * True if the operation is asynchronous, false otherwise.
+	 * True if the operation is asynchronous, false otherwise. Value is based on the corresponding element being an operation or signal reception.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Is Asynchronous</em>' attribute.
 	 * @see #setIsAsynchronous(boolean)
@@ -105,7 +103,7 @@ public interface Operation extends GraServiceAnnotationBase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the action.
+	 * The name of the action. Derived from the corresponding element's name.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Action Name</em>' attribute.
 	 * @see #setActionName(String)
@@ -130,7 +128,7 @@ public interface Operation extends GraServiceAnnotationBase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A description of the purpose performed by this service action.
+	 * A description of the purpose performed by this service action. Derived from the corresponding element's documentation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Action Purpose</em>' attribute.
 	 * @see #setActionPurpose(String)
@@ -174,29 +172,5 @@ public interface Operation extends GraServiceAnnotationBase {
 	 * @generated
 	 */
 	void setActionProvenance(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='realizesElement() and (realizedElement().oclIsKindOf(Operation) or realizedElement().oclIsKindOf(Reception))'"
-	 * @generated
-	 */
-	boolean realizesOperationOrReception(DiagnosticChain diagnostics, Map<Object, Object> context);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='stringValueOf(\"ActionPurpose\") = realizedElement().docComment()'"
-	 * @generated
-	 */
-	boolean purposeDerivation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Operation

@@ -1,42 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <xsd:schema xmlns:AGREE="http://it.ojp.gov/gist/201/Metadata/exchangeAgreement" xmlns:MetaR="http://it.ojp.gov/gist/201/Metadata/MetadataReference" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:i2="http://niem.gov/niem/appinfo/2.1" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://it.ojp.gov/gist/201/Metadata/exchangeAgreement" version="&quot;1&quot;">
   <xsd:import namespace="http://it.ojp.gov/gist/201/Metadata/MetadataReference" schemaLocation="../../XMLschemas/Metadata/MetadataReference.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../../XMLschemas/structures/2.0/structures.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/appinfo/2.1" schemaLocation="../../XMLschemas/appinfo/2.1/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/appinfo/2.0" schemaLocation="../../XMLschemas/appinfo/2.0/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../../XMLschemas/structures/2.0/structures.xsd"/>
   <xsd:annotation>
     <xsd:documentation>A data schema describing agreements between exchange partners.</xsd:documentation>
     <xsd:appinfo>
       <i:ConformantIndicator>true</i:ConformantIndicator>
     </xsd:appinfo>
   </xsd:annotation>
-  <xsd:complexType abstract="false" mixed="false" name="ExchangePolicyType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for an individual policy to include or exclude data in an exchange agreement</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="s:ComplexObjectType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="AGREE:FilterCode"/>
-          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="AGREE:SelectByDataCategoryID"/>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="AGREE:SubjectElement"/>
-          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="AGREE:SelectByContentCategoryID"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="AGREE:UpdateAllowedIndicator"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="AGREE:MinimumCardinalityNumeric"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="AGREE:MaximumCardinalityNumeric"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="FilterCode" nillable="false" type="AGREE:FilterCodeSimpleType">
-    <xsd:annotation>
-      <xsd:documentation>A code to include or exclude referenced elements.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
   <xsd:simpleType name="FilterCodeSimpleType">
     <xsd:annotation>
       <xsd:documentation>A data type for a Code used to filter data in an exchange agreement</xsd:documentation>
@@ -62,19 +36,6 @@
       </xsd:enumeration>
     </xsd:restriction>
   </xsd:simpleType>
-  <xsd:element abstract="false" name="SelectByDataCategoryID" nillable="false" type="MetaR:CategoryURIType">
-    <xsd:annotation>
-      <xsd:documentation>An identifier for categories of element(s) applicable to this policy</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="SubjectElement" nillable="false" type="s:ReferenceType">
-    <xsd:annotation>
-      <xsd:documentation>A Vocabulary element which is the subject of the policy</xsd:documentation>
-      <xsd:appinfo>
-        <i:ReferenceTarget i:name="ExchangeElementVocabularyType" i:namespace="http://it.ojp.gov/gist/201/Metadata/exchangeAgreement"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-  </xsd:element>
   <xsd:complexType abstract="false" mixed="false" name="ExchangeElementVocabularyType">
     <xsd:annotation>
       <xsd:documentation>A data type for a data element of the exchange, defined in an XSD, referenced in one or more exchange agreements.</xsd:documentation>
@@ -125,19 +86,43 @@
       </xsd:appinfo>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="DataCategoryID" nillable="false" type="MetaR:CategoryURIType">
+  <xsd:complexType abstract="false" mixed="false" name="ExchangePolicyType">
     <xsd:annotation>
-      <xsd:documentation>An identifier for A categorization of the data element, primarily for privacy and security.</xsd:documentation>
+      <xsd:documentation>A data type for an individual policy to include or exclude data in an exchange agreement</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="AGREE:FilterCode"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="AGREE:SelectByDataCategoryID"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="AGREE:SubjectElement"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="AGREE:SelectByContentCategoryID"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="AGREE:UpdateAllowedIndicator"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="AGREE:MinimumCardinalityNumeric"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="AGREE:MaximumCardinalityNumeric"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="FilterCode" nillable="false" type="AGREE:FilterCodeSimpleType">
+    <xsd:annotation>
+      <xsd:documentation>A code to include or exclude referenced elements.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="DetailLevel" nillable="false" type="MetaR:DetailLevelCodeSimpleType">
+  <xsd:element abstract="false" name="SelectByDataCategoryID" nillable="false" type="MetaR:CategoryURIType">
     <xsd:annotation>
-      <xsd:documentation>A level of detail this element represents. Messages requesting this level of detail or more will include this element if otherwise authorized in policy.</xsd:documentation>
+      <xsd:documentation>An identifier for categories of element(s) applicable to this policy</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="HelpText" nillable="false" type="niem-xsd:string">
+  <xsd:element abstract="false" name="SubjectElement" nillable="false" type="s:ReferenceType">
     <xsd:annotation>
-      <xsd:documentation>A Text to display to the user to aid in filling in the element.</xsd:documentation>
+      <xsd:documentation>A Vocabulary element which is the subject of the policy</xsd:documentation>
+      <xsd:appinfo>
+        <i:ReferenceTarget i:name="ExchangeElementVocabularyType" i:namespace="http://it.ojp.gov/gist/201/Metadata/exchangeAgreement"/>
+      </xsd:appinfo>
     </xsd:annotation>
   </xsd:element>
   <xsd:element abstract="false" name="SelectByContentCategoryID" nillable="false" type="MetaR:CategoryURIType">
@@ -158,6 +143,21 @@
   <xsd:element abstract="false" name="MaximumCardinalityNumeric" nillable="false" type="niem-xsd:integer">
     <xsd:annotation>
       <xsd:documentation>A Maximum number of element allowed - default is unrestricted</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="DataCategoryID" nillable="false" type="MetaR:CategoryURIType">
+    <xsd:annotation>
+      <xsd:documentation>An identifier for A categorization of the data element, primarily for privacy and security.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="DetailLevel" nillable="false" type="MetaR:DetailLevelCodeSimpleType">
+    <xsd:annotation>
+      <xsd:documentation>A level of detail this element represents. Messages requesting this level of detail or more will include this element if otherwise authorized in policy.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="HelpText" nillable="false" type="niem-xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>A Text to display to the user to aid in filling in the element.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
   <xsd:complexType abstract="false" mixed="false" name="ExchangePartyType">

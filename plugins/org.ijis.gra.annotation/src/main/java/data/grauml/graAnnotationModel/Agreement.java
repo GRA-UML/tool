@@ -2,8 +2,6 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -34,7 +32,7 @@ public interface Agreement extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text description of an agreement, formal or informal, associated with a service, application or thing, tangible or otherwise.
+	 * A free text description of an agreement, formal or informal, associated with a service, application or thing, tangible or otherwise.  Derived from the instance documentation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' attribute.
 	 * @see #setDocumentation(String)
@@ -103,17 +101,5 @@ public interface Agreement extends EObject {
 	 * @generated
 	 */
 	void setAutomatedAgreementIndicator(boolean value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='stringValueOf(\"Documentation\") = docComment()'"
-	 * @generated
-	 */
-	boolean docDerivation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Agreement

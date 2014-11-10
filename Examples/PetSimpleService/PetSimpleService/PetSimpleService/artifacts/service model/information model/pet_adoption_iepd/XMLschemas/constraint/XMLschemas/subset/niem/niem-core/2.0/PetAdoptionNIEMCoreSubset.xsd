@@ -2,111 +2,29 @@
 <xsd:schema xmlns:fips_10-4="http://niem.gov/niem/fips_10-4/2.0" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:i2="http://niem.gov/niem/appinfo/2.1" xmlns:iso_3166="http://niem.gov/niem/iso_3166/2.0" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://niem.gov/niem/niem-core/2.0" version="1">
   <xsd:import namespace="http://niem.gov/niem/fips_10-4/2.0" schemaLocation="../../../../../../../XMLschemas/constraint/XMLschemas/subset/2.0/fips_10-4.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/iso_3166/2.0" schemaLocation="../../../../../../../XMLschemas/constraint/XMLschemas/subset/2.0/iso_3166.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../../../../../../../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/appinfo/2.0" schemaLocation="../../../../../../../XMLschemas/appinfo/2.0/appinfo.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../../../../../../../XMLschemas/structures/2.0/structures.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/appinfo/2.1" schemaLocation="../../../../../../../XMLschemas/appinfo/2.1/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/appinfo/2.0" schemaLocation="../../../../../../../XMLschemas/appinfo/2.0/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../../../../../../../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../../../../../../../XMLschemas/structures/2.0/structures.xsd"/>
   <xsd:annotation>
     <xsd:documentation>NIEM Core includes both Universal (U) and Common (C) components. The identities for U and C components in Core are maintained with metadata.</xsd:documentation>
     <xsd:appinfo>
       <i:ConformantIndicator>true</i:ConformantIndicator>
     </xsd:appinfo>
   </xsd:annotation>
-  <xsd:complexType abstract="false" mixed="false" name="TextType">
+  <xsd:complexType abstract="false" mixed="false" name="AssociationType">
     <xsd:annotation>
-      <xsd:documentation>A data type for a character string.</xsd:documentation>
+      <xsd:documentation>A relationship A data type for a connection, relationship, or involvement somehow linking people and/or things together.</xsd:documentation>
       <xsd:appinfo>
-        <i:Base i:name="string" i:namespace="http://niem.gov/niem/proxy/xsd/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:simpleContent>
-      <xsd:extension base="niem-xsd:string"/>
-    </xsd:simpleContent>
-  </xsd:complexType>
-  <xsd:complexType abstract="false" mixed="false" name="ProperNameTextType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a word or phrase by which a person or thing is known, referred, or addressed.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:simpleContent>
-      <xsd:extension base="nc:TextType"/>
-    </xsd:simpleContent>
-  </xsd:complexType>
-  <xsd:complexType abstract="false" mixed="false" name="PersonNameTextType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a name by which a person is known, referred, or addressed.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:simpleContent>
-      <xsd:extension base="nc:ProperNameTextType"/>
-    </xsd:simpleContent>
-  </xsd:complexType>
-  <xsd:complexType abstract="false" mixed="false" name="PersonNameType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a combination of names and/or titles by which a person is known.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+        <i:Base i:name="Association" i:namespace="http://niem.gov/niem/structures/2.0"/>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="s:ComplexObjectType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:PersonNamePrefixText"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:PersonGivenName"/>
-          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="nc:PersonMiddleName"/>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:PersonSurName"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:PersonNameSuffixText"/>
-          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="nc:PersonMaidenName"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:PersonFullName"/>
-        </xsd:sequence>
-        <xsd:attribute ref="nc:personNameCommentText" use="optional"/>
+        <xsd:sequence/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element abstract="false" name="PersonNamePrefixText" nillable="true" type="nc:TextType">
-    <xsd:annotation>
-      <xsd:documentation>A title or honorific used by a person.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="PersonGivenName" nillable="true" type="nc:PersonNameTextType">
-    <xsd:annotation>
-      <xsd:documentation>A first name of a person.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="PersonMiddleName" nillable="true" type="nc:PersonNameTextType">
-    <xsd:annotation>
-      <xsd:documentation>A middle name of a person.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="PersonSurName" nillable="true" type="nc:PersonNameTextType">
-    <xsd:annotation>
-      <xsd:documentation>A last name or family name of a person.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="PersonNameSuffixText" nillable="true" type="nc:TextType">
-    <xsd:annotation>
-      <xsd:documentation>A term appended after the family name that qualifies the name.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="PersonMaidenName" nillable="true" type="nc:PersonNameTextType">
-    <xsd:annotation>
-      <xsd:documentation>An original surname of a person before changed by marriage.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="PersonFullName" nillable="true" type="nc:PersonNameTextType">
-    <xsd:annotation>
-      <xsd:documentation>A complete name of a person.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:attribute name="personNameCommentText" type="xsd:string">
-    <xsd:annotation>
-      <xsd:documentation>A comment about a kind of name for a person.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:attribute>
   <xsd:complexType abstract="false" mixed="false" name="IdentificationType">
     <xsd:annotation>
       <xsd:documentation>A data type for a representation of an identity.</xsd:documentation>
@@ -146,6 +64,17 @@
       <xsd:documentation>A data concept for a A kind of identification.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="TextType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a character string.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="string" i:namespace="http://niem.gov/niem/proxy/xsd/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="niem-xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
   <xsd:element abstract="false" name="IdentificationCategoryDescriptionText" nillable="true" type="nc:TextType">
     <xsd:annotation>
       <xsd:documentation>A description of a kind of identification.</xsd:documentation>
@@ -207,27 +136,6 @@
       <xsd:documentation>A person, organization, or locale which issues an identification.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="LocationType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a geophysical location.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="s:ComplexObjectType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:LocationAddress"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:LocationName"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="LocationAddress" nillable="true" type="nc:AddressType">
-    <xsd:annotation>
-      <xsd:documentation>A geophysical location described by postal information.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
   <xsd:complexType abstract="false" mixed="false" name="AddressType">
     <xsd:annotation>
       <xsd:documentation>A data type for a geophysical location described by postal information.</xsd:documentation>
@@ -262,11 +170,6 @@
   <xsd:element abstract="true" name="AddressRepresentation" nillable="false">
     <xsd:annotation>
       <xsd:documentation>A data concept for a A representation of an address.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="LocationName" nillable="true" type="nc:ProperNameTextType">
-    <xsd:annotation>
-      <xsd:documentation>A name of a location.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
   <xsd:complexType abstract="false" mixed="false" name="ActivityType">
@@ -309,6 +212,192 @@
       <xsd:documentation>A description of an activity.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="PersonContactInformationAssociationType">
+    <xsd:annotation>
+      <xsd:documentation>A relationship A data type for an association between a person and contact information.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="AssociationType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="nc:AssociationType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:PersonReference"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:ContactInformationReference"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:ContactInformationIsPrimaryIndicator"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:ContactInformationIsHomeIndicator"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:ContactInformationIsWorkIndicator"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="PersonReference" nillable="false" type="s:ReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>A human being.</xsd:documentation>
+      <xsd:appinfo>
+        <i:ReferenceTarget i:name="PersonType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="PersonType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a human being.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:PersonBirthDate"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:PersonName"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:PersonSSNIdentification"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="PersonBirthDate" nillable="true" type="nc:DateType">
+    <xsd:annotation>
+      <xsd:documentation>A date a person was born.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="PersonName" nillable="true" type="nc:PersonNameType">
+    <xsd:annotation>
+      <xsd:documentation>A combination of names and/or titles by which a person is known.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="PersonNameType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a combination of names and/or titles by which a person is known.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:PersonNamePrefixText"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:PersonGivenName"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="nc:PersonMiddleName"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:PersonSurName"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:PersonNameSuffixText"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="nc:PersonMaidenName"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:PersonFullName"/>
+        </xsd:sequence>
+        <xsd:attribute ref="nc:personNameCommentText" use="optional"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="PersonNamePrefixText" nillable="true" type="nc:TextType">
+    <xsd:annotation>
+      <xsd:documentation>A title or honorific used by a person.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="PersonGivenName" nillable="true" type="nc:PersonNameTextType">
+    <xsd:annotation>
+      <xsd:documentation>A first name of a person.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="ProperNameTextType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a word or phrase by which a person or thing is known, referred, or addressed.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="nc:TextType"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="false" mixed="false" name="PersonNameTextType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a name by which a person is known, referred, or addressed.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="nc:ProperNameTextType"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="PersonMiddleName" nillable="true" type="nc:PersonNameTextType">
+    <xsd:annotation>
+      <xsd:documentation>A middle name of a person.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="PersonSurName" nillable="true" type="nc:PersonNameTextType">
+    <xsd:annotation>
+      <xsd:documentation>A last name or family name of a person.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="PersonNameSuffixText" nillable="true" type="nc:TextType">
+    <xsd:annotation>
+      <xsd:documentation>A term appended after the family name that qualifies the name.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="PersonMaidenName" nillable="true" type="nc:PersonNameTextType">
+    <xsd:annotation>
+      <xsd:documentation>An original surname of a person before changed by marriage.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="PersonFullName" nillable="true" type="nc:PersonNameTextType">
+    <xsd:annotation>
+      <xsd:documentation>A complete name of a person.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:attribute name="personNameCommentText" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>A comment about a kind of name for a person.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:attribute>
+  <xsd:element abstract="false" name="PersonSSNIdentification" nillable="true" type="nc:IdentificationType">
+    <xsd:annotation>
+      <xsd:documentation>A unique reference to a living person; assigned by the United States Social Security Administration.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ContactInformationReference" nillable="false" type="s:ReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>A Details about how to contact a person or an organization.</xsd:documentation>
+      <xsd:appinfo>
+        <i:ReferenceTarget i:name="ContactInformationType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="ContactInformationType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for how to contact a person or an organization.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:ContactMeans"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="true" name="ContactMeans" nillable="false">
+    <xsd:annotation>
+      <xsd:documentation>A data concept for a A means of contacting someone.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ContactInformationIsPrimaryIndicator" nillable="true" type="niem-xsd:boolean">
+    <xsd:annotation>
+      <xsd:documentation>True if the contact information is the primary method for contact; false otherwise.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ContactInformationIsHomeIndicator" nillable="true" type="niem-xsd:boolean">
+    <xsd:annotation>
+      <xsd:documentation>True if the contact information is the home contact information; false otherwise.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ContactInformationIsWorkIndicator" nillable="true" type="niem-xsd:boolean">
+    <xsd:annotation>
+      <xsd:documentation>True if the contact information is the employment contact information; false otherwise.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType abstract="false" mixed="false" name="InternationalTelephoneNumberType">
     <xsd:annotation>
       <xsd:documentation>A data type for an international telephone number.</xsd:documentation>
@@ -341,6 +430,32 @@
       <xsd:documentation>A Additional numbers to be entered after a call connects to be directed to the appropriate place.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="LocationType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a geophysical location.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:LocationAddress"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:LocationName"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="LocationAddress" nillable="true" type="nc:AddressType">
+    <xsd:annotation>
+      <xsd:documentation>A geophysical location described by postal information.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="LocationName" nillable="true" type="nc:ProperNameTextType">
+    <xsd:annotation>
+      <xsd:documentation>A name of a location.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType abstract="false" mixed="false" name="DateRangeType">
     <xsd:annotation>
       <xsd:documentation>A data type for a period of time.</xsd:documentation>
@@ -365,6 +480,34 @@
   <xsd:element abstract="false" name="EndDate" nillable="true" type="nc:DateType">
     <xsd:annotation>
       <xsd:documentation>An end date.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="TelephoneNumberType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a telephone number for a telecommunication device.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:InternationalTelephoneNumber"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="InternationalTelephoneNumber" nillable="true" substitutionGroup="nc:TelephoneNumberRepresentation" type="nc:InternationalTelephoneNumberType">
+    <xsd:annotation>
+      <xsd:documentation>An international telephone number.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="TelephoneNumberRepresentation" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="true" name="TelephoneNumberRepresentation" nillable="false">
+    <xsd:annotation>
+      <xsd:documentation>A data concept for a A telephone number.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
   <xsd:complexType abstract="false" mixed="false" name="OrganizationType">
@@ -399,26 +542,6 @@
       <xsd:documentation>A means of contacting an organization during daytime hours.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="ContactInformationType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for how to contact a person or an organization.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="s:ComplexObjectType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:ContactMeans"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="true" name="ContactMeans" nillable="false">
-    <xsd:annotation>
-      <xsd:documentation>A data concept for a A means of contacting someone.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
   <xsd:element abstract="false" name="OrganizationDescriptionText" nillable="true" type="nc:TextType">
     <xsd:annotation>
       <xsd:documentation>A description of an organization </xsd:documentation>
@@ -449,137 +572,6 @@
       <xsd:documentation>A tax identification assigned to an organization.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="AssociationType">
-    <xsd:annotation>
-      <xsd:documentation>A relationship A data type for a connection, relationship, or involvement somehow linking people and/or things together.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="Association" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="s:ComplexObjectType">
-        <xsd:sequence/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType abstract="false" mixed="false" name="PersonType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a human being.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="s:ComplexObjectType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:PersonBirthDate"/>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:PersonName"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:PersonSSNIdentification"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="PersonBirthDate" nillable="true" type="nc:DateType">
-    <xsd:annotation>
-      <xsd:documentation>A date a person was born.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="PersonName" nillable="true" type="nc:PersonNameType">
-    <xsd:annotation>
-      <xsd:documentation>A combination of names and/or titles by which a person is known.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="PersonSSNIdentification" nillable="true" type="nc:IdentificationType">
-    <xsd:annotation>
-      <xsd:documentation>A unique reference to a living person; assigned by the United States Social Security Administration.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="TelephoneNumberType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a telephone number for a telecommunication device.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="Object" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="s:ComplexObjectType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:InternationalTelephoneNumber"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="InternationalTelephoneNumber" nillable="true" substitutionGroup="nc:TelephoneNumberRepresentation" type="nc:InternationalTelephoneNumberType">
-    <xsd:annotation>
-      <xsd:documentation>An international telephone number.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="TelephoneNumberRepresentation" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="true" name="TelephoneNumberRepresentation" nillable="false">
-    <xsd:annotation>
-      <xsd:documentation>A data concept for a A telephone number.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="PersonContactInformationAssociationType">
-    <xsd:annotation>
-      <xsd:documentation>A relationship A data type for an association between a person and contact information.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="AssociationType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="nc:AssociationType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:PersonReference"/>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="nc:ContactInformationReference"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:ContactInformationIsPrimaryIndicator"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:ContactInformationIsHomeIndicator"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="nc:ContactInformationIsWorkIndicator"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="PersonReference" nillable="false" type="s:ReferenceType">
-    <xsd:annotation>
-      <xsd:documentation>A human being.</xsd:documentation>
-      <xsd:appinfo>
-        <i:ReferenceTarget i:name="PersonType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="ContactInformationReference" nillable="false" type="s:ReferenceType">
-    <xsd:annotation>
-      <xsd:documentation>A Details about how to contact a person or an organization.</xsd:documentation>
-      <xsd:appinfo>
-        <i:ReferenceTarget i:name="ContactInformationType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="ContactInformationIsPrimaryIndicator" nillable="true" type="niem-xsd:boolean">
-    <xsd:annotation>
-      <xsd:documentation>True if the contact information is the primary method for contact; false otherwise.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="ContactInformationIsHomeIndicator" nillable="true" type="niem-xsd:boolean">
-    <xsd:annotation>
-      <xsd:documentation>True if the contact information is the home contact information; false otherwise.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="ContactInformationIsWorkIndicator" nillable="true" type="niem-xsd:boolean">
-    <xsd:annotation>
-      <xsd:documentation>True if the contact information is the employment contact information; false otherwise.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="ContactEmailID" nillable="true" substitutionGroup="nc:ContactMeans" type="niem-xsd:string">
-    <xsd:annotation>
-      <xsd:documentation>An electronic mailing address by which a person or organization may be contacted.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="ContactMeans" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-  </xsd:element>
   <xsd:element abstract="false" name="IdentificationJurisdictionFIPS10-4Code" nillable="true" substitutionGroup="nc:IdentificationJurisdiction" type="fips_10-4:CountryCodeType">
     <xsd:annotation>
       <xsd:documentation>An area, region, or unit in which a unique identification is issued.</xsd:documentation>
@@ -596,14 +588,6 @@
       </xsd:appinfo>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="ActivityDateRange" nillable="true" substitutionGroup="nc:ActivityDateRepresentation" type="nc:DateRangeType">
-    <xsd:annotation>
-      <xsd:documentation>A period of time over which an activity occurs.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="ActivityDateRepresentation" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-  </xsd:element>
   <xsd:element abstract="false" name="IdentificationJurisdictionISO3166Alpha3Code" nillable="true" substitutionGroup="nc:IdentificationJurisdiction" type="iso_3166:CountryAlpha3CodeType">
     <xsd:annotation>
       <xsd:documentation>An area, region, or unit in which a unique identification is issued.</xsd:documentation>
@@ -617,6 +601,22 @@
       <xsd:documentation>A postal address by which a person or organization may be contacted.</xsd:documentation>
       <xsd:appinfo>
         <i:Base i:name="ContactMeans" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ContactEmailID" nillable="true" substitutionGroup="nc:ContactMeans" type="niem-xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>An electronic mailing address by which a person or organization may be contacted.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="ContactMeans" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="ActivityDateRange" nillable="true" substitutionGroup="nc:ActivityDateRepresentation" type="nc:DateRangeType">
+    <xsd:annotation>
+      <xsd:documentation>A period of time over which an activity occurs.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="ActivityDateRepresentation" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
       </xsd:appinfo>
     </xsd:annotation>
   </xsd:element>

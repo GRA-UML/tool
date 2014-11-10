@@ -2,8 +2,6 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -12,9 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A data structure representing the details describing a service.
- * [Realizes] Collaboration
- * [Uses] IEPD
+ * A data structure representing the details describing a service. To be successfully processed by phase-1 provisioning, a ServiceDescription must realize a UML Collaboration and must use at least one IEPD.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -50,7 +46,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link data.grauml.graAnnotationModel.ServiceDescription#getLifecycleStatus <em>Lifecycle Status</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceDescription#getAlertAndNotificationUri <em>Alert And Notification Uri</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceDescription#getAdditionalInformation <em>Additional Information</em>}</li>
- *   <li>{@link data.grauml.graAnnotationModel.ServiceDescription#getServiceDescriptionUri <em>Service Description Uri</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceDescription#getExecutionContext <em>Execution Context</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceDescription#getSecurity <em>Security</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceDescription#getPrivacy <em>Privacy</em>}</li>
@@ -237,8 +232,7 @@ public interface ServiceDescription extends ServiceIdentification {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reference information identifying an Information Exchange Package Document which the service uses in its data model.
-	 * [Derived from] Usage dependencies to IEPD.
+	 * Reference information identifying an Information Exchange Package Document which the service uses in its data model.  Derived from Usage dependencies to IEPD.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Iepd Reference</em>' containment reference list.
 	 * @see data.grauml.graAnnotationModel.GraAnnotationModelPackage#getServiceDescription_IepdReference()
@@ -378,7 +372,7 @@ public interface ServiceDescription extends ServiceIdentification {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The exchanges between participants described by the service. Maps to the GRA business scenarios. 
+	 * The exchanges between participants described by the service. Maps to the GRA business scenarios. Derived from the Interactions owned by the realized Collaboration.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Service Interaction</em>' containment reference list.
 	 * @see data.grauml.graAnnotationModel.GraAnnotationModelPackage#getServiceDescription_ServiceInteraction()
@@ -392,7 +386,7 @@ public interface ServiceDescription extends ServiceIdentification {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * URI of an XSLT that transforms the skeleton SSP into a final one as the "phase-2" transform. 
+	 * URI of a template file structure that includes artifacts to transform the intermediate SSP into a final one as the "phase-2" transform.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Transformation Uri</em>' attribute.
 	 * @see #setTransformationUri(String)
@@ -517,7 +511,7 @@ public interface ServiceDescription extends ServiceIdentification {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A date when a service was or will be first available in production.Not to be confused with the date this service was submitted to a registry. The format is YYYY-MM.
+	 * A date when a service was or will be first available in production. Not to be confused with the date this service was submitted to a registry. The format is YYYY-MM.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Activation Date</em>' attribute.
 	 * @see #setActivationDate(String)
@@ -685,31 +679,6 @@ public interface ServiceDescription extends ServiceIdentification {
 	 * @generated
 	 */
 	EList<Description> getAdditionalInformation();
-
-	/**
-	 * Returns the value of the '<em><b>Service Description Uri</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * URI of the Service Description Document, relative to the SSP Catalog.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service Description Uri</em>' attribute.
-	 * @see #setServiceDescriptionUri(String)
-	 * @see data.grauml.graAnnotationModel.GraAnnotationModelPackage#getServiceDescription_ServiceDescriptionUri()
-	 * @model dataType="types.String" ordered="false"
-	 * @generated
-	 */
-	String getServiceDescriptionUri();
-
-	/**
-	 * Sets the value of the '{@link data.grauml.graAnnotationModel.ServiceDescription#getServiceDescriptionUri <em>Service Description Uri</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Description Uri</em>' attribute.
-	 * @see #getServiceDescriptionUri()
-	 * @generated
-	 */
-	void setServiceDescriptionUri(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Execution Context</b></em>' containment reference.
@@ -902,29 +871,5 @@ public interface ServiceDescription extends ServiceIdentification {
 	 * @generated
 	 */
 	void setProcessModel(Description value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='realizesElement() and realizedElement().oclIsKindOf(Collaboration) and usesElement() and usedElement().isIEPD()'"
-	 * @generated
-	 */
-	boolean realizesCollaborationAndUsesIepd(DiagnosticChain diagnostics, Map<Object, Object> context);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='TODO: derived from Role in Collaboration'"
-	 * @generated
-	 */
-	boolean exchangePartnerDerivation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ServiceDescription

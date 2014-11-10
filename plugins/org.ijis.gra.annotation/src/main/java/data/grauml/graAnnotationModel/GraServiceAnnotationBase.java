@@ -2,10 +2,7 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Abstract base class for all GRA Service annotation metadata classes.
+ * Abstract base class for GRA Service annotation metadata classes.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -40,7 +37,7 @@ public interface GraServiceAnnotationBase extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The element name. Derived from the UML InstanceSpecification's name, or if not set will default to the realized element's name.
+	 * The element name. Derived from the instance's name, or if that is empty to the corresponding element's name.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -65,7 +62,7 @@ public interface GraServiceAnnotationBase extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The documentation for this element.  Derived from a realized element or, if not provided, the element's documentation.
+	 * The documentation for this element.  Derived from a realized or corresponding element's documentation or, if not provided, the instance's documentation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' attribute.
 	 * @see #setDocumentation(String)
@@ -90,7 +87,7 @@ public interface GraServiceAnnotationBase extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Template is the name of an XSLT template that will be called to process the containing element thus overriding the default mapping.
+	 * Template is the name of a phase-2 template that will be called to process the containing element thus overriding the default mapping.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Template</em>' attribute.
 	 * @see #setTemplate(String)
@@ -140,7 +137,7 @@ public interface GraServiceAnnotationBase extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reference to a model element annotated by this element.  Modeled as a Realization.
+	 * Derived reference to a model element realized by or corresponding to this element, used for traceability.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Model Reference</em>' containment reference.
 	 * @see #setModelReference(ModelReference)
@@ -181,7 +178,7 @@ public interface GraServiceAnnotationBase extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Diagnostic information for this element.  Derived during phase 1 provisioning.
+	 * Diagnostic information for this element.  Derived during phase-1 provisioning.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Diagnostics</em>' attribute list.
 	 * @see data.grauml.graAnnotationModel.GraAnnotationModelPackage#getGraServiceAnnotationBase_Diagnostics()
@@ -189,29 +186,5 @@ public interface GraServiceAnnotationBase extends EObject {
 	 * @generated
 	 */
 	EList<String> getDiagnostics();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='stringValueOf(\"Name\") = (if name->notEmpty and name <> \"\" then  name else if realizesElement() then realizedElement.name else \"\" endif endif)'"
-	 * @generated
-	 */
-	boolean nameDerivation(DiagnosticChain diagnostics, Map<Object, Object> context);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='stringValue(\"Documentation\") = if realizesElement() then  realizedElement().docComment() else docComment() endif'"
-	 * @generated
-	 */
-	boolean docDerivation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // GraServiceAnnotationBase

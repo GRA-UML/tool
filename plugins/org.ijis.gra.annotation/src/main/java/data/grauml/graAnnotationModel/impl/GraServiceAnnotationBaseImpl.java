@@ -6,23 +6,15 @@ import data.grauml.graAnnotationModel.GraAnnotationModelPackage;
 import data.grauml.graAnnotationModel.GraServiceAnnotationBase;
 import data.grauml.graAnnotationModel.InteractionRequirements;
 import data.grauml.graAnnotationModel.ModelReference;
-import data.grauml.graAnnotationModel.util.GraAnnotationModelValidator;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.emf.ecore.util.EObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -341,56 +333,6 @@ public abstract class GraServiceAnnotationBaseImpl extends MinimalEObjectImpl.Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean nameDerivation(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 GraAnnotationModelValidator.DIAGNOSTIC_SOURCE,
-						 GraAnnotationModelValidator.GRA_SERVICE_ANNOTATION_BASE__NAME_DERIVATION,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "nameDerivation", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean docDerivation(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 GraAnnotationModelValidator.DIAGNOSTIC_SOURCE,
-						 GraAnnotationModelValidator.GRA_SERVICE_ANNOTATION_BASE__DOC_DERIVATION,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "docDerivation", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -521,23 +463,6 @@ public abstract class GraServiceAnnotationBaseImpl extends MinimalEObjectImpl.Co
 				return diagnostics != null && !diagnostics.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case GraAnnotationModelPackage.GRA_SERVICE_ANNOTATION_BASE___NAME_DERIVATION__DIAGNOSTICCHAIN_MAP:
-				return nameDerivation((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
-			case GraAnnotationModelPackage.GRA_SERVICE_ANNOTATION_BASE___DOC_DERIVATION__DIAGNOSTICCHAIN_MAP:
-				return docDerivation((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -105,7 +105,7 @@
                      <p class="FontType CoverPageLeft">Delivery On:</p>
                   </td>
                   <td class="MsoNormalTableColRight">
-                     <p class="FontType CoverPageRight"><b>2014-10-26</b></p>
+                     <p class="FontType CoverPageRight"><b>2014-11-10</b></p>
                   </td>
                </tr>
                <tr>
@@ -219,11 +219,10 @@
                							can leverage multiple Service Interfaces, the Service Specification might contain
                more than one Service Interface Description.</span></p><br /><br style="page-break-before:always" /><h1><a id="_Toc387846683"><span class="FontType Heading1">2.     Service Overview</span></a></h1>
          <h2><a id="_Toc387846684"><span class="FontType Heading2">2.1     Purpose</span></a></h2>
-         <p class="MsoNormalText"><span class="FontType NormalText"> The purpose of this service is to support the establishment and operation of automated
-               SIRS Service Description (SIRS)
-               							 service capabilities.  This document describes the basic functions comprising
-               the information sharing process.  This service specification
-               							enables interoperable information exchange between system implementations.</span></p>
+         <p class="MsoNormalText"><span class="FontType NormalText">When a registered sex offender relocates from one SORNA jurisdiction to another SORNA
+               jurisdiction, SIRS will enable the sharing of information that assists the jurisdictions
+               with identifying, monitoring, and enforcing the offender’s registration requirements
+               associated with the relocation process.</span></p>
          <h2><a id="_Toc387846685"><span class="FontType Heading2">2.2     Scope</span></a></h2>
          <p class="MsoNormalText"><span class="FontType NormalText">• The sex offender’s initial intent to relocate, along with information about the
                offender (Relocation Package).
@@ -258,23 +257,23 @@
                • Maintenance of data in criminal history repositories.</span></p>
          <h2><a id="_Toc387846686"><span class="FontType Heading2">2.3     Capabilities</span></a></h2>
          <p class="MsoNormalText"><span class="FontType NormalText">
+               <li class="Bullet">Notification of the status of the offender's registration (i.e., whether registration
+                  is required in the receiving jurisdiction, and, if so, whether the offender complied
+                  with those requirements).
+               </li>
+               <li class="Bullet">Engagement of the United States Marshals Service in locating absconders or non-compliant
+                  offenders.
+               </li>
+               <li class="Bullet">Contact information for the SORNA jurisdictions' registration agencies.</li>
                <li class="Bullet">Information about the offender's underlying criminal conviction(s) and offense(s)
                   (e.g., court documents, statutory definitions of the crime's elements).  Other information
                   relevant to a risk assessment (e.g., data about victims, mental health diagnoses and
                   treatments, substance abuse history).
                </li>
-               <li class="Bullet">Notification of the status of the offender's registration (i.e., whether registration
-                  is required in the receiving jurisdiction, and, if so, whether the offender complied
-                  with those requirements).
-               </li>
-               <li class="Bullet">Contact information for the SORNA jurisdictions' registration agencies.</li>
                <li class="Bullet">Positive identification of an offender (e.g., biometric data, photographs, federal
                   or state identifiers). Information that assists in locating an offender (e.g., home,
                   work, or school addresses; vehicle data; contact information such as telephone numbers,
                   e-mail addresses, and social media screen names and other identifiers).
-               </li>
-               <li class="Bullet">Engagement of the United States Marshals Service in locating absconders or non-compliant
-                  offenders.
                </li></span></p>
          <h2><a id="_Toc387846687"><span class="FontType Heading2">2.4     Real-World Effects</span></a></h2>
          <p class="MsoNormalText"><span class="FontType NormalText">
@@ -292,10 +291,34 @@
          <p class="MsoNormalText"><span class="FontType NormalText">SIRS provides offender information and notices between stakeholders to track the offender's
                compliance with SORNA registration requirements</span></p>
          <h2><a id="_Toc387846689"><span class="FontType Heading2">2.6     Description</span></a></h2>
-         <p class="MsoNormalText"><span class="FontType NormalText">When a registered sex offender relocates from one SORNA jurisdiction to another SORNA
-               jurisdiction, SIRS will enable the sharing of information that assists the jurisdictions
-               with identifying, monitoring, and enforcing the offender’s registration requirements
-               associated with the relocation process.</span></p>
+         <p class="MsoNormalText"><span class="FontType NormalText">Today, several mechanisms are being used to communicate information among SORNA jurisdictions
+               when a sex offender relocates.  It is challenging for a SORNA jurisdiction to share
+               the requirements for interacting with another SORNA jurisdiction.  In particular:
+               
+                What is the most effective medium for the initial notification?  E-mail, fax, a
+               telephone call, or an electronic message delivered by a proprietary record management
+               system that both agencies use?  
+               
+                What is the best method for delivering documents?  Can scanned images be e-mailed?
+               If so, what are the size limits?
+               
+                What data are required by the receiving jurisdiction?  Do they have a hardcopy or
+               online form or checklist?
+               
+                What are the other jurisdiction’s expectations about subsequent communications?
+               
+               
+               SIRS builds on the progress made by the SORNA Exchange Portal in defining a messaging
+               process and protocol in the form of a service.  The service applies national standards
+               and specifies interfaces that can be implemented in a wide variety of technical environments.
+               Having an interoperable standard for interjurisdictional information exchange and
+               notifications will enable SORNA registration jurisdictions to achieve greater efficiency
+               through automation.  
+               
+               SIRS provides the messaging required between SORNA stakeholders when a sex offender
+               relocates to a new SORNA jurisdiction.  The service provides offender information
+               and notices between stakeholders to track the offender’s status and compliance with
+               SORNA registration requirements.</span></p>
          <h2><a id="_Toc387846690"><span class="FontType Heading2">2.7     Security Classification</span></a></h2>
          <p class="MsoNormalText"><span class="FontType NormalText">SBU</span></p>
          <h2><a id="_Toc387846691"><span class="FontType Heading2">2.8     Service Specification Package Version</span></a></h2>
@@ -474,8 +497,19 @@
                Consumers are expected to retrieve and respect the metadata provided by the service
                deployments.</span></p>
          <h2><a id="_Toc387846698"><span class="FontType Heading2">4.5     Policies and Contracts</span></a></h2>
-         <p class="MsoNormalText"><span class="FontType NormalText">Although no agreements have yet been developed for this service specification, it
-               is assumed that these will be developed as part of the actual reference implementations.</span></p>
+         <p class="MsoNormalText"><span class="FontType NormalText">Service policies and contracts express rules that govern the interaction between a
+               service consumer and a service.  A policy is an assertion by either a consumer or
+               a service provider of that participant’s requirements for willingness to interact.
+               Policies state conditions, obligations, and constraints.  A contract is an agreement
+               by the parties involved. Consumers of this service will be acting on behalf of a user.
+               Each user must be an authorized user and the message sent to this service from the
+               consumer must provide information so the service can determine whether the user is
+               an authorized user.  Participating entities will use memoranda of understanding (MOUs),
+               nondisclosure agreements (NDAs), service-level agreements (SLAs), or other types of
+               agency agreements as appropriate to document applicable policy requirements.  Global
+               has developed GRA “Information Sharing Enterprise Service-Level Agreement” and “Information
+               Sharing Enterprise Statement of Participation, Version 1.1” policy document templates
+               that are available for developing policies.</span></p>
          <h2><a id="_Toc387846699"><span class="FontType Heading2">4.6     Security</span></a></h2>
          <p class="MsoNormalText"><span class="FontType NormalText">The service implementation must follow the Service Interface Description Document
                (SIDD) to meet the Security Requirements.
@@ -517,9 +551,15 @@
                <td class="tDataTable"><i><span class="FontType tDataTableText">RegisteredSexOffenderPackageType</span></i></td>
             </tr>
             <tr style="height:.3in">
+               <td class="tDataTable tDataTableRowAlt" colspan="3" width="200"><span class="FontType tDataTableText" width="200">RegisteredSexOffenderPackageType Description: A data type for sex offender relocation package.</span></td>
+            </tr>
+            <tr style="height:.3in">
                <td class="tDataTable"><span class="FontType tDataTableTextTitle">RelocationNoticeInterface</span></td>
-               <td class="tDataTable"><i><span class="FontType tDataTableText">unNamed</span></i></td>
+               <td class="tDataTable"><i><span class="FontType tDataTableText">RelocationNotification</span></i></td>
                <td class="tDataTable"><i><span class="FontType tDataTableText">SORNARelocationNoticeType</span></i></td>
+            </tr>
+            <tr style="height:.3in">
+               <td class="tDataTable tDataTableRowAlt" colspan="3" width="200"><span class="FontType tDataTableText" width="200">SORNARelocationNoticeType Description: A data type for sex offender relocation notice information</span></td>
             </tr>
             <tr style="height:.3in">
                <td class="FontType tDataTableCaption" colspan="3">Table 3 : Data Inputs</td>
@@ -558,8 +598,12 @@
                <td class="tDataTable"><i><span class="FontType tDataTableText">SubmitRelocationPackage</span></i></td>
             </tr>
             <tr style="height:.3in">
+               <td class="tDataTable tDataTableRowAlt" colspan="2"><span class="FontType tDataTableText"><b>Description: </b>The Intermediary Host invokes this action to receive the RelocationPackage message
+                     from the Sending Jurisdiction</span></td>
+            </tr>
+            <tr style="height:.3in">
                <td class="tDataTable"><span class="FontType tDataTableTextTitle">RelocationNoticeInterface</span></td>
-               <td class="tDataTable"><i><span class="FontType tDataTableText">unNamed</span></i></td>
+               <td class="tDataTable"><i><span class="FontType tDataTableText">RelocationNotification</span></i></td>
             </tr>
             <tr style="height:.3in">
                <td class="FontType tDataTableCaption" colspan="3">Table 5 : Action Model</td>

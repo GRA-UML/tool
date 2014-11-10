@@ -4,7 +4,7 @@
 	<property name="xmlProcessor" value="${workspace}/saxon9he.jar"/>
 	<property name="inputFile" value="${workspace}/artifacts/annotations.xmi"/>
 
-	<property name="baseURL" value="http://lib.modeldriven.org/MDLibrary/trunk/Specifications/GRA/GRA-UML-Modeling-Tool/StandardTemplate/SSP/"/>
+	<property name="baseURL" value="http://repository.ijis.org/GRAUML/template/SSP/"/>
 
 	<target name="build" description="GRA SSP Annotation Processing" 
 		depends="downloadTemplateFiles,buildStructure,transformArtifacts,removeTemporaryFiles"/>
@@ -16,20 +16,32 @@
 	<target name="buildStructure" description="Build GRA SSP Standard Directory Structure">
 		<mkdir dir="${workspace}/artifacts"/>
 		<mkdir dir="${workspace}/artifacts/service model"/>
+		<mkdir dir="${workspace}/artifacts/service model/OMG"/>
+		<mkdir dir="${workspace}/artifacts/service model/Eclipse"/>
+		<mkdir dir="${workspace}/artifacts/service model/Magicdraw"/>
 		<mkdir dir="${workspace}/artifacts/service model/information model"/>
 		<mkdir dir="${workspace}/artifacts/various artifacts"/>
 		<mkdir dir="${workspace}/artifacts/various artifacts/other"/>		
 		<mkdir dir="${workspace}/samples"/>
 		<mkdir dir="${workspace}/schemas"/>
-		<mkdir dir="${workspace}/schemas/sip"/>
 	</target>
 	<target name="transformArtifacts" description="make artifacts">
-		<xslt destdir="${workspace}/artifacts" basedir="${workspace}/.." extension=".xmi" includes="*.uml" classpath="${xmlProcessor}">
+		<xslt destdir="${workspace}/artifacts/service model/OMG" basedir="${workspace}/.." extension=".xmi" includes="*.uml" classpath="${xmlProcessor}">
 			<factory name="net.sf.saxon.TransformerFactoryImpl"/>
 			<style>
 				<url url="${baseURL}artifacts/gra_eclipse_uml_2_omg.xslt"/>
 			</style>
 		</xslt>		
+		 <copy todir="${workspace}/artifacts/service model/Eclipse">
+		    <fileset dir="${workspace}/..">
+		 		<include name="*.uml"/>
+			</fileset>
+		  </copy>
+		 <copy todir="${workspace}/artifacts/service model/Magicdraw">
+		    <fileset dir="${workspace}/../..">
+		 		<include name="*.mdzip"/>
+			</fileset>
+		  </copy>
 		<xslt in="${inputFile}" out="${workspace}/catalog.xml" classpath="${xmlProcessor}">
 			<factory name="net.sf.saxon.TransformerFactoryImpl"/>
 			<style>
@@ -60,7 +72,7 @@
 				<url url="${baseURL}artifacts/gra_ssp_sidd.xslt"/>
 			</style>
 		</xslt>
-		<xslt in="${inputFile}" out="${workspace}/schemas/SIP/Temp.wsdl" classpath="${xmlProcessor}">
+		<xslt in="${inputFile}" out="${workspace}/schemas/Temp.wsdl" classpath="${xmlProcessor}">
 			<factory name="net.sf.saxon.TransformerFactoryImpl"/>
 			<style>
 				<url url="${baseURL}schemas/sip/gra_ssp_wsdl.xslt"/>
@@ -71,7 +83,7 @@
 	<target name="removeTemporaryFiles" description="remove temporary files">
 		<delete file="${workspace}/artifacts/tempSDD.xhtml"></delete>
 		<delete file="${workspace}/artifacts/tempSIDD.xhtml"></delete>
-		<delete file="${workspace}/schemas/SIP/Temp.wsdl"></delete>
+		<delete file="${workspace}/schemas/Temp.wsdl"></delete>
 		<delete file="${workspace}/saxon9he.jar"></delete>
 	</target>
 </project>

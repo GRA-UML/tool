@@ -7,17 +7,10 @@ import data.grauml.graAnnotationModel.Interface;
 import data.grauml.graAnnotationModel.Message;
 import data.grauml.graAnnotationModel.Operation;
 import data.grauml.graAnnotationModel.Parameter;
-import data.grauml.graAnnotationModel.Port;
-import data.grauml.graAnnotationModel.Service;
-import data.grauml.graAnnotationModel.ServiceInterfaceSpecification;
-
 import data.grauml.graWsdl.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -77,18 +70,6 @@ public class GraWsdlAdapterFactory extends AdapterFactoryImpl {
 	protected GraWsdlSwitch<Adapter> modelSwitch =
 		new GraWsdlSwitch<Adapter>() {
 			@Override
-			public Adapter caseWsdlServiceInterface(WsdlServiceInterface object) {
-				return createWsdlServiceInterfaceAdapter();
-			}
-			@Override
-			public Adapter caseWsdlService(WsdlService object) {
-				return createWsdlServiceAdapter();
-			}
-			@Override
-			public Adapter caseWsdlPort(WsdlPort object) {
-				return createWsdlPortAdapter();
-			}
-			@Override
 			public Adapter caseWsdlInterface(WsdlInterface object) {
 				return createWsdlInterfaceAdapter();
 			}
@@ -107,18 +88,6 @@ public class GraWsdlAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseGraServiceAnnotationBase(GraServiceAnnotationBase object) {
 				return createGraServiceAnnotationBaseAdapter();
-			}
-			@Override
-			public Adapter caseServiceInterfaceSpecification(ServiceInterfaceSpecification object) {
-				return createServiceInterfaceSpecificationAdapter();
-			}
-			@Override
-			public Adapter caseService(Service object) {
-				return createServiceAdapter();
-			}
-			@Override
-			public Adapter casePort(Port object) {
-				return createPortAdapter();
 			}
 			@Override
 			public Adapter caseInterface(Interface object) {
@@ -155,48 +124,6 @@ public class GraWsdlAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link data.grauml.graWsdl.WsdlServiceInterface <em>Wsdl Service Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see data.grauml.graWsdl.WsdlServiceInterface
-	 * @generated
-	 */
-	public Adapter createWsdlServiceInterfaceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link data.grauml.graWsdl.WsdlService <em>Wsdl Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see data.grauml.graWsdl.WsdlService
-	 * @generated
-	 */
-	public Adapter createWsdlServiceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link data.grauml.graWsdl.WsdlPort <em>Wsdl Port</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see data.grauml.graWsdl.WsdlPort
-	 * @generated
-	 */
-	public Adapter createWsdlPortAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link data.grauml.graWsdl.WsdlInterface <em>Wsdl Interface</em>}'.
@@ -265,48 +192,6 @@ public class GraWsdlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGraServiceAnnotationBaseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link data.grauml.graAnnotationModel.ServiceInterfaceSpecification <em>Service Interface Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see data.grauml.graAnnotationModel.ServiceInterfaceSpecification
-	 * @generated
-	 */
-	public Adapter createServiceInterfaceSpecificationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link data.grauml.graAnnotationModel.Service <em>Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see data.grauml.graAnnotationModel.Service
-	 * @generated
-	 */
-	public Adapter createServiceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link data.grauml.graAnnotationModel.Port <em>Port</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see data.grauml.graAnnotationModel.Port
-	 * @generated
-	 */
-	public Adapter createPortAdapter() {
 		return null;
 	}
 

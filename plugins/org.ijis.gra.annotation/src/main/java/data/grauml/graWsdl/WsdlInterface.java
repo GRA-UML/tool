@@ -31,7 +31,7 @@ public interface WsdlInterface extends Interface {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Specifies technology implementation for a <wsdl:binding>.
+	 * Specifies technology implementation for a <wsdl:binding>: soap, soap12, http_get, http_put.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Binding Code</em>' attribute.
 	 * @see data.grauml.graWsdl.BindingType

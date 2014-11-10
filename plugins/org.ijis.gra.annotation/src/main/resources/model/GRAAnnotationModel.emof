@@ -406,159 +406,9 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="Abstract base class for all GRA Service annotation metadata classes."/>
+                value="Abstract base class for GRA Service annotation metadata classes."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.GraServiceAnnotationBase.nameDerivation"
-            name="nameDerivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="stringValueOf(&quot;Name&quot;) = (if name->notEmpty and name &lt;> &quot;&quot; then  name else if realizesElement() then realizedElement.name else &quot;&quot; endif endif)"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.GraServiceAnnotationBase.nameDerivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.GraServiceAnnotationBase.nameDerivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.GraServiceAnnotationBase.nameDerivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.GraServiceAnnotationBase.nameDerivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.GraServiceAnnotationBase.nameDerivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.GraServiceAnnotationBase.docDerivation"
-            name="docDerivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="stringValue(&quot;Documentation&quot;) = if realizesElement() then  realizedElement().docComment() else docComment() endif"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.GraServiceAnnotationBase.docDerivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.GraServiceAnnotationBase.docDerivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.GraServiceAnnotationBase.docDerivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.GraServiceAnnotationBase.docDerivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.GraServiceAnnotationBase.docDerivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.GraServiceAnnotationBase.name"
             name="name"
@@ -569,7 +419,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The element name. Derived from the UML InstanceSpecification's name, or if not set will default to the realized element's name."/>
+                  value="The element name. Derived from the instance's name, or if that is empty to the corresponding element's name."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -586,7 +436,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The documentation for this element.  Derived from a realized element or, if not provided, the element's documentation."/>
+                  value="The documentation for this element.  Derived from a realized or corresponding element's documentation or, if not provided, the instance's documentation."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -603,7 +453,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Template is the name of an XSLT template that will be called to process the containing element thus overriding the default mapping."/>
+                  value="Template is the name of a phase-2 template that will be called to process the containing element thus overriding the default mapping."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -638,7 +488,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Reference to a model element annotated by this element.  Modeled as a Realization."/>
+                  value="Derived reference to a model element realized by or corresponding to this element, used for traceability."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -671,7 +521,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Diagnostic information for this element.  Derived during phase 1 provisioning."/>
+                  value="Diagnostic information for this element.  Derived during phase-1 provisioning."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -689,84 +539,9 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="Model references are generated from Realizations during phase-1."/>
+                value="Model references are generated from Realizations and service hierarchy correspondences during phase-1."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.ModelReference.derivation"
-            name="derivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="TODO: define derivation from realization"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ModelReference.derivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ModelReference.derivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.ModelReference.derivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ModelReference.derivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ModelReference.derivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.ModelReference.name"
             name="name"
@@ -777,7 +552,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The name of the realized element"/>
+                  value="The name of the corresponding element."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -794,7 +569,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The documentation of the realized element"/>
+                  value="The documentation of the corresponding element."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -810,7 +585,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The id of the realized element."/>
+                  value="The id of the corresponding element."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -828,7 +603,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="URIs of diagrams associated with the realized element."/>
+                  value="URIs of diagrams associated with the corresponding element."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -847,7 +622,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The model resource containing the realized element."/>
+                  value="The model resource containing the corresponding element."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -909,84 +684,9 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;  &lt;body>&#xA;    &lt;p>&#xA;Each Participant represents an ExchangePartner of the ServiceDescription. &amp;#160;Participant annotations are generated by Phase-1 processing. &amp;#160;A Participant may be modeled directly realizing an Actor in the logical model, in which case a single Participant corresponding to that Actor is generated. A Participant may be modeled realizing a Package in the logical model, in which case a Participant is generated corresponding to every Actor in the package. &amp;#160;A Participant is also generated for every Actor that plays a role in any Interaction owned by the Collaboration realized by the ServiceDescription. &amp;#160;If Actors are related in the logical model by inheritance, then a Participant generated from a specializing Actor will contain a generalization element that identifies the Participant corresponding to the generalizing Actor.&#xA;&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&lt;/html>&#xA;"/>
+                value="Each Participant represents an ExchangePartner of the ServiceDescription. Participant annotations are generated by phase-1 provisioning.  A Participant may be modeled directly realizing an Actor in the logical model, in which case a single Participant corresponding to that Actor is generated. A Participant may be modeled realizing a Package in the logical model, in which case a Participant is generated corresponding to every Actor in the package.  A Participant is also generated for every Actor that plays a role in any Interaction owned by the Collaboration realized by the ServiceDescription.  If Actors are related in the logical model by inheritance, then a Participant generated from a specializing Actor will contain a generalization element that identifies the Participant corresponding to the generalizing Actor."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.Participant.realizesActor"
-            name="realizesActor"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="realizesElement() and realizedElement().oclIsKindOf(Actor)"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Participant.realizesActor.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Participant.realizesActor.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.Participant.realizesActor.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Participant.realizesActor.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Participant.realizesActor.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.Participant.participatingOrganization"
             name="participatingOrganization"
@@ -1009,7 +709,17 @@
             lower="0"
             upper="*"
             type="data.grauml.graAnnotationModel.Participant"
-            isComposite="true"/>
+            isComposite="true">
+          <xmi:Extension
+              extender="http://www.eclipse.org/emf/2002/Ecore">
+            <eAnnotations
+                source="http://www.eclipse.org/emf/2002/GenModel">
+              <details
+                  key="documentation"
+                  value="Represents the fact that this Participant is a &quot;kind of&quot; the generalizing Participant. Derived from Actor generalization."/>
+            </eAnnotations>
+          </xmi:Extension>
+        </ownedAttribute>
       </ownedType>
       <ownedType
           xmi:type="emof:Class"
@@ -1085,7 +795,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="An organization's role defined in free form text. Examples could be creator, provider, owner, maintainer, authorities source, etc."/>
+                  value="An organization's role defined in free form text. Examples could be creator, provider, owner, maintainer, authority's source, etc."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -1202,7 +912,7 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="Represents an abstract service interface."/>
+                value="Represents an abstract service interface.  If not declared as an annotation, derived during phase-1 provisioning for every UML Interface in the service hierarchy."/>
           </eAnnotations>
         </xmi:Extension>
         <ownedAttribute
@@ -1218,7 +928,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The operations contained by the interface."/>
+                  value="The operations contained by the interface. Either explicitly declared or derived during phase-1 provisioning from the Operations/Receptions in the service hierarchy."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -1234,241 +944,9 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="A data structure representing a service action."/>
-          </eAnnotations>
-          <eAnnotations
-              source="duplicates">
-            <contents
-                xmi:type="emof:Operation"
-                xmi:id="data.grauml.graAnnotationModel.Operation.%duplicates%.nameDerivation"
-                name="nameDerivation"
-                isOrdered="true"
-                lower="0">
-              <xmi:Extension
-                  extender="http://www.eclipse.org/emf/2002/Ecore">
-                <eAnnotations
-                    source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-                  <details
-                      key="body"
-                      value="stringValueOf(&quot;ActionName&quot;) = realizedElement().oclAsType(NamedElement).name"/>
-                </eAnnotations>
-                <eAnnotations
-                    source="redefines"
-                    references="data.grauml.graAnnotationModel.GraServiceAnnotationBase.nameDerivation"/>
-              </xmi:Extension>
-              <type
-                  xmi:type="emof:PrimitiveType"
-                  href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-              <ownedParameter
-                  xmi:id="data.grauml.graAnnotationModel.Operation.%duplicates%.nameDerivation.diagnostics"
-                  name="diagnostics"
-                  isOrdered="true"
-                  lower="0">
-                <xmi:Extension
-                    extender="http://www.eclipse.org/emf/2002/Ecore">
-                  <eAnnotations
-                      source="http://www.eclipse.org/emf/2002/GenModel">
-                    <details
-                        key="documentation"
-                        value="The chain of diagnostics to which problems are to be appended."/>
-                  </eAnnotations>
-                </xmi:Extension>
-                <type
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-              </ownedParameter>
-              <ownedParameter
-                  xmi:id="data.grauml.graAnnotationModel.Operation.%duplicates%.nameDerivation.context"
-                  name="context"
-                  isOrdered="true"
-                  lower="0">
-                <xmi:Extension
-                    extender="http://www.eclipse.org/emf/2002/Ecore">
-                  <eAnnotations
-                      source="http://www.eclipse.org/emf/2002/GenModel">
-                    <details
-                        key="documentation"
-                        value="The cache of context-specific information."/>
-                  </eAnnotations>
-                </xmi:Extension>
-                <type
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-                <xmi:Extension
-                    extender="http://www.eclipse.org/emf/2002/Ecore">
-                  <eGenericType
-                      xmi:id="data.grauml.graAnnotationModel.Operation.%duplicates%.nameDerivation.context.@eGenericType">
-                    <eTypeArguments
-                        xmi:id="data.grauml.graAnnotationModel.Operation.%duplicates%.nameDerivation.context.@eGenericType.@eTypeArguments.0">
-                      <eClassifier
-                          xmi:type="emof:PrimitiveType"
-                          href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                    </eTypeArguments>
-                    <eTypeArguments
-                        xmi:id="data.grauml.graAnnotationModel.Operation.%duplicates%.nameDerivation.context.@eGenericType.@eTypeArguments.1">
-                      <eClassifier
-                          xmi:type="emof:PrimitiveType"
-                          href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                    </eTypeArguments>
-                    <eClassifier
-                        xmi:type="emof:PrimitiveType"
-                        href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-                  </eGenericType>
-                </xmi:Extension>
-              </ownedParameter>
-            </contents>
+                value="A data structure representing a service action.  If not declared as an annotation, derived during phase-1 provisioning for every UML Operation in the service hierarchy."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.Operation.realizesOperationOrReception"
-            name="realizesOperationOrReception"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="realizesElement() and (realizedElement().oclIsKindOf(Operation) or realizedElement().oclIsKindOf(Reception))"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Operation.realizesOperationOrReception.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Operation.realizesOperationOrReception.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.Operation.realizesOperationOrReception.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Operation.realizesOperationOrReception.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Operation.realizesOperationOrReception.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.Operation.purposeDerivation"
-            name="purposeDerivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="stringValueOf(&quot;ActionPurpose&quot;) = realizedElement().docComment()"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Operation.purposeDerivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Operation.purposeDerivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.Operation.purposeDerivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Operation.purposeDerivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Operation.purposeDerivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.Operation.parameter"
             name="parameter"
@@ -1483,7 +961,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The parameters of an operation"/>
+                  value="The parameters of an operation.  Either explicitly declared or derived during phase-1 provisioning from the parameters of Operations/Receptions in the service hierarchy."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -1512,7 +990,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="True if the operation is asynchronous, false otherwise."/>
+                  value="True if the operation is asynchronous, false otherwise. Value is based on the corresponding element being an operation or signal reception."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -1528,7 +1006,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The name of the action."/>
+                  value="The name of the action. Derived from the corresponding element's name."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -1545,7 +1023,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="A description of the purpose performed by this service action."/>
+                  value="A description of the purpose performed by this service action. Derived from the corresponding element's documentation."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -1581,159 +1059,9 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="Represents the information content of parameters defined in an operation."/>
+                value="Represents the information content of parameters defined in an operation.  If not declared as an annotation, derived during phase-1 provisioning for every UML Parameter in the service hierarchy."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.Parameter.derivation"
-            name="derivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="TODO: define derivation of Parameter"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Parameter.derivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Parameter.derivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.Parameter.derivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Parameter.derivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Parameter.derivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.Parameter.useDerivation"
-            name="useDerivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="TODO: Define derivation of Use"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Parameter.useDerivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Parameter.useDerivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.Parameter.useDerivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Parameter.useDerivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Parameter.useDerivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.Parameter.use"
             name="use"
@@ -1744,7 +1072,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The &quot;direction&quot; of the message."/>
+                  value="The &quot;direction&quot; of the message. Derived from the parameter's direction."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -1760,7 +1088,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The information transfered in an operation "/>
+                  value="The information transferred in a parameter. Either explicitly declared or derived from the parameter's type."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -1871,7 +1199,7 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="Represents the data of an operation parameter or a signal.&#xA;"/>
+                value="Represents the data of an operation parameter or a signal. If not declared as an annotation, derived during phase-1 provisioning for the data type of every UML Parameter in the service hierarchy.  For each Message there must be a property of its corresponding type in the NIEM-UML model.&#xA;"/>
           </eAnnotations>
         </xmi:Extension>
         <ownedAttribute
@@ -1883,7 +1211,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Prefix used to reference Schema Namespace."/>
+                  value="Prefix used to reference Schema Namespace. Derived from the defaultPrefix tag on the NIEM information model containing the type relating to this Message."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -1899,7 +1227,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Prefix used to reference Schema Namespace of an element reference."/>
+                  value="Prefix used to reference Schema Namespace of an element reference. Derived from the defaultPrefix tag on the NIEM information model containing the element relating to this Message."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -1949,84 +1277,9 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="Describes a service"/>
+                value="Describes a service.  To be successfully processed by phase-1 provisioning a Service must realize a UML Component."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.Service.realizesComponent"
-            name="realizesComponent"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="realizesElement() and realizedElement().oclIsKindOf(Component)"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Service.realizesComponent.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Service.realizesComponent.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.Service.realizesComponent.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Service.realizesComponent.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Service.realizesComponent.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.Service.port"
             name="port"
@@ -2040,7 +1293,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The port specification for the ports owned by the service component realizing this Service. "/>
+                  value="The port specification for the ports owned by the service component realizing this Service.  Either explicitly declared or derived from Ports on the realized Component."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -2089,84 +1342,9 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="Represents a service port, realizes a UML Port on the Service Component."/>
+                value="Represents a service port. If not declared as an annotation, derived during phase-1 provisioning for every UML Port in the service hierarchy."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.Port.realizesPort"
-            name="realizesPort"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="realizesElement() and realizedElement().oclIsKindOf(Port)&#xA;-- TODO: the port must be a port of the Service Component"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Port.realizesPort.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Port.realizesPort.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.Port.realizesPort.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Port.realizesPort.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Port.realizesPort.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.Port.interface"
             name="interface"
@@ -2180,7 +1358,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Interfaces provided by the Port."/>
+                  value="Interfaces provided by the Port.  Either explicitly declared or derived during phase-1 provisioning from the interfaces of Ports in the service hierarchy."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -2194,7 +1372,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The &lt;soap:address> location of a &lt;wsdl:port>. Derived by default in phase-2 from ServiceInterfaceURI+&quot;/&quot;+&quot;Name&quot; but MAY be changed in the model"/>
+                  value="The &lt;soap:address> location of a &lt;wsdl:port>. Derived by default in phase-2 from ServiceURI+&quot;/&quot;+&quot;Name&quot; but MAY be changed in the model."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -2212,7 +1390,7 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="Represents the information associated with a service test: the input and expected output associated with an operation under test.&#xA;[This is a placeholder - requires more development]"/>
+                value="Represents the information associated with a service test: the input and expected output associated with an operation under test.&#xA;"/>
           </eAnnotations>
         </xmi:Extension>
         <ownedAttribute
@@ -2262,84 +1440,9 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;  &lt;body>&#xA;    &lt;p>&#xA;A ServiceInteraction represents an exchange between participants. ServiceInteractions are generated by Phase-1 processing for each Interaction owned by the Collaboration realized by the ServiceDescription, with the Participants property derived from the Actors that play a role in the Interaction.&#xA;&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&lt;/html>&#xA;"/>
+                value="A ServiceInteraction represents an exchange between participants. ServiceInteractions are generated by Phase-1 processing for each Interaction owned by the Collaboration realized by the ServiceDescription, with the Participants property derived from the Actors that play a role in the Interaction."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.ServiceInteraction.realizesInteraction"
-            name="realizesInteraction"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="realizesElement() and realizedElement().oclIsKindOf(Interaction)&#xA;-- TODO: the partipants must realize Actors involved in the interaction"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceInteraction.realizesInteraction.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceInteraction.realizesInteraction.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.ServiceInteraction.realizesInteraction.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceInteraction.realizesInteraction.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceInteraction.realizesInteraction.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.ServiceInteraction.participant"
             name="participant"
@@ -2353,7 +1456,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The participants in the interaction, each of which realizes an Actor that is involved in the interaction."/>
+                  value="Derived from the Actors that play a role in, or are realized by Components that play a role in, the Interaction corresponding to the ServiceInteraction."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -2369,84 +1472,9 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="&lt;html>&#xA;  &lt;head>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;  &lt;body>&#xA;    &lt;p>&#xA;A UseCase annotation represents one or more &amp;quot;real world effects&amp;quot; of a ServiceDescription. &amp;#160;In the annotation model, a UseCase instance may realize a UseCase or a Package in the logical model. &amp;#160;In the former case, Phase-1 will generate a single UseCase instance&lt;span lang=&quot;EN-US&quot;>. In the latter case, Phase-1 will generate a UseCase instance for each UML&amp;#160;UseCase contained in the realized Package. &amp;#160;In all cases the generated UseCases' &lt;/span>Provider and Consumer properties are derived from Associations stereotyped &lt;span lang=&quot;EN-US&quot;>«Provider» and «Consumer» between the logical UseCases and the logical Actors that correspond to Participants in the generated annotation model.&lt;/span>&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;&amp;#160;&#xA;    &lt;/p>&#xA;&#xA;    &lt;p>&#xA;&amp;#160;&#xA;&#xA;    &lt;/p>&#xA;&#xA;  &lt;/body>&#xA;&lt;/html>&#xA;"/>
+                value="A UseCase annotation represents one or more &quot;real world effects&quot; of a ServiceDescription.  In the annotation model, a UseCase instance may realize a UseCase or a Package in the logical model.  In the former case, Phase-1 will generate a single UseCase instance. In the latter case, Phase-1 will generate a UseCase instance for each UML UseCase contained in the realized Package.  In all cases the generated UseCases' Provider and Consumer properties are derived from Associations stereotyped «Provider» and «Consumer» between the logical UseCases and the logical Actors that correspond to Participants in the generated annotation model.&#xA; &#xA; "/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.UseCase.derivation"
-            name="derivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="TODO: define derivation."/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.UseCase.derivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.UseCase.derivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.UseCase.derivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.UseCase.derivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.UseCase.derivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.UseCase.provider"
             name="provider"
@@ -2459,7 +1487,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Participants that provide services."/>
+                  value="Participants that provide services. Derived from associations stereotyped Provider."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -2475,7 +1503,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Participants that consume services."/>
+                  value="Participants that consume services. Derived from associations stereotyped Consumer."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -2493,81 +1521,6 @@
                 value="A data structure representing an agreement, formal or informal, associated with a service, application or thing, tangible or otherwise."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.Agreement.docDerivation"
-            name="docDerivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="stringValueOf(&quot;Documentation&quot;) = docComment()"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Agreement.docDerivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Agreement.docDerivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.Agreement.docDerivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Agreement.docDerivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Agreement.docDerivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.Agreement.documentation"
             name="documentation"
@@ -2578,7 +1531,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="A free text description of an agreement, formal or informal, associated with a service, application or thing, tangible or otherwise."/>
+                  value="A free text description of an agreement, formal or informal, associated with a service, application or thing, tangible or otherwise.  Derived from the instance documentation."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -2633,81 +1586,6 @@
                 value="A data structure describing the name and location of an IEPD. An annotation element may be related to an IEPD by means of a Usage dependency, in which case the properties of this structure are derived from the used IEPD."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.IepdReference.derivation"
-            name="derivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="TODO: define derivation from uses relationship"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.IepdReference.derivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.IepdReference.derivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.IepdReference.derivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.IepdReference.derivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.IepdReference.derivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.IepdReference.name"
             name="name"
@@ -2718,7 +1596,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="A human readable identification of the IEPD"/>
+                  value="A human readable identification that is the name of the IEPD."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -2756,81 +1634,6 @@
                 value="Any applicable classification of the security level of the information exchanged by the service, such as SBU, Secret, etc. If there is no strict classification this field can contain a brief statement regarding the security of the data."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.SecurityClassification.nameDerivation"
-            name="nameDerivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="stringValue(&quot;Name&quot;) = name"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.SecurityClassification.nameDerivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.SecurityClassification.nameDerivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.SecurityClassification.nameDerivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.SecurityClassification.nameDerivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.SecurityClassification.nameDerivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.SecurityClassification.name"
             name="name"
@@ -2841,7 +1644,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Any applicable classification of the security level of the information exchanged by the service, such as SBU, Secret, etc. If there is no strict classification this field can contain a brief statement regarding the security of the data."/>
+                  value="The name, derived from the instance name."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -2862,81 +1665,6 @@
                 value="A free text format description of the capability provided by a service. Per GRA, a capability represents the provider's view of a service."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.ServiceCapability.docDerivation"
-            name="docDerivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="stringValueOf(&quot;Documentation&quot;) = docComment()"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceCapability.docDerivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceCapability.docDerivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.ServiceCapability.docDerivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceCapability.docDerivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceCapability.docDerivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.ServiceCapability.documentation"
             name="documentation"
@@ -2947,7 +1675,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="A free text format description of the capability provided by a service.&#xA;[Derived from] Element Documentation"/>
+                  value="A free text format description of the capability provided by a service.   Derived from the instance documentation."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -2966,159 +1694,9 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="A data structure representing the details describing a service.&#xA;[Realizes] Collaboration&#xA;[Uses] IEPD"/>
+                value="A data structure representing the details describing a service. To be successfully processed by phase-1 provisioning, a ServiceDescription must realize a UML Collaboration and must use at least one IEPD."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.ServiceDescription.realizesCollaborationAndUsesIepd"
-            name="realizesCollaborationAndUsesIepd"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="realizesElement() and realizedElement().oclIsKindOf(Collaboration) and usesElement() and usedElement().isIEPD()"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceDescription.realizesCollaborationAndUsesIepd.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceDescription.realizesCollaborationAndUsesIepd.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.ServiceDescription.realizesCollaborationAndUsesIepd.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceDescription.realizesCollaborationAndUsesIepd.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceDescription.realizesCollaborationAndUsesIepd.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.ServiceDescription.exchangePartnerDerivation"
-            name="exchangePartnerDerivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="TODO: derived from Role in Collaboration"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceDescription.exchangePartnerDerivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceDescription.exchangePartnerDerivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.ServiceDescription.exchangePartnerDerivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceDescription.exchangePartnerDerivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceDescription.exchangePartnerDerivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.ServiceDescription.exchangePartner"
             name="exchangePartner"
@@ -3285,7 +1863,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Reference information identifying an Information Exchange Package Document which the service uses in its data model.&#xA;[Derived from] Usage dependencies to IEPD."/>
+                  value="Reference information identifying an Information Exchange Package Document which the service uses in its data model.  Derived from Usage dependencies to IEPD."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -3421,7 +1999,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The exchanges between participants described by the service. Maps to the GRA business scenarios. "/>
+                  value="The exchanges between participants described by the service. Maps to the GRA business scenarios. Derived from the Interactions owned by the realized Collaboration."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -3435,7 +2013,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="URI of an XSLT that transforms the skeleton SSP into a final one as the &quot;phase-2&quot; transform. "/>
+                  value="URI of a template file structure that includes artifacts to transform the intermediate SSP into a final one as the &quot;phase-2&quot; transform."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -3520,7 +2098,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="A date when a service was or will be first available in production.Not to be confused with the date this service was submitted to a registry. The format is YYYY-MM."/>
+                  value="A date when a service was or will be first available in production. Not to be confused with the date this service was submitted to a registry. The format is YYYY-MM."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -3629,23 +2207,6 @@
                   value="This property contains any additional information pertinent to the service which should be included in this description but does not belong elsewhere.  This could be information about future capabilities the service could provide, information regarding specific conditions which govern the use of the service, information regarding specific domain capabilities the service fulfills, etc.  If required, subsections can be created to further structure the information provided in this section.&#xA;&#xA;Additional artifacts related to this section's content can be provided in the artifacts folder of the service package.&#xA;  &#xA;[Service Abbreviation] SSP [Service Version]\artifacts&#xA;&#xA;If such artifacts are provided, they should be referenced here.  A description of the artifact and a link to it should be provided as part of the reference.&#xA;&#xA;This property is used to populate the Additional Information section of the SDD document.&#xA;"/>
             </eAnnotations>
           </xmi:Extension>
-        </ownedAttribute>
-        <ownedAttribute
-            xmi:id="data.grauml.graAnnotationModel.ServiceDescription.serviceDescriptionUri"
-            name="serviceDescriptionUri"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/emf/2002/GenModel">
-              <details
-                  key="documentation"
-                  value="URI of the Service Description Document, relative to the SSP Catalog."/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="GRAAnnotationModelTypes.emof#types.String"/>
         </ownedAttribute>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.ServiceDescription.executionContext"
@@ -3837,81 +2398,6 @@
                 value="A data structure used for the types of properties that are intended to document an element, with the possibility of a link to external documentation."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.Description.docDerivation"
-            name="docDerivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="stringValueOf(&quot;Documentation&quot;)=docComment()"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Description.docDerivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.Description.docDerivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.Description.docDerivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Description.docDerivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.Description.docDerivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.Description.documentation"
             name="documentation"
@@ -3922,7 +2408,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="The documentation for the element. Derived from the UML element's comment."/>
+                  value="The documentation for the element. Derived from the instance documentation."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -3960,231 +2446,6 @@
                 value="A collection of policies, agreements, licensing and any other governance or performance documentation specifying constraints and any other details regarding the realization of a service."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableContractsIndicatorDerivation"
-            name="applicableContractsIndicatorDerivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="applicableContractsIndicator = (applicableContract->notEmpty())"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableContractsIndicatorDerivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableContractsIndicatorDerivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableContractsIndicatorDerivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableContractsIndicatorDerivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableContractsIndicatorDerivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableAgreementsIndicatorDerivation"
-            name="applicableAgreementsIndicatorDerivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="applicableAgreementsIndicator = (Agreement->notEmpty())"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableAgreementsIndicatorDerivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableAgreementsIndicatorDerivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableAgreementsIndicatorDerivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableAgreementsIndicatorDerivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableAgreementsIndicatorDerivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableUmbrellaAgreementsIndicatorDerivation"
-            name="applicableUmbrellaAgreementsIndicatorDerivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="applicableUmbrellaAgreementsIndicator = (UmbrellaAgreement->notEmpty())"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableUmbrellaAgreementsIndicatorDerivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableUmbrellaAgreementsIndicatorDerivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableUmbrellaAgreementsIndicatorDerivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableUmbrellaAgreementsIndicatorDerivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicableUmbrellaAgreementsIndicatorDerivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.applicablePoliciesIndicator"
             name="applicablePoliciesIndicator"
@@ -4440,6 +2701,23 @@
               href="GRAAnnotationModelTypes.emof#types.String"/>
         </ownedAttribute>
         <ownedAttribute
+            xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.creationCostAmount"
+            name="creationCostAmount"
+            lower="0">
+          <xmi:Extension
+              extender="http://www.eclipse.org/emf/2002/Ecore">
+            <eAnnotations
+                source="http://www.eclipse.org/emf/2002/GenModel">
+              <details
+                  key="documentation"
+                  value="Cost to create a thing, such as an application or service. This includes the full cost to design, manage, develop, test, implement and maintain. Currency text may precede or follow amount."/>
+            </eAnnotations>
+          </xmi:Extension>
+          <type
+              xmi:type="emof:PrimitiveType"
+              href="GRAAnnotationModelTypes.emof#types.String"/>
+        </ownedAttribute>
+        <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.usageCostAmount"
             name="usageCostAmount"
             lower="0">
@@ -4467,23 +2745,6 @@
               <details
                   key="documentation"
                   value="A cost associated with a service (e.g. transaction, unlimited transactions, minutes of use). Currency text may precede or follow amount."/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="GRAAnnotationModelTypes.emof#types.String"/>
-        </ownedAttribute>
-        <ownedAttribute
-            xmi:id="data.grauml.graAnnotationModel.ServiceLevelAgreement.creationCostAmount"
-            name="creationCostAmount"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/emf/2002/GenModel">
-              <details
-                  key="documentation"
-                  value="Cost to create a thing, such as an application or service. This includes the full cost to design, manage, develop, test, implement and maintain. Currency text may precede or follow amount."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -4571,23 +2832,6 @@
           </xmi:Extension>
         </ownedAttribute>
         <ownedAttribute
-            xmi:id="data.grauml.graAnnotationModel.ServiceInterfaceSpecification.uriAddress"
-            name="uriAddress"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/emf/2002/GenModel">
-              <details
-                  key="documentation"
-                  value="URI of the (WSDL) service interface potentially including version and environment.  The URI is relative to the SSP Catalog.&#xA;&#xA;TODO: really? -> [derived from] Element name.&#xA;"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="GRAAnnotationModelTypes.emof#types.String"/>
-        </ownedAttribute>
-        <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.ServiceInterfaceSpecification.messageDefinitionMechanism"
             name="messageDefinitionMechanism"
             isOrdered="true"
@@ -4604,23 +2848,6 @@
                   value="This property includes information about the message definition mechanism utilized by the service actions.&#xA;&#xA;Per the GRA, message definition mechanisms are closely related to the interface description requirements.  Unlike interface description requirements, message definition mechanisms establish a standard way of defining the structure and contents of a message.&#xA;&#xA;Additional artifacts related to this section's content can be provided in the artifacts folder of the service package.&#xA;  &#xA;[Service Abbreviation] SSP [Service Version]\artifacts&#xA;&#xA;If such artifacts are provided, they should be referenced here. A description of the artifact and a link to it should be provided as part of the reference.&#xA;"/>
             </eAnnotations>
           </xmi:Extension>
-        </ownedAttribute>
-        <ownedAttribute
-            xmi:id="data.grauml.graAnnotationModel.ServiceInterfaceSpecification.serviceInterfaceDescriptionUri"
-            name="serviceInterfaceDescriptionUri"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/emf/2002/GenModel">
-              <details
-                  key="documentation"
-                  value="URI of the Service Interface Description document, potentially including version and environment.  The URI is relative to the SSP Catalog.&#xA;&#xA;TODO: Really? ->[derived from] Element name.&#xA;"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="GRAAnnotationModelTypes.emof#types.String"/>
         </ownedAttribute>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.ServiceInterfaceSpecification.targetNamespace"
@@ -4647,7 +2874,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Prefix to be used for target namespace of (WSDL) Service Specification. Derived from (the same as) ServiceInterfaceNameAbbeviationText"/>
+                  value="Prefix to be used for target namespace of (WSDL) Service Specification. Derived from (the same as) ServiceInterfaceNameAbbeviationText."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -4682,7 +2909,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Reference to used Schema"/>
+                  value="References to used Schema.  Derived from those parts of the information model that are referenced from the service interface."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -4732,81 +2959,6 @@
                 value="A data structure containing information about a Service Interaction Profile."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.ServiceInteractionProfile.nameDerivation"
-            name="nameDerivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="stringValueOf(&quot;SIPName&quot;) = name"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceInteractionProfile.nameDerivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.ServiceInteractionProfile.nameDerivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.ServiceInteractionProfile.nameDerivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceInteractionProfile.nameDerivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.ServiceInteractionProfile.nameDerivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.ServiceInteractionProfile.sipName"
             name="sipName">
@@ -4850,84 +3002,9 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="Elements describing a schema used by this service interface"/>
+                value="Elements describing a schema used by this service interface. Derived from those parts of the information model that are referenced from the service interface."/>
           </eAnnotations>
         </xmi:Extension>
-        <ownedOperation
-            xmi:id="data.grauml.graAnnotationModel.SchemaReference.derivation"
-            name="derivation"
-            isOrdered="true"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-              <details
-                  key="body"
-                  value="TODO: derivation"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="http://schema.omg.org/spec/MOF/2.0/emof.xml#Boolean"/>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.SchemaReference.derivation.diagnostics"
-              name="diagnostics"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The chain of diagnostics to which problems are to be appended."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EDiagnosticChain"/>
-          </ownedParameter>
-          <ownedParameter
-              xmi:id="data.grauml.graAnnotationModel.SchemaReference.derivation.context"
-              name="context"
-              isOrdered="true"
-              lower="0">
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eAnnotations
-                  source="http://www.eclipse.org/emf/2002/GenModel">
-                <details
-                    key="documentation"
-                    value="The cache of context-specific information."/>
-              </eAnnotations>
-            </xmi:Extension>
-            <type
-                xmi:type="emof:PrimitiveType"
-                href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-            <xmi:Extension
-                extender="http://www.eclipse.org/emf/2002/Ecore">
-              <eGenericType
-                  xmi:id="data.grauml.graAnnotationModel.SchemaReference.derivation.context.@eGenericType">
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.SchemaReference.derivation.context.@eGenericType.@eTypeArguments.0">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eTypeArguments
-                    xmi:id="data.grauml.graAnnotationModel.SchemaReference.derivation.context.@eGenericType.@eTypeArguments.1">
-                  <eClassifier
-                      xmi:type="emof:PrimitiveType"
-                      href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EJavaObject"/>
-                </eTypeArguments>
-                <eClassifier
-                    xmi:type="emof:PrimitiveType"
-                    href="http://www.eclipse.org/emf/2002/Ecore.emof#ecore.EMap"/>
-              </eGenericType>
-            </xmi:Extension>
-          </ownedParameter>
-        </ownedOperation>
         <ownedAttribute
             xmi:id="data.grauml.graAnnotationModel.SchemaReference.namespace"
             name="namespace">
@@ -4969,7 +3046,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="URI of Schema, relative to SPP Catalog"/>
+                  value="URI of Schema, relative to SSP Catalog."/>
             </eAnnotations>
           </xmi:Extension>
           <type
@@ -4985,69 +3062,7 @@
     <nestedPackage
         xmi:id="data.grauml.graWsdl"
         name="graWsdl"
-        uri="http:/ijis.org/GRA/WSDLAnnotations">
-      <ownedType
-          xmi:type="emof:Class"
-          xmi:id="data.grauml.graWsdl.WsdlServiceInterface"
-          name="WsdlServiceInterface"
-          superClass="data.grauml.graAnnotationModel.ServiceInterfaceSpecification">
-        <xmi:Extension
-            extender="http://www.eclipse.org/emf/2002/Ecore">
-          <eAnnotations
-              source="http://www.eclipse.org/emf/2002/GenModel">
-            <details
-                key="documentation"
-                value="WSDL Extension of the technology-independent element. Represents a &lt;wsdl:definitions>."/>
-          </eAnnotations>
-        </xmi:Extension>
-      </ownedType>
-      <ownedType
-          xmi:type="emof:Class"
-          xmi:id="data.grauml.graWsdl.WsdlService"
-          name="WsdlService"
-          superClass="data.grauml.graAnnotationModel.Service">
-        <xmi:Extension
-            extender="http://www.eclipse.org/emf/2002/Ecore">
-          <eAnnotations
-              source="http://www.eclipse.org/emf/2002/GenModel">
-            <details
-                key="documentation"
-                value="WSDL Extension of the technology-independent element. Represents a &lt;wsdl:service>."/>
-          </eAnnotations>
-        </xmi:Extension>
-      </ownedType>
-      <ownedType
-          xmi:type="emof:Class"
-          xmi:id="data.grauml.graWsdl.WsdlPort"
-          name="WsdlPort"
-          superClass="data.grauml.graAnnotationModel.Port">
-        <xmi:Extension
-            extender="http://www.eclipse.org/emf/2002/Ecore">
-          <eAnnotations
-              source="http://www.eclipse.org/emf/2002/GenModel">
-            <details
-                key="documentation"
-                value="WSDL Extension of the technology-independent element. Represents a &lt;wsdl:port> and &lt;wsdl:binding>."/>
-          </eAnnotations>
-        </xmi:Extension>
-        <ownedAttribute
-            xmi:id="data.grauml.graWsdl.WsdlPort.certificate"
-            name="certificate"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/emf/2002/GenModel">
-              <details
-                  key="documentation"
-                  value="Data for a certificate in support of security"/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="GRAAnnotationModelTypes.emof#types.String"/>
-        </ownedAttribute>
-      </ownedType>
+        uri="http://ijis.org/GRA/WSDLAnnotations">
       <ownedType
           xmi:type="emof:Class"
           xmi:id="data.grauml.graWsdl.WsdlInterface"
@@ -5073,7 +3088,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Specifies technology implementation for a &lt;wsdl:binding>."/>
+                  value="Specifies technology implementation for a &lt;wsdl:binding>: soap, soap12, http_get, http_put."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -5181,7 +3196,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Represents the style of a &lt;soap:operation> within a &lt;wsdl:binding>&lt;wsdl:operation> which has a &lt;soap:binding>."/>
+                  value="Represents the style {doc, rpc} of a &lt;soap:operation> within a &lt;wsdl:binding>&lt;wsdl:operation> which has a &lt;soap:binding>.  Doc is recommended by GRA."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedAttribute>
@@ -5196,7 +3211,7 @@
               source="http://www.eclipse.org/emf/2002/GenModel">
             <details
                 key="documentation"
-                value="WSDL DOC or RPC Biding. Note for GRA &quot;doc&quot; should always be used."/>
+                value="WSDL doc or rpc binding. Note for GRA &quot;doc&quot; should always be used."/>
           </eAnnotations>
         </xmi:Extension>
         <ownedLiteral
@@ -5208,7 +3223,7 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="Represents a soap:operation style of &quot;document&quot;."/>
+                  value="Represents a soap:operation style of &quot;document&quot;. Doc is recommended by GRA."/>
             </eAnnotations>
           </xmi:Extension>
         </ownedLiteral>
@@ -5255,43 +3270,9 @@
                 source="http://www.eclipse.org/emf/2002/GenModel">
               <details
                   key="documentation"
-                  value="When used in conjunction with a soap binding, indicates the location of the part within the message."/>
+                  value="When used in conjunction with a soap binding, indicates the location of the part within the message: body, header, url."/>
             </eAnnotations>
           </xmi:Extension>
-        </ownedAttribute>
-        <ownedAttribute
-            xmi:id="data.grauml.graWsdl.WsdlMessage.encoding"
-            name="encoding"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/emf/2002/GenModel">
-              <details
-                  key="documentation"
-                  value="Represents the encoding style of a wsdl binding operation parameter."/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="GRAAnnotationModelTypes.emof#types.String"/>
-        </ownedAttribute>
-        <ownedAttribute
-            xmi:id="data.grauml.graWsdl.WsdlMessage.soapAction"
-            name="soapAction"
-            lower="0">
-          <xmi:Extension
-              extender="http://www.eclipse.org/emf/2002/Ecore">
-            <eAnnotations
-                source="http://www.eclipse.org/emf/2002/GenModel">
-              <details
-                  key="documentation"
-                  value="Represents the content of a soapAction within a binding operation having a &lt;soap:binding>."/>
-            </eAnnotations>
-          </xmi:Extension>
-          <type
-              xmi:type="emof:PrimitiveType"
-              href="GRAAnnotationModelTypes.emof#types.String"/>
         </ownedAttribute>
       </ownedType>
       <ownedType

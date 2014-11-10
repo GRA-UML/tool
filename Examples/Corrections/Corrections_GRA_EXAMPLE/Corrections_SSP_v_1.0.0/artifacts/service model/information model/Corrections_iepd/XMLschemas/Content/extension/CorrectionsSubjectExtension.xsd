@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:HOUSE="http://it.ojp.gov/gist/200/Corrections/housing" xmlns:MetaR="http://it.ojp.gov/gist/201/Metadata/MetadataReference" xmlns:Q1="http://niem.gov/niem/domains/jxdm/4.1" xmlns:Q2="http://domain.gov/myDomain/" xmlns:Q3="http://niem.gov/niem/niem-core/2.0" xmlns:Q4="http://it.ojp.gov/gist/200/Corrections/service" xmlns:Q5="http://it.ojp.gov/gist/201/Metadata/MetadataReference" xmlns:Q6="http://it.ojp.gov/gist/200/Corrections/treatments" xmlns:Q7="http://it.ojp.gov/gist/200/Corrections/housing" xmlns:SERVICE="http://it.ojp.gov/gist/200/Corrections/service" xmlns:SUBJ="http://it.ojp.gov/gist/200/Corrections/subject" xmlns:TREAT="http://it.ojp.gov/gist/200/Corrections/treatments" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:i2="http://niem.gov/niem/appinfo/2.1" xmlns:j="http://niem.gov/niem/domains/jxdm/4.1" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://it.ojp.gov/gist/200/Corrections/subject" version="&quot;1&quot;">
-  <xsd:import namespace="http://niem.gov/niem/domains/jxdm/4.1" schemaLocation="../../../XMLschemas/Content/subset/niem/2.0/jxdm.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/niem-core/2.0" schemaLocation="../../../XMLschemas/Content/subset/niem/2.0/niem-core.xsd"/>
-  <xsd:import namespace="http://it.ojp.gov/gist/201/Metadata/MetadataReference" schemaLocation="../../../XMLschemas/Metadata/MetadataReference.xsd"/>
-  <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/housing" schemaLocation="../../../XMLschemas/Content/extension/HousingExtension.xsd"/>
+<xsd:schema xmlns:HOUSE="http://it.ojp.gov/gist/200/Corrections/housing" xmlns:MetaR="http://it.ojp.gov/gist/201/Metadata/MetadataReference" xmlns:Q1="http://it.ojp.gov/gist/200/Corrections/EntityIdentification" xmlns:Q2="http://it.ojp.gov/gist/200/Corrections/service" xmlns:Q3="http://it.ojp.gov/gist/201/Metadata/MetadataReference" xmlns:Q4="http://it.ojp.gov/gist/200/Corrections/treatments" xmlns:SERVICE="http://it.ojp.gov/gist/200/Corrections/service" xmlns:SUBJ="http://it.ojp.gov/gist/200/Corrections/subject" xmlns:TREAT="http://it.ojp.gov/gist/200/Corrections/treatments" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:i2="http://niem.gov/niem/appinfo/2.1" xmlns:j="http://niem.gov/niem/domains/jxdm/4.1" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://it.ojp.gov/gist/200/Corrections/subject" version="&quot;1&quot;">
   <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/service" schemaLocation="../../../XMLschemas/Content/extension/SubjectServicesAndAssessments.xsd"/>
+  <xsd:import namespace="http://it.ojp.gov/gist/201/Metadata/MetadataReference" schemaLocation="../../../XMLschemas/Metadata/MetadataReference.xsd"/>
   <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/treatments" schemaLocation="../../../XMLschemas/Content/extension/TreatmentAndPerscriptionExtension.xsd"/>
-  <xsd:import namespace="http://domain.gov/myDomain/" schemaLocation="../../../XMLschemas/Content/extension/EntityIdentification.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../../../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../../../XMLschemas/structures/2.0/structures.xsd"/>
+  <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/EntityIdentification" schemaLocation="../../../XMLschemas/Content/extension/EntityIdentification.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/niem-core/2.0" schemaLocation="../../../XMLschemas/Content/subset/niem/2.0/niem-core.xsd"/>
+  <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/housing" schemaLocation="../../../XMLschemas/Content/extension/HousingExtension.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/domains/jxdm/4.1" schemaLocation="../../../XMLschemas/Content/subset/niem/2.0/jxdm.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/appinfo/2.1" schemaLocation="../../../XMLschemas/appinfo/2.1/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../../../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/appinfo/2.0" schemaLocation="../../../XMLschemas/appinfo/2.0/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../../../XMLschemas/structures/2.0/structures.xsd"/>
   <xsd:complexType abstract="false" mixed="false" name="SubjectType">
     <xsd:annotation>
       <xsd:documentation>A data type for subjects, subjects are the foundation of correction information sharing. Subjects may be inmates, convicted or waiting for trial. Subjects may have sentences, multiple incarcerations and be categorized.
@@ -20,7 +20,7 @@ Subjects receive services provided by service providers (a role of an organizati
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="Q1:SubjectType">
+      <xsd:extension base="j:SubjectType">
         <xsd:sequence>
           <xsd:element maxOccurs="1" minOccurs="1" ref="SUBJ:EntityIdentification"/>
           <xsd:element maxOccurs="unbounded" minOccurs="1" ref="SUBJ:Incarceration"/>
@@ -42,7 +42,7 @@ Subjects receive services provided by service providers (a role of an organizati
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element abstract="false" name="EntityIdentification" nillable="false" type="Q2:EntityIdentityType">
+  <xsd:element abstract="false" name="EntityIdentification" nillable="false" type="Q1:EntityIdentityType">
     <xsd:annotation>
       <xsd:documentation>An Identification of a subject and links to more information about that subject</xsd:documentation>
     </xsd:annotation>
@@ -80,7 +80,7 @@ Subjects receive services provided by service providers (a role of an organizati
       </xsd:appinfo>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="Release" nillable="false" type="Q3:ReleaseType">
+  <xsd:element abstract="false" name="Release" nillable="false" type="nc:ReleaseType">
     <xsd:annotation>
       <xsd:documentation>A set of Details of discharge from incarceration</xsd:documentation>
     </xsd:annotation>
@@ -101,14 +101,14 @@ Subjects receive services provided by service providers (a role of an organizati
       </xsd:appinfo>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="BeginDate" nillable="false" type="Q3:DateType">
+  <xsd:element abstract="false" name="BeginDate" nillable="false" type="nc:DateType">
     <xsd:annotation>
       <xsd:documentation>A date of incarceration</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="EndDate" nillable="false" type="Q3:DateType">
+  <xsd:element abstract="false" name="EndDate" nillable="false" type="nc:DateType">
     <xsd:annotation>
-      <xsd:documentation>A date the subjects association with associates ended.</xsd:documentation>
+      <xsd:documentation>A date incarceration ended</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
   <xsd:element abstract="false" name="ServiceProvided" nillable="false" type="s:ReferenceType">
@@ -140,12 +140,12 @@ Subjects receive services provided by service providers (a role of an organizati
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element abstract="false" name="AccomplishmentDescriptionText" nillable="false" type="Q3:TextType">
+  <xsd:element abstract="false" name="AccomplishmentDescriptionText" nillable="false" type="nc:TextType">
     <xsd:annotation>
       <xsd:documentation>A description of the accomplishment</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="AccomplishmentDate" nillable="false" type="Q3:DateType">
+  <xsd:element abstract="false" name="AccomplishmentDate" nillable="false" type="nc:DateType">
     <xsd:annotation>
       <xsd:documentation>A date accomplished</xsd:documentation>
     </xsd:annotation>
@@ -174,12 +174,12 @@ Subjects receive services provided by service providers (a role of an organizati
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element abstract="false" name="IndicatorDescription" nillable="false" type="Q3:TextType">
+  <xsd:element abstract="false" name="IndicatorDescription" nillable="false" type="nc:TextType">
     <xsd:annotation>
       <xsd:documentation>A description of an indicator</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="RiskLevelCode" nillable="false" type="Q4:LevelCodeSimpleType">
+  <xsd:element abstract="false" name="RiskLevelCode" nillable="false" type="Q2:LevelCodeSimpleType">
     <xsd:annotation>
       <xsd:documentation>A Risk indicated</xsd:documentation>
     </xsd:annotation>
@@ -213,22 +213,22 @@ Subjects receive services provided by service providers (a role of an organizati
       </xsd:appinfo>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="InsuranceHeld" nillable="false" type="Q3:InsuranceType">
+  <xsd:element abstract="false" name="InsuranceHeld" nillable="false" type="nc:InsuranceType">
     <xsd:annotation>
       <xsd:documentation>A subjects insurance</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="Perscriptions" nillable="false" type="Q6:PerscriptionType">
+  <xsd:element abstract="false" name="Perscriptions" nillable="false" type="Q4:PrescriptionType">
     <xsd:annotation>
       <xsd:documentation>A set of Prescription(s) for a subject</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="Obligation" nillable="false" type="Q3:ObligationType">
+  <xsd:element abstract="false" name="Obligation" nillable="false" type="nc:ObligationType">
     <xsd:annotation>
       <xsd:documentation>A set of Obligation(s) of a subject</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="Sanction" nillable="false" type="Q1:SanctionType">
+  <xsd:element abstract="false" name="Sanction" nillable="false" type="j:SanctionType">
     <xsd:annotation>
       <xsd:documentation>A set of Sanctions for a subject</xsd:documentation>
     </xsd:annotation>
@@ -268,22 +268,22 @@ Subjects receive services provided by service providers (a role of an organizati
       </xsd:enumeration>
     </xsd:restriction>
   </xsd:simpleType>
-  <xsd:element abstract="false" name="Property" nillable="false" type="Q3:PropertyType">
+  <xsd:element abstract="false" name="Property" nillable="false" type="nc:PropertyType">
     <xsd:annotation>
       <xsd:documentation>A property of a subject, including held property.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="Arrest" nillable="false" type="Q1:ArrestType">
+  <xsd:element abstract="false" name="Arrest" nillable="false" type="j:ArrestType">
     <xsd:annotation>
       <xsd:documentation>A set of Arrests of subject</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="Visitation" nillable="false" type="Q1:VisitationType">
+  <xsd:element abstract="false" name="Visitation" nillable="false" type="j:VisitationType">
     <xsd:annotation>
       <xsd:documentation>A Visitation(s) of a subject</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="Biometric" nillable="false" type="Q3:BiometricType">
+  <xsd:element abstract="false" name="Biometric" nillable="false" type="nc:BiometricType">
     <xsd:annotation>
       <xsd:documentation>A set of Biometrics of a subject (not appropriate for person in general)</xsd:documentation>
     </xsd:annotation>
@@ -294,55 +294,6 @@ Subjects receive services provided by service providers (a role of an organizati
       <i:ConformantIndicator>true</i:ConformantIndicator>
     </xsd:appinfo>
   </xsd:annotation>
-  <xsd:complexType abstract="false" mixed="false" name="SubjectAssociatesAssociationType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a relationship to a subjects associates</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="Association" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="s:ComplexObjectType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="SUBJ:AssociationName"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="SUBJ:EndDate"/>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="SUBJ:Associates"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="SUBJ:StartDate"/>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="SUBJ:Subject"/>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="SUBJ:AssociationDescriptionText"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="AssociationName" nillable="false" type="niem-xsd:string">
-    <xsd:annotation>
-      <xsd:documentation>A kind of subjects association with associates.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="Associates" nillable="false" type="s:ReferenceType">
-    <xsd:annotation>
-      <xsd:appinfo>
-        <i:ReferenceTarget i:name="PersonType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="StartDate" nillable="false" type="Q3:DateType">
-    <xsd:annotation>
-      <xsd:documentation>A date the subjects association with associates started.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="Subject" nillable="false" type="s:ReferenceType">
-    <xsd:annotation>
-      <xsd:appinfo>
-        <i:ReferenceTarget i:name="SubjectType" i:namespace="http://niem.gov/niem/domains/jxdm/4.1"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="AssociationDescriptionText" nillable="false" type="Q3:TextType">
-    <xsd:annotation>
-      <xsd:documentation>A description of subjects association with associates.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
   <xsd:complexType abstract="false" mixed="false" name="SubjectPlanningAssociationType">
     <xsd:annotation>
       <xsd:documentation>A data type for a relationship to the planning of an activity</xsd:documentation>
@@ -356,4 +307,53 @@ Subjects receive services provided by service providers (a role of an organizati
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
+  <xsd:complexType abstract="false" mixed="false" name="SubjectAssociatesAssociationType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a relationship to a subjects associates</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="Association" i:namespace="http://niem.gov/niem/structures/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="SUBJ:Associates"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="SUBJ:AssociationDescriptionText"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="SUBJ:AssociationName"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="SUBJ:Subject"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="SUBJ:EndDate"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="SUBJ:StartDate"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="Associates" nillable="false" type="s:ReferenceType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i:ReferenceTarget i:name="PersonType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="AssociationDescriptionText" nillable="false" type="nc:TextType">
+    <xsd:annotation>
+      <xsd:documentation>A description of subjects association with associates.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="AssociationName" nillable="false" type="niem-xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>A kind of subjects association with associates.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="Subject" nillable="false" type="s:ReferenceType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i:ReferenceTarget i:name="SubjectType" i:namespace="http://niem.gov/niem/domains/jxdm/4.1"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="StartDate" nillable="false" type="nc:DateType">
+    <xsd:annotation>
+      <xsd:documentation>A date the subjects association with associates started.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
 </xsd:schema>

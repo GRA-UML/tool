@@ -12,7 +12,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated GRAAnnotationModel -->
       <package
-            uri="http:/ijis.org/GRA/WSDLAnnotations"
+            uri="http://ijis.org/GRA/WSDLAnnotations"
             class="data.grauml.graWsdl.GraWsdlPackage"
             genModel="src/main/resources/model/GRAAnnotationModel.genmodel"/>
    </extension>

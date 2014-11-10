@@ -2,10 +2,7 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Model references are generated from Realizations during phase-1.
+ * Model references are generated from Realizations and service hierarchy correspondences during phase-1.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -38,7 +35,7 @@ public interface ModelReference extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the realized element
+	 * The name of the corresponding element.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -63,7 +60,7 @@ public interface ModelReference extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The documentation of the realized element
+	 * The documentation of the corresponding element.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' attribute.
 	 * @see #setDocumentation(String)
@@ -88,7 +85,7 @@ public interface ModelReference extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The id of the realized element.
+	 * The id of the corresponding element.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Element Id</em>' attribute.
 	 * @see #setElementId(String)
@@ -114,7 +111,7 @@ public interface ModelReference extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * URIs of diagrams associated with the realized element.
+	 * URIs of diagrams associated with the corresponding element.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Diagram Link</em>' attribute list.
 	 * @see data.grauml.graAnnotationModel.GraAnnotationModelPackage#getModelReference_DiagramLink()
@@ -128,7 +125,7 @@ public interface ModelReference extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The model resource containing the realized element.
+	 * The model resource containing the corresponding element.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Model</em>' containment reference.
 	 * @see #setModel(Model)
@@ -147,17 +144,5 @@ public interface ModelReference extends EObject {
 	 * @generated
 	 */
 	void setModel(Model value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='TODO: define derivation from realization'"
-	 * @generated
-	 */
-	boolean derivation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ModelReference

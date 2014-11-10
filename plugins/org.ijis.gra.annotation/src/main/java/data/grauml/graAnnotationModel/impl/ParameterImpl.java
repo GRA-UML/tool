@@ -6,20 +6,11 @@ import data.grauml.graAnnotationModel.GraAnnotationModelPackage;
 import data.grauml.graAnnotationModel.Message;
 import data.grauml.graAnnotationModel.Parameter;
 import data.grauml.graAnnotationModel.ParameterUse;
-import data.grauml.graAnnotationModel.util.GraAnnotationModelValidator;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -154,56 +145,6 @@ public class ParameterImpl extends GraServiceAnnotationBaseImpl implements Param
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean derivation(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 GraAnnotationModelValidator.DIAGNOSTIC_SOURCE,
-						 GraAnnotationModelValidator.PARAMETER__DERIVATION,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "derivation", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean useDerivation(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 GraAnnotationModelValidator.DIAGNOSTIC_SOURCE,
-						 GraAnnotationModelValidator.PARAMETER__USE_DERIVATION,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "useDerivation", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -279,23 +220,6 @@ public class ParameterImpl extends GraServiceAnnotationBaseImpl implements Param
 				return message != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case GraAnnotationModelPackage.PARAMETER___DERIVATION__DIAGNOSTICCHAIN_MAP:
-				return derivation((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
-			case GraAnnotationModelPackage.PARAMETER___USE_DERIVATION__DIAGNOSTICCHAIN_MAP:
-				return useDerivation((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

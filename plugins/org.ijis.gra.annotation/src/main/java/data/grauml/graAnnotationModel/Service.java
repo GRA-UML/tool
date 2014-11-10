@@ -2,10 +2,7 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Describes a service
+ * Describes a service.  To be successfully processed by phase-1 provisioning a Service must realize a UML Component.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -37,7 +34,7 @@ public interface Service extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The port specification for the ports owned by the service component realizing this Service. 
+	 * The port specification for the ports owned by the service component realizing this Service.  Either explicitly declared or derived from Ports on the realized Component.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Port</em>' containment reference list.
 	 * @see data.grauml.graAnnotationModel.GraAnnotationModelPackage#getService_Port()
@@ -89,17 +86,5 @@ public interface Service extends EObject {
 	 * @generated
 	 */
 	EList<SampleData> getSampleData();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='realizesElement() and realizedElement().oclIsKindOf(Component)'"
-	 * @generated
-	 */
-	boolean realizesComponent(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Service

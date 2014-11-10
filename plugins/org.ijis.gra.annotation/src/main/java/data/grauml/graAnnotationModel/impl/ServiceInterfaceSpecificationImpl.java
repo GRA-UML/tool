@@ -29,9 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceInterfaceSpecificationImpl#getSecurityDescriptionText <em>Security Description Text</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceInterfaceSpecificationImpl#getServiceInteractionProfile <em>Service Interaction Profile</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceInterfaceSpecificationImpl#getService <em>Service</em>}</li>
- *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceInterfaceSpecificationImpl#getUriAddress <em>Uri Address</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceInterfaceSpecificationImpl#getMessageDefinitionMechanism <em>Message Definition Mechanism</em>}</li>
- *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceInterfaceSpecificationImpl#getServiceInterfaceDescriptionUri <em>Service Interface Description Uri</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceInterfaceSpecificationImpl#getTargetNamespace <em>Target Namespace</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceInterfaceSpecificationImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceInterfaceSpecificationImpl#getServiceTesting <em>Service Testing</em>}</li>
@@ -105,26 +103,6 @@ public class ServiceInterfaceSpecificationImpl extends GraServiceAnnotationBaseI
 	protected EList<Service> service;
 
 	/**
-	 * The default value of the '{@link #getUriAddress() <em>Uri Address</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUriAddress()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String URI_ADDRESS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getUriAddress() <em>Uri Address</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUriAddress()
-	 * @generated
-	 * @ordered
-	 */
-	protected String uriAddress = URI_ADDRESS_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getMessageDefinitionMechanism() <em>Message Definition Mechanism</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,26 +111,6 @@ public class ServiceInterfaceSpecificationImpl extends GraServiceAnnotationBaseI
 	 * @ordered
 	 */
 	protected EList<Description> messageDefinitionMechanism;
-
-	/**
-	 * The default value of the '{@link #getServiceInterfaceDescriptionUri() <em>Service Interface Description Uri</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getServiceInterfaceDescriptionUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SERVICE_INTERFACE_DESCRIPTION_URI_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getServiceInterfaceDescriptionUri() <em>Service Interface Description Uri</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getServiceInterfaceDescriptionUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected String serviceInterfaceDescriptionUri = SERVICE_INTERFACE_DESCRIPTION_URI_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTargetNamespace() <em>Target Namespace</em>}' attribute.
@@ -365,53 +323,11 @@ public class ServiceInterfaceSpecificationImpl extends GraServiceAnnotationBaseI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getUriAddress() {
-		return uriAddress;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUriAddress(String newUriAddress) {
-		String oldUriAddress = uriAddress;
-		uriAddress = newUriAddress;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__URI_ADDRESS, oldUriAddress, uriAddress));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Description> getMessageDefinitionMechanism() {
 		if (messageDefinitionMechanism == null) {
 			messageDefinitionMechanism = new EObjectContainmentEList<Description>(Description.class, this, GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__MESSAGE_DEFINITION_MECHANISM);
 		}
 		return messageDefinitionMechanism;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getServiceInterfaceDescriptionUri() {
-		return serviceInterfaceDescriptionUri;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setServiceInterfaceDescriptionUri(String newServiceInterfaceDescriptionUri) {
-		String oldServiceInterfaceDescriptionUri = serviceInterfaceDescriptionUri;
-		serviceInterfaceDescriptionUri = newServiceInterfaceDescriptionUri;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__SERVICE_INTERFACE_DESCRIPTION_URI, oldServiceInterfaceDescriptionUri, serviceInterfaceDescriptionUri));
 	}
 
 	/**
@@ -615,12 +531,8 @@ public class ServiceInterfaceSpecificationImpl extends GraServiceAnnotationBaseI
 				return getServiceInteractionProfile();
 			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__SERVICE:
 				return getService();
-			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__URI_ADDRESS:
-				return getUriAddress();
 			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__MESSAGE_DEFINITION_MECHANISM:
 				return getMessageDefinitionMechanism();
-			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__SERVICE_INTERFACE_DESCRIPTION_URI:
-				return getServiceInterfaceDescriptionUri();
 			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__TARGET_NAMESPACE:
 				return getTargetNamespace();
 			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__PREFIX:
@@ -659,15 +571,9 @@ public class ServiceInterfaceSpecificationImpl extends GraServiceAnnotationBaseI
 				getService().clear();
 				getService().addAll((Collection<? extends Service>)newValue);
 				return;
-			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__URI_ADDRESS:
-				setUriAddress((String)newValue);
-				return;
 			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__MESSAGE_DEFINITION_MECHANISM:
 				getMessageDefinitionMechanism().clear();
 				getMessageDefinitionMechanism().addAll((Collection<? extends Description>)newValue);
-				return;
-			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__SERVICE_INTERFACE_DESCRIPTION_URI:
-				setServiceInterfaceDescriptionUri((String)newValue);
 				return;
 			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__TARGET_NAMESPACE:
 				setTargetNamespace((String)newValue);
@@ -712,14 +618,8 @@ public class ServiceInterfaceSpecificationImpl extends GraServiceAnnotationBaseI
 			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__SERVICE:
 				getService().clear();
 				return;
-			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__URI_ADDRESS:
-				setUriAddress(URI_ADDRESS_EDEFAULT);
-				return;
 			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__MESSAGE_DEFINITION_MECHANISM:
 				getMessageDefinitionMechanism().clear();
-				return;
-			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__SERVICE_INTERFACE_DESCRIPTION_URI:
-				setServiceInterfaceDescriptionUri(SERVICE_INTERFACE_DESCRIPTION_URI_EDEFAULT);
 				return;
 			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__TARGET_NAMESPACE:
 				setTargetNamespace(TARGET_NAMESPACE_EDEFAULT);
@@ -759,12 +659,8 @@ public class ServiceInterfaceSpecificationImpl extends GraServiceAnnotationBaseI
 				return serviceInteractionProfile != null;
 			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__SERVICE:
 				return service != null && !service.isEmpty();
-			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__URI_ADDRESS:
-				return URI_ADDRESS_EDEFAULT == null ? uriAddress != null : !URI_ADDRESS_EDEFAULT.equals(uriAddress);
 			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__MESSAGE_DEFINITION_MECHANISM:
 				return messageDefinitionMechanism != null && !messageDefinitionMechanism.isEmpty();
-			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__SERVICE_INTERFACE_DESCRIPTION_URI:
-				return SERVICE_INTERFACE_DESCRIPTION_URI_EDEFAULT == null ? serviceInterfaceDescriptionUri != null : !SERVICE_INTERFACE_DESCRIPTION_URI_EDEFAULT.equals(serviceInterfaceDescriptionUri);
 			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__TARGET_NAMESPACE:
 				return TARGET_NAMESPACE_EDEFAULT == null ? targetNamespace != null : !TARGET_NAMESPACE_EDEFAULT.equals(targetNamespace);
 			case GraAnnotationModelPackage.SERVICE_INTERFACE_SPECIFICATION__PREFIX:
@@ -795,10 +691,6 @@ public class ServiceInterfaceSpecificationImpl extends GraServiceAnnotationBaseI
 		result.append(securityImplementedIndicator);
 		result.append(", securityDescriptionText: ");
 		result.append(securityDescriptionText);
-		result.append(", uriAddress: ");
-		result.append(uriAddress);
-		result.append(", serviceInterfaceDescriptionUri: ");
-		result.append(serviceInterfaceDescriptionUri);
 		result.append(", targetNamespace: ");
 		result.append(targetNamespace);
 		result.append(", prefix: ");

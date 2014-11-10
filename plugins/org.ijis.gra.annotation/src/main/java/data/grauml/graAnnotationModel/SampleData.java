@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * Represents the information associated with a service test: the input and expected output associated with an operation under test.
- * [This is a placeholder - requires more development]
+ * 
  * <!-- end-model-doc -->
  *
  * <p>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="http://it.ojp.gov/gsp/services/1.0.0">
+
+<!--Catalog Files Section-->
+<catalog href="catalog.html">Catalog</catalog>
+   <metadata href="metadata.xml">Metadata</metadata>
+
+   <!--Pet Adoption Test Service Description SDD Section-->
+<service-description href="./artifacts/PETTest_SDD_v_1.0.0.xhtml">Service Description Document</service-description>
+
+   <!--Pet Adoption Test Service Description SIDD Section-->
+<service-interface-description href="./artifacts/PETTEST_SIDD_v_1.0.0.xhtml">Service Interface Description Document</service-interface-description>
+
+   <!--Pet Adoption Test Service Description WSDL and Schema Section-->
+<wsdl-schema href="./schemas/rs ws-sip1.2/pettest.wsdl">Pet Adoption Test Service Specification WSDL</wsdl-schema>
+
+   <!--mpd Reference Section-->
+<iepd-catalog href="./artifacts/service model/information model/mpd/catalog.xml">IEPD Catalog</iepd-catalog>
+</catalog>

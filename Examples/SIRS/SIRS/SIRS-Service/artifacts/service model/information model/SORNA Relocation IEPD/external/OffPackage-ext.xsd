@@ -1,18 +1,74 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <xsd:schema xmlns:Q1="http://www.iir.com/sorna/NIEM/2.1/juris-codes" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:i2="http://niem.gov/niem/appinfo/2.1" xmlns:j="http://niem.gov/niem/domains/jxdm/4.1" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:ope="http://www.iir.com/sorna/NIEM/2.1/OP/extension/1.0" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.iir.com/sorna/NIEM/2.1/OP/extension/1.0" version="1">
-  <xsd:import namespace="http://niem.gov/niem/niem-core/2.0" schemaLocation=".././external/niem-core.xsd"/>
   <xsd:import namespace="http://www.iir.com/sorna/NIEM/2.1/juris-codes" schemaLocation=".././external/juris-codes.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/domains/jxdm/4.1" schemaLocation=".././external/jxdm.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/appinfo/2.1" schemaLocation="../XMLschemas/appinfo/2.1/appinfo.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/appinfo/2.0" schemaLocation="../XMLschemas/appinfo/2.0/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/niem-core/2.0" schemaLocation=".././external/niem-core.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../XMLschemas/structures/2.0/structures.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/appinfo/2.0" schemaLocation="../XMLschemas/appinfo/2.0/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/appinfo/2.1" schemaLocation="../XMLschemas/appinfo/2.1/appinfo.xsd"/>
   <xsd:annotation>
     <xsd:documentation>SORNA Relocation Offender Package Extension Schema</xsd:documentation>
     <xsd:appinfo>
       <i:ConformantIndicator>true</i:ConformantIndicator>
     </xsd:appinfo>
   </xsd:annotation>
+  <xsd:complexType abstract="false" mixed="false" name="JurisdictionType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for A data type representing the jurisdiction.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="OrganizationType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="nc:OrganizationType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="ope:SORNAJurisdictionCode"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="ope:JurisdictionDepartureDate"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="ope:JurisdictionArrivalDate"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="SORNAJurisdictionCode" nillable="false" type="Q1:SORNAJurisdictionCodeType">
+    <xsd:annotation>
+      <xsd:documentation>SORNA Jurisdiction code.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="JurisdictionDepartureDate" nillable="false" type="nc:DateType">
+    <xsd:annotation>
+      <xsd:documentation>The sending jurisdiction’s estimated date of the offender’s physical departure from the sending jurisdiction, based upon information the offender provided to the sending jurisdiction.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="JurisdictionArrivalDate" nillable="false" type="nc:DateType">
+    <xsd:annotation>
+      <xsd:documentation>The sending jurisdiction’s estimated date of the offender’s physical arrival in the receiving jurisdiction, based upon information the offender provided the sending jurisdiction.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="RegisteredOffenderType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for information related to a registered sex offender.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="RegisteredOffenderType" i:namespace="http://niem.gov/niem/domains/jxdm/4.1"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="j:RegisteredOffenderType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="j:AbscondIndicator"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="ope:RegisteredOffenderIndicators"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="ope:ImmigrationStatus"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="ope:InternetIdentification"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="ope:OffenderSupervisionInformation"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="RegisteredOffenderIndicators" nillable="false" type="ope:RegisteredOffenderIndicatorsType">
+    <xsd:annotation>
+      <xsd:documentation>Additional SORNA indicators associated with a registered offender.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType abstract="false" mixed="false" name="RegisteredOffenderIndicatorsType">
     <xsd:annotation>
       <xsd:documentation>A data type for registered sex offender indicators.</xsd:documentation>
@@ -57,30 +113,6 @@
       <xsd:documentation>True if an offender was convicted as a juvenile.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="RegisteredOffenderType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for information related to a registered sex offender.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="RegisteredOffenderType" i:namespace="http://niem.gov/niem/domains/jxdm/4.1"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="j:RegisteredOffenderType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="j:AbscondIndicator"/>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="ope:RegisteredOffenderIndicators"/>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="ope:ImmigrationStatus"/>
-          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="ope:InternetIdentification"/>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="ope:OffenderSupervisionInformation"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="RegisteredOffenderIndicators" nillable="false" type="ope:RegisteredOffenderIndicatorsType">
-    <xsd:annotation>
-      <xsd:documentation>Additional SORNA indicators associated with a registered offender.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
   <xsd:element abstract="false" name="ImmigrationStatus" nillable="false" type="nc:StatusType">
     <xsd:annotation>
       <xsd:documentation>Status of a person who is an immigrant.</xsd:documentation>
@@ -94,6 +126,26 @@
   <xsd:element abstract="false" name="OffenderSupervisionInformation" nillable="false" type="nc:TextType">
     <xsd:annotation>
       <xsd:documentation>Additional supervision information.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="PersonType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a person.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="PersonType" i:namespace="http://niem.gov/niem/domains/jxdm/4.1"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="j:PersonType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="ope:PersonDigitalImage"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="PersonDigitalImage" nillable="false" type="ope:PersonImageType">
+    <xsd:annotation>
+      <xsd:documentation>A photograph or image of a person in a digital format.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
   <xsd:complexType abstract="false" mixed="false" name="PersonImageType">
@@ -123,56 +175,24 @@
       <xsd:documentation>True if the image is the main image.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="JurisdictionType">
+  <xsd:complexType abstract="false" mixed="false" name="PersonContactInformationAssociationType">
     <xsd:annotation>
-      <xsd:documentation>A data type for A data type representing the jurisdiction.</xsd:documentation>
+      <xsd:documentation>A relationship A data type for an association between a person and contact information.</xsd:documentation>
       <xsd:appinfo>
-        <i:Base i:name="OrganizationType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
+        <i:Base i:name="PersonContactInformationAssociationType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="nc:OrganizationType">
+      <xsd:extension base="nc:PersonContactInformationAssociationType">
         <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="ope:SORNAJurisdictionCode"/>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="ope:JurisdictionDepartureDate"/>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="ope:JurisdictionArrivalDate"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="ope:ContactInformationCategoryText"/>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element abstract="false" name="SORNAJurisdictionCode" nillable="false" type="Q1:SORNAJurisdictionCodeType">
+  <xsd:element abstract="false" name="ContactInformationCategoryText" nillable="false" type="nc:TextType">
     <xsd:annotation>
-      <xsd:documentation>SORNA Jurisdiction code.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="JurisdictionDepartureDate" nillable="false" type="nc:DateType">
-    <xsd:annotation>
-      <xsd:documentation>The sending jurisdiction’s estimated date of the offender’s physical departure from the sending jurisdiction, based upon information the offender provided to the sending jurisdiction.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element abstract="false" name="JurisdictionArrivalDate" nillable="false" type="nc:DateType">
-    <xsd:annotation>
-      <xsd:documentation>The sending jurisdiction’s estimated date of the offender’s physical arrival in the receiving jurisdiction, based upon information the offender provided the sending jurisdiction.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="PersonType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a person.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="PersonType" i:namespace="http://niem.gov/niem/domains/jxdm/4.1"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="j:PersonType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="0" ref="ope:PersonDigitalImage"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="PersonDigitalImage" nillable="false" type="ope:PersonImageType">
-    <xsd:annotation>
-      <xsd:documentation>A photograph or image of a person in a digital format.</xsd:documentation>
+      <xsd:documentation>A kind of contact information.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
   <xsd:complexType abstract="false" mixed="false" name="RegisteredSexOffenderPackageType">
@@ -236,26 +256,6 @@
   <xsd:element abstract="false" name="PersonContactInformationAssociation" nillable="false" type="ope:PersonContactInformationAssociationType">
     <xsd:annotation>
       <xsd:documentation>An association between a person and contact information.</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="PersonContactInformationAssociationType">
-    <xsd:annotation>
-      <xsd:documentation>A relationship A data type for an association between a person and contact information.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="PersonContactInformationAssociationType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="nc:PersonContactInformationAssociationType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="ope:ContactInformationCategoryText"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="ContactInformationCategoryText" nillable="false" type="nc:TextType">
-    <xsd:annotation>
-      <xsd:documentation>A kind of contact information.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
 </xsd:schema>

@@ -2,10 +2,7 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -35,9 +32,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link data.grauml.graAnnotationModel.ServiceLevelAgreement#getServiceAverageThroughput <em>Service Average Throughput</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceLevelAgreement#getServiceMaximumThroughput <em>Service Maximum Throughput</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceLevelAgreement#getServiceAvailability <em>Service Availability</em>}</li>
+ *   <li>{@link data.grauml.graAnnotationModel.ServiceLevelAgreement#getCreationCostAmount <em>Creation Cost Amount</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceLevelAgreement#getUsageCostAmount <em>Usage Cost Amount</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceLevelAgreement#getUsageUnitCostAmount <em>Usage Unit Cost Amount</em>}</li>
- *   <li>{@link data.grauml.graAnnotationModel.ServiceLevelAgreement#getCreationCostAmount <em>Creation Cost Amount</em>}</li>
  * </ul>
  * </p>
  *
@@ -456,41 +453,5 @@ public interface ServiceLevelAgreement extends EObject {
 	 * @generated
 	 */
 	void setCreationCostAmount(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='applicableContractsIndicator = (applicableContract->notEmpty())'"
-	 * @generated
-	 */
-	boolean applicableContractsIndicatorDerivation(DiagnosticChain diagnostics, Map<Object, Object> context);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='applicableAgreementsIndicator = (Agreement->notEmpty())'"
-	 * @generated
-	 */
-	boolean applicableAgreementsIndicatorDerivation(DiagnosticChain diagnostics, Map<Object, Object> context);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='applicableUmbrellaAgreementsIndicator = (UmbrellaAgreement->notEmpty())'"
-	 * @generated
-	 */
-	boolean applicableUmbrellaAgreementsIndicatorDerivation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ServiceLevelAgreement

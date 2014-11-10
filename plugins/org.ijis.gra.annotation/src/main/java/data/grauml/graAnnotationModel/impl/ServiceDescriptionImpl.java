@@ -15,23 +15,15 @@ import data.grauml.graAnnotationModel.ServiceInteraction;
 import data.grauml.graAnnotationModel.ServiceInterfaceSpecification;
 import data.grauml.graAnnotationModel.ServiceLevelAgreement;
 import data.grauml.graAnnotationModel.UseCase;
-import data.grauml.graAnnotationModel.util.GraAnnotationModelValidator;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -71,7 +63,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceDescriptionImpl#getLifecycleStatus <em>Lifecycle Status</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceDescriptionImpl#getAlertAndNotificationUri <em>Alert And Notification Uri</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceDescriptionImpl#getAdditionalInformation <em>Additional Information</em>}</li>
- *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceDescriptionImpl#getServiceDescriptionUri <em>Service Description Uri</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceDescriptionImpl#getExecutionContext <em>Execution Context</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceDescriptionImpl#getSecurity <em>Security</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.impl.ServiceDescriptionImpl#getPrivacy <em>Privacy</em>}</li>
@@ -514,26 +505,6 @@ public class ServiceDescriptionImpl extends ServiceIdentificationImpl implements
 	 * @ordered
 	 */
 	protected EList<Description> additionalInformation;
-
-	/**
-	 * The default value of the '{@link #getServiceDescriptionUri() <em>Service Description Uri</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getServiceDescriptionUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SERVICE_DESCRIPTION_URI_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getServiceDescriptionUri() <em>Service Description Uri</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getServiceDescriptionUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected String serviceDescriptionUri = SERVICE_DESCRIPTION_URI_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getExecutionContext() <em>Execution Context</em>}' containment reference.
@@ -1199,27 +1170,6 @@ public class ServiceDescriptionImpl extends ServiceIdentificationImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getServiceDescriptionUri() {
-		return serviceDescriptionUri;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setServiceDescriptionUri(String newServiceDescriptionUri) {
-		String oldServiceDescriptionUri = serviceDescriptionUri;
-		serviceDescriptionUri = newServiceDescriptionUri;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraAnnotationModelPackage.SERVICE_DESCRIPTION__SERVICE_DESCRIPTION_URI, oldServiceDescriptionUri, serviceDescriptionUri));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Description getExecutionContext() {
 		return executionContext;
 	}
@@ -1521,56 +1471,6 @@ public class ServiceDescriptionImpl extends ServiceIdentificationImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean realizesCollaborationAndUsesIepd(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 GraAnnotationModelValidator.DIAGNOSTIC_SOURCE,
-						 GraAnnotationModelValidator.SERVICE_DESCRIPTION__REALIZES_COLLABORATION_AND_USES_IEPD,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "realizesCollaborationAndUsesIepd", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean exchangePartnerDerivation(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 GraAnnotationModelValidator.DIAGNOSTIC_SOURCE,
-						 GraAnnotationModelValidator.SERVICE_DESCRIPTION__EXCHANGE_PARTNER_DERIVATION,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "exchangePartnerDerivation", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -1686,8 +1586,6 @@ public class ServiceDescriptionImpl extends ServiceIdentificationImpl implements
 				return getAlertAndNotificationUri();
 			case GraAnnotationModelPackage.SERVICE_DESCRIPTION__ADDITIONAL_INFORMATION:
 				return getAdditionalInformation();
-			case GraAnnotationModelPackage.SERVICE_DESCRIPTION__SERVICE_DESCRIPTION_URI:
-				return getServiceDescriptionUri();
 			case GraAnnotationModelPackage.SERVICE_DESCRIPTION__EXECUTION_CONTEXT:
 				return getExecutionContext();
 			case GraAnnotationModelPackage.SERVICE_DESCRIPTION__SECURITY:
@@ -1819,9 +1717,6 @@ public class ServiceDescriptionImpl extends ServiceIdentificationImpl implements
 				getAdditionalInformation().clear();
 				getAdditionalInformation().addAll((Collection<? extends Description>)newValue);
 				return;
-			case GraAnnotationModelPackage.SERVICE_DESCRIPTION__SERVICE_DESCRIPTION_URI:
-				setServiceDescriptionUri((String)newValue);
-				return;
 			case GraAnnotationModelPackage.SERVICE_DESCRIPTION__EXECUTION_CONTEXT:
 				setExecutionContext((Description)newValue);
 				return;
@@ -1945,9 +1840,6 @@ public class ServiceDescriptionImpl extends ServiceIdentificationImpl implements
 			case GraAnnotationModelPackage.SERVICE_DESCRIPTION__ADDITIONAL_INFORMATION:
 				getAdditionalInformation().clear();
 				return;
-			case GraAnnotationModelPackage.SERVICE_DESCRIPTION__SERVICE_DESCRIPTION_URI:
-				setServiceDescriptionUri(SERVICE_DESCRIPTION_URI_EDEFAULT);
-				return;
 			case GraAnnotationModelPackage.SERVICE_DESCRIPTION__EXECUTION_CONTEXT:
 				setExecutionContext((Description)null);
 				return;
@@ -2041,8 +1933,6 @@ public class ServiceDescriptionImpl extends ServiceIdentificationImpl implements
 				return ALERT_AND_NOTIFICATION_URI_EDEFAULT == null ? alertAndNotificationUri != null : !ALERT_AND_NOTIFICATION_URI_EDEFAULT.equals(alertAndNotificationUri);
 			case GraAnnotationModelPackage.SERVICE_DESCRIPTION__ADDITIONAL_INFORMATION:
 				return additionalInformation != null && !additionalInformation.isEmpty();
-			case GraAnnotationModelPackage.SERVICE_DESCRIPTION__SERVICE_DESCRIPTION_URI:
-				return SERVICE_DESCRIPTION_URI_EDEFAULT == null ? serviceDescriptionUri != null : !SERVICE_DESCRIPTION_URI_EDEFAULT.equals(serviceDescriptionUri);
 			case GraAnnotationModelPackage.SERVICE_DESCRIPTION__EXECUTION_CONTEXT:
 				return executionContext != null;
 			case GraAnnotationModelPackage.SERVICE_DESCRIPTION__SECURITY:
@@ -2059,23 +1949,6 @@ public class ServiceDescriptionImpl extends ServiceIdentificationImpl implements
 				return processModel != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case GraAnnotationModelPackage.SERVICE_DESCRIPTION___REALIZES_COLLABORATION_AND_USES_IEPD__DIAGNOSTICCHAIN_MAP:
-				return realizesCollaborationAndUsesIepd((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
-			case GraAnnotationModelPackage.SERVICE_DESCRIPTION___EXCHANGE_PARTNER_DERIVATION__DIAGNOSTICCHAIN_MAP:
-				return exchangePartnerDerivation((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -2122,8 +1995,6 @@ public class ServiceDescriptionImpl extends ServiceIdentificationImpl implements
 		result.append(lifecycleStatus);
 		result.append(", alertAndNotificationUri: ");
 		result.append(alertAndNotificationUri);
-		result.append(", serviceDescriptionUri: ");
-		result.append(serviceDescriptionUri);
 		result.append(')');
 		return result.toString();
 	}

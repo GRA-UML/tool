@@ -9,7 +9,9 @@ Open *.xmi in uml editor, select top package, main menu UML Editor==>convert to=
 	
 Open data.ecore model, save as GRAAnnotationModel.emof
 Open types.ecore, save as GRAAnnotationModelTypes.emof
-edit GRAAnnotationModel.emof, replace 'href="types.ecore#' with href="GRAAnnotationModelTypes.emof#
+edit GRAAnnotationModel.emof, 
+	replace 'href="types.ecore#' with href="GRAAnnotationModelTypes.emof#
+	replace 'href="GRAAnnotationModelTypes.emof#' with href=''
 Select GRAAnnotationModel.emof, context menu==>new==>EMF Generator Model	
 	Select package 'data',  'types'
 In generator model editor, set ModelDirectory to src/main/java 

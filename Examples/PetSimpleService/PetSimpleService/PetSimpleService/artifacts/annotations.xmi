@@ -1,35 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<graa:ServiceDescription  xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ijis.org/GRA/Annotations  http://lib.modeldriven.org/MDLibrary/trunk/Specifications/GRA/GRA-UML-Modeling-Tool/plugins/org.ijis.gra.annotation/src/main/resources/model/data.grauml.graAnnotationModelXMI.xsd http:/ijis.org/GRA/WSDLAnnotations http://lib.modeldriven.org/MDLibrary/trunk/Specifications/GRA/GRA-UML-Modeling-Tool/plugins/org.ijis.gra.annotation/src/main/resources/model/data.grauml.graWsdlXMI.xsd" 
-    xmlns:graa="http://ijis.org/GRA/Annotations" xmi:id="_0" name="Pet Adoption Service Description" documentation="This service provides information sharing with pet adoption centers"
+<graa:ServiceDescription  xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ijis.org/GRA/Annotations  http://repository.ijis.org/GRAUML/schema/graAnnotationModelXMI.xsd http://ijis.org/GRA/WSDLAnnotations http://repository.ijis.org/GRAUML/schema/graWsdlXMI.xsd" 
+    xmlns:graa="http://ijis.org/GRA/Annotations" xmlns:graw="http://ijis.org/GRA/WSDLAnnotations"
+    xmi:id="_0" name="Pet Adoption Service Description" documentation="This service provides information sharing with pet adoption centers"
     serviceId="http://petadoption.com" serviceUri="http://petadoption.com" serviceNameAbbreviationText="PET"
     serviceDescriptionSummaryText="This service provides pet adoption information"
-    domainDescription="Pet products and services" majorVersion="1" lifecycleStatus="Pre production"
-    serviceDescriptionUri="artifacts/PET_SDD_v_1.0.0.xhtml">
+    domainDescription="Pet products and services" majorVersion="1" lifecycleStatus="Pre production">
   <requirement xmi:id="_0.requirement" messageAddressing="true"/>
   <modelReference xmi:id="_0.modelReference" name="Pet Adoption Community" elementId="_17_0_5_1_3ba019e_1407187737027_669498_17425">
     <model xmi:id="_0.modelReference.model" modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
   </modelReference>
-  <diagnostics>ERROR: no URI Detail</diagnostics>
-  <diagnostics>ERROR: action purpose is undefined</diagnostics>
-  <diagnostics>ERROR: message exchange pattern is undefined</diagnostics>
-  <diagnostics>ERROR: unknown purpose</diagnostics>
-  <diagnostics>ERROR: unknown description</diagnostics>
-  <diagnostics>ERROR: no majorVersion</diagnostics>
-  <diagnostics>ERROR: no minorVersion</diagnostics>
-  <diagnostics>ERROR: no revisionVersion</diagnostics>
-  <diagnostics>ERROR: no creationDate</diagnostics>
-  <diagnostics>ERROR: no lifecycleStatus</diagnostics>
-  <diagnostics>ERROR: no DomainNameText</diagnostics>
-  <diagnostics>ERROR: no ServiceResponseTime duration</diagnostics>
-  <diagnostics>ERROR: ApprovalRequiredIndicator not set</diagnostics>
-  <diagnostics>ERROR: LicensingRequiredIndicator not set</diagnostics>
-  <diagnostics>ERROR: no LicensingAgreement description</diagnostics>
-  <diagnostics>ERROR: UsageCostAmount value not set</diagnostics>
-  <diagnostics>ERROR: UsageUnitCostAmount value not set</diagnostics>
-  <diagnostics>ERROR: CreationCostAmount value not set</diagnostics>
-  <diagnostics>ERROR: no UsageCostAmount</diagnostics>
-  <diagnostics>ERROR: no UsageUnitCostAmount</diagnostics>
-  <diagnostics>ERROR: no CreationCostAmount</diagnostics>
   <exchangePartner xmi:id="_0.exchangePartner.0" name="PetAdoptionCenter" documentation="The provider of the pet service.">
     <modelReference xmi:id="_0.exchangePartner.0.modelReference" name="PetAdoptionCenter"
         documentation="The provider of the pet service." elementId="_17_0_5_1_3ba019e_1407187982515_56928_17512">
@@ -44,30 +23,15 @@
           label="PetSimpleService"/>
     </modelReference>
   </exchangePartner>
-  <exchangePartner xmi:id="_0.exchangePartner.2" name="PetAdoptionCenter" documentation="The provider of the pet service.">
-    <modelReference xmi:id="_0.exchangePartner.2.modelReference" name="PetAdoptionCenter"
-        documentation="The provider of the pet service." elementId="_17_0_5_1_3ba019e_1407187982515_56928_17512">
-      <model xmi:id="_0.exchangePartner.2.modelReference.model" modelUri="PetSimpleService.xmi"
-          label="PetSimpleService"/>
-    </modelReference>
-  </exchangePartner>
-  <exchangePartner xmi:id="_0.exchangePartner.3" name="Anyone" documentation="The consumer of the pet service">
-    <modelReference xmi:id="_0.exchangePartner.3.modelReference" name="Anyone" documentation="The consumer of the pet service"
-        elementId="_17_0_5_1_3ba019e_1407187998938_482667_17513">
-      <model xmi:id="_0.exchangePartner.3.modelReference.model" modelUri="PetSimpleService.xmi"
-          label="PetSimpleService"/>
-    </modelReference>
-  </exchangePartner>
   <classification>Pet adoptions</classification>
   <sponsor>Society of pet adoption agencies</sponsor>
   <servicePurpose xmi:id="_0.servicePurpose" documentation="The purpose of this service to share pet adoption information"/>
-  <serviceScopeDescription xmi:id="_0.serviceScopeDescription" documentation="Thsi service provides information on the adoption of specific pets by individuals"/>
+  <serviceScopeDescription xmi:id="_0.serviceScopeDescription" documentation="This service provides information on the adoption of specific pets by individuals"/>
   <serviceDescriptionKeywordText>pet adoption</serviceDescriptionKeywordText>
   <serviceCapability xmi:id="_0.serviceCapability.0" documentation="The provider of this services has the capability to provide all of the services as described under real world effects."/>
   <iepdReference xmi:id="_0.iepdReference.0" name="mpd" iepdurl="http://PetAdoption.com/mpd"/>
   <serviceSecurityClassification xmi:id="_0.serviceSecurityClassification" name="None"/>
-  <serviceLevelAgreement xmi:id="_0.serviceLevelAgreement.0" serviceResponseTime="1m"
-      usageCostAmount="0" usageUnitCostAmount="0" creationCostAmount="0"/>
+  <serviceLevelAgreement xmi:id="_0.serviceLevelAgreement.0" serviceResponseTime="PT1M"/>
   <relatedOrganization xmi:id="_0.relatedOrganization.0" name="Organization of Adoption Centers"
       documentation="This organization is involved in pet adoption" organizationAcronym="ADOPT"
       organizationRoleDescriptionText="Pet adoption oversight">
@@ -76,15 +40,14 @@
   </relatedOrganization>
   <serviceInterface xmi:id="_0.serviceInterface.0" name="Pet Adoption Service Specification"
       documentation="This service interface specification  provides for automated access to pet adoption centers via web services"
-      securityDescriptionText="NONE" uriAddress="schema/SIP/.wsdl" serviceInterfaceDescriptionUri="artifacts/PetServiceComponent/PET_SIDD_PET1_v_1.0.0.xhtml"
-      targetNamespace="http://petadoption.com/PetAdoptionService" prefix="PET1" serviceInterfaceNameAbbreviationText="PET1">
+      securityDescriptionText="NONE" targetNamespace="http://petadoption.com/PetAdoptionService"
+      prefix="PET1" serviceInterfaceNameAbbreviationText="PET1">
     <requirement xmi:id="_0.serviceInterface.0.requirement" serviceAuthentication="true"
         messageAddressing="true"/>
     <serviceInteractionProfile xmi:id="_0.serviceInterface.0.serviceInteractionProfile"
         sipName="WS-SIP" sipVersion="1.3"/>
     <service xmi:id="_0.serviceInterface.0.service.0">
-      <port xmi:id="_0.serviceInterface.0.service.0.port.0" name="ServicePort"
-          addressUri="http://ServicePort">
+      <port xmi:id="_0.serviceInterface.0.service.0.port.0" name="ServicePort">
         <modelReference xmi:id="_0.serviceInterface.0.service.0.port.0.modelReference"
             name="ServicePort" elementId="_17_0_5_1_3ba019e_1407188447294_222646_18084">
           <model xmi:id="_0.serviceInterface.0.service.0.port.0.modelReference.model"
@@ -97,78 +60,79 @@
             <model xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.modelReference.model"
                 modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
           </modelReference>
-          <operation xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0"
-              name="GetAdoptionInformation" actionName="GetAdoptionInformation">
+          <operation xsi:type="graw:WsdlOperation" xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0"
+              name="GetAdoptionInformation" messageExchangePattern="notification"
+              actionName="GetAdoptionInformation" actionProvenance="Mandated by IT">
             <modelReference xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.modelReference"
                 name="GetAdoptionInformation" elementId="_17_0_5_1_3ba019e_1407188357314_442645_18026">
               <model xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.modelReference.model"
                   modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
             </modelReference>
             <parameter xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.0"
-                name="Exception" use="exception">
+                name="Input" use="in">
               <modelReference xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.0.modelReference"
-                  name="Exception" elementId="_17_0_5_1_3ba019e_1407258719298_967458_17942">
+                  name="Input" elementId="_17_0_5_1_3ba019e_1407201774081_556124_20045">
                 <model xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.0.modelReference.model"
                     modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
               </modelReference>
               <message xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.0.message"
-                  name="ExceptionType" prefix="PetExtension" elementPrefix="PetExchange"
-                  elementName="Exception">
+                  name="IdentificationType" documentation="A data type for a representation of an identity."
+                  prefix="NC" elementPrefix="PetExtension" elementName="PetIdentification">
                 <modelReference xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.0.message.modelReference"
-                    name="Exception" elementId="_17_0_5_1_3ba019e_1407258719298_967458_17942">
+                    name="IdentificationType" documentation="A data type for a representation of an identity."
+                    elementId="_17_0_2_2_7b3022e_1359738054853_378172_14768">
                   <model xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.0.message.modelReference.model"
                       modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
                 </modelReference>
                 <elementModelReference xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.0.message.elementModelReference"
-                    name="Exception" documentation="A Documented Component" elementId="_17_0_5_1_3ba019e_1407258831781_797941_17984">
+                    name="PetIdentification" documentation="A Documented Component"
+                    elementId="_17_0_2_2_7b3022e_1359855004706_34615_21304">
                   <model xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.0.message.elementModelReference.model"
                       modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
                 </elementModelReference>
               </message>
             </parameter>
             <parameter xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.1"
-                name="Input" use="in">
+                name="Return" use="out">
               <modelReference xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.1.modelReference"
-                  name="Input" elementId="_17_0_5_1_3ba019e_1407201774081_556124_20045">
+                  name="Return" elementId="_17_0_5_1_3ba019e_1407255042793_537736_19666">
                 <model xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.1.modelReference.model"
                     modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
               </modelReference>
               <message xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.1.message"
-                  name="IdentificationType" documentation="A data type for a representation of an identity."
-                  prefix="NC" elementPrefix="NC" elementName="PersonSSNIdentification">
+                  name="PetAdoptionExchangeType" documentation="A data type for a instance referenced by the top level exchange element."
+                  prefix="PetExtension" elementPrefix="PetExchange" elementName="PetAdoptionExchange">
                 <modelReference xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.1.message.modelReference"
-                    name="IdentificationType" documentation="A data type for a representation of an identity."
-                    elementId="_17_0_2_2_7b3022e_1359738054853_378172_14768">
+                    name="PetAdoptionExchangeType" documentation="A data type for a instance referenced by the top level exchange element."
+                    elementId="_17_0_2_2_7b3022e_1359586992943_638289_13408">
                   <model xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.1.message.modelReference.model"
                       modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
                 </modelReference>
                 <elementModelReference xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.1.message.elementModelReference"
-                    name="PersonSSNIdentification" documentation="A unique reference to a living person; assigned by the United States Social Security Administration."
-                    elementId="_17_0_2_2_7b3022e_1359739535012_173838_18346">
+                    name="PetAdoptionExchange" documentation="A Documented Component"
+                    elementId="_17_0_2_2_7b3022e_1359586992944_716415_13428">
                   <model xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.1.message.elementModelReference.model"
                       modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
                 </elementModelReference>
               </message>
             </parameter>
             <parameter xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.2"
-                name="Return" use="out">
+                name="Exception" use="exception">
               <modelReference xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.2.modelReference"
-                  name="Return" elementId="_17_0_5_1_3ba019e_1407255042793_537736_19666">
+                  name="Exception" elementId="_17_0_5_1_3ba019e_1407258719298_967458_17942">
                 <model xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.2.modelReference.model"
                     modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
               </modelReference>
               <message xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.2.message"
-                  name="PetAdoptionExchangeType" documentation="A data type for a instance referenced by the top level exchange element."
-                  prefix="PetExtension" elementPrefix="PetExchange" elementName="PetAdoptionExchange">
+                  name="ExceptionType" prefix="PetExtension" elementPrefix="PetExchange"
+                  elementName="Exception">
                 <modelReference xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.2.message.modelReference"
-                    name="PetAdoptionExchangeType" documentation="A data type for a instance referenced by the top level exchange element."
-                    elementId="_17_0_2_2_7b3022e_1359586992943_638289_13408">
+                    name="Exception" elementId="_17_0_5_1_3ba019e_1407258719298_967458_17942">
                   <model xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.2.message.modelReference.model"
                       modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
                 </modelReference>
                 <elementModelReference xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.2.message.elementModelReference"
-                    name="PetAdoptionExchange" documentation="A Documented Component"
-                    elementId="_17_0_2_2_7b3022e_1359586992944_716415_13428">
+                    name="Exception" documentation="A Documented Component" elementId="_17_0_5_1_3ba019e_1407258831781_797941_17984">
                   <model xmi:id="_0.serviceInterface.0.service.0.port.0.interface.0.operation.0.parameter.2.message.elementModelReference.model"
                       modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
                 </elementModelReference>
@@ -177,13 +141,22 @@
           </operation>
         </interface>
       </port>
+      <serviceProvider xmi:id="_0.serviceInterface.0.service.0.serviceProvider"
+          name="PetAdoptionCenter" documentation="The provider of the pet service.">
+        <modelReference xmi:id="_0.serviceInterface.0.service.0.serviceProvider.modelReference"
+            name="PetAdoptionCenter" documentation="The provider of the pet service."
+            elementId="_17_0_5_1_3ba019e_1407187982515_56928_17512">
+          <model xmi:id="_0.serviceInterface.0.service.0.serviceProvider.modelReference.model"
+              modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
+        </modelReference>
+      </serviceProvider>
     </service>
-    <schemaReference xmi:id="_0.serviceInterface.0.schemaReference.0" namespace="http://www.modeldriven.org/niem/examples/PetAdoptionExchange"
-        prefix="PetExchange" schemaLocation="artifacts/service model/information model/pet_adoption_iepd/XMLschemas/exchange/PetAdoptionExchange.xsd"/>
-    <schemaReference xmi:id="_0.serviceInterface.0.schemaReference.1" namespace="http://www.modeldriven.org/niem/examples/PetAdoptionExtension"
+    <schemaReference xmi:id="_0.serviceInterface.0.schemaReference.0" namespace="http://www.modeldriven.org/niem/examples/PetAdoptionExtension"
         prefix="PetExtension" schemaLocation="artifacts/service model/information model/pet_adoption_iepd/XMLschemas/extension/PetAdoptionExtension.xsd"/>
-    <schemaReference xmi:id="_0.serviceInterface.0.schemaReference.2" namespace="http://niem.gov/niem/niem-core/2.0"
+    <schemaReference xmi:id="_0.serviceInterface.0.schemaReference.1" namespace="http://niem.gov/niem/niem-core/2.0"
         prefix="NC" schemaLocation="artifacts/service model/information model/pet_adoption_iepd/XMLschemas/subset/niem/niem-core/2.0/PetAdoptionNIEMCoreSubset.xsd"/>
+    <schemaReference xmi:id="_0.serviceInterface.0.schemaReference.2" namespace="http://www.modeldriven.org/niem/examples/PetAdoptionExchange"
+        prefix="PetExchange" schemaLocation="artifacts/service model/information model/pet_adoption_iepd/XMLschemas/exchange/PetAdoptionExchange.xsd"/>
   </serviceInterface>
   <endorsements>Society of pet adoption agencies</endorsements>
   <realWorldEffect xmi:id="_0.realWorldEffect.0" name="Provide information on a particular pet adoption based on the ID of the adopting individual.">
@@ -214,11 +187,11 @@
       <model xmi:id="_0.serviceInteraction.0.modelReference.model" modelUri="PetSimpleService.xmi"
           label="PetSimpleService"/>
     </modelReference>
-    <participant xmi:id="_0.serviceInteraction.0.participant.0" name="PetServiceComponent"
-        documentation="THis component represents the requirements for the technology services provided by pet adoption centers">
+    <participant xmi:id="_0.serviceInteraction.0.participant.0" name="PetAdoptionCenter"
+        documentation="The provider of the pet service.">
       <modelReference xmi:id="_0.serviceInteraction.0.participant.0.modelReference"
-          name="PetServiceComponent" documentation="THis component represents the requirements for the technology services provided by pet adoption centers"
-          elementId="_17_0_5_1_3ba019e_1407187852107_965799_17428">
+          name="PetAdoptionCenter" documentation="The provider of the pet service."
+          elementId="_17_0_5_1_3ba019e_1407187982515_56928_17512">
         <model xmi:id="_0.serviceInteraction.0.participant.0.modelReference.model"
             modelUri="PetSimpleService.xmi" label="PetSimpleService"/>
       </modelReference>

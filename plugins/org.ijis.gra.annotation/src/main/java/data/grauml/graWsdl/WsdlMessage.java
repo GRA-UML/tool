@@ -17,8 +17,6 @@ import data.grauml.graAnnotationModel.Message;
  * The following features are supported:
  * <ul>
  *   <li>{@link data.grauml.graWsdl.WsdlMessage#getMessageLocationCode <em>Message Location Code</em>}</li>
- *   <li>{@link data.grauml.graWsdl.WsdlMessage#getEncoding <em>Encoding</em>}</li>
- *   <li>{@link data.grauml.graWsdl.WsdlMessage#getSoapAction <em>Soap Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,7 +31,7 @@ public interface WsdlMessage extends Message {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * When used in conjunction with a soap binding, indicates the location of the part within the message.
+	 * When used in conjunction with a soap binding, indicates the location of the part within the message: body, header, url.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Message Location Code</em>' attribute.
 	 * @see data.grauml.graWsdl.MessageLocation
@@ -54,55 +52,5 @@ public interface WsdlMessage extends Message {
 	 * @generated
 	 */
 	void setMessageLocationCode(MessageLocation value);
-
-	/**
-	 * Returns the value of the '<em><b>Encoding</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Represents the encoding style of a wsdl binding operation parameter.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Encoding</em>' attribute.
-	 * @see #setEncoding(String)
-	 * @see data.grauml.graWsdl.GraWsdlPackage#getWsdlMessage_Encoding()
-	 * @model dataType="types.String" ordered="false"
-	 * @generated
-	 */
-	String getEncoding();
-
-	/**
-	 * Sets the value of the '{@link data.grauml.graWsdl.WsdlMessage#getEncoding <em>Encoding</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encoding</em>' attribute.
-	 * @see #getEncoding()
-	 * @generated
-	 */
-	void setEncoding(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Soap Action</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Represents the content of a soapAction within a binding operation having a <soap:binding>.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Soap Action</em>' attribute.
-	 * @see #setSoapAction(String)
-	 * @see data.grauml.graWsdl.GraWsdlPackage#getWsdlMessage_SoapAction()
-	 * @model dataType="types.String" ordered="false"
-	 * @generated
-	 */
-	String getSoapAction();
-
-	/**
-	 * Sets the value of the '{@link data.grauml.graWsdl.WsdlMessage#getSoapAction <em>Soap Action</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Soap Action</em>' attribute.
-	 * @see #getSoapAction()
-	 * @generated
-	 */
-	void setSoapAction(String value);
 
 } // WsdlMessage

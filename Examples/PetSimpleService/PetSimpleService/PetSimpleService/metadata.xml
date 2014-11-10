@@ -3,7 +3,7 @@
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
                  xmlns:gra-meta="http://it.ojp.gov/gsp/services/1.0.0"
-                 xsi:schemaLocation="http://it.ojp.gov/gsp/services/1.0.0 ./Metadata.xsd">
+                 xsi:schemaLocation="http://it.ojp.gov/gsp/services/1.0.0 Metadata.xsd">
    <ServiceIdentification>
       <ServiceFullNameText>Pet Adoption Service Description</ServiceFullNameText>
       <ServiceID>http://petadoption.com</ServiceID>
@@ -12,7 +12,7 @@
    </ServiceIdentification>
    <ServiceDescription>
       <ServicePurposeText>The purpose of this service to share pet adoption information</ServicePurposeText>
-      <ServiceScopeDescriptionText>Thsi service provides information on the adoption of specific pets by individuals</ServiceScopeDescriptionText>
+      <ServiceScopeDescriptionText>This service provides information on the adoption of specific pets by individuals</ServiceScopeDescriptionText>
       <ServiceDescriptionSummaryText>This service provides pet adoption information</ServiceDescriptionSummaryText>
       <ServiceDescriptionText>This service provides information sharing with pet adoption centers</ServiceDescriptionText>
       <ServiceDescriptionKeywordText>pet adoption</ServiceDescriptionKeywordText>
@@ -67,7 +67,7 @@
          <Classification>Pet adoptions</Classification>
       </Classifications>
       <ExchangePartnerTypes>
-         <ExchangePartnerTypeDescriptionText>PetAdoptionCenter,Anyone,PetAdoptionCenter,Anyone</ExchangePartnerTypeDescriptionText>
+         <ExchangePartnerTypeDescriptionText>PetAdoptionCenter,Anyone</ExchangePartnerTypeDescriptionText>
       </ExchangePartnerTypes>
       <Endorsements>
          <Endorser>Society of pet adoption agencies</Endorser>
@@ -79,7 +79,7 @@
    <ServiceInterface>
       <URIDetails>
          <URIDetail>
-            <URIAddress>./schemas/sip/PET1.wsdl</URIAddress>
+            <URIAddress>./schemas/ws-sip1.3/pet1.wsdl</URIAddress>
             <URIDescription>This service interface specification  provides for automated access to pet adoption centers via web services</URIDescription>
          </URIDetail>
       </URIDetails>
@@ -87,7 +87,7 @@
          <ServiceAction>
             <ActionName>GetAdoptionInformation</ActionName>
             <ActionPurpose/>
-            <MessageExchangePattern/>
+            <MessageExchangePattern>notification</MessageExchangePattern>
          </ServiceAction>
       </ServiceActions>
       <ServiceInteractionProfiles>
@@ -107,7 +107,7 @@
          <ApplicableUmbrellaAgreementsIndicator>false</ApplicableUmbrellaAgreementsIndicator>
       </ServicePolicyAndContracts>
       <PerformanceMetrics>
-         <ServiceResponseTime>1m</ServiceResponseTime>
+         <ServiceResponseTime>PT1M</ServiceResponseTime>
          <ServiceAverageThroughput/>
          <ServiceMaximumThroughput/>
          <ServiceAvailability/>
@@ -115,11 +115,6 @@
       <ServiceUsageDetails>
          <ApprovalRequiredIndicator>false</ApprovalRequiredIndicator>
          <LicensingRequiredIndicator>false</LicensingRequiredIndicator>
-         <ServiceCost>
-            <UsageCostAmount>0</UsageCostAmount>
-            <UsageUnitCostAmount>0</UsageUnitCostAmount>
-            <CreationCostAmount>0</CreationCostAmount>
-         </ServiceCost>
       </ServiceUsageDetails>
    </ServiceLevelAgreements>
 </ServiceMetadata>

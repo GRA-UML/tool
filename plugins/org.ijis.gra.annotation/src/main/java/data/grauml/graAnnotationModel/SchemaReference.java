@@ -2,8 +2,6 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -12,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Elements describing a schema used by this service interface
+ * Elements describing a schema used by this service interface. Derived from those parts of the information model that are referenced from the service interface.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -84,7 +82,7 @@ public interface SchemaReference extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * URI of Schema, relative to SPP Catalog
+	 * URI of Schema, relative to SSP Catalog.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Schema Location</em>' attribute.
 	 * @see #setSchemaLocation(String)
@@ -103,17 +101,5 @@ public interface SchemaReference extends EObject {
 	 * @generated
 	 */
 	void setSchemaLocation(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='TODO: derivation'"
-	 * @generated
-	 */
-	boolean derivation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // SchemaReference

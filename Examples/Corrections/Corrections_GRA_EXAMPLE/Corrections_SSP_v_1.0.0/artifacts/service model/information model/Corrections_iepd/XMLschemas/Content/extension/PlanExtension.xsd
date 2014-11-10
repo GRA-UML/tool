@@ -1,42 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ENTITY="http://it.ojp.gov/gist/200/Corrections/entities" xmlns:PLAN="http://it.ojp.gov/gist/200/Corrections/plan" xmlns:Q1="http://domain.gov/myDomain/" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:i2="http://niem.gov/niem/appinfo/2.1" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://it.ojp.gov/gist/200/Corrections/plan" version="&quot;1&quot;">
+<xsd:schema xmlns:ENTITY="http://it.ojp.gov/gist/200/Corrections/entities" xmlns:PLAN="http://it.ojp.gov/gist/200/Corrections/plan" xmlns:Q1="http://it.ojp.gov/gist/200/Corrections/EntityIdentification" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:i2="http://niem.gov/niem/appinfo/2.1" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://it.ojp.gov/gist/200/Corrections/plan" version="&quot;1&quot;">
   <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/entities" schemaLocation="../../../XMLschemas/Content/extension/EntityExtension.xsd"/>
+  <xsd:import namespace="http://it.ojp.gov/gist/200/Corrections/EntityIdentification" schemaLocation="../../../XMLschemas/Content/extension/EntityIdentification.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/niem-core/2.0" schemaLocation="../../../XMLschemas/Content/subset/niem/2.0/niem-core.xsd"/>
-  <xsd:import namespace="http://domain.gov/myDomain/" schemaLocation="../../../XMLschemas/Content/extension/EntityIdentification.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../../../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
-  <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../../../XMLschemas/structures/2.0/structures.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/appinfo/2.1" schemaLocation="../../../XMLschemas/appinfo/2.1/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../../../XMLschemas/proxy/xsd/2.0/xsd.xsd"/>
   <xsd:import namespace="http://niem.gov/niem/appinfo/2.0" schemaLocation="../../../XMLschemas/appinfo/2.0/appinfo.xsd"/>
+  <xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../../../XMLschemas/structures/2.0/structures.xsd"/>
   <xsd:annotation>
     <xsd:documentation>A schema for plans</xsd:documentation>
     <xsd:appinfo>
       <i:ConformantIndicator>true</i:ConformantIndicator>
     </xsd:appinfo>
   </xsd:annotation>
-  <xsd:complexType abstract="false" mixed="false" name="PlanActivitiesAssociationType">
-    <xsd:annotation>
-      <xsd:documentation>A relationship A data type for a relationship to activities in support of a plan</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="Association" i:namespace="http://niem.gov/niem/structures/2.0"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="s:ComplexObjectType">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="PLAN:PlanForActivity"/>
-          <xsd:element maxOccurs="1" minOccurs="1" ref="PLAN:PlannedActivity"/>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element abstract="false" name="PlanForActivity" nillable="false" type="s:ReferenceType">
-    <xsd:annotation>
-      <xsd:documentation>A plan for this activity</xsd:documentation>
-      <xsd:appinfo>
-        <i:ReferenceTarget i:name="PlanType" i:namespace="http://it.ojp.gov/gist/200/Corrections/plan"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-  </xsd:element>
   <xsd:complexType abstract="false" mixed="false" name="PlanType">
     <xsd:annotation>
       <xsd:documentation>A data type for a plan. A plan is a planned series of activities to achieve some purpose relative to a subject.</xsd:documentation>
@@ -96,17 +72,48 @@
       <xsd:documentation>A description of the strength of the plan</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:element abstract="false" name="PlannedActivity" nillable="false" type="s:ReferenceType">
+  <xsd:complexType abstract="false" mixed="false" name="HousingPlanType">
     <xsd:annotation>
-      <xsd:documentation>A set of Planned activities</xsd:documentation>
+      <xsd:documentation>A data type for a housing plan. A plan is a series of planned activities.</xsd:documentation>
       <xsd:appinfo>
-        <i:ReferenceTarget i:name="ActivityType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
+        <i:Base i:name="PlanType" i:namespace="http://it.ojp.gov/gist/200/Corrections/plan"/>
       </xsd:appinfo>
     </xsd:annotation>
-  </xsd:element>
+    <xsd:complexContent>
+      <xsd:extension base="PLAN:PlanType">
+        <xsd:sequence/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="false" mixed="false" name="EducationPlanType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for an education plan. A plan is a series of planned activities.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="PlanType" i:namespace="http://it.ojp.gov/gist/200/Corrections/plan"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="PLAN:PlanType">
+        <xsd:sequence/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
   <xsd:complexType abstract="false" mixed="false" name="EmploymentPlanType">
     <xsd:annotation>
       <xsd:documentation>A data type for an employment plan. A plan is a series of planned activities.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="PlanType" i:namespace="http://it.ojp.gov/gist/200/Corrections/plan"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="PLAN:PlanType">
+        <xsd:sequence/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="false" mixed="false" name="RemediationPlanType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a remediation plan. A plan is a series of planned activities.</xsd:documentation>
       <xsd:appinfo>
         <i:Base i:name="PlanType" i:namespace="http://it.ojp.gov/gist/200/Corrections/plan"/>
       </xsd:appinfo>
@@ -140,32 +147,6 @@
       </xsd:appinfo>
     </xsd:annotation>
   </xsd:element>
-  <xsd:complexType abstract="false" mixed="false" name="RemediationPlanType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a remediation plan. A plan is a series of planned activities.</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="PlanType" i:namespace="http://it.ojp.gov/gist/200/Corrections/plan"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="PLAN:PlanType">
-        <xsd:sequence/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType abstract="false" mixed="false" name="ReentryPlanType">
-    <xsd:annotation>
-      <xsd:documentation>A data type for a reentry plan</xsd:documentation>
-      <xsd:appinfo>
-        <i:Base i:name="PlanType" i:namespace="http://it.ojp.gov/gist/200/Corrections/plan"/>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="PLAN:PlanType">
-        <xsd:sequence/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
   <xsd:complexType abstract="false" mixed="false" name="CasePlanType">
     <xsd:annotation>
       <xsd:documentation>A data type for a case plan</xsd:documentation>
@@ -179,22 +160,41 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType abstract="false" mixed="false" name="HousingPlanType">
+  <xsd:complexType abstract="false" mixed="false" name="PlanActivitiesAssociationType">
     <xsd:annotation>
-      <xsd:documentation>A data type for a housing plan. A plan is a series of planned activities.</xsd:documentation>
+      <xsd:documentation>A relationship A data type for a relationship to activities in support of a plan</xsd:documentation>
       <xsd:appinfo>
-        <i:Base i:name="PlanType" i:namespace="http://it.ojp.gov/gist/200/Corrections/plan"/>
+        <i:Base i:name="Association" i:namespace="http://niem.gov/niem/structures/2.0"/>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="PLAN:PlanType">
-        <xsd:sequence/>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="PLAN:PlanForActivity"/>
+          <xsd:element maxOccurs="1" minOccurs="1" ref="PLAN:PlannedActivity"/>
+        </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType abstract="false" mixed="false" name="EducationPlanType">
+  <xsd:element abstract="false" name="PlanForActivity" nillable="false" type="s:ReferenceType">
     <xsd:annotation>
-      <xsd:documentation>A data type for an education plan. A plan is a series of planned activities.</xsd:documentation>
+      <xsd:documentation>A plan for this activity</xsd:documentation>
+      <xsd:appinfo>
+        <i:ReferenceTarget i:name="PlanType" i:namespace="http://it.ojp.gov/gist/200/Corrections/plan"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element abstract="false" name="PlannedActivity" nillable="false" type="s:ReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>A set of Planned activities</xsd:documentation>
+      <xsd:appinfo>
+        <i:ReferenceTarget i:name="ActivityType" i:namespace="http://niem.gov/niem/niem-core/2.0"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="false" mixed="false" name="ReentryPlanType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a reentry plan</xsd:documentation>
       <xsd:appinfo>
         <i:Base i:name="PlanType" i:namespace="http://it.ojp.gov/gist/200/Corrections/plan"/>
       </xsd:appinfo>

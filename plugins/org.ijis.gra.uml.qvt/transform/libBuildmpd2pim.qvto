@@ -1,0 +1,269 @@
+/*
+NIEM UML
+Copyright � 2011, ModelDriven.org and Tom Digre, all rights reserved worldwide.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see http://www.gnu.org/licenses/gpl-3.0-standalone.html.
+
+There are also commercial licenses available for this software.
+Contact ModelDriven.org for more information.
+*/
+import NIEMmpdartifact2model;
+modeltype UML uses 'http://www.nomagic.com/magicdraw/UML/2.4.1';
+modeltype CMOF  uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype XSD  uses 'http://www.eclipse.org/xsd/2002/XSD';
+modeltype CAT  uses 'http://reference.niem.gov/niem/resource/mpd/catalog/1.0/';
+
+transformation libBuildmpd2pim(in cat:CAT,inout pimUml:UML,inout blackboxAdapter:CMOF)
+	extends transformation NIEMmpdartifact2model(in CAT,inout UML,inout CMOF);
+	main() {
+		mpd2pim_run();
+		// remove components;
+		// move package up one level; possibly merge with existing package; move apply profiles
+		mpdComponent.removeElement();
+		var rootParent:UML::Package=mpdRootPackage.nestingPackage;
+		// structure is either niem.*, niem.external.*, or niem.domains.*
+		var existingNiem:UML::Package=rootParent.packagedElement
+			->select(p|p.name='niem').oclAsType(UML::Package)->asSequence()->first();
+		var existingExternal:UML::Package=null;
+		var existingDomains:UML::Package=null;
+		if(not(existingNiem.oclIsUndefined()))then{
+			 existingExternal:=existingNiem.packagedElement
+				->select(p|p.name='external').oclAsType(UML::Package)->asSequence()->first();
+			 existingDomains:=existingNiem.packagedElement
+				->select(p|p.name='domains').oclAsType(UML::Package)->asSequence()->first();
+		}endif;
+		
+		var myNiem:UML::Package=mpdRootPackage.packagedElement
+			->select(p|p.name='niem').oclAsType(UML::Package)->asSequence()->first();
+		var myExternal:UML::Package=myNiem.packagedElement
+			->select(p|p.name='external').oclAsType(UML::Package)->asSequence()->first();
+		var myDomains:UML::Package=myNiem.packagedElement
+			->select(p|p.name='domains').oclAsType(UML::Package)->asSequence()->first();
+		var myTop:UML::Package=myNiem;
+		if(not(myExternal.oclIsUndefined()))then{myTop:=myExternal;}endif;
+		if(not(myDomains.oclIsUndefined()))then{myTop:=myDomains;}endif;
+		myTop.nestedPackage->forEach(p){
+			p.applyProfile(logicalProfile);
+			p.applyProfile(provisioningProfile);
+			p.applyProfile(structureProfile);
+			p.applyProfile(niemXsdProfile);
+		};
+		switch{
+			case(not(myExternal.oclIsUndefined()) and not(existingExternal.oclIsUndefined())){
+				existingExternal.packagedElement+=myExternal.packagedElement;
+			};
+			case(not(myDomains.oclIsUndefined()) and not(existingDomains.oclIsUndefined())){
+				existingDomains.packagedElement+=myDomains.packagedElement;
+			};
+			case(not(existingNiem.oclIsUndefined())){
+				existingNiem.packagedElement+=myNiem.packagedElement;
+			};
+			else{
+				rootParent.packagedElement+=myNiem;
+			};
+		};
+		mpdRootPackage.removeElement();
+		/*
+			mpdRootPackage.packagedElement+=result;
+	mpdRootPackage:=result;
+	mpdRootPackage.name:=self.mpdName;
+	result.applyProfile(logicalProfile);
+	result.applyProfile(provisioningProfile);
+	result.applyProfile(structureProfile);
+	result.applyProfile(niemXsdProfile);
+		*/
+	}
+///////////////////////////////
+/*
+helper XSD::XSDTypeDefinition::getLibraryTypes():Set(UML::Type){
+	var libraryPackage:UML::Package=self.schema.getLibraryPackage();
+	if(not(libraryPackage.oclIsUndefined()))then {
+			return libraryPackage.ownedType->select(t|t.name=self.name)->asSet();
+	}endif;
+	return Set{};
+}
+helper XSD::XSDTypeDefinition::getLibraryType():UML::Type{
+	var libraryPackage:UML::Package=self.schema.getLibraryPackage();
+	if(not(libraryPackage.oclIsUndefined()))then {
+		return libraryPackage.ownedType->select(t|t.name=self.name)->asSequence()->first();
+	}endif;
+	return null;
+}
+
+helper XSD::XSDTypeDefinition::mapAbstractXSDTypeDefinition():UML::Type{
+	var libraryType:UML::Type=self.getLibraryType();
+	if(not(libraryType.oclIsUndefined()))then {return libraryType;}endif;
+	return self.map AbstractXSDTypeDefinition();
+}
+////////////////////////////////////////////////////////////////////
+query XSD::XSDConcreteComponent::getTypeContainer():XSD::XSDTypeDefinition{
+	if(self.oclIsKindOf(XSD::XSDTypeDefinition))then{return self.oclAsType(XSD::XSDTypeDefinition);}endif;
+	if(self.container.oclIsUndefined())then{return null;}endif;
+	return self.container.getTypeContainer();
+}
+helper XSD::XSDFeature::mapAbstractXSDFeature():UML::Property{
+	if(self.container.oclIsKindOf(XSD::XSDSchema))then{
+		// may need to scan all types if it was not in a property holder
+		var libraryPackage:UML::Package=self.schema.getLibraryPackage();
+		if(not(libraryPackage.oclIsUndefined()))then {
+			libraryPackage.ownedType.oclAsType(UML::Classifier).attribute
+			->select(p|p.name=self.name)
+			->forEach(p){
+				return p;
+			};
+		}endif;		
+	}else{
+		// find containing type, find library type, then search for match
+		self.getTypeContainer().getLibraryType()
+			.oclAsType(UML::Classifier).attribute
+			->select(p|p.name=self.name)
+			->forEach(p){
+				return p;
+			};	
+		
+	}endif;
+	return self.map AbstractXSDFeature();
+}
+
+//////////////////////////////////////////
+mapping UML::Package::AbstractPackage():UML::Package@pimUml
+	disjuncts
+	UML::Package::DeferredPackageSchema,
+	UML::Package::PackageSchema,
+	UML::Package::PackageAttributeGroupDefinitions,
+	UML::Package::Package
+	{}
+
+//////////////////////////////////////	
+query 	UML::Package::getPimPackage():UML::Package=
+	if(self.oclIsKindOf(UML::auxiliaryconstructs::mdmodels::Model))
+		then self.oclAsType(UML::auxiliaryconstructs::mdmodels::Model).map MpdCatalog_Model_libBuild() else self.mapAbstractPackage() endif;
+
+mapping UML::auxiliaryconstructs::mdmodels::Model::MpdCatalog_Model_libBuild():UML::auxiliaryconstructs::mdmodels::Model@pimUml{
+	init{}
+	pimRoot.packagedElement+=result;
+	name:=self.name;
+	log('pim '+result.qualifiedName+', '+logicalProfile.qualifiedName);
+	result.applyProfile(logicalProfile);
+	result.applyProfile(provisioningProfile);
+	result.applyProfile(structureProfile);
+	result.applyProfile(niemXsdProfile);
+	//result.applyProfile(pimXsdProfile);
+			// create provisioning model
+	self.map MpdCatalog_ProvisioningModel();
+	
+//	var mpdInstance:Stdlib::Element=self.getStereotypeApplication(MpdStereotype);
+//	mpdInstance.getMpdDescriptionText().map MpdDescriptionText(result);
+	self.nestedPackage.mapAbstractPackage();
+}
+
+mapping UML::Package::DeferredPackageSchema():UML::Package@pimUml
+	inherits UML::Package::Package
+	when{self.isSchema()}
+{
+	init{}
+log('PackageSchema from '+self.qualifiedName);	
+//		var pimNdrSchemaInstance:Stdlib::Element=result.applyStereotype(NIEMInformationModelStereotype);
+		var pimNdrSchemaInstance:Stdlib::Element=result.applyNIEMSchemaStereotype();
+		
+		// set version, conformant, purpose
+		var psmNdrSchemaInstance:Stdlib::Element=self.getStereotypeApplication(NdrSchemaStereotype);
+		pimNdrSchemaInstance.setSchemaAppinfoConformantIndicator(psmNdrSchemaInstance.getSchemaAppinfoConformantIndicator());
+		pimNdrSchemaInstance.setSchemaVersion(psmNdrSchemaInstance.getSchemaVersion());
+		pimNdrSchemaInstance.setSchemaNamespace(self.getTargetNamespace());
+	self.setModelInformationDefaultPurpose(result,pimNdrSchemaInstance);
+	
+	self.map Schema_ImportProvisioning(result);
+//		self.ownedType.mapAbstractXSDTypeDefinition();
+		self.ownedComment.map XSDAnnotation(result);
+	log('PackageSchema DONE '+result.qualifiedName+' : '+self.getTargetNamespace()+', '+psmNdrSchemaInstance.getSchemaVersion());
+	}
+
+mapping UML::Package::PackageAttributeGroupDefinitions():UML::Package@pimUml
+	inherits UML::Package::Package
+	when{self.IsStereotypeApplied(XsdAttributeGroupDefinitionsStereotype)}
+{
+	init{}
+//log('PackageAttributeGroupDefinitions from '+self.qualifiedName);
+	// not much support for this; 	expand the AttributeGroupDefinition as a PropertyHolder
+		self.ownedType.mapAbstractXSDTypeDefinition();
+		self.ownedComment.map XSDAnnotation(result);
+	}
+///////////////////////////////////////////////
+*/	
+helper XSD::XSDSchema::setModelInformationDefaultPurpose(fileTypePurposeURI:String,pimNdrSchemaInstance:Stdlib::Element){
+	pimNdrSchemaInstance.setInformationModelDefaultPurpose('reference');
+	 	return;
+	 }
+helper XSD::XSDSchema::mapAbstractXSDSchema():UML::Package{
+	//log('mapAbstractPackage '+self.qualifiedName);
+	var libraryPackage:UML::Package=self.getLibraryPackage();
+	//log('mapAbstractPackage libraryPackage '+libraryPackage.repr());
+	if(not(libraryPackage.oclIsUndefined()))then {return libraryPackage;}endif;
+	//log('mapAbstractPackage local');
+	return self.map AbstractXSDSchema();
+}
+query XSD::XSDSchema::getLibraryPackage():UML::Package{
+		var schemaNamespace:String=self.targetNamespace;
+		schemaTargetNamespaces->select(t|t.targetNamespace=schemaNamespace)->forEach(schemaPackage){
+			return schemaPackage.schema;
+		};
+	return null;
+}
+	
+helper XSD::XSDSchemaContent::mapAbstractXSDSchemaContent(umlContainer:UML::Element):UML::Element{
+//	log('mapAbstractXSDSchemaContent '+self.repr()+', '+umlContainer.repr());
+	if(umlContainer.oclIsUndefined())then{return null;}endif;
+	switch{
+		case(self.oclIsKindOf(XSD::XSDAnnotation)){
+			self.oclAsType(XSD::XSDAnnotation).mapXSDAnnotation(umlContainer);
+        	return null;
+        	};
+		case(
+				self.container.oclIsKindOf(XSD::XSDSchema) 
+				and umlContainer.oclIsKindOf(UML::Package)
+				and not(self.schema.getLibraryPackage().oclIsUndefined())
+			){
+			// is this actually a proxy schema?
+			
+			// for top level items, resolve to preloaded proxy 
+			switch{
+				case(self.oclIsKindOf(XSD::XSDTypeDefinition)){
+					var name:String=self.oclAsType(XSD::XSDTypeDefinition).name;
+					umlContainer.oclAsType(UML::Package).ownedType->select(t|t.name=name)
+					->forEach(type){return type;};
+		        	};
+				case(self.oclIsKindOf(XSD::XSDFeature)){
+					var name:String=self.oclAsType(XSD::XSDFeature).name;
+					umlContainer.oclAsType(UML::Package).ownedType
+						->select(t|t.IsStereotypeApplied(NIEMPropertyHolderStereotype))
+						.oclAsType(UML::Classifier).attribute
+						->select(t|t.name=name)
+						->forEach(type){return type;};
+			       // expand scope to include all types 	
+					umlContainer.oclAsType(UML::Package).ownedType
+						->select(t|not(t.IsStereotypeApplied(NIEMPropertyHolderStereotype)))
+						.oclAsType(UML::Classifier).attribute
+						->select(t|t.name=name)
+						->forEach(type){return type;};
+				};		
+			};
+        };
+	};
+ 	var umlResult:UML::Element= self.map AbstractXSDSchemaContent(umlContainer);
+//	log('mapAbstractXSDSchemaContent done '+umlResult.repr());
+ 	return umlResult;
+ 	}
+	
+

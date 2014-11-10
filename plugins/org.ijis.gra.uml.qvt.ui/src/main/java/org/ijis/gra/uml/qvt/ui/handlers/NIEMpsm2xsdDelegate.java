@@ -22,6 +22,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -113,6 +116,16 @@ class NIEMpsm2xsdDelegate extends TransformDelegate {
 
     @Override
     protected void persist() throws IOException {
+    	// make sure eclipse workspace uptodate
+    	for(IProject project:ResourcesPlugin.getWorkspace().getRoot().getProjects()){
+    		try {
+				project.refreshLocal(IProject.DEPTH_INFINITE, null);
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	}
+    	
         final HashMap<Object, Object> saveOptions = new HashMap<>(resourceSet.getLoadOptions());
         for (final Resource infrastructureResource : infrastructureResources) {
             infrastructureResource.save(saveOptions);

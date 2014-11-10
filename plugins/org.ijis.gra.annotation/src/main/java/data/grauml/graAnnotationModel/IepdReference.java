@@ -2,8 +2,6 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -33,7 +31,7 @@ public interface IepdReference extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A human readable identification of the IEPD
+	 * A human readable identification that is the name of the IEPD.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -77,17 +75,5 @@ public interface IepdReference extends EObject {
 	 * @generated
 	 */
 	void setIepdurl(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='TODO: define derivation from uses relationship'"
-	 * @generated
-	 */
-	boolean derivation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // IepdReference

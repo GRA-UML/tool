@@ -20,9 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link data.grauml.graAnnotationModel.ServiceInterfaceSpecification#getSecurityDescriptionText <em>Security Description Text</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceInterfaceSpecification#getServiceInteractionProfile <em>Service Interaction Profile</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceInterfaceSpecification#getService <em>Service</em>}</li>
- *   <li>{@link data.grauml.graAnnotationModel.ServiceInterfaceSpecification#getUriAddress <em>Uri Address</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceInterfaceSpecification#getMessageDefinitionMechanism <em>Message Definition Mechanism</em>}</li>
- *   <li>{@link data.grauml.graAnnotationModel.ServiceInterfaceSpecification#getServiceInterfaceDescriptionUri <em>Service Interface Description Uri</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceInterfaceSpecification#getTargetNamespace <em>Target Namespace</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceInterfaceSpecification#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link data.grauml.graAnnotationModel.ServiceInterfaceSpecification#getServiceTesting <em>Service Testing</em>}</li>
@@ -128,34 +126,6 @@ public interface ServiceInterfaceSpecification extends GraServiceAnnotationBase 
 	EList<Service> getService();
 
 	/**
-	 * Returns the value of the '<em><b>Uri Address</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * URI of the (WSDL) service interface potentially including version and environment.  The URI is relative to the SSP Catalog.
-	 * 
-	 * TODO: really? -> [derived from] Element name.
-	 * 
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Uri Address</em>' attribute.
-	 * @see #setUriAddress(String)
-	 * @see data.grauml.graAnnotationModel.GraAnnotationModelPackage#getServiceInterfaceSpecification_UriAddress()
-	 * @model dataType="types.String" ordered="false"
-	 * @generated
-	 */
-	String getUriAddress();
-
-	/**
-	 * Sets the value of the '{@link data.grauml.graAnnotationModel.ServiceInterfaceSpecification#getUriAddress <em>Uri Address</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Uri Address</em>' attribute.
-	 * @see #getUriAddress()
-	 * @generated
-	 */
-	void setUriAddress(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Message Definition Mechanism</b></em>' containment reference list.
 	 * The list contents are of type {@link data.grauml.graAnnotationModel.Description}.
 	 * <!-- begin-user-doc -->
@@ -178,34 +148,6 @@ public interface ServiceInterfaceSpecification extends GraServiceAnnotationBase 
 	 * @generated
 	 */
 	EList<Description> getMessageDefinitionMechanism();
-
-	/**
-	 * Returns the value of the '<em><b>Service Interface Description Uri</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * URI of the Service Interface Description document, potentially including version and environment.  The URI is relative to the SSP Catalog.
-	 * 
-	 * TODO: Really? ->[derived from] Element name.
-	 * 
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service Interface Description Uri</em>' attribute.
-	 * @see #setServiceInterfaceDescriptionUri(String)
-	 * @see data.grauml.graAnnotationModel.GraAnnotationModelPackage#getServiceInterfaceSpecification_ServiceInterfaceDescriptionUri()
-	 * @model dataType="types.String" ordered="false"
-	 * @generated
-	 */
-	String getServiceInterfaceDescriptionUri();
-
-	/**
-	 * Sets the value of the '{@link data.grauml.graAnnotationModel.ServiceInterfaceSpecification#getServiceInterfaceDescriptionUri <em>Service Interface Description Uri</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Interface Description Uri</em>' attribute.
-	 * @see #getServiceInterfaceDescriptionUri()
-	 * @generated
-	 */
-	void setServiceInterfaceDescriptionUri(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Target Namespace</b></em>' attribute.
@@ -237,7 +179,7 @@ public interface ServiceInterfaceSpecification extends GraServiceAnnotationBase 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Prefix to be used for target namespace of (WSDL) Service Specification. Derived from (the same as) ServiceInterfaceNameAbbeviationText
+	 * Prefix to be used for target namespace of (WSDL) Service Specification. Derived from (the same as) ServiceInterfaceNameAbbeviationText.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Prefix</em>' attribute.
 	 * @see #setPrefix(String)
@@ -292,7 +234,7 @@ public interface ServiceInterfaceSpecification extends GraServiceAnnotationBase 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reference to used Schema
+	 * References to used Schema.  Derived from those parts of the information model that are referenced from the service interface.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Schema Reference</em>' containment reference list.
 	 * @see data.grauml.graAnnotationModel.GraAnnotationModelPackage#getServiceInterfaceSpecification_SchemaReference()

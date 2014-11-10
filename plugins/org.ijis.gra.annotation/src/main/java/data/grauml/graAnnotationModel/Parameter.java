@@ -2,8 +2,6 @@
  */
 package data.grauml.graAnnotationModel;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 
 
 /**
@@ -12,7 +10,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Represents the information content of parameters defined in an operation.
+ * Represents the information content of parameters defined in an operation.  If not declared as an annotation, derived during phase-1 provisioning for every UML Parameter in the service hierarchy.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -34,7 +32,7 @@ public interface Parameter extends GraServiceAnnotationBase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The "direction" of the message.
+	 * The "direction" of the message. Derived from the parameter's direction.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use</em>' attribute.
 	 * @see data.grauml.graAnnotationModel.ParameterUse
@@ -61,7 +59,7 @@ public interface Parameter extends GraServiceAnnotationBase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The information transfered in an operation 
+	 * The information transferred in a parameter. Either explicitly declared or derived from the parameter's type.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Message</em>' containment reference.
 	 * @see #setMessage(Message)
@@ -80,29 +78,5 @@ public interface Parameter extends GraServiceAnnotationBase {
 	 * @generated
 	 */
 	void setMessage(Message value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='TODO: define derivation of Parameter'"
-	 * @generated
-	 */
-	boolean derivation(DiagnosticChain diagnostics, Map<Object, Object> context);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='TODO: Define derivation of Use'"
-	 * @generated
-	 */
-	boolean useDerivation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Parameter

@@ -22,33 +22,6 @@ public interface GraWsdlFactory extends EFactory {
 	GraWsdlFactory eINSTANCE = data.grauml.graWsdl.impl.GraWsdlFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Wsdl Service Interface</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Wsdl Service Interface</em>'.
-	 * @generated
-	 */
-	WsdlServiceInterface createWsdlServiceInterface();
-
-	/**
-	 * Returns a new object of class '<em>Wsdl Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Wsdl Service</em>'.
-	 * @generated
-	 */
-	WsdlService createWsdlService();
-
-	/**
-	 * Returns a new object of class '<em>Wsdl Port</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Wsdl Port</em>'.
-	 * @generated
-	 */
-	WsdlPort createWsdlPort();
-
-	/**
 	 * Returns a new object of class '<em>Wsdl Interface</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
